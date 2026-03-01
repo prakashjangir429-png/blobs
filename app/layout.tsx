@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Noto_Sans } from 'next/font/google'
+import { Noto_Sans, Outfit } from 'next/font/google'
 import './globals.css'
 import RainbowCursor from '@/components/Rainbow'
 
@@ -8,6 +8,12 @@ const notoSans = Noto_Sans({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-noto',
+})
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-outfit',
 })
 
 export const metadata: Metadata = {
@@ -22,9 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={notoSans.variable}>
+    <html lang="en" className={outfit.variable}>
       <body className="relative antialiased bg-background text-foreground font-sans ![text-shadow:0_2px_10px_rgba(0,0,0,0.1)]">
+       <div className='relative z-0'>
         {children}
+        </div> 
         <RainbowCursor/>
 
       </body>

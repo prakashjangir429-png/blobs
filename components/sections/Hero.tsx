@@ -42,7 +42,7 @@ export function Hero() {
   const SlideIcon = slide.icon;
 
   return (
-    <section className="min-h-screen max-h-screen relative bg-no-repeat bg-fit flex items-center overflow-hidden pt-12">
+    <section className="min-h-screen relative bg-no-repeat bg-fit flex items-center overflow-hidden pt-28">
 
       
       {/* https://img.freepik.com/premium-vector/abstract-grey-hitech-geometric-corporate-background_249611-5900.jpg */}
@@ -64,14 +64,14 @@ export function Hero() {
               transition={{ delay: 0.3 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4"
             >
-              <SlideIcon size={16} className="text-gray-70" />
+              <SlideIcon size={16} className="text-gray-700" />
               <span className="text-sm font-medium text-gray-900">
                 {slide.title}
               </span>
             </motion.div>
 
             {/* Main Title */}
-            <h1 className="text-[2.5rem] font-display font-bold leading-tight text-gray-900">
+            <h1 className="text-3xl sm:text-[2.7rem] font-bold leading-tight text-gray-900">
               <motion.p
                 key={currentSlide}
                 initial={{ opacity: 0, y: 10 }}
@@ -80,7 +80,14 @@ export function Hero() {
                 transition={{ duration: 0.1 }}
                 className=" mb-4 max-w-xl leading-relaxed"
               >
-                {slide.title}
+                {slide.title.split(' ').map((word, index) => (
+                  <span
+                    key={index}
+                    className={`inline-block mr-2 ${index === 0 ? 'text-[#FD5D07]' : 'text-gray-900'}`}
+                  >
+                    {word}
+                  </span>
+                ))}
               </motion.p>
             </h1>
 
@@ -92,7 +99,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
-                className="text-lg text-gray-800 font-medium mb-8 max-w-2xl leading-relaxed"
+                className="text-xl text-gray-800 font-medium mb-8 max-w-2xl leading-relaxed"
               >
                 {slide.description}  {slide.description}  {slide.description}  {slide.description}
               </motion.p>
