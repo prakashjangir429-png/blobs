@@ -2,7 +2,9 @@
 
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import { useRef } from "react"
 import Image from "next/image"
+
 
 const testimonials = [
   {
@@ -23,46 +25,109 @@ const testimonials = [
     image: "/students/yatti.jpg",
     text: `I would like to thank the faculty of Gateway Abroad for their outstanding guidance and instruction. Their ability to easily explain complicated ideas demonstrated their in-depth knowledge and subject-matter expertise. Great experience!!`,
   },
+  {
+    name: "Yatti",
+    score: "SAT 1490 SCORER",
+    image: "/students/yatti.jpg",
+    text: `I would like to thank the faculty of Gateway Abroad for their outstanding guidance and instruction. Their ability to easily explain complicated ideas demonstrated their in-depth knowledge and subject-matter expertise. Great experience!!`,
+  }, {
+    name: "Yatti",
+    score: "SAT 1490 SCORER",
+    image: "/students/yatti.jpg",
+    text: `I would like to thank the faculty of Gateway Abroad for their outstanding guidance and instruction. Their ability to easily explain complicated ideas demonstrated their in-depth knowledge and subject-matter expertise. Great experience!!`,
+  }, {
+    name: "Yatti",
+    score: "SAT 1490 SCORER",
+    image: "/students/yatti.jpg",
+    text: `I would like to thank the faculty of Gateway Abroad for their outstanding guidance and instruction. Their ability to easily explain complicated ideas demonstrated their in-depth knowledge and subject-matter expertise. Great experience!!`,
+  }, {
+    name: "Yatti",
+    score: "SAT 1490 SCORER",
+    image: "/students/yatti.jpg",
+    text: `I would like to thank the faculty of Gateway Abroad for their outstanding guidance and instruction. Their ability to easily explain complicated ideas demonstrated their in-depth knowledge and subject-matter expertise. Great experience!!`,
+  },
+
+
 ]
 
-export default function TopScorers() {
-  const [sliderRef] = useKeenSlider({
-    loop: true,
-    mode: "free-snap",
-    slides: {
-      perView: 1.1,
-      spacing: 30,
-    },
-    breakpoints: {
-      "(min-width: 768px)": {
-        slides: { perView: 2.2, spacing: 40 },
-      },
-      "(min-width: 1200px)": {
-        slides: { perView: 3, spacing: 50 },
-      },
-    },
+function AutoPlayPlugin(slider: any) {
+  let timeout: any
+  let mouseOver = false
+
+  function clearNextTimeout() {
+    clearTimeout(timeout)
+  }
+
+  function nextTimeout() {
+    clearTimeout(timeout)
+    if (mouseOver) return
+
+    timeout = setTimeout(() => {
+      slider.next()
+    }, 0) // slide every 2.5s
+  }
+
+  slider.on("created", () => {
+    slider.container.addEventListener("mouseover", () => {
+      mouseOver = true
+      clearNextTimeout()
+    })
+
+    slider.container.addEventListener("mouseout", () => {
+      mouseOver = false
+      nextTimeout()
+    })
+
+    nextTimeout()
   })
 
+  slider.on("dragStarted", clearNextTimeout)
+  slider.on("animationEnded", nextTimeout)
+  slider.on("updated", nextTimeout)
+}
+
+export default function TopScorers() {
+  const [sliderRef] = useKeenSlider(
+    {
+      loop: true,
+      renderMode: "performance",
+      slides: {
+        perView: 1.1,
+        spacing: 0,
+      },
+      breakpoints: {
+        "(min-width: 768px)": {
+          slides: { perView: 3.1, spacing: 5 },
+        },
+        "(min-width: 1200px)": {
+          slides: { perView: 4.2, spacing: 5 },
+        },
+      },
+      defaultAnimation: {
+        duration: 6500,
+        easing: (t) => t, // smooth linear animation
+      },
+    },
+    [AutoPlayPlugin]
+  )
+
   return (
-    <section className="bg-[#f4f6f9] py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#f4f6f9]/30 relative z-1 backdrop-blur-sm py-18 overflow-hidden">
+      <div className="mx-auto px-6">
 
         {/* Heading */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-[#0f2b52]">
-            Top <span className="text-red-500">Scorers</span>
+        <div className="max-w-7xl mx-auto mb-12">
+          <h2 className="text-2xl sm:text-[2.5rem] font-bold text-gray-800">
+            <span className="text-[#FD5D07]">What</span> our customers say
           </h2>
-          <p className="text-gray-600 text-lg mt-4 max-w-3xl mx-auto">
-            Hear how Gateway Abroad students achieved their goals with
-            personalized coaching and data-driven strategies.
+          <p className="text-gray-700 font-medium text-lg mt-2 max-w-3xl">
+            Hear how our clients achieved their goals with
+            personalized IT solutions and best strategies.
           </p>
         </div>
 
-        {/* Horizontal Timeline Line */}
-        <div className="absolute top-[250px] left-0 w-full h-[4px] bg-gray-300 z-0"></div>
-
         {/* Slider */}
-        <div ref={sliderRef} className="keen-slider relative z-10">
+        <div ref={sliderRef} className="keen-slider">
           {testimonials.map((item, index) => (
             <div key={index} className="keen-slider__slide">
               <TestimonialCard {...item} />
@@ -76,36 +141,34 @@ export default function TopScorers() {
 
 function TestimonialCard({ name, score, image, text }: any) {
   return (
-    <div className="relative mt-16">
-      
-      {/* Avatar */}
-      <div className="absolute -top-14 left-1/2 -translate-x-1/2 z-20">
-        <div className="w-28 h-28 rounded-full bg-white shadow-lg flex items-center justify-center">
-          <div className="w-24 h-24 rounded-full border-4 border-red-500 overflow-hidden">
-            <Image
-              src={image}
-              alt={name}
-              width={96}
-              height={96}
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </div>
-      </div>
+    <div className="relative mt-3 p-2 py-4">
 
       {/* Card */}
-      <div className="bg-white rounded-[30px] border-[4px] border-gray-300 p-10 pt-20 shadow-sm">
-        
-        <h3 className="text-2xl font-bold text-red-500 mb-2">
-          {name}
-        </h3>
+      <div className="bg-white shadow-lg rounded-[30px] border-[2px] border-[#FD5D07] p-6">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-14 h-14 border-2 rounded-full bg-white shadow-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full overflow-hidden">
+              <Image
+                src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTni2_UQfY9kvI719Jrf5DInG1KNr0Qny_b5A&s"}
+                alt={name}
+                width={96}
+                height={96}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-red-500 mb-2">
+              {name}
+            </h3>
 
-        <p className="tracking-[0.3em] text-xs text-[#0f2b52] font-semibold mb-6">
-          {score}
-        </p>
-
-        <p className="text-gray-600 leading-relaxed text-lg">
-          {text}
+            <p className="tracking-[0.3em] text-xs text-[#0f2b52] font-semibold">
+              {score}
+            </p>
+          </div>
+        </div>
+        <p className="text-gray-700 leading-relaxed">
+          "{text}"
         </p>
       </div>
     </div>

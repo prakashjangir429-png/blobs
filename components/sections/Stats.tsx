@@ -17,7 +17,7 @@ interface StatsProps {
 export function Stats({ stats }: StatsProps) {
   return (
     <section className="pt-10">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {stats.map((stat, index) => (
             <StatCounter key={index} stat={stat} index={index} />
@@ -64,12 +64,12 @@ function StatCounter({ stat, index }: { stat: StatItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="text-center"
+      className="text-center border-2 p-5 bg-white shoadow-xl relative z-1"
     >
-      <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-neutral-600 mb-2">
+      <div className="text-4xl md:text-5xl font-bold bg-clip-text text-neutral-600 mb-2">
         {count}{stat.suffix || '+'}
       </div>
-      <p className="text-foreground/70 text-sm">{stat.label}</p>
+      <p className="text-[#FD5D07] text-base">{stat.label}</p>
     </motion.div>
   )
 }

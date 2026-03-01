@@ -71,7 +71,11 @@ export function Navigation() {
     { href: '/about', label: 'About', exact: true },
     { href: '/services', label: 'Services', exact: false },
     { href: '/portfolio', label: 'Portfolio', exact: true },
+    { href: '/technologies', label: 'Technologies', exact: true },
+
     { href: '/blog', label: 'Blog', exact: true },
+
+    { href: '/careers', label: 'Careers', exact: true },
     { href: '/contact', label: 'Contact', exact: true },
   ]
 
@@ -87,7 +91,7 @@ export function Navigation() {
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled
-          ? 'bg-white/10 backdrop-blur-sm py-2 shadow-lg'
+          ? 'bg-white/50 backdrop-blur-sm py-2 shadow-lg'
           : 'py-4 '
         }`}
       initial={{ y: -100 }}
@@ -244,7 +248,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2 relative z-50"
+            className="md:hidden text-gray-800 p-2 relative z-50"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -266,7 +270,7 @@ export function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden border-t border-border/50"
+              className="md:hidden overflow-auto h-[80vh] max-h-[85vh] border-t bg-white border-border/50"
             >
               <div className="py-4 flex flex-col space-y-1">
                 {navLinks.map((link) => {
@@ -277,7 +281,7 @@ export function Navigation() {
                       <div key={link.href}>
                         <button
                           onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                          className={`w-full text-left px-4 py-3 text-sm font-medium flex justify-between items-center ${active
+                          className={`w-full text-left px-4 py-3 font-medium flex justify-between items-center ${active
                               ? 'text-primary font-bold'
                               : 'text-foreground/70'
                             }`}
@@ -304,7 +308,7 @@ export function Navigation() {
                                 <Link
                                   key={subLink.href}
                                   href={subLink.href}
-                                  className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-foreground border-l-2 border-transparent hover:border-primary transition-colors"
+                                  className="block px-4 py-2.5 text-foreground/70 hover:text-foreground border-l-2 border-transparent hover:border-primary transition-colors"
                                   onClick={() => {
                                     setIsOpen(false)
                                     setMobileServicesOpen(false)
@@ -318,7 +322,7 @@ export function Navigation() {
                               ))}
                               <Link
                                 href="/services"
-                                className="block px-4 py-3 text-sm text-primary font-medium border-l-2 border-transparent hover:border-primary transition-colors"
+                                className="block px-4 py-3 text-primary font-medium border-l-2 border-transparent hover:border-primary transition-colors"
                                 onClick={() => setIsOpen(false)}
                               >
                                 View all services →
@@ -334,7 +338,7 @@ export function Navigation() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`px-4 py-3 text-sm ${active
+                      className={`px-4 py-3 font-medium ${active
                           ? 'text-primary font-bold bg-accent/5 border-l-4 border-primary'
                           : 'text-foreground/70 hover:text-foreground'
                         }`}
