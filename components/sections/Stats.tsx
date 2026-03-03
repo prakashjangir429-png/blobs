@@ -17,7 +17,7 @@ interface StatsProps {
 export function Stats({ stats }: StatsProps) {
   return (
     <section className="pt-10">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-3">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {stats.map((stat, index) => (
             <StatCounter key={index} stat={stat} index={index} />

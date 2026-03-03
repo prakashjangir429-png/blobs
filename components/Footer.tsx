@@ -103,7 +103,7 @@ export function Footer() {
           viewport={{ once: true }}
           className="mb-10"
         >
-          <Image src="./log.png" width={50} height={50} className='w-30 scale-140' />
+          <Image alt='logo' src="./log.png" width={50} height={50} className='w-30 scale-140' />
         </motion.div>
 
         {/* Office Addresses */}

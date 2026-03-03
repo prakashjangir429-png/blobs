@@ -51,7 +51,7 @@ const industries = [
   },
 ]
 
-const indus = [
+export const indus = [
   { title: "Event", icon: PartyPopper },
   { title: "Ecommerce", icon: ShoppingCart },
   { title: "Hotel and Restaurant", icon: UtensilsCrossed },
@@ -78,7 +78,7 @@ const developers = [
   "Hire Laravel Developers",
   "Hire Python Developers",
 ]
-function Indus({ title, Icon }: any) {
+export function Indus({ title, Icon }: any) {
   return (
     <motion.div
       whileHover={{ y: -6 }}
@@ -225,7 +225,6 @@ export default function Home() {
   "
         />
         {/* <RadialRainbowGlow/> */}
-        <Navigation />
 
         {/* Hero Section */}
         <Hero
@@ -466,7 +465,7 @@ export default function Home() {
               {blogPosts.slice(0, 3).map((post, index) => (
                 <BlogCard
                   key={post.id}
-                  title={post.title} 
+                  title={post.title}
                   excerpt={post.excerpt}
                   image={post.image}
                   category={post.category}
@@ -488,7 +487,6 @@ export default function Home() {
           ctaLink="/contact"
         />
 
-        <Footer />
       </div>
     </>
   )
