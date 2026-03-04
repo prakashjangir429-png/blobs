@@ -736,7 +736,7 @@ export default function CareersPage() {
 
                     {/* Grid Pattern */}
                     <div className="absolute inset-0" style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.05) 1px, transparent 0)`,
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.4) 1px, transparent 0)`,
                         backgroundSize: '40px 40px'
                     }} />
                 </motion.div>

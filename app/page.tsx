@@ -12,7 +12,7 @@ import { BlogCard } from '@/components/sections/BlogCard'
 import { services } from '@/data/services'
 import { portfolioProjects } from '@/data/portfolio'
 import { blogPosts } from '@/data/blog'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import TrueValueSection from '@/components/sections/aboutus'
 import { AppWindowIcon, Cog, PhoneIcon } from 'lucide-react'
 import {
@@ -31,6 +31,7 @@ import {
 } from 'lucide-react'
 import TopScorers from '@/components/tesmonials'
 import Image from 'next/image'
+import { useRef } from 'react'
 
 const industries = [
   {
@@ -165,7 +166,6 @@ function IndustryCard({ title, Icon }: any) {
   )
 }
 
-
 function HoverCard({ title }: { title: string }) {
   return (
     <motion.div
@@ -213,7 +213,7 @@ export default function Home() {
   return (
     <>
 
-      <div className="relative min-h-screen bg-background">
+      <div className="relative min-h-screen">
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
@@ -224,7 +224,6 @@ export default function Home() {
     blur-3xl
   "
         />
-        {/* <RadialRainbowGlow/> */}
 
         {/* Hero Section */}
         <Hero
