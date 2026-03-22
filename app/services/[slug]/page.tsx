@@ -285,7 +285,7 @@ export default function ServiceDetailPage() {
               Back to Services
             </Link>
 
-            {/* <div className={`flex  items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${category.color} text-white font-bold text-sm mb-6 shadow-lg`}>
+            {/* <div className={`flex  items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${category.color} text-white font-semibold text-sm mb-6 shadow-lg`}>
               <CategoryIcon size={16} />
               {category.title}
             </div> */}
@@ -299,10 +299,10 @@ export default function ServiceDetailPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#FD5D07] text-white font-bold text-lg shadow-lg shadow-orange-500/30 hover:bg-[#e05206] hover:shadow-orange-500/50 transition-all duration-300">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#FD5D07] text-white font-semibold text-lg shadow-lg shadow-orange-500/30 hover:bg-[#e05206] hover:shadow-orange-500/50 transition-all duration-300">
                 Get a Quote
               </Link>
-              <button className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold text-lg hover:bg-white/20 transition-all duration-300">
+              <button className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/20 font-semibold text-lg hover:bg-white/20 transition-all duration-300">
                 Download Brochure <Download size={20} />
               </button>
             </div>
@@ -324,7 +324,7 @@ export default function ServiceDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">Overview</h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">{service.fullDesc}</p>
 
                 <div className="grid sm:grid-cols-3 gap-4 mt-8">
@@ -344,7 +344,7 @@ export default function ServiceDetailPage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Features</h2>
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">Key Features</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {service.features.map((feature: string, i: number) => (
                     <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-gray-100 hover:border-orange-200 hover:shadow-md transition-all duration-300">
@@ -364,12 +364,12 @@ export default function ServiceDetailPage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Process</h2>
+                <h2 className="text-3xl font-semibold text-gray-900 mb-8">Our Process</h2>
                 <div className="relative border-l-2 border-gray-100 ml-3 space-y-8">
                   {service.process.map((step: any, i: number) => (
                     <div key={i} className="relative pl-8">
                       <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gradient-to-br ${category.color} border-2 border-white shadow-md`} />
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{step.step}</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.step}</h3>
                       <p className="text-gray-600">{step.desc}</p>
                     </div>
                   ))}
@@ -383,7 +383,7 @@ export default function ServiceDetailPage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Technologies Used</h2>
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">Technologies Used</h2>
                 <div className="flex flex-wrap gap-3">
                   {service.techStack.map((tech: string, i: number) => (
                     <span key={i} className="px-4 py-2 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-900 hover:text-white transition-colors cursor-default">
@@ -401,11 +401,11 @@ export default function ServiceDetailPage() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                  <h2 className="text-3xl font-semibold text-gray-900 mb-6">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {service.faqs.map((faq: any, i: number) => (
                       <div key={i} className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                        <h3 className="text-lg font-bold text-gray-900 mb-2">{faq.q}</h3>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{faq.q}</h3>
                         <p className="text-gray-600">{faq.a}</p>
                       </div>
                     ))}
@@ -421,7 +421,7 @@ export default function ServiceDetailPage() {
 
                 {/* Contact Card */}
                 <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Start Your Project</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Start Your Project</h3>
                   <p className="text-gray-600 mb-6">Ready to bring your vision to life? Get a free consultation and quote today.</p>
 
                   <div className="space-y-4 mb-8">
@@ -439,10 +439,10 @@ export default function ServiceDetailPage() {
                     </div>
                   </div>
 
-                  <Link href="/contact" className="block w-full py-4 bg-[#FD5D07] text-white text-center font-bold rounded-xl hover:bg-[#e05206] transition-colors shadow-lg shadow-orange-500/20">
+                  <Link href="/contact" className="block w-full py-4 bg-[#FD5D07] text-white text-center font-semibold rounded-xl hover:bg-[#e05206] transition-colors shadow-lg shadow-orange-500/20">
                     Get Free Quote
                   </Link>
-                  <Link href="/contact" className="block w-full py-4 mt-3 bg-gray-50 text-gray-700 text-center font-bold rounded-xl hover:bg-gray-100 transition-colors border border-gray-200">
+                  <Link href="/contact" className="block w-full py-4 mt-3 bg-gray-50 text-gray-700 text-center font-semibold rounded-xl hover:bg-gray-100 transition-colors border border-gray-200">
                     Schedule Call
                   </Link>
                 </div>
@@ -471,7 +471,7 @@ export default function ServiceDetailPage() {
       {/* --- Related Services --- */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Related Services</h2>
+          <h2 className="text-3xl font-semibold text-gray-900 mb-12 text-center">Related Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {relatedServices.map((rel) => (
               <Link key={rel.slug} href={`/services/${rel.slug}`} className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
@@ -479,7 +479,7 @@ export default function ServiceDetailPage() {
                   <Image src={rel.image} alt={rel.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-bold">{rel.title}</h3>
+                    <h3 className="text-xl font-semibold">{rel.title}</h3>
                   </div>
                 </div>
                 <div className="p-6">

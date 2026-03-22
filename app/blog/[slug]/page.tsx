@@ -61,13 +61,13 @@ const ContentParser = ({ content }: { content: string }) => {
 
     if (line.startsWith('## ')) {
       elements.push(
-        <h2 key={i} id={line.replace('## ', '').toLowerCase().replace(/\s+/g, '-')} className="text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-mt-24">
+        <h2 key={i} id={line.replace('## ', '').toLowerCase().replace(/\s+/g, '-')} className="text-3xl font-semibold text-slate-900 mt-12 mb-6 scroll-mt-24">
           {line.replace('## ', '')}
         </h2>
       )
     } else if (line.startsWith('### ')) {
       elements.push(
-        <h3 key={i} id={line.replace('### ', '').toLowerCase().replace(/\s+/g, '-')} className="text-2xl font-bold text-slate-800 mt-8 mb-4 scroll-mt-24">
+        <h3 key={i} id={line.replace('### ', '').toLowerCase().replace(/\s+/g, '-')} className="text-2xl font-semibold text-slate-800 mt-8 mb-4 scroll-mt-24">
           {line.replace('### ', '')}
         </h3>
       )
@@ -167,7 +167,7 @@ export default function BlogDetailPage() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full uppercase tracking-wider">
+              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full uppercase tracking-wider">
                 {post.category}
               </span>
               <span className="text-slate-400">•</span>
@@ -250,11 +250,11 @@ export default function BlogDetailPage() {
                 transition={{ delay: 0.2 }}
                 className="mt-16 p-8 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left"
               >
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg shrink-0">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-semibold text-2xl shadow-lg shrink-0">
                   {post.author?.charAt(0) || 'A'}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Written by {post.author || 'Our Team'}</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">Written by {post.author || 'Our Team'}</h3>
                   <p className="text-slate-600 mb-4">
                     Specializing in {post.category}, our experts bring years of industry experience to help you navigate complex digital challenges.
                   </p>
@@ -268,7 +268,7 @@ export default function BlogDetailPage() {
             {/* Right: Sticky Table of Contents (Desktop Only) */}
             <div className="hidden lg:block lg:col-span-4 xl:col-span-3">
               <div className="sticky top-24">
-                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
                   <List size={16} /> On This Page
                 </h4>
                 <nav className="space-y-3 border-l-2 border-slate-100">
@@ -290,9 +290,9 @@ export default function BlogDetailPage() {
 
                 {/* Mini CTA in Sidebar */}
                 <div className="mt-8 p-6 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl text-white shadow-xl">
-                  <h4 className="font-bold text-lg mb-2">Need Help?</h4>
+                  <h4 className="font-semibold text-lg mb-2">Need Help?</h4>
                   <p className="text-slate-300 text-sm mb-4">Implementing these strategies? Let our team assist you.</p>
-                  <Link href="/contact" className="block w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-center rounded-lg transition-colors text-sm">
+                  <Link href="/contact" className="block w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-center rounded-lg transition-colors text-sm">
                     Contact Us
                   </Link>
                 </div>
@@ -307,7 +307,7 @@ export default function BlogDetailPage() {
       <section className="py-20 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Continue Reading</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">Continue Reading</h2>
             <p className="text-slate-600">More insights from our experts</p>
           </div>
 
@@ -343,7 +343,7 @@ export default function BlogDetailPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-100 text-orange-600 mb-6">
               <MessageSquare size={32} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Join the Conversation</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">Join the Conversation</h2>
             <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
               Get weekly insights, exclusive tutorials, and industry news delivered straight to your inbox.
             </p>
@@ -353,7 +353,7 @@ export default function BlogDetailPage() {
                 placeholder="Enter your email"
                 className="flex-1 px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
               />
-              <button className="px-8 py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/20">
+              <button className="px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/20">
                 Subscribe
               </button>
             </form>

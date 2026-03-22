@@ -57,14 +57,14 @@ export function PortfolioCard({
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">{title}</h3>
+              <h3 className="text-2xl font-semibold text-foreground mb-2">{title}</h3>
               <p className="text-foreground/70 text-sm line-clamp-2">{description}</p>
             </div>
           </div>
 
           {/* Visible on default state */}
           <div className="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
-            <h3 className="text-2xl font-bold text-foreground">{title}</h3>
+            <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
             <span className="text-foreground/60 text-sm mt-2">{category}</span>
           </div>
         </div>

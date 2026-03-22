@@ -384,9 +384,9 @@ function TechDetailModal({ tech, onClose }: { tech: any, onClose: () => void }) 
             <div className="mb-2 text-white">
               <div className="flex items-center gap-2 mb-1 opacity-90">
                 <CategoryIcon size={16} />
-                <span className="text-sm font-bold uppercase tracking-wider">{techCategories.find(c => c.id === tech.category)?.label}</span>
+                <span className="text-sm font-semibold uppercase tracking-wider">{techCategories.find(c => c.id === tech.category)?.label}</span>
               </div>
-              <h2 className="text-3xl font-bold">{tech.name}</h2>
+              <h2 className="text-3xl font-semibold">{tech.name}</h2>
             </div>
           </div>
         </div>
@@ -396,7 +396,7 @@ function TechDetailModal({ tech, onClose }: { tech: any, onClose: () => void }) 
           
           {/* Overview */}
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
               Overview
             </h3>
             <p className="text-gray-600 leading-relaxed text-lg">{tech.description}</p>
@@ -408,7 +408,7 @@ function TechDetailModal({ tech, onClose }: { tech: any, onClose: () => void }) 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Features */}
             <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                  Key Features
               </h3>
               <ul className="space-y-3">
@@ -423,7 +423,7 @@ function TechDetailModal({ tech, onClose }: { tech: any, onClose: () => void }) 
 
             {/* Use Cases */}
             <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 Common Use Cases
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -438,10 +438,10 @@ function TechDetailModal({ tech, onClose }: { tech: any, onClose: () => void }) 
 
           {/* Action */}
           <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="flex-1 bg-gray-900 text-white py-3 rounded-xl font-bold text-center hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+            <Link href="/contact" className="flex-1 bg-gray-900 text-white py-3 rounded-xl font-semibold text-center hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
               Build with {tech.name} <ArrowRight size={18} />
             </Link>
-            <a href="#" className="px-6 py-3 border border-gray-200 rounded-xl font-bold text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+            <a href="#" className="px-6 py-3 border border-gray-200 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
               View Documentation <ExternalLink size={18} />
             </a>
           </div>
@@ -540,7 +540,7 @@ export default function TechnologiesPage() {
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 mb-4">
                 <Search size={32} className="text-gray-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">No technologies found</h3>
+              <h3 className="text-xl font-semibold text-gray-900">No technologies found</h3>
               <p className="text-gray-600">Try adjusting your search or filter.</p>
             </div>
           ) : (
@@ -567,14 +567,14 @@ export default function TechnologiesPage() {
                         <div className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center p-2 group-hover:bg-white group-hover:shadow-md transition-all">
                           <Image src={tech.logo} alt={tech.name} width={40} height={40} className="object-contain" />
                         </div>
-                        <span className={`px-2 py-1 rounded-md text-xs font-bold text-white bg-gradient-to-r ${catColor}`}>
+                        <span className={`px-2 py-1 rounded-md text-xs font-semibold text-white bg-gradient-to-r ${catColor}`}>
                           {tech.proficiency}%
                         </span>
                       </div>
 
                       {/* Card Body */}
                       <div className="px-6 pb-6 flex-1 flex flex-col">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{tech.name}</h3>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{tech.name}</h3>
                         <p className="text-gray-600 text-sm line-clamp-2 mb-4 flex-1">{tech.description}</p>
                         
                         <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
@@ -614,7 +614,7 @@ export default function TechnologiesPage() {
                   <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-4 block">
                     Our Methodology
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                  <h2 className="text-3xl md:text-4xl font-semibold mb-2">
                     How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">Work</span>
                   </h2>
                   <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -637,14 +637,14 @@ export default function TechnologiesPage() {
                       <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
       
                       {/* Step Number */}
-                      <div className="text-7xl font-bold text-white/20 absolute top-4 right-4 group-hover:text-white/40 transition-colors">
+                      <div className="text-7xl font-semibold text-white/20 absolute top-4 right-4 group-hover:text-white/40 transition-colors">
                         {step.step}
                       </div>
       
                       <step.icon className="w-12 stroke-[1.4] mb-4 h-12 text-white" />
       
                       {/* Content */}
-                      <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
+                      <h3 className="text-2xl font-semibold text-white mb-3">{step.title}</h3>
                       <p className="text-gray-400 leading-relaxed mb-4">{step.desc}</p>
       
                       {/* Details */}

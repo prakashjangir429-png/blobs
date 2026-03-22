@@ -153,10 +153,10 @@ export default function ProjectDetailPage() {
                 transition={{ duration: 0.6 }}
               >
                 <div className="flex flex-wrap items-center gap-4 mb-4">
-                  <span className="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                  <span className="px-3 py-1 bg-purple-600 text-white text-xs font-semibold rounded-full uppercase tracking-wider">
                     {project.category}
                   </span>
-                  <span className="px-3 py-1 bg-white/20 backdrop-blur text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                  <span className="px-3 py-1 bg-white/20 backdrop-blur text-white text-xs font-semibold rounded-full uppercase tracking-wider">
                     {project.serviceType}
                   </span>
                   <span className="text-gray-300 text-sm flex items-center gap-1">
@@ -185,12 +185,12 @@ export default function ProjectDetailPage() {
               
               {/* Overview */}
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">The Challenge</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">{project.challenge}</p>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Solution</h2>
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">Our Solution</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">{project.solution}</p>
                 
                 <div className="mt-8 grid grid-cols-2 gap-4">
@@ -204,7 +204,7 @@ export default function ProjectDetailPage() {
 
               {/* Gallery */}
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Project Gallery</h2>
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">Project Gallery</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="md:col-span-2 relative h-80 rounded-2xl overflow-hidden mb-4">
                     <Image src={activeImg} alt="Main" fill className="object-cover" />
@@ -229,11 +229,11 @@ export default function ProjectDetailPage() {
                   </div>
                   <p className="text-xl text-gray-700 italic mb-6 relative z-10 pl-8">"{project.testimonial.text}"</p>
                   <div className="flex items-center gap-4 pl-8">
-                    <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center font-bold text-gray-600">
+                    <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center font-semibold text-gray-600">
                       {project.testimonial.author[0]}
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">{project.testimonial.author}</div>
+                      <div className="font-semibold text-gray-900">{project.testimonial.author}</div>
                       <div className="text-sm text-gray-500">{project.testimonial.role}</div>
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export default function ProjectDetailPage() {
                 
                 {/* Project Info Card */}
                 <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Project Details</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Project Details</h3>
                   <div className="space-y-4">
                     <div className="flex justify-between">
                       <span className="text-gray-500 text-sm">Client</span>
@@ -271,7 +271,7 @@ export default function ProjectDetailPage() {
 
                 {/* Tech Stack */}
                 <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg">
-                  <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <Code2 size={20} className="text-purple-400" /> Technologies
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -285,7 +285,7 @@ export default function ProjectDetailPage() {
 
                 {/* Results Metrics */}
                 <div className="bg-gradient-to-br from-purple-600 to-pink-600 text-white p-6 rounded-2xl shadow-lg">
-                  <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <TrendingUp size={20} /> Key Results
                   </h3>
                   <div className="grid grid-cols-2 gap-4">
@@ -298,7 +298,7 @@ export default function ProjectDetailPage() {
                   </div>
                 </div>
 
-                <Link href="/contact" className="block w-full py-4 bg-gray-900 text-white text-center font-bold rounded-xl hover:bg-gray-800 transition-colors shadow-lg">
+                <Link href="/contact" className="block w-full py-4 bg-gray-900 text-white text-center font-semibold rounded-xl hover:bg-gray-800 transition-colors shadow-lg">
                   Start Similar Project
                 </Link>
 

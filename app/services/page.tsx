@@ -227,9 +227,9 @@ function ServiceDetailModal({ service, category, onClose }: { service: any, cate
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
               <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${category.color} w-fit mb-4`}>
                 <category.icon size={16} />
-                <span className="text-xs font-bold uppercase tracking-wider">{category.title}</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">{category.title}</span>
               </div>
-              <h2 className="text-3xl font-bold mb-2">{service.title}</h2>
+              <h2 className="text-3xl font-semibold mb-2">{service.title}</h2>
               <p className="text-gray-200">{service.shortDesc}</p>
             </div>
           </div>
@@ -237,7 +237,7 @@ function ServiceDetailModal({ service, category, onClose }: { service: any, cate
           {/* Right: Details */}
           <div className="p-8 md:p-10 space-y-8">
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Overview</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Overview</h3>
               <p className="text-gray-600 leading-relaxed">{service.fullDesc}</p>
             </div>
 
@@ -277,7 +277,7 @@ function ServiceDetailModal({ service, category, onClose }: { service: any, cate
                 <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -z-10" />
                 {service.process.map((step: string, i: number) => (
                   <div key={i} className="flex flex-col items-center gap-2 bg-white px-2">
-                    <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${category.color} flex items-center justify-center text-white text-xs font-bold shadow-md`}>
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${category.color} flex items-center justify-center text-white text-xs font-semibold shadow-md`}>
                       {i + 1}
                     </div>
                     <span className="text-xs font-medium text-gray-600 hidden lg:block">{step}</span>
@@ -400,7 +400,7 @@ export default function ServicesPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                       <div className="absolute bottom-4 left-4 text-white">
                         <service.icon className="w-8 h-8 mb-2 text-orange-400" />
-                        <h3 className="text-xl font-bold">{service.title}</h3>
+                        <h3 className="text-xl font-semibold">{service.title}</h3>
                       </div>
                     </div>
 
@@ -436,7 +436,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Partner With Us?</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">Why Partner With Us?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">We don't just deliver projects; we deliver business outcomes.</p>
           </div>
           
@@ -458,7 +458,7 @@ export default function ServicesPage() {
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4 text-orange-600">
                   <item.icon size={24} />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </motion.div>
             ))}
@@ -471,7 +471,7 @@ export default function ServicesPage() {
       
                   {/* Heading */}
                   <div className="mb-16">
-                    <h2 className="text-4xl lg:text-[2.5rem] font-bold text-gray-800 mb-3">
+                    <h2 className="text-4xl lg:text-[2.5rem] font-semibold text-gray-800 mb-3">
                       <span className="text-[#FD5D07]">Digitonix</span> Serve All Industries
                     </h2>
                     <p className="text-gray-700 font-medium text-lg">
@@ -495,7 +495,7 @@ export default function ServicesPage() {
                 <div className="max-w-7xl relative z-1 mx-auto px-4 sm:px-6 lg:px-8">
       
                   <div className="mb-16">
-                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-3">
+                    <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-3">
                       <span className="text-[#FD5D07]">Digitonix</span> Blogs
                     </h2>
                     <p className="text-gray-700 font-medium text-lg">

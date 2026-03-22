@@ -31,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={outfit.variable}>
-      <body className="relative antialiased bg-background text-foreground font-sans ![text-shadow:0_2px_10px_rgba(0,0,0,0.1)]">
+      <body className="relative antialiased font-sans">
        <div className='relative z-0'>
         <Navigation />
 
@@ -39,7 +39,7 @@ export default function RootLayout({
         <Footer />
 
         </div> 
-        <RainbowCursor/>
+        {/* <RainbowCursor/> */}
 
       </body>
     </html>

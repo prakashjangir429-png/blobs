@@ -92,7 +92,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-gradient-to-b from-black to-gray-950 font-medium text-white">
+    <footer className="bg-gradient-to-b from-orange-800 to-gray-950 font-medium text-white">
       {/* Main Footer */}
       <div className="max-w-7xl relative z-1 mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Company Logo/Name */}

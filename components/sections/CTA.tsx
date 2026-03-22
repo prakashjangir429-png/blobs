@@ -21,19 +21,10 @@ export function CTA({
   imageUrl = './cta.png',
 }: CTAProps) {
   return (
-    <section className="relative py-16 overflow-hidden bg-gradient-to-br from-orange-50/80 via-white to-blue-50/50">
+    <section className="relative py-16 overflow-hidden">
       
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          animate={{ 
-            x: [0, 30, 0], 
-            y: [0, -20, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-24 -right-24 w-96 h-96 bg-[#FD5D07]/10 rounded-full blur-3xl" 
-        />
         <motion.div 
           animate={{ 
             x: [0, -30, 0], 
@@ -45,7 +36,7 @@ export function CTA({
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl bg-gradient-to-br from-orange-50/80 via-white to-blue-50/50 border-2 rounded-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
           
           {/* Left Content: Text */}
@@ -56,19 +47,28 @@ export function CTA({
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="w-full lg:w-1/2 text-center lg:text-left"
           >
-            {/* Title */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
-              {title.split(' ').map((word, i) => (
-                <span key={i} className={i === 0 ? "text-[#FD5D07]" : "text-gray-900"}>
-                  {word}{' '}
-                </span>
-              ))}
-            </h2>
 
-            {/* Description */}
-            <p className="sm:text-xl text-gray-600 font-medium mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        <motion.h2
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+              className="text-3xl sm:text-[2.6rem] font-extrabold text-[#0f2a6b] leading-tight mb-3"
+            >
+              <span className="text-[#e8a020]">Are You</span> {title}
+            </motion.h2>
+
+            {/* Gold divider */}
+            <motion.div
+              transition={{ duration: 0.5, delay: 0.12, transformOrigin: "left" }}
+              className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-4 origin-left"
+            />
+
+            <motion.p
+              transition={{ duration: 0.5, delay: 0.14 }}
+              className="text-[#4a5578] text-base sm:text-xl mb-6 font-light max-w-lg"
+            >
               {description}
-            </p>
+           
+            </motion.p>
+
 
             {/* CTA Button */}
             <motion.div
@@ -80,7 +80,7 @@ export function CTA({
             >
               <Link
                 href={ctaLink}
-                className="group relative inline-flex items-center gap-1 px-6 py-3 rounded-full bg-[#FD5D07] text-white font-bold text-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:bg-[#e05206] transition-all duration-300 overflow-hidden"
+                className="group relative inline-flex items-center gap-1 px-6 py-3 rounded-full bg-[#FD5D07] text-white font-semibold shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:bg-[#e05206] transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10">{ctaText}</span>
                 <ArrowRight

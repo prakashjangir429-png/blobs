@@ -249,14 +249,14 @@ export default function PortfolioPage() {
                           </div>
                           <Link 
                             href={`/portfolio/${project.slug}`}
-                            className="inline-flex items-center gap-2 text-white font-bold text-sm hover:text-purple-300 transition-colors"
+                            className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-purple-300 transition-colors"
                           >
                             View Case Study <ArrowRight size={16} />
                           </Link>
                         </div>
                       </div>
                       {project.featured && (
-                        <div className="absolute top-4 right-4 px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
+                        <div className="absolute top-4 right-4 px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-semibold rounded-full shadow-lg flex items-center gap-1">
                           <Star size={12} fill="currentColor" /> Featured
                         </div>
                       )}
@@ -271,12 +271,12 @@ export default function PortfolioPage() {
                           project.category === 'ecommerce' ? 'bg-blue-500' :
                           'bg-purple-500'
                         }`} />
-                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{project.category}</span>
+                        <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{project.category}</span>
                         <span className="text-gray-300">•</span>
                         <span className="text-xs text-gray-500">{project.year}</span>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
                         {project.title}
                       </h3>
                       <p className="text-gray-600 text-sm line-clamp-2 mb-4 flex-1">
@@ -287,7 +287,7 @@ export default function PortfolioPage() {
                         <div className="flex -space-x-2">
                            {/* Mock Avatars for team */}
                            {[1,2,3].map(i => (
-                             <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-500">
+                             <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-semibold text-gray-500">
                                {String.fromCharCode(64+i)}
                              </div>
                            ))}

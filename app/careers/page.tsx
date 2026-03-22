@@ -760,7 +760,7 @@ export default function CareersPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6"
+                            className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-gray-900 leading-tight mb-6"
                         >
                             Shape the Future{' '}
                             <span className="relative">
@@ -795,7 +795,7 @@ export default function CareersPage() {
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link
                                     href="#openings"
-                                    className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg shadow-lg shadow-blue-500/30 overflow-hidden"
+                                    className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-lg shadow-lg shadow-blue-500/30 overflow-hidden"
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         View Openings
@@ -813,7 +813,7 @@ export default function CareersPage() {
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link
                                     href="#culture"
-                                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-gray-900 border-2 border-gray-200 font-bold text-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 group"
+                                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-gray-900 border-2 border-gray-200 font-semibold text-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 group"
                                 >
                                     Learn About Culture
                                     <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -836,14 +836,14 @@ export default function CareersPage() {
                                             initial={{ scale: 0 }}
                                             animate={{ scale: 1 }}
                                             transition={{ delay: 0.8 + i * 0.1 }}
-                                            className="w-8 h-8 rounded-full border-2 border-white bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-xs font-bold text-white"
+                                            className="w-8 h-8 rounded-full border-2 border-white bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-xs font-semibold text-white"
                                         >
                                             {String.fromCharCode(64 + i)}
                                         </motion.div>
                                     ))}
                                 </div>
                                 <span className="text-sm text-gray-500">
-                                    <span className="font-bold text-gray-900">50+</span> team members
+                                    <span className="font-semibold text-gray-900">50+</span> team members
                                 </span>
                             </div>
 
@@ -854,14 +854,14 @@ export default function CareersPage() {
                                     ))}
                                 </div>
                                 <span className="text-sm text-gray-500">
-                                    <span className="font-bold text-gray-900">4.9</span> Glassdoor rating
+                                    <span className="font-semibold text-gray-900">4.9</span> Glassdoor rating
                                 </span>
                             </div>
 
                             <div className="flex items-center gap-2">
                                 <Globe className="w-4 h-4 text-gray-400" />
                                 <span className="text-sm text-gray-500">
-                                    <span className="font-bold text-gray-900">25+</span> countries
+                                    <span className="font-semibold text-gray-900">25+</span> countries
                                 </span>
                             </div>
                         </motion.div>
@@ -893,7 +893,7 @@ export default function CareersPage() {
                                 transition={{ delay: idx * 0.1 }}
                                 className="text-center"
                             >
-                                <div className="text-3xl font-bold text-gray-900 mb-2">
+                                <div className="text-3xl font-semibold text-gray-900 mb-2">
                                     {stat.number}{stat.suffix}
                                 </div>
                                 <div className="text-sm font-semibold text-gray-600 mb-1">{stat.label}</div>
@@ -921,7 +921,7 @@ export default function CareersPage() {
                         <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
                             Why Join Us
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-4">
                             Benefits That{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                                 Matter
@@ -951,7 +951,7 @@ export default function CareersPage() {
                                         <div className={`w-12 h-12 ${category.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
                                             <category.icon className={`w-6 h-6 ${category.textColor}`} />
                                         </div>
-                                        <h3 className="text-lg font-bold text-gray-900">{category.category}</h3>
+                                        <h3 className="text-lg font-semibold text-gray-900">{category.category}</h3>
                                     </div>
 
                                     {/* Benefits List */}
@@ -985,7 +985,7 @@ export default function CareersPage() {
                         <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
                             Our Teams
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-4">
                             Explore{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                                 Departments
@@ -1021,7 +1021,7 @@ export default function CareersPage() {
                                     </div>
 
                                     {/* Content */}
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{dept.name}</h3>
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{dept.name}</h3>
                                     <p className="text-sm text-gray-500 mb-4">{dept.description}</p>
 
                                     {/* Open Positions Badge */}
@@ -1071,7 +1071,7 @@ export default function CareersPage() {
                         <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
                             Join Our Team
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-4">
                             Open{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                                 Positions
@@ -1181,7 +1181,7 @@ export default function CareersPage() {
                                     </div>
 
                                     {/* Title & Department */}
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                                         {position.title}
                                     </h3>
                                     <p className="text-sm text-gray-500 mb-4">{position.department}</p>
@@ -1231,7 +1231,7 @@ export default function CareersPage() {
                     {filteredPositions.length === 0 && (
                         <div className="text-center py-12">
                             <Briefcase className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">No positions found</h3>
+                            <h3 className="text-xl font-semibold text-gray-900 mb-2">No positions found</h3>
                             <p className="text-gray-500">Try adjusting your search or filter criteria</p>
                         </div>
                     )}
@@ -1272,7 +1272,7 @@ export default function CareersPage() {
                                             <position.icon className="w-8 h-8 text-white" />
                                         </div>
                                         <div>
-                                            <h2 className="text-2xl font-bold text-gray-900 mb-2">{position.title}</h2>
+                                            <h2 className="text-2xl font-semibold text-gray-900 mb-2">{position.title}</h2>
                                             <p className="text-gray-500">{position.department}</p>
                                         </div>
                                     </div>
@@ -1299,13 +1299,13 @@ export default function CareersPage() {
 
                                     {/* Description */}
                                     <div className="mb-6">
-                                        <h3 className="text-lg font-bold text-gray-900 mb-3">About the Role</h3>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-3">About the Role</h3>
                                         <p className="text-gray-600 leading-relaxed">{position.description}</p>
                                     </div>
 
                                     {/* Requirements */}
                                     <div className="mb-6">
-                                        <h3 className="text-lg font-bold text-gray-900 mb-3">Requirements</h3>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-3">Requirements</h3>
                                         <ul className="space-y-2">
                                             {position.requirements.map((req, i) => (
                                                 <li key={i} className="flex items-start gap-2 text-gray-600">
@@ -1318,7 +1318,7 @@ export default function CareersPage() {
 
                                     {/* Responsibilities */}
                                     <div className="mb-6">
-                                        <h3 className="text-lg font-bold text-gray-900 mb-3">Responsibilities</h3>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-3">Responsibilities</h3>
                                         <ul className="space-y-2">
                                             {position.responsibilities.map((resp, i) => (
                                                 <li key={i} className="flex items-start gap-2 text-gray-600">
@@ -1332,7 +1332,7 @@ export default function CareersPage() {
                                     {/* Apply Button */}
                                     <Link
                                         href={`/careers/apply/${position.id}`}
-                                        className="block w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl text-center hover:shadow-lg transition-shadow"
+                                        className="block w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl text-center hover:shadow-lg transition-shadow"
                                     >
                                         Apply for this Position
                                     </Link>
@@ -1360,7 +1360,7 @@ export default function CareersPage() {
                         <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4 block">
                             Our Process
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                        <h2 className="text-3xl md:text-5xl font-semibold mb-4">
                             How We{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                                 Hire
@@ -1393,13 +1393,13 @@ export default function CareersPage() {
                                             </div>
 
                                             {/* Step Number */}
-                                            <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-xs font-bold">
+                                            <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-xs font-semibold">
                                                 {step.step}
                                             </div>
                                         </div>
 
                                         {/* Content */}
-                                        <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                                        <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
                                         <p className="text-sm text-gray-400 mb-2">{step.description}</p>
                                         <span className="text-xs text-blue-400 font-medium">{step.duration}</span>
                                     </div>
@@ -1427,7 +1427,7 @@ export default function CareersPage() {
                         <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
                             Voices
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-4">
                             What Our{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                                 Team Says
@@ -1468,7 +1468,7 @@ export default function CareersPage() {
                                                     />
                                                 </div>
                                                 <div>
-                                                    <h4 className="text-lg font-bold text-gray-900">{testimonial.name}</h4>
+                                                    <h4 className="text-lg font-semibold text-gray-900">{testimonial.name}</h4>
                                                     <p className="text-sm text-gray-500">{testimonial.role}</p>
                                                     <div className="flex items-center gap-2 mt-1">
                                                         <div className="flex">
@@ -1515,7 +1515,7 @@ export default function CareersPage() {
                         <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
                             Got Questions?
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-4">
                             Frequently Asked{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                                 Questions
@@ -1583,7 +1583,7 @@ export default function CareersPage() {
                         <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
                             Life at True Value
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-4">
                             More Than Just{' '}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                                 Work

@@ -134,7 +134,7 @@ export default function BlogPage() {
                 
                 <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-3/4">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                    <span className="px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full uppercase tracking-wider">
                       Featured
                     </span>
                     <span className="flex items-center gap-1 text-slate-300 text-sm font-medium">
@@ -144,7 +144,7 @@ export default function BlogPage() {
                       <Clock size={14} /> {featuredPost.readTime}
                     </span>
                   </div>
-                  <h2 className="text-3xl font-bold text-white mb-4 leading-tight group-hover:text-orange-400 transition-colors">
+                  <h2 className="text-3xl font-semibold text-white mb-4 leading-tight group-hover:text-orange-400 transition-colors">
                     {featuredPost.title}
                   </h2>
                   <p className="text-slate-300 text-lg line-clamp-2 mb-6 max-w-2xl">
@@ -183,7 +183,7 @@ export default function BlogPage() {
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 backdrop-blur text-slate-900 text-xs font-bold rounded-full shadow-sm">
+                        <span className="px-3 py-1 bg-white/90 backdrop-blur text-slate-900 text-xs font-semibold rounded-full shadow-sm">
                           {post.category}
                         </span>
                       </div>
@@ -200,7 +200,7 @@ export default function BlogPage() {
                       </div>
                       
                       <Link href={`/blog/${post.slug}`}>
-                        <h3 className="text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-orange-600 transition-colors">
+                        <h3 className="text-xl font-semibold text-slate-900 mb-3 line-clamp-2 group-hover:text-orange-600 transition-colors">
                           {post.title}
                         </h3>
                       </Link>
@@ -211,7 +211,7 @@ export default function BlogPage() {
                       
                       <div className="mt-3 flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600">
+                          <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-semibold text-slate-600">
                             {post.author?.charAt(0) || 'T'}
                           </div>
                           <span className="text-sm font-medium text-slate-700">{post.author || 'Team'}</span>
@@ -235,7 +235,7 @@ export default function BlogPage() {
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-100 mb-4">
                     <Search size={32} className="text-slate-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">No articles found</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">No articles found</h3>
                   <p className="text-slate-600">Try adjusting your search or category filter.</p>
                   <button 
                     onClick={() => {setSearchQuery(''); setSelectedCategory('All')}}
@@ -280,7 +280,7 @@ export default function BlogPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm mb-6 text-orange-400">
               <Mail size={32} />
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-semibold text-white mb-4">
               Stay Ahead of the Curve
             </h2>
             <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
@@ -310,7 +310,7 @@ export default function BlogPage() {
               <button
                 type="submit"
                 disabled={subscribed}
-                className="px-8 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="px-8 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {subscribed ? 'Welcome!' : 'Subscribe Now'}
               </button>

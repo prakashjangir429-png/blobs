@@ -41,7 +41,7 @@ export function ServiceCard({
           <div className="text-3xl mb-2">{icon}</div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold mb-2 text-foreground">{title}</h3>
+          <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
 
           {/* Description */}
           <p className="text-gray-700 font-medium mb-2">{description}</p>

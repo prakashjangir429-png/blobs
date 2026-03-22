@@ -63,7 +63,7 @@ export function BlogCard({
           {/* Content */}
           <div className="p-6 py-3 flex-1 flex flex-col">
             {/* Title */}
-            <h3 className="text-xl font-bold text-foreground mb-1 line-clamp-2 group-hover:text-[#f59e0b] transition-colors">
+            <h3 className="text-xl font-semibold text-foreground mb-1 line-clamp-2 group-hover:text-[#f59e0b] transition-colors">
               {title}
             </h3>
 

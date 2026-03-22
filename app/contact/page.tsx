@@ -137,7 +137,7 @@ export default function ContactPage() {
                 className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10"
               >
                 <div className="mb-8">
-                  <h2 className="text-2xl font-bold text-slate-900 mb-2">Send us a Message</h2>
+                  <h2 className="text-2xl font-semibold text-slate-900 mb-2">Send us a Message</h2>
                   <p className="text-slate-600">Fill out the form below and our team will get back to you within 24 hours.</p>
                 </div>
 
@@ -150,7 +150,7 @@ export default function ContactPage() {
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-8 h-8 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-green-800 mb-2">Message Sent!</h3>
+                    <h3 className="text-2xl font-semibold text-green-800 mb-2">Message Sent!</h3>
                     <p className="text-green-700">Thank you for reaching out. We'll be in touch shortly.</p>
                     <button onClick={() => setFormState('idle')} className="mt-6 text-green-700 font-semibold hover:underline">Send another message</button>
                   </motion.div>
@@ -257,7 +257,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={formState === 'submitting'}
-                      className="w-full py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-lg rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="w-full py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold text-lg rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {formState === 'submitting' ? (
                         <>
@@ -289,7 +289,7 @@ export default function ContactPage() {
                     className={`${item.bg} p-6 rounded-2xl border border-white/50`}
                   >
                     <item.icon className={`w-8 h-8 ${item.color} mb-4`} />
-                    <h3 className="font-bold text-slate-900">{item.title}</h3>
+                    <h3 className="font-semibold text-slate-900">{item.title}</h3>
                     <p className="text-slate-900 font-medium mt-1">{item.value}</p>
                     <p className="text-slate-500 text-sm mt-1">{item.sub}</p>
                   </motion.div>
@@ -308,7 +308,7 @@ export default function ContactPage() {
                 className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
               >
                 <div className="p-6 border-b border-slate-100">
-                  <h2 className="text-xl font-bold text-slate-900">Our Global Offices</h2>
+                  <h2 className="text-xl font-semibold text-slate-900">Our Global Offices</h2>
                   <p className="text-slate-600 text-sm">Select a location to view details</p>
                 </div>
                 
@@ -327,7 +327,7 @@ export default function ContactPage() {
                         <Building2 size={20} />
                       </div>
                       <div>
-                        <h3 className={`font-bold ${activeOffice.id === office.id ? 'text-orange-700' : 'text-slate-900'}`}>
+                        <h3 className={`font-semibold ${activeOffice.id === office.id ? 'text-orange-700' : 'text-slate-900'}`}>
                           {office.city}, {office.country}
                         </h3>
                         <p className="text-sm text-slate-500 mt-1 line-clamp-1">{office.address}</p>
@@ -380,7 +380,7 @@ export default function ContactPage() {
                     <Globe size={16} className="text-orange-400" />
                     <span className="text-sm font-medium text-orange-300 uppercase tracking-wider">{activeOffice.country}</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">{activeOffice.city} Office</h3>
+                  <h3 className="text-2xl font-semibold mb-1">{activeOffice.city} Office</h3>
                   <p className="text-slate-300 text-sm mb-4 flex items-start gap-2">
                     <MapPin size={16} className="mt-0.5 shrink-0" /> {activeOffice.address}
                   </p>
@@ -402,7 +402,7 @@ export default function ContactPage() {
 
               {/* Social Links */}
               <div className="bg-slate-900 rounded-3xl p-8 text-center">
-                <h3 className="text-white font-bold mb-6">Connect With Us</h3>
+                <h3 className="text-white font-semibold mb-6">Connect With Us</h3>
                 <div className="flex justify-center gap-4">
                   {[
                     { icon: Linkedin, color: 'hover:bg-blue-600' },
@@ -430,7 +430,7 @@ export default function ContactPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-semibold text-slate-900 mb-4">Frequently Asked Questions</h2>
             <p className="text-slate-600">Quick answers to common questions about working with us.</p>
           </div>
           <div className="space-y-4">
@@ -447,7 +447,7 @@ export default function ContactPage() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100"
               >
-                <h3 className="font-bold text-slate-900 mb-2">{faq.q}</h3>
+                <h3 className="font-semibold text-slate-900 mb-2">{faq.q}</h3>
                 <p className="text-slate-600">{faq.a}</p>
               </motion.div>
             ))}

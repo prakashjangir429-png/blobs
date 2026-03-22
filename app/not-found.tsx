@@ -18,7 +18,7 @@ export default function NotFound() {
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-9xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4"
+            className="text-9xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4"
           >
             404
           </motion.h1>
@@ -26,7 +26,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl font-bold text-foreground mb-4"
+            className="text-4xl font-semibold text-foreground mb-4"
           >
             Page Not Found
           </motion.p>

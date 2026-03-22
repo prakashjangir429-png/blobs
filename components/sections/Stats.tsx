@@ -66,7 +66,7 @@ function StatCounter({ stat, index }: { stat: StatItem; index: number }) {
       viewport={{ once: true }}
       className="text-center border-2 p-5 bg-white shoadow-xl relative z-1"
     >
-      <div className="text-4xl md:text-5xl font-bold bg-clip-text text-neutral-600 mb-2">
+      <div className="text-4xl md:text-5xl font-semibold bg-clip-text text-neutral-600 mb-2">
         {count}{stat.suffix || '+'}
       </div>
       <p className="text-[#FD5D07] text-base">{stat.label}</p>

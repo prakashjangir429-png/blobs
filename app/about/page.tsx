@@ -320,7 +320,7 @@ export default function AboutPage() {
             >
               <div className="relative bg-white">
 
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+                <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Our Mission</h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
                   To empower businesses of all sizes by providing accessible, cutting-edge technology solutions.
                   We believe that digital transformation shouldn't be a luxury—it should be the engine that drives your growth.
@@ -352,11 +352,11 @@ export default function AboutPage() {
                 <div className="mt-8 pt-8 border-t border-gray-100">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <div className="text-2xl font-bold text-gray-900">500+</div>
+                      <div className="text-2xl font-semibold text-gray-900">500+</div>
                       <div className="text-sm text-gray-500">Projects Delivered</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-gray-900">98%</div>
+                      <div className="text-2xl font-semibold text-gray-900">98%</div>
                       <div className="text-sm text-gray-500">Success Rate</div>
                     </div>
                   </div>
@@ -373,7 +373,7 @@ export default function AboutPage() {
             >
               <div className="relative">
 
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Vision</h2>
+                <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Our Vision</h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
                   To be the global catalyst for innovation, where human creativity meets artificial intelligence
                   to solve the world's most complex business challenges.
@@ -386,11 +386,11 @@ export default function AboutPage() {
                       "We envision a future where technology is invisible, intuitive, and indispensable."
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-semibold">
                         TV
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-gray-900">True Value Team</p>
+                        <p className="text-sm font-semibold text-gray-900">True Value Team</p>
                         <p className="text-xs text-gray-500">2024 Vision Statement</p>
                       </div>
                     </div>
@@ -400,7 +400,7 @@ export default function AboutPage() {
                   <div className="grid grid-cols-3 gap-2">
                     {['Global Leader', 'AI First', 'Sustainable'].map((goal, i) => (
                       <div key={i} className="text-center p-2 bg-gray-50 rounded-lg">
-                        <div className="text-xs font-bold text-gray-900">{goal}</div>
+                        <div className="text-xs font-semibold text-gray-900">{goal}</div>
                       </div>
                     ))}
                   </div>
@@ -425,7 +425,7 @@ export default function AboutPage() {
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-3 block">
               What We Stand For
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2">
               Driven by <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">Core Values</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl">
@@ -454,7 +454,7 @@ export default function AboutPage() {
                 <val.icon className={`w-12 h-12 mb-4 stroke-[1.2] ${val.textColor}`} />
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
                   {val.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
@@ -488,7 +488,7 @@ export default function AboutPage() {
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-4 block">
               Our Journey
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-3">
               Evolution of <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">Excellence</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl">
@@ -525,12 +525,12 @@ export default function AboutPage() {
                     className="bg-white p-6 rounded-2xl shadow border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 relative group"
                   >
                     {/* Year Badge */}
-                    <div className="absolute -top-4 left-6 px-4 py-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full text-white font-bold text-sm">
+                    <div className="absolute -top-4 left-6 px-4 py-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full text-white font-semibold text-sm">
                       {item.year}
                     </div>
 
                     <div className="mt-2">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                      <h3 className="text-2xl font-semibold text-gray-900 mb-3">{item.title}</h3>
                       <p className="text-gray-600 leading-relaxed mb-4">{item.desc}</p>
 
                       {/* Achievements */}
@@ -572,7 +572,7 @@ export default function AboutPage() {
             <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-4 block">
               Our Methodology
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-2">
               How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">Work</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -595,14 +595,14 @@ export default function AboutPage() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
                 {/* Step Number */}
-                <div className="text-7xl font-bold text-white/20 absolute top-4 right-4 group-hover:text-white/40 transition-colors">
+                <div className="text-7xl font-semibold text-white/20 absolute top-4 right-4 group-hover:text-white/40 transition-colors">
                   {step.step}
                 </div>
 
                 <step.icon className="w-12 stroke-[1.4] mb-4 h-12 text-white" />
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3">{step.title}</h3>
                 <p className="text-gray-400 leading-relaxed mb-4">{step.desc}</p>
 
                 {/* Details */}
@@ -642,7 +642,7 @@ export default function AboutPage() {
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-4 block">
               Leadership Team
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2">
               Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">Experts</span>
             </h2>
             <p className="text-base text-gray-600 max-w-2xl">
@@ -694,7 +694,7 @@ export default function AboutPage() {
 
                   {/* Info */}
                   <div className="px-6 py-2">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
                     <p className="text-orange-500 font-medium mb-3">{member.role}</p>
                     <p className="text-sm text-gray-600 mb-4">{member.bio}</p>
 
@@ -739,7 +739,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6">
               Ready to Build Something Great?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
@@ -750,7 +750,7 @@ export default function AboutPage() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 group"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 group"
                 >
                   Start Your Project
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -760,7 +760,7 @@ export default function AboutPage() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 font-bold text-lg hover:bg-white/20 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 font-semibold text-lg hover:bg-white/20 transition-all duration-300"
                 >
                   View Portfolio
                   <ChevronRight className="group-hover:translate-x-1 transition-transform" />
