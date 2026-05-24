@@ -12,9 +12,10 @@ import {
   Laptop, ExternalLink, Briefcase, Users,
   Award, TrendingUp, Rocket, Zap, Sparkles, Phone,
   Link2Icon,
-  ExternalLinkIcon
+  ExternalLinkIcon,
+  ChevronRight
 } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 export function Navigation() {
@@ -22,7 +23,9 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
   const { scrollY } = useScroll()
+  const navRef = useRef<HTMLDivElement>(null)
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 5)
@@ -31,10 +34,15 @@ export function Navigation() {
   useEffect(() => {
     setIsOpen(false)
     setActiveDropdown(null)
+    setMobileDropdown(null)
   }, [pathname])
 
   useEffect(() => {
-    const handleClickOutside = () => setActiveDropdown(null)
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setActiveDropdown(null)
+      }
+    }
     document.addEventListener('click', handleClickOutside)
     return () => document.removeEventListener('click', handleClickOutside)
   }, [])
@@ -182,8 +190,6 @@ export function Navigation() {
   const handleDropdownEnter = (type: string) => setActiveDropdown(type)
   const handleDropdownLeave = () => setActiveDropdown(null)
 
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
-
   const levelColors: Record<string, string> = {
     Expert: 'bg-[#1a3fa0]/10 text-[#1a3fa0]',
     Advanced: 'bg-[#e8a020]/10 text-[#b07010]',
@@ -201,196 +207,309 @@ export function Navigation() {
           --gold-main: #e8a020;
           --gold-bright: #f0b832;
           --gold-dark: #b07010;
-          --white: #ffffff;
-          --gray-50: #f8f9fc;
-          --gray-100: #f0f2f8;
-          --gray-200: #dde2ef;
-          --gray-600: #4a5578;
-          --gray-900: #0d1526;
         }
 
+        /* ── NAV GLASS ── */
         .nav-glass {
-          background: rgba(255,255,255,0.96);
+          background: rgba(255,255,255,0.97);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(26,63,160,0.08);
-          box-shadow: 0 2px 32px rgba(15,42,107,0.08), 0 1px 0 rgba(255,255,255,0.8) inset;
+          border-bottom: 1px solid rgba(26,63,160,0.1);
+          box-shadow: 0 2px 24px rgba(15,42,107,0.08);
         }
 
+        /* ── NAV LINKS ── */
         .nav-link {
           position: relative;
           font-size: 0.875rem;
           font-weight: 500;
-          letter-spacing: 0.01em;
-          color: var(--gray-700);
-          padding: 0.45rem 0.75rem;
-          border-radius: 10px;
-          transition: all 0.2s ease;
-        }
-
-        .nav-link:hover {
-          color: var(--blue-main);
-          background: rgba(26,63,160,0.06);
-        }
-
-        .nav-link.active {
-          color: var(--blue-main);
-          font-weight: 600;
-          background: rgba(26,63,160,0.08);
-        }
-
-        .nav-link-scrolled {
-          color: var(--gray-600);
-        }
-
-        .nav-link-top {
-          color: rgba(255,255,255,0.9);
-        }
-
-        .nav-link-top:hover {
-          color: var(--gold-bright);
-          background: rgba(255,255,255,0.08);
-        }
-
-        .nav-link-top.active {
-          color: var(--gold-bright);
-          background: rgba(255,255,255,0.12);
-        }
-
-        .mega-panel {
-          background: white;
-          border: 1px solid rgba(26,63,160,0.1);
-          border-radius: 20px;
-          box-shadow:
-            0 20px 60px rgba(15,42,107,0.15),
-            0 4px 16px rgba(15,42,107,0.08),
-            0 0 0 1px rgba(255,255,255,0.8) inset;
-        }
-
-        .mega-cat-header {
+          color: #374151;
+          padding: 0.4rem 0.7rem;
+          border-radius: 8px;
+          transition: all 0.18s ease;
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 4px;
+        }
+        .nav-link:hover { color: var(--blue-main); background: rgba(26,63,160,0.06); }
+        .nav-link.active { color: var(--blue-main); font-weight: 600; background: rgba(26,63,160,0.08); }
+
+        /* ── FULL-WIDTH MEGA PANEL ── */
+        .mega-fullwidth {
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 72px; /* adjust to your nav height */
+          background: white;
+          border-top: 2px solid var(--gold-main);
+          border-bottom: 1px solid rgba(26,63,160,0.1);
+          box-shadow: 0 16px 48px rgba(15,42,107,0.12);
+          z-index: 40;
+        }
+
+        .mega-inner {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 28px 32px 32px;
+        }
+
+        .mega-top-bar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 24px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid rgba(26,63,160,0.08);
+        }
+
+        .mega-section-label {
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--gold-main);
+        }
+
+        .mega-section-title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: var(--blue-deep);
+          margin-top: 2px;
+        }
+
+        .mega-view-all {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 0.84rem;
+          font-weight: 600;
+          color: var(--gold-dark);
+          transition: gap 0.15s;
+        }
+        .mega-view-all:hover { gap: 10px; color: var(--gold-main); }
+
+        .mega-cat-header {
           font-size: 0.7rem;
           font-weight: 700;
           letter-spacing: 0.08em;
           text-transform: uppercase;
           color: var(--blue-main);
-          border-bottom: 2px solid var(--gold-main);
+          display: flex;
+          align-items: center;
+          gap: 6px;
           padding-bottom: 10px;
-          margin-bottom: 10px;
-        }
-
-        .mega-cat-header svg {
-          color: var(--gold-main);
+          margin-bottom: 8px;
+          border-bottom: 2px solid var(--gold-main);
         }
 
         .mega-link {
           display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 7px 10px;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 8px 10px;
           border-radius: 10px;
+          text-decoration: none;
+          transition: all 0.15s ease;
+          cursor: pointer;
+        }
+        .mega-link:hover {
+          background: rgba(26,63,160,0.05);
+        }
+        .mega-link:hover .mega-link-icon {
+          color: var(--gold-main);
+          background: rgba(232,160,32,0.12);
+        }
+        .mega-link:hover .mega-link-label { color: var(--blue-main); }
+
+        .mega-link-icon {
+          width: 30px;
+          height: 30px;
+          border-radius: 7px;
+          background: rgba(26,63,160,0.06);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--blue-main);
+          flex-shrink: 0;
+          transition: all 0.15s;
+        }
+
+        .mega-link-label {
           font-size: 0.84rem;
           font-weight: 500;
-          color: var(--gray-600);
-          transition: all 0.18s ease;
-          text-decoration: none;
-          position: relative;
+          color: #374151;
+          transition: color 0.15s;
+          line-height: 1.2;
         }
 
-        .mega-link:hover {
-          color: var(--blue-main);
-          background: rgba(26,63,160,0.05);
-          padding-left: 14px;
-        }
-
-        .mega-link:hover svg {
-          color: var(--gold-main);
-        }
-
-        .mega-link svg {
-          color: rgba(26,63,160,0.3);
-          transition: color 0.18s;
-          flex-shrink: 0;
+        .mega-link-desc {
+          font-size: 0.72rem;
+          color: #9ca3af;
+          margin-top: 1px;
         }
 
         .popular-badge {
-          font-size: 0.6rem;
+          font-size: 0.55rem;
           font-weight: 700;
           letter-spacing: 0.05em;
           text-transform: uppercase;
           background: linear-gradient(135deg, var(--gold-main), var(--gold-bright));
           color: white;
-          padding: 2px 7px;
+          padding: 2px 6px;
           border-radius: 20px;
-          margin-left: auto;
+          margin-left: 6px;
+          vertical-align: middle;
         }
 
+        /* ── CTA BUTTON ── */
         .cta-btn {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          padding: 0.5rem 1.25rem;
+          gap: 7px;
+          padding: 0.5rem 1.2rem;
           border-radius: 50px;
           font-size: 0.84rem;
           font-weight: 600;
-          letter-spacing: 0.02em;
           background: linear-gradient(135deg, var(--blue-main) 0%, var(--blue-mid) 100%);
           color: white;
-          border: 1.5px solid transparent;
+          transition: all 0.22s ease;
+          box-shadow: 0 4px 14px rgba(26,63,160,0.28);
           position: relative;
           overflow: hidden;
-          transition: all 0.25s ease;
-          box-shadow: 0 4px 16px rgba(26,63,160,0.3), 0 1px 0 rgba(255,255,255,0.15) inset;
         }
-
         .cta-btn::before {
           content: '';
           position: absolute;
           inset: 0;
           background: linear-gradient(135deg, var(--gold-main), var(--gold-bright));
           opacity: 0;
-          transition: opacity 0.25s ease;
+          transition: opacity 0.22s;
         }
-
         .cta-btn:hover::before { opacity: 1; }
-        .cta-btn:hover {
-          box-shadow: 0 6px 24px rgba(232,160,32,0.4);
-          transform: translateY(-1px);
-        }
+        .cta-btn:hover { box-shadow: 0 6px 20px rgba(232,160,32,0.38); transform: translateY(-1px); }
+        .cta-btn span, .cta-btn svg { position: relative; z-index: 1; }
 
-        .cta-btn span { position: relative; z-index: 1; }
-        .cta-btn svg { position: relative; z-index: 1; }
+        /* ══════════════════════════════════════════
+           MOBILE STYLES
+        ══════════════════════════════════════════ */
 
-        .footer-strip {
-          background: linear-gradient(135deg, #f8f9ff 0%, #fff8ed 100%);
-          border-top: 1px solid rgba(26,63,160,0.07);
-        }
-
-        .mobile-nav-wrap {
+        .mobile-menu-wrap {
           background: white;
+          border-radius: 18px;
           border: 1px solid rgba(26,63,160,0.1);
-          border-radius: 20px;
-          box-shadow: 0 16px 48px rgba(15,42,107,0.15);
+          box-shadow: 0 20px 60px rgba(15,42,107,0.15);
+          // overflow: hidden;
+          margin-top: 10px;
         }
 
-        .mobile-link {
-          display: block;
-          padding: 11px 20px;
+        /* Simple nav link row */
+        .mob-link {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 13px 18px;
           font-size: 0.9rem;
           font-weight: 500;
-          color: var(--gray-600);
-          border-bottom: 1px solid rgba(26,63,160,0.06);
-          transition: all 0.15s;
+          color: #374151;
+          border-bottom: 1px solid rgba(26,63,160,0.05);
+          transition: background 0.15s, color 0.15s;
+          text-decoration: none;
         }
-
-        .mobile-link:hover, .mobile-link.active {
+        .mob-link:hover, .mob-link.active {
           color: var(--blue-main);
           background: rgba(26,63,160,0.04);
         }
+        .mob-link:last-child { border-bottom: none; }
 
-        .count-badge {
+        /* Accordion trigger */
+        .mob-acc-trigger {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 13px 18px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: #374151;
+          border-bottom: 1px solid rgba(26,63,160,0.05);
+          background: transparent;
+          cursor: pointer;
+          transition: background 0.15s, color 0.15s;
+          text-align: left;
+        }
+        .mob-acc-trigger.open {
+          color: var(--blue-main);
+          background: rgba(26,63,160,0.04);
+          border-bottom-color: transparent;
+        }
+
+        .mob-acc-body {
+          background: #f8f9fc;
+          overflow: hidden;
+        }
+
+        /* Category section inside accordion */
+        .mob-cat-section {
+          padding: 14px 18px 10px;
+          border-bottom: 1px solid rgba(26,63,160,0.06);
+        }
+        .mob-cat-section:last-child { border-bottom: none; }
+
+        .mob-cat-label {
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 0.09em;
+          text-transform: uppercase;
+          color: var(--blue-main);
+          margin-bottom: 8px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .mob-cat-label svg { color: var(--gold-main); }
+
+        /* Individual sub-link */
+        .mob-sub-link {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 10px;
+          border-radius: 10px;
+          font-size: 0.84rem;
+          font-weight: 500;
+          color: #4b5563;
+          text-decoration: none;
+          transition: all 0.15s;
+          margin-bottom: 2px;
+        }
+        .mob-sub-link:hover {
+          background: rgba(26,63,160,0.07);
+          color: var(--blue-main);
+        }
+        .mob-sub-link:hover .mob-sub-icon { color: var(--gold-main); background: rgba(232,160,32,0.1); }
+
+        .mob-sub-icon {
+          width: 28px;
+          height: 28px;
+          border-radius: 7px;
+          background: rgba(26,63,160,0.07);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--blue-main);
+          flex-shrink: 0;
+          transition: all 0.15s;
+        }
+
+        .mob-sub-desc {
+          font-size: 0.7rem;
+          color: #9ca3af;
+          font-weight: 400;
+          display: block;
+          line-height: 1.2;
+        }
+
+        .mob-count-badge {
           margin-left: auto;
           font-size: 0.65rem;
           font-weight: 600;
@@ -398,31 +517,39 @@ export function Navigation() {
           background: rgba(26,63,160,0.08);
           padding: 1px 7px;
           border-radius: 20px;
+          flex-shrink: 0;
         }
 
-        .logo-ring {
-          position: absolute;
-          inset: -3px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, var(--blue-main), var(--gold-main));
-          opacity: 0;
-          transition: opacity 0.3s;
-          z-index: -1;
+        .mob-level-badge {
+          margin-left: auto;
+          font-size: 0.6rem;
+          font-weight: 600;
+          padding: 2px 6px;
+          border-radius: 20px;
+          flex-shrink: 0;
         }
+        .mob-level-expert { background: rgba(26,63,160,0.1); color: var(--blue-main); }
+        .mob-level-advanced { background: rgba(232,160,32,0.1); color: var(--gold-dark); }
+        .mob-level-intermediate { background: #f1f5f9; color: #64748b; }
 
-        .logo-wrap:hover .logo-ring { opacity: 1; }
-
+        /* Mobile CTA strip */
+        .mob-cta-strip {
+          padding: 14px 16px;
+          background: linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.06));
+          border-top: 1px solid rgba(26,63,160,0.08);
+        }
       `}</style>
 
       <motion.nav
+        ref={navRef}
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          scrolled ? 'header-gradient py-2' : 'nav-transparent py-3'
+          scrolled ? 'nav-glass py-2' : 'bg-transparent py-3'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center h-[60px]">
 
             {/* ── Logo ── */}
@@ -430,23 +557,19 @@ export function Navigation() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className=" relative"
             >
               <Link href="/" className="flex items-center gap-2.5">
-                <div className="relative">
-                  <div className="logo-ring" />
-                  <Image
-                    src="./log.png"
-                    alt="Company Logo"
-                    width={86}
-                    height={46}
-                    className="rounded-xl w-full h-40 object-contain"
-                  />
-                </div>
+                <Image
+                  src="./log.png"
+                  alt="Company Logo"
+                  width={86}
+                  height={46}
+                  className="rounded-xl object-contain"
+                />
               </Link>
             </motion.div>
 
-            {/* ── Desktop Nav ── */}
+            {/* ── Desktop Nav Links ── */}
             <div className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link, index) => {
                 const active = isActive(link.href, link.exact)
@@ -455,14 +578,14 @@ export function Navigation() {
                     key={link.href}
                     initial={{ opacity: 0, y: -12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.05 + index * 0.05 }}
+                    transition={{ duration: 0.4, delay: 0.05 + index * 0.04 }}
                     className="relative"
                     onMouseEnter={() => link.hasDropdown && handleDropdownEnter(link.dropdownType!)}
                     onMouseLeave={handleDropdownLeave}
                   >
                     <Link
                       href={link.href}
-                      className={`nav-link !font-medium ${scrolled ? 'nav-link-scrolled' : 'font-medium'} ${active ? 'active' : ''} flex items-center gap-1`}
+                      className={`nav-link ${active ? 'active' : ''}`}
                     >
                       {link.label}
                       {link.hasDropdown && (
@@ -471,171 +594,6 @@ export function Navigation() {
                         />
                       )}
                     </Link>
-
-                    {/* ── Megamenus ── */}
-                    <AnimatePresence>
-                      {activeDropdown === link.dropdownType && link.hasDropdown && (
-                        <>
-                          {/* SERVICES */}
-                          {link.dropdownType === 'services' && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                              transition={{ duration: 0.18 }}
-                              className="absolute left-1/2 -translate-x-1/2 pt-5 w-[900px] z-50"
-                              onClick={e => e.stopPropagation()}
-                            >
-                              <div className="mega-panel overflow-hidden">
-                                {/* Header strip */}
-                                <div className="px-6 py-3 border border-b flex items-center justify-between">
-                                  <div className="flex items-center gap-3">
-                                 
-                                    <div>
-                                      <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#f0b832' }}>What We Do</p>
-                                      <p className="text-blue-800 font-semibold text-base leading-tight" >Our Services</p>
-                                    </div>
-                                  </div>
-                                  <Link href="/services" className="flex items-center gap-1.5 text-sm font-medium group" style={{ color: '#f0b832' }}>
-                                    View all <MoveRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
-                                  </Link>
-                                </div>
-
-                                <div className="p-5 grid grid-cols-4 gap-5 mb-6">
-                                  {serviceCategories.map((cat, idx) => (
-                                    <div key={idx}>
-                                      <div className="mega-cat-header !text-sm">
-                                        {/* {cat.icon} */}
-                                        {cat.category}
-                                      </div>
-                                      <div className="space-y-0.5">
-                                        {cat.links.map(l => (
-                                          <Link key={l.href} href={l.href} className="mega-link">
-                                            <ExternalLinkIcon className='h-6 w-6'/>
-                                            <span>{l.label}</span>
-                                            {/* {l.popular && <span className="popular-badge">Hot</span>} */}
-                                          </Link>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-
-                                
-                              </div>
-                            </motion.div>
-                          )}
-
-                          {/* PORTFOLIO */}
-                          {link.dropdownType === 'portfolio' && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                              transition={{ duration: 0.18 }}
-                              className="absolute left-1/2 -translate-x-1/2 pt-5 w-[760px] z-50"
-                              onClick={e => e.stopPropagation()}
-                            >
-                              <div className="mega-panel overflow-hidden">
-                                <div className="px-6 py-3 flex items-center justify-between border border-b">
-                                  <div className="flex items-center gap-3">
-                                    
-                                    <div>
-                                      <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#f0b832' }}>Our Work</p>
-                                      <p className="text-blue-800 font-semibold text-base leading-tight" >Portfolio</p>
-                                    </div>
-                                  </div>
-                                  <Link href="/portfolio" className="flex items-center gap-1.5 text-sm font-medium group" style={{ color: '#f0b832' }}>
-                                    Browse all <MoveRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
-                                  </Link>
-                                </div>
-
-                                <div className="p-5 grid grid-cols-3 gap-5">
-                                  {portfolioCategories.slice(0, 2).map((cat, idx) => (
-                                    <div key={idx}>
-                                      <div className="mega-cat-header !text-sm">
-                                        {cat.category}
-                                      </div>
-                                      <div className="space-y-0.5">
-                                        {cat.links.map((l: any) => (
-                                          <Link key={l.href} href={l.href} className="mega-link">
-                                            <span>{l.label}</span>
-                                          </Link>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  ))}
-
-                                  {/* Featured column */}
-                                  <div>
-                                    <div className="mega-cat-header">
-                                      <Award className="h-3.5 w-3.5" />
-                                      Featured
-                                    </div>
-                                    <div className="rounded-xl p-3 space-y-1" style={{ background: 'linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.06))' }}>
-                                      {portfolioCategories[2].links.map((l: any) => (
-                                        <Link key={l.href} href={l.href} className="mega-link">
-                                          {l.icon}
-                                          <span>{l.label}</span>
-                                        </Link>
-                                      ))}
-                                      <div className="mt-3 pt-3 flex items-center gap-2" style={{ borderTop: '1px solid rgba(26,63,160,0.1)' }}>
-                                        <Award className="h-4 w-4" style={{ color: '#e8a020' }} />
-                                        <span className="text-xs font-medium" style={{ color: '#4a5578' }}>50+ Happy Clients Worldwide</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </motion.div>
-                          )}
-
-                          {/* TECHNOLOGIES */}
-                          {link.dropdownType === 'technologies' && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                              transition={{ duration: 0.18 }}
-                              className="absolute left-1/2 -translate-x-1/2 pt-5 w-[760px] z-50"
-                              onClick={e => e.stopPropagation()}
-                            >
-                              <div className="mega-panel overflow-hidden">
-                                <div className="px-6 py-3 flex items-center justify-between border-b">
-                                  <div className="flex items-center gap-3">
-                                    
-                                    <div>
-                                      <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#f0b832' }}>Stack</p>
-                                      <p className="text-blue-800 font-semibold text-base leading-tight">Technologies</p>
-                                    </div>
-                                  </div>
-                                  <Link href="/technologies" className="flex items-center gap-1.5 text-sm font-medium group" style={{ color: '#f0b832' }}>
-                                    View all <MoveRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
-                                  </Link>
-                                </div>
-
-                                <div className="p-5 grid grid-cols-4 gap-5">
-                                  {techCategories.map((cat, idx) => (
-                                    <div key={idx}>
-                                      <div className="mega-cat-header !text-sm">
-                                        {cat.category}
-                                      </div>
-                                      <div className="space-y-0.5">
-                                        {cat.links.map((l: any) => (
-                                          <Link key={l.href} href={l.href} className="mega-link">
-                                            <span className="flex-1 truncate">{l.label}</span>
-                                          </Link>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </motion.div>
-                          )}
-                        </>
-                      )}
-                    </AnimatePresence>
                   </motion.div>
                 )
               })}
@@ -655,12 +613,14 @@ export function Navigation() {
                 </Link>
               </motion.div>
 
-              {/* Mobile toggle */}
               <button
                 className="lg:hidden p-2 rounded-xl transition-colors"
-                style={{ color: scrolled ? '#1a3fa0' : 'white', background: scrolled ? 'rgba(26,63,160,0.08)' : 'rgba(255,255,255,0.12)' }}
+                style={{
+                  color: scrolled ? '#1a3fa0' : 'white',
+                  background: scrolled ? 'rgba(26,63,160,0.08)' : 'rgba(255,255,255,0.12)'
+                }}
                 onClick={() => setIsOpen(!isOpen)}
-                aria-expanded={isOpen}
+                aria-label="Toggle menu"
               >
                 <motion.div animate={isOpen ? { rotate: 180 } : { rotate: 0 }} transition={{ duration: 0.25 }}>
                   {isOpen ? <X size={22} /> : <Menu size={22} />}
@@ -668,107 +628,359 @@ export function Navigation() {
               </button>
             </div>
           </div>
+        </div>
 
-          {/* ── Mobile Menu ── */}
+        {/* ══════════════════════════════════════════
+            DESKTOP — FULL-WIDTH MEGA MENUS
+            (rendered outside inner container so they span full viewport)
+        ══════════════════════════════════════════ */}
+        <AnimatePresence>
+          {activeDropdown === 'services' && (
+            <motion.div
+              key="services-mega"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.20 }}
+              className="mega-fullwidt bg-white rounded-b-4xl hidden lg:block"
+              onMouseEnter={() => handleDropdownEnter('services')}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <div className="mega-inner">
+                {/* Top bar */}
+                <div className="mega-top-bar">
+                  <div>
+                    <p className="mega-section-label">What We Do</p>
+                    <p className="mega-section-title">Our Services</p>
+                  </div>
+                  <Link href="/services" className="mega-view-all">
+                    View all services <MoveRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+
+                {/* 4-column grid */}
+                <div className="grid grid-cols-4 gap-8">
+                  {serviceCategories.map((cat, idx) => (
+                    <div key={idx}>
+                      <div className="mega-cat-header">
+                        {cat.icon}
+                        {cat.category}
+                      </div>
+                      <div className="space-y-0.5">
+                        {cat.links.map((l) => (
+                          <Link key={l.href} href={l.href} className="mega-link">
+                            <div className="mega-link-icon">{l.icon}</div>
+                            <div>
+                              <p className="mega-link-label">
+                                {l.label}
+                                {l.popular && <span className="popular-badge">Hot</span>}
+                              </p>
+                              <p className="mega-link-desc">{l.description}</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {activeDropdown === 'portfolio' && (
+            <motion.div
+              key="portfolio-mega"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.18 }}
+              className="mega-fullwidth hidden lg:block"
+              onMouseEnter={() => handleDropdownEnter('portfolio')}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <div className="mega-inner">
+                <div className="mega-top-bar">
+                  <div>
+                    <p className="mega-section-label">Our Work</p>
+                    <p className="mega-section-title">Portfolio</p>
+                  </div>
+                  <Link href="/portfolio" className="mega-view-all">
+                    Browse all work <MoveRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-3 gap-8">
+                  {/* By Industry */}
+                  <div>
+                    <div className="mega-cat-header">
+                      <Briefcase className="h-4 w-4" />
+                      By Industry
+                    </div>
+                    {portfolioCategories[0].links.map((l: any) => (
+                      <Link key={l.href} href={l.href} className="mega-link">
+                        <div className="mega-link-icon"><ExternalLinkIcon className="h-3.5 w-3.5" /></div>
+                        <div className="flex items-center justify-between w-full">
+                          <p className="mega-link-label">{l.label}</p>
+                          {l.count && (
+                            <span className="text-xs font-semibold text-[#1a3fa0] bg-[#1a3fa0]/08 px-2 py-0.5 rounded-full" style={{ background: 'rgba(26,63,160,0.08)' }}>
+                              {l.count}
+                            </span>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* By Service */}
+                  <div>
+                    <div className="mega-cat-header">
+                      <Rocket className="h-4 w-4" />
+                      By Service
+                    </div>
+                    {portfolioCategories[1].links.map((l: any) => (
+                      <Link key={l.href} href={l.href} className="mega-link">
+                        <div className="mega-link-icon"><ExternalLinkIcon className="h-3.5 w-3.5" /></div>
+                        <div className="flex items-center justify-between w-full">
+                          <p className="mega-link-label">{l.label}</p>
+                          {l.count && (
+                            <span className="text-xs font-semibold px-2 py-0.5 rounded-full" style={{ background: 'rgba(26,63,160,0.08)', color: '#1a3fa0' }}>
+                              {l.count}
+                            </span>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Featured */}
+                  <div>
+                    <div className="mega-cat-header">
+                      <Award className="h-4 w-4" />
+                      Featured
+                    </div>
+                    <div className="rounded-xl p-4 space-y-1" style={{ background: 'linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.07))' }}>
+                      {portfolioCategories[2].links.map((l: any) => (
+                        <Link key={l.href} href={l.href} className="mega-link">
+                          <div className="mega-link-icon">{l.icon}</div>
+                          <p className="mega-link-label">{l.label}</p>
+                        </Link>
+                      ))}
+                      <div className="mt-4 pt-3 flex items-center gap-2" style={{ borderTop: '1px solid rgba(26,63,160,0.1)' }}>
+                        <Award className="h-4 w-4" style={{ color: '#e8a020' }} />
+                        <span className="text-xs font-medium text-slate-500">50+ Happy Clients Worldwide</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {activeDropdown === 'technologies' && (
+            <motion.div
+              key="tech-mega"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.18 }}
+              className="mega-fullwidth hidden lg:block"
+              onMouseEnter={() => handleDropdownEnter('technologies')}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <div className="mega-inner">
+                <div className="mega-top-bar">
+                  <div>
+                    <p className="mega-section-label">Tech Stack</p>
+                    <p className="mega-section-title">Technologies</p>
+                  </div>
+                  <Link href="/technologies" className="mega-view-all">
+                    View all technologies <MoveRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-4 gap-8">
+                  {techCategories.map((cat, idx) => (
+                    <div key={idx}>
+                      <div className="mega-cat-header">
+                        {cat.icon}
+                        {cat.category}
+                      </div>
+                      <div className="space-y-0.5">
+                        {cat.links.map((l: any) => (
+                          <Link key={l.href} href={l.href} className="mega-link">
+                            <div className="mega-link-icon">{l.icon}</div>
+                            <div className="flex items-center justify-between w-full min-w-0">
+                              <p className="mega-link-label truncate">{l.label}</p>
+                              <span
+                                className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full ml-2 flex-shrink-0"
+                                style={
+                                  l.level === 'Expert'
+                                    ? { background: 'rgba(26,63,160,0.1)', color: '#1a3fa0' }
+                                    : l.level === 'Advanced'
+                                    ? { background: 'rgba(232,160,32,0.1)', color: '#b07010' }
+                                    : { background: '#f1f5f9', color: '#64748b' }
+                                }
+                              >
+                                {l.level}
+                              </span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ══════════════════════════════════════════
+            MOBILE MENU
+        ══════════════════════════════════════════ */}
+        <div className="lg:hidden px-4">
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.28 }}
-                className="lg:hidden overflow-hidden max-h-[85vh] mobile-nav-wrap mt-3"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.22 }}
+                className="mobile-menu-wrap overflow-y-auto !max-h-[80vh]"
+                // style={{ maxHeight: 'calc(100vh - 90px)' }}
               >
-                <div className="py-2">
-                  {navLinks.map((link) => {
-                    const active = isActive(link.href, link.exact)
-                    if (link.hasDropdown) {
-                      return (
-                        <div key={link.href}>
-                          <button
-                            onClick={() => setMobileDropdown(mobileDropdown === link.dropdownType ? null : link.dropdownType!)}
-                            className="w-full mobile-link flex items-center justify-between"
-                            style={active ? { color: '#1a3fa0' } : {}}
-                          >
-                            <span>{link.label}
-                            <ChevronDown className={`h-4 w-4 transition-transform ${mobileDropdown === link.dropdownType ? 'rotate-180' : ''}`} /></span>
-                          </button>
+                {navLinks.map((link) => {
+                  const active = isActive(link.href, link.exact)
+                  const isAccOpen = mobileDropdown === link.dropdownType
 
-                          <AnimatePresence>
-                            {mobileDropdown === link.dropdownType && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="px-4 py-2 space-y-4"
-                                style={{ background: '#f8f9fc' }}
-                              >
-                                {link.dropdownType === 'services' && serviceCategories.map((cat) => (
-                                  <div key={cat.category}>
-                                    <p className="text-[10px] font-semibold uppercase tracking-widest mb-1.5" style={{ color: '#1a3fa0' }}>{cat.category}</p>
-                                    {cat.links.map((sl: any) => (
-                                      <Link key={sl.href} href={sl.href} className="flex items-center gap-2 py-2 pl-3 text-sm" style={{ color: '#4a5578' }} onClick={() => setIsOpen(false)}>
-                                        <span style={{ color: '#e8a020' }}>{sl.icon}</span>
-                                        {sl.label}
-                                        {sl.popular && <span className="popular-badge ml-auto">Hot</span>}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                ))}
-
-                                {link.dropdownType === 'portfolio' && portfolioCategories.map((cat) => (
-                                  <div key={cat.category}>
-                                    <p className="text-[10px] font-semibold uppercase tracking-widest mb-1.5" style={{ color: '#1a3fa0' }}>{cat.category}</p>
-                                    {cat.links.map((sl: any) => (
-                                      <Link key={sl.href} href={sl.href} className="flex items-center gap-2 py-2 pl-3 text-sm" style={{ color: '#4a5578' }} onClick={() => setIsOpen(false)}>
-                                        {sl.label}
-                                        {sl.count && <span className="count-badge">{sl.count}</span>}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                ))}
-
-                                {link.dropdownType === 'technologies' && techCategories.map((cat) => (
-                                  <div key={cat.category}>
-                                    <p className="text-[10px] font-semibold uppercase tracking-widest mb-1.5" style={{ color: '#1a3fa0' }}>{cat.category}</p>
-                                    {cat.links.map((sl: any) => (
-                                      <Link key={sl.href} href={sl.href} className="flex items-center gap-2 py-2 pl-3 text-sm" style={{ color: '#4a5578' }} onClick={() => setIsOpen(false)}>
-                                        <span style={{ color: '#e8a020' }}>{sl.icon}</span>
-                                        {sl.label}
-                                        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ml-auto ${levelColors[sl.level]}`}>{sl.level}</span>
-                                      </Link>
-                                    ))}
-                                  </div>
-                                ))}
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      )
-                    }
+                  if (!link.hasDropdown) {
                     return (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className={`mobile-link ${active ? 'active' : ''}`}
+                        className={`mob-link ${active ? 'active' : ''}`}
                         onClick={() => setIsOpen(false)}
                       >
-                        {link.label}
+                        <span>{link.label}</span>
+                        <ChevronRight className="h-4 w-4 opacity-30" />
                       </Link>
                     )
-                  })}
+                  }
 
-                  {/* Mobile CTA */}
-                  <div className="p-4">
-                    <Link
-                      href="/contact"
-                      className="cta-btn w-full justify-center"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <Phone className="h-4 w-4" />
-                      <span>Get Started</span>
-                    </Link>
-                  </div>
+                  return (
+                    <div key={link.href}>
+                      <button
+                        className={`mob-acc-trigger ${isAccOpen ? 'open' : ''}`}
+                        onClick={() => setMobileDropdown(isAccOpen ? null : link.dropdownType!)}
+                      >
+                        <span style={{ fontWeight: active || isAccOpen ? 600 : 500, color: active || isAccOpen ? '#1a3fa0' : undefined }}>
+                          {link.label}
+                        </span>
+                        <motion.div animate={{ rotate: isAccOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                          <ChevronDown className="h-4 w-4" style={{ color: isAccOpen ? '#1a3fa0' : '#9ca3af' }} />
+                        </motion.div>
+                      </button>
+
+                      <AnimatePresence>
+                        {isAccOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.22, ease: 'easeInOut' }}
+                            className="mob-acc-body"
+                          >
+                            {/* SERVICES accordion body */}
+                            {link.dropdownType === 'services' && serviceCategories.map((cat) => (
+                              <div key={cat.category} className="mob-cat-section">
+                                <div className="mob-cat-label">
+                                  {cat.icon}
+                                  {cat.category}
+                                </div>
+                                {cat.links.map((sl) => (
+                                  <Link
+                                    key={sl.href}
+                                    href={sl.href}
+                                    className="mob-sub-link"
+                                    onClick={() => setIsOpen(false)}
+                                  >
+                                    <div className="mob-sub-icon">{sl.icon}</div>
+                                    <div className="flex-1 min-w-0">
+                                      <span className="block font-medium">{sl.label}</span>
+                                      <span className="mob-sub-desc">{sl.description}</span>
+                                    </div>
+                                    {sl.popular && <span className="popular-badge">Hot</span>}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+
+                            {/* PORTFOLIO accordion body */}
+                            {link.dropdownType === 'portfolio' && portfolioCategories.map((cat) => (
+                              <div key={cat.category} className="mob-cat-section">
+                                <div className="mob-cat-label">
+                                  {cat.icon}
+                                  {cat.category}
+                                </div>
+                                {cat.links.map((sl: any) => (
+                                  <Link
+                                    key={sl.href}
+                                    href={sl.href}
+                                    className="mob-sub-link"
+                                    onClick={() => setIsOpen(false)}
+                                  >
+                                    <div className="mob-sub-icon">
+                                      {sl.icon ?? <ExternalLinkIcon className="h-3.5 w-3.5" />}
+                                    </div>
+                                    <span className="flex-1 font-medium">{sl.label}</span>
+                                    {sl.count && <span className="mob-count-badge">{sl.count}</span>}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+
+                            {/* TECHNOLOGIES accordion body */}
+                            {link.dropdownType === 'technologies' && techCategories.map((cat) => (
+                              <div key={cat.category} className="mob-cat-section">
+                                <div className="mob-cat-label">
+                                  {cat.icon}
+                                  {cat.category}
+                                </div>
+                                {cat.links.map((sl: any) => (
+                                  <Link
+                                    key={sl.href}
+                                    href={sl.href}
+                                    className="mob-sub-link"
+                                    onClick={() => setIsOpen(false)}
+                                  >
+                                    <div className="mob-sub-icon">{sl.icon}</div>
+                                    <span className="flex-1 font-medium truncate">{sl.label}</span>
+                                    <span
+                                      className={`mob-level-badge mob-level-${sl.level.toLowerCase()}`}
+                                    >
+                                      {sl.level}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )
+                })}
+
+                {/* Mobile CTA */}
+                <div className="mob-cta-strip">
+                  <Link
+                    href="/contact"
+                    className="cta-btn w-full justify-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Phone className="h-4 w-4" />
+                    <span>Get Started</span>
+                  </Link>
                 </div>
               </motion.div>
             )}
