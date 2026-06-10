@@ -29,39 +29,58 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 
 /* ── Stats data ── */
 const stats = [
-  { number: 150, suffix: "+", label: "Projects Completed", icon: Briefcase },
-  { number: 98,  suffix: "%", label: "Client Satisfaction", icon: Award },
-  { number: 12,  suffix: "+", label: "Years Experience",    icon: Clock },
-  { number: 50,  suffix: "+", label: "Team Members",        icon: Users },
+  {
+    number: 250,
+    suffix: "+",
+    label: "Projects Delivered",
+    icon: Briefcase,
+  },
+  {
+    number: 99,
+    suffix: "%",
+    label: "Client Satisfaction",
+    icon: Award,
+  },
+  {
+    number: 50,
+    suffix: "+",
+    label: "Global Clients",
+    icon: Users,
+  },
+  {
+    number: 24,
+    suffix: "/7",
+    label: "Support Available",
+    icon: Clock,
+  },
 ];
 
-/* ── Cards data ── */
 const cards = [
   {
     title: "Web Development",
-    sub: "Scalable & modern web apps",
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop",
-    href: "/services/web-design",
+    sub: "Custom websites, portals & web applications",
+    image: "/images/services/web-development.png",
+    href: "/services/web-development",
   },
   {
-    title: "Mobile Apps",
-    sub: "iOS & Android solutions",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
-    href: "/services/mobile",
+    title: "Mobile App Development",
+    sub: "Android, iOS & cross-platform solutions",
+    image: "/images/services/mobile-app.png",
+    href: "/services/mobile-app-development",
   },
   {
     title: "Digital Marketing",
-    sub: "Grow your online presence",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-    href: "/services/seo",
+    sub: "SEO, PPC, social media & lead generation",
+    image: "/images/services/digital-marketing.png",
+    href: "/services/digital-marketing",
   },
 ];
 
 const perks = [
-  "ISO 9001:2008 Certified",
-  "Agile Development Process",
-  "Dedicated Project Manager",
-  "Post-launch Support",
+  "Custom Web Development",
+  "Mobile App Development",
+  "Digital Marketing & SEO",
+  "AI-Powered Solutions",
 ];
 
 /* ────────────────────────────────────────────── */
@@ -232,13 +251,16 @@ const TrueValueSection = () => {
             {/* Left */}
             <div>
               <motion.div {...fadeUp(0)} className="tvs-tag mb-5 w-fit">
-                Our Company
+                Leading IT Solutions Company
               </motion.div>
 
-              <motion.h2 {...fadeUp(0.1)} className="text-3xl sm:text-[2.6rem] font-semibold text-[#0f2a6b] leading-tight mb-5">
-                <span className="tvs-gold">Digitonix</span> is your
-                trusted partner
-                in IT services
+              <motion.h2
+                {...fadeUp(0.1)}
+                className="text-3xl sm:text-[2.4rem] font-semibold text-[#0f2a6b] leading-tight mb-5"
+              >
+                Your Trusted
+                <span className="tvs-gold"> Technology Partner </span>
+                For Business Growth
               </motion.h2>
 
               <motion.div {...fadeUp(0.15)} className="gold-divider" />
@@ -257,7 +279,11 @@ const TrueValueSection = () => {
             {/* Right */}
             <motion.div {...fadeUp(0.15)}>
               <p className="text-[#4a5578] text-base sm:text-lg leading-relaxed font-light mb-6">
-                Digitonix is an <strong className="font-semibold text-[#0f2a6b]">ISO 9001:2008 certified</strong> Web Design & Mobile App Development company established in 2011. We are a leading solution provider for internet-based applications — combining pixel-perfect design with powerful marketing strategies.
+                Digitonix is a leading <strong>Web Development, Mobile App Development,
+                  Software Development, and Digital Marketing Company in Jaipur</strong>.
+                We help startups, SMEs, and enterprises build scalable digital products,
+                improve online visibility, and accelerate business growth through modern
+                technology solutions.
               </p>
               <a href="/about" className="inline-flex items-center gap-2 text-sm font-semibold"
                 style={{ color: '#1a3fa0', letterSpacing: '0.02em' }}>
@@ -314,15 +340,28 @@ const TrueValueSection = () => {
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="">
-                  <Icon size={20} style={{ color: '#1a3fa0' }} className="w-14 h-14 stroke-1 "/>
+                  <Icon size={20} style={{ color: '#1a3fa0' }} className="w-14 h-14 stroke-1 " />
                 </div>
                 <div className="stat-number" style={{ background: 'linear-gradient(135deg, #0f2a6b, #2952cc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   <Counter target={number} suffix={suffix} />
-                <div className="stat-label mt-2">{label}</div>
+                  <div className="stat-label mt-2">{label}</div>
 
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+          <motion.div
+            {...fadeUp(0.4)}
+            className="max-w-4xl mx-auto text-center mt-12"
+          >
+            <p className="text-[#4a5578] leading-relaxed font-medium">
+              As a trusted IT company in India, Digitonix specializes in
+              Web Development, Mobile App Development, Software Development,
+              UI/UX Design, Cloud Solutions, AI Development, and Digital
+              Marketing Services. Our team delivers innovative solutions that
+              help businesses improve efficiency, increase revenue, and build
+              a strong digital presence.
+            </p>
           </motion.div>
 
         </div>
@@ -336,7 +375,8 @@ export default TrueValueSection;
 
 
 import Image from "next/image";
-import { Star, Code2, Smartphone, Megaphone,
+import {
+  Star, Code2, Smartphone, Megaphone,
   Palette, Shield, Cloud, ChevronRight, BadgeCheck
 } from "lucide-react";
 
@@ -465,7 +505,7 @@ function ServiceCard({
       {/* Title */}
       <h3 className="font-semibold text-[#0f2a6b] text-base mb-2 leading-snug
                      group-hover:text-[#1a3fa0] transition-colors"
-          >
+      >
         {title}
       </h3>
 
@@ -540,9 +580,9 @@ export function ServicesSection() {
             {/* Headline */}
             <motion.h2 {...fadeUp(0.08)}
               className="text-3xl sm:text-[2.6rem] font-semibold text-[#0f2a6b] leading-tight mb-5"
-             >
+            >
               <span className="text-[#e8a020]">Top Web</span> & Software<br />
-              Development Company 
+              Development Company
               <span className="text-[#1a3fa0]"> in India</span>
             </motion.h2>
 
@@ -622,8 +662,8 @@ export function ServicesSection() {
                     <div key={i}
                       className="flex flex-col items-center gap-2 p-3 px-10 rounded-xl bg-gradient-to-br
                                  from-[#1a3fa0]/06 to-[#e8a020]/06 border border-[#1a3fa0]/10">
-                      
-                        <BadgeCheck size={30} className="text-blue-800 stroke-[1.4px]" />
+
+                      <BadgeCheck size={30} className="text-blue-800 stroke-[1.4px]" />
                       <span className="text-[10px] font-semibold text-[#0f2a6b] text-center leading-tight">
                         ISO 9001<br />2015
                       </span>
@@ -631,8 +671,8 @@ export function ServicesSection() {
                   ))}
                   <div className="flex flex-col items-center gap-2 p-3 px-10 rounded-xl bg-gradient-to-br
                                   from-[#e8a020]/08 to-[#f0b832]/06 border border-[#e8a020]/20">
-            
-                      <Star  size={30} className="text-blue-800 stroke-[1.4px]" />
+
+                    <Star size={30} className="text-blue-800 stroke-[1.4px]" />
                     <span className="text-[10px] font-semibold text-[#0f2a6b] text-center leading-tight">
                       Award<br />Winner
                     </span>
@@ -683,22 +723,22 @@ import Link from "next/link";
 
 /* ── Developer roles (replace / extend as needed) ── */
 const developers = [
-  { label: "React Developer",        icon: <Code2 size={18} /> },
-  { label: "Next.js Developer",      icon: <Globe size={18} /> },
-  { label: "Node.js Developer",      icon: <Server size={18} /> },
-  { label: "Flutter Developer",      icon: <Smartphone size={18} /> },
-  { label: "React Native Dev",       icon: <Layers size={18} /> },
-  { label: "Python Developer",       icon: <Cpu size={18} /> },
-  { label: "Laravel Developer",      icon: <Code2 size={18} /> },
-  { label: "WordPress Developer",    icon: <Globe size={18} /> },
-  { label: "UI/UX Designer",         icon: <Palette size={18} /> },
-  { label: "DevOps Engineer",        icon: <GitBranch size={18} /> },
-  { label: "AWS Cloud Architect",    icon: <Cloud size={18} /> },
-  { label: "Database Engineer",      icon: <Database size={18} /> },
-  { label: "iOS Developer",          icon: <Smartphone size={18} /> },
-  { label: "Android Developer",      icon: <Smartphone size={18} /> },
-  { label: "Cybersecurity Expert",   icon: <Shield size={18} /> },
-  { label: "Data Analyst",           icon: <BarChart size={18} /> },
+  { label: "React Developer", icon: <Code2 size={18} /> },
+  { label: "Next.js Developer", icon: <Globe size={18} /> },
+  { label: "Node.js Developer", icon: <Server size={18} /> },
+  { label: "Flutter Developer", icon: <Smartphone size={18} /> },
+  { label: "React Native Dev", icon: <Layers size={18} /> },
+  { label: "Python Developer", icon: <Cpu size={18} /> },
+  { label: "Laravel Developer", icon: <Code2 size={18} /> },
+  { label: "WordPress Developer", icon: <Globe size={18} /> },
+  { label: "UI/UX Designer", icon: <Palette size={18} /> },
+  { label: "DevOps Engineer", icon: <GitBranch size={18} /> },
+  { label: "AWS Cloud Architect", icon: <Cloud size={18} /> },
+  { label: "Database Engineer", icon: <Database size={18} /> },
+  { label: "iOS Developer", icon: <Smartphone size={18} /> },
+  { label: "Android Developer", icon: <Smartphone size={18} /> },
+  { label: "Cybersecurity Expert", icon: <Shield size={18} /> },
+  { label: "Data Analyst", icon: <BarChart size={18} /> },
 ];
 
 /* ── Hover Card ── */
@@ -738,7 +778,7 @@ function HoverCard({ label, icon, index }: { label: string; icon: React.ReactNod
       {/* Label */}
       <span className="relative z-10 text-xs font-semibold text-[#0f2a6b] leading-tight
                        group-hover:text-white transition-colors duration-300"
-            style={{ fontFamily: "DM Sans, sans-serif" }}>
+        style={{ fontFamily: "DM Sans, sans-serif" }}>
         {label}
       </span>
 
@@ -798,7 +838,7 @@ export function HireDevelopersSection() {
             <motion.h2 {...fadeUp(0.08)}
               className="text-3xl sm:text-[2.5rem] font-semibold text-[#0f2a6b] leading-[1.1] mb-4">
               <span className="text-[#e8a020]">Hire Developers </span>
-               For Custom IT 
+              For Custom IT
               Solutions
             </motion.h2>
 
@@ -826,8 +866,8 @@ export function HireDevelopersSection() {
               className="flex gap-5 mb-8">
               {[
                 { value: "500+", label: "Developers Hired" },
-                { value: "12+",  label: "Years Expertise" },
-                { value: "98%",  label: "Success Rate" },
+                { value: "12+", label: "Years Expertise" },
+                { value: "98%", label: "Success Rate" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
                   <p className="text-2xl font-extrabold text-[#0f2a6b]">
@@ -885,7 +925,7 @@ export function HireDevelopersSection() {
             <motion.div {...fadeUp(0.1)}
               className="flex items-center gap-3 mb-6">
               <h3 className="text-[#0f2a6b] font-semibold text-base whitespace-nowrap"
-                  style={{ fontFamily: "Syne, sans-serif" }}>
+                style={{ fontFamily: "Syne, sans-serif" }}>
                 Our Expert Roles
               </h3>
               <div className="flex-1 h-px bg-gradient-to-r from-[#1a3fa0]/20 to-transparent" />
@@ -907,7 +947,7 @@ export function HireDevelopersSection() {
               style={{ background: "linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.06))" }}>
               <div>
                 <p className="font-semibold text-[#0f2a6b] text-sm mb-0.5"
-                   style={{ fontFamily: "Syne, sans-serif" }}>
+                  style={{ fontFamily: "Syne, sans-serif" }}>
                   Don't see your stack?
                 </p>
                 <p className="text-xs text-[#6b7a9e]">
@@ -939,18 +979,18 @@ import {
 
 /* ── Industries data ── */
 const industries = [
-  { title: "E-Commerce",       icon: ShoppingCart, color: "#1a3fa0", stat: "120+ projects" },
-  { title: "Healthcare",       icon: Heart,         color: "#2952cc", stat: "40+ projects" },
-  { title: "Education",        icon: GraduationCap, color: "#1a3fa0", stat: "55+ projects" },
-  { title: "Real Estate",      icon: Home,          color: "#2952cc", stat: "35+ projects" },
-  { title: "Finance & Banking",icon: Landmark,      color: "#1a3fa0", stat: "#50+ projects" },
-  { title: "Travel & Tourism", icon: Plane,         color: "#2952cc", stat: "28+ projects" },
-  { title: "Logistics",        icon: Truck,         color: "#1a3fa0", stat: "32+ projects" },
-  { title: "Technology",       icon: Cpu,           color: "#2952cc", stat: "90+ projects" },
-  { title: "Food & Restaurant",icon: Utensils,      color: "#1a3fa0", stat: "22+ projects" },
-  { title: "Legal & Law",      icon: Scale,         color: "#2952cc", stat: "18+ projects" },
-  { title: "Agriculture",      icon: Leaf,          color: "#1a3fa0", stat: "15+ projects" },
-  { title: "Manufacturing",    icon: Building2,     color: "#2952cc", stat: "24+ projects" },
+  { title: "E-Commerce", icon: ShoppingCart, color: "#1a3fa0", stat: "120+ projects" },
+  { title: "Healthcare", icon: Heart, color: "#2952cc", stat: "40+ projects" },
+  { title: "Education", icon: GraduationCap, color: "#1a3fa0", stat: "55+ projects" },
+  { title: "Real Estate", icon: Home, color: "#2952cc", stat: "35+ projects" },
+  { title: "Finance & Banking", icon: Landmark, color: "#1a3fa0", stat: "#50+ projects" },
+  { title: "Travel & Tourism", icon: Plane, color: "#2952cc", stat: "28+ projects" },
+  { title: "Logistics", icon: Truck, color: "#1a3fa0", stat: "32+ projects" },
+  { title: "Technology", icon: Cpu, color: "#2952cc", stat: "90+ projects" },
+  { title: "Food & Restaurant", icon: Utensils, color: "#1a3fa0", stat: "22+ projects" },
+  { title: "Legal & Law", icon: Scale, color: "#2952cc", stat: "18+ projects" },
+  { title: "Agriculture", icon: Leaf, color: "#1a3fa0", stat: "15+ projects" },
+  { title: "Manufacturing", icon: Building2, color: "#2952cc", stat: "24+ projects" },
 ];
 
 /* ── Industry Card ── */
@@ -1062,7 +1102,7 @@ function IndustryCard({
               boxShadow: hovered ? "0 0 0 3px rgba(232,160,32,0.2)" : "none",
             }}
           />
-         
+
         </div>
       </div>
     </motion.div>
@@ -1090,7 +1130,7 @@ export function IndustriesSection() {
         backgroundSize: "48px 48px",
       }}
     >
-     
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* ── Header ── */}
@@ -1138,7 +1178,7 @@ export function IndustriesSection() {
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-white
                              border border-[#1a3fa0]/12 shadow-sm">
                   <span className="font-extrabold text-base text-[#0f2a6b]"
-                        style={{ fontFamily: "Syne, sans-serif" }}>{s.v}</span>
+                    style={{ fontFamily: "Syne, sans-serif" }}>{s.v}</span>
                   <span className="text-xs font-medium text-[#9aa3bf]">{s.l}</span>
                 </div>
               ))}
@@ -1166,7 +1206,7 @@ export function IndustriesSection() {
           style={{ background: "linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.05))" }}>
           <div>
             <p className="font-bold text-[#0f2a6b] text-sm mb-0.5"
-               style={{ fontFamily: "Syne, sans-serif" }}>
+              style={{ fontFamily: "Syne, sans-serif" }}>
               Don't see your industry?
             </p>
             <p className="text-xs text-[#6b7a9e]">

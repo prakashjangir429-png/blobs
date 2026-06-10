@@ -1,178 +1,249 @@
-'use client'
+import Home from "@/components/pages/homepage";
+import type { Metadata } from "next";
 
-import { Navigation } from '@/components/Navigation'
-import { Footer } from '@/components/Footer'
-import { Hero } from '@/components/sections/Hero'
-import { Stats } from '@/components/sections/Stats'
-import { Testimonials } from '@/components/sections/Testimonials'
-import { CTA } from '@/components/sections/CTA'
-import { ServiceCard } from '@/components/sections/ServiceCard'
-import { PortfolioCard } from '@/components/sections/PortfolioCard'
-import { BlogCard } from '@/components/sections/BlogCard'
-import { services } from '@/data/services'
-import { portfolioProjects } from '@/data/portfolio'
-import { blogPosts } from '@/data/blog'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import TrueValueSection, { HireDevelopersSection, IndustriesSection, ServicesSection } from '@/components/sections/aboutus'
-import { AppWindowIcon, Cog, PhoneIcon } from 'lucide-react'
-import {
-  Car, DollarSign, Settings, GraduationCap, PartyPopper,
-  ShoppingCart,
-  UtensilsCrossed,
-  Sprout,
-  Monitor,
-  Dumbbell,
-  Heart,
-  Activity,
-  Film,
-  Plane,
-  Truck,
-  Briefcase
-} from 'lucide-react'
-import TopScorers from '@/components/tesmonials'
+export const metadata: Metadata = {
+  title: "Best Web Development & Digital Marketing Company in Jaipur | Digitonix",
 
+  description:
+    "Digitonix is a leading IT company in Jaipur offering Web Development, Mobile App Development, SEO, Digital Marketing, UI/UX Design, AI Solutions and Custom Software Development across India.",
+  keywords: [
+    // Brand
+    "Digitonix",
+    "Digitonix Jaipur",
+    "Digitonix India",
 
-export const indus = [
-  { title: "Event", icon: PartyPopper },
-  { title: "Ecommerce", icon: ShoppingCart },
-  { title: "Hotel and Restaurant", icon: UtensilsCrossed },
-  { title: "Agriculture", icon: Sprout },
-  { title: "Education & eLearning", icon: Monitor },
-  { title: "Sports", icon: Activity },
-  { title: "Dating", icon: Heart },
-  { title: "Health and Fitness", icon: Dumbbell },
-  { title: "Media & Entertainment", icon: Film },
-  { title: "Travel", icon: Plane },
-  { title: "Transport", icon: Truck },
-  { title: "B2B", icon: Briefcase },
-]
-export function Indus({ title, Icon }: any) {
-  return (
-    <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.3 }}
-      className="
-        relative
-        bg-white
-        p-8
-        text-center
-        shadow-lg
-        overflow-hidden
-        group
-        cursor-pointer
-      "
-    >
-      {/* Bottom Blue Strip */}
-      <div className="absolute z-0 bottom-0 left-0 w-full h-1 group-hover:-z-1 group-hover:h-full bg-[#FD5D07] transition-all duration-300 group-hover:h-2" />
+    // Web Development
+    "Web Development Company",
+    "Web Development Company Jaipur",
+    "Web Development Company India",
+    "Best Web Development Company Jaipur",
+    "Website Development Company Jaipur",
+    "Custom Website Development",
+    "Business Website Development",
+    "Corporate Website Design",
+    "Responsive Website Design",
+    "Website Design Company Jaipur",
+    "Website Design Company India",
+    "Professional Website Designer Jaipur",
+    "Website Development Services",
 
-      {/* Icon */}
-      <motion.div
-        whileHover={{ scale: 1.15 }}
-        transition={{ duration: 0.3 }}
-        className="flex justify-center mb-3"
-      >
-        <Icon size={60} className="text-gray-700 stroke-[1.3px] group-hover:text-white transition duration-300" />
-      </motion.div>
+    // Mobile Apps
+    "Mobile App Development",
+    "Mobile App Development Company Jaipur",
+    "Mobile App Development Company India",
+    "Android App Development",
+    "Android App Development Company Jaipur",
+    "iOS App Development",
+    "Flutter App Development",
+    "React Native Development",
+    "Cross Platform App Development",
+    "Custom Mobile App Development",
 
-      {/* Title */}
-      <h3 className="text-gray-700 stroke-[1.3px] group-hover:text-white text-lg font-medium">
-        {title}
-      </h3>
-    </motion.div>
-  )
-}
-export default function Home() {
+    // Software Development
+    "Software Development Company",
+    "Software Development Company Jaipur",
+    "Custom Software Development",
+    "ERP Development Company",
+    "CRM Development Services",
+    "SaaS Development Company",
+    "Enterprise Software Development",
 
+    // Digital Marketing
+    "Digital Marketing Agency Jaipur",
+    "Digital Marketing Company Jaipur",
+    "SEO Company Jaipur",
+    "Best SEO Company Jaipur",
+    "SEO Services India",
+    "Local SEO Services",
+    "Google Ads Agency",
+    "PPC Management Company",
+    "Social Media Marketing Agency",
+    "Instagram Marketing Services",
+    "Facebook Ads Agency",
+
+    // E-commerce
+    "Ecommerce Development Company",
+    "Ecommerce Website Development Jaipur",
+    "Shopify Development Company",
+    "WooCommerce Development",
+    "Online Store Development",
+    "Marketplace Development",
+
+    // Technologies
+    "React JS Development Company",
+    "Next JS Development Company",
+    "Node JS Development Company",
+    "MERN Stack Development",
+    "Full Stack Development Company",
+    "Frontend Development Services",
+    "Backend Development Services",
+
+    // UI UX
+    "UI UX Design Company",
+    "UI UX Design Services",
+    "Mobile App UI Design",
+    "Website UI Design",
+    "User Experience Design",
+
+    // Cloud & DevOps
+    "Cloud Solutions Company",
+    "AWS Consulting Services",
+    "DevOps Services Company",
+    "Cloud Migration Services",
+
+    // AI & Automation
+    "AI Development Company",
+    "Artificial Intelligence Solutions",
+    "Machine Learning Development",
+    "Chatbot Development Company",
+    "Business Automation Services",
+
+    // Cyber Security
+    "Cyber Security Services",
+    "Cyber Security Company India",
+    "Application Security Services",
+    "Network Security Solutions",
+
+    // Local SEO
+    "IT Company Jaipur",
+    "Best IT Company Jaipur",
+    "Top IT Company Jaipur",
+    "IT Services Jaipur",
+    "Software Company Jaipur",
+    "Technology Company Jaipur",
+    "Digital Agency Jaipur",
+    "Web Design Jaipur",
+    "App Development Jaipur",
+
+    // India-wide
+    "IT Company India",
+    "Software Development Company India",
+    "Web Development Agency India",
+    "Digital Marketing Company India",
+    "Technology Solutions India"
+  ],
+  authors: [{ name: "Digitonix" }],
+  creator: "Digitonix",
+  publisher: "Digitonix",
+
+  openGraph: {
+    title: "Best Web Development & Digital Marketing Company in Jaipur | Digitonix",
+
+    description:
+      "Digitonix is a leading IT company in Jaipur offering Web Development, Mobile App Development, SEO, Digital Marketing, UI/UX Design, AI Solutions and Custom Software Development across India.",
+    url: "https://www.digitonix.in",
+    siteName: "Digitonix",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://www.digitonix.in/log.png",
+        width: 1200,
+        height: 630,
+        alt: "Digitonix",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Digitonix | Web Development, Mobile App Development & Digital Marketing",
+    description:
+      "Leading IT company offering web development, mobile apps, SEO, digital marketing, AI solutions, and cloud services.",
+    images: ["https://www.digitonix.in/log.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://www.digitonix.in",
+  },
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.digitonix.in/#organization",
+      name: "Digitonix",
+      url: "https://www.digitonix.in",
+      logo: "https://www.digitonix.in/log.png",
+      description:
+        "Digitonix is a leading IT company in Jaipur offering Web Development, Mobile App Development, SEO, Digital Marketing, AI Solutions and Custom Software Development.",
+      email: "info@digitonix.in",
+      sameAs: [
+        "https://www.facebook.com/",
+        "https://www.instagram.com/",
+        "https://www.linkedin.com/company/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.digitonix.in/#service",
+      name: "Digitonix",
+      image: "https://www.digitonix.in/log.png",
+      url: "https://www.digitonix.in",
+      telephone: "+91-9887120429",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Jaipur",
+        addressRegion: "Rajasthan",
+        addressCountry: "IN"
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "India"
+      },
+      serviceType: [
+        "Web Development",
+        "Mobile App Development",
+        "Digital Marketing",
+        "SEO Services",
+        "UI UX Design",
+        "Software Development",
+        "Cloud Solutions",
+        "AI Development"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.digitonix.in/#website",
+      url: "https://www.digitonix.in",
+      name: "Digitonix",
+      publisher: {
+        "@id": "https://www.digitonix.in/#organization"
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://www.digitonix.in/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+};
+
+export default function HomePage() {
   return (
     <>
-
-      <div className="relative min-h-screen">
-        {/* <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          className="
-    fixed z-1 bottom-[10vh] left-0 opacity-25
-    w-[100vw] h-[200vw] max-w-full rounded-full
-    bg-[radial-gradient(circle_at_center,_rgba(255,0,0,0.7)_0%,_rgba(255,127,0,0.7)_14%,_rgba(255,255,0,0.7)_28%,_rgba(0,255,0,0.7)_52%,_rgba(0,0,255,0.7)_76%,_rgba(75,0,130,0.7)_70%,_rgba(148,0,211,0.7)_85%)]
-    blur-3xl
-  "
-        /> */}
-
-        {/* Hero Section */}
-        <Hero
-          title="Transform Your Business with Digital Excellence"
-          subtitle="Digital Agency"
-          description="Unlock your business potential with our comprehensive IT services, digital marketing strategies, and stunning graphic design solutions."
-          ctaText="Start Your Project"
-          ctaLink="/services"
-          secondaryCta={{ text: 'Watch Demo', link: '#' }}
-        />
-        <TrueValueSection />
-        {/* Services Section */}
-
-        <ServicesSection />
-        <HireDevelopersSection />
-        <IndustriesSection />
-
-
-        <TopScorers />
-
-        {/* Blog Preview Section */}
-        <section className="py-16">
-          <div className="max-w-7xl relative z-1 mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div className="mb-16">
-              <motion.h2
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-                className="text-3xl sm:text-[2.6rem] font-extrabold text-[#0f2a6b] leading-tight mb-3"
-              >
-                <span className="text-[#e8a020]">Digitonix</span> Blogs
-
-              </motion.h2>
-
-              {/* Gold divider */}
-              <motion.div
-                transition={{ duration: 0.5, delay: 0.12, transformOrigin: "left" }}
-                className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-4 origin-left"
-              />
-
-              <motion.p
-                transition={{ duration: 0.5, delay: 0.14 }}
-                className="text-[#4a5578] text-base sm:text-lg font-light max-w-lg"
-              >
-                We stay on top of our industry by being experts in yours.
-
-              </motion.p>
-
-            </div>
-            {/* Blog Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              {blogPosts.slice(0, 3).map((post, index) => (
-                <BlogCard
-                  key={post.id}
-                  title={post.title}
-                  excerpt={post.excerpt}
-                  image={post.image}
-                  category={post.category}
-                  date={post.date}
-                  readTime={post.readTime}
-                  slug={post.slug}
-                  index={index}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <CTA
-          title="Ready to Transform Your Business?"
-          description="Let's work together to bring your vision to life. Our team is ready to help you succeed in the digital world."
-          ctaText="Start Your Journey"
-          ctaLink="/contact"
-        />
-
-      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+      <Home />
     </>
-  )
+  );
 }
