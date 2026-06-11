@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useRef } from 'react'
-import { 
-  Code2, Globe, Laptop, Box, Palette, ShoppingBag, 
-  Smartphone, Monitor, Apple, Megaphone, Search, 
-  Target, Share2, Mail, PenTool, Video, Camera, Award, 
-  ArrowRight, CheckCircle, Zap, TrendingUp, Users, 
+import {
+  Code2, Globe, Laptop, Box, Palette, ShoppingBag,
+  Smartphone, Monitor, Apple, Megaphone, Search,
+  Target, Share2, Mail, PenTool, Video, Camera, Award,
+  ArrowRight, CheckCircle, Zap, TrendingUp, Users,
   ChevronRight, X, Play, BarChart3, Layers, Cpu,
   Sparkles, ShieldCheck, Clock, MessageSquare,
   Phone
@@ -17,7 +17,7 @@ import { Hero } from '@/components/sections/Hero'
 import { CTA } from '@/components/sections/CTA'
 import { BlogCard } from '@/components/sections/BlogCard'
 import TopScorers from '@/components/tesmonials'
-import { Indus, indus } from '../page'
+// import { Indus, indus } from '../page'
 import { blogPosts } from '@/data/blog'
 
 // --- Detailed Service Data (JSON Structure) ---
@@ -213,7 +213,7 @@ function ServiceDetailModal({ service, category, onClose }: { service: any, cate
         onClick={(e) => e.stopPropagation()}
         className="bg-white rounded-3xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl relative"
       >
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-4 right-4 z-10 p-2 bg-white/80 backdrop-blur rounded-full hover:bg-gray-100 transition-colors"
         >
@@ -306,8 +306,8 @@ export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState<any>(null)
   const [selectedCategoryData, setSelectedCategoryData] = useState<any>(null)
 
-  const filteredCategories = activeCategory === 'all' 
-    ? serviceCategories 
+  const filteredCategories = activeCategory === 'all'
+    ? serviceCategories
     : serviceCategories.filter(cat => cat.id === activeCategory)
 
   return (
@@ -330,16 +330,15 @@ export default function ServicesPage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
               From custom software development to data-driven marketing, we provide end-to-end digital services to help your business thrive in the modern economy.
             </p>
-            
+
             {/* Category Filter */}
             <div className="flex flex-wrap justify-center gap-3">
               <button
                 onClick={() => setActiveCategory('all')}
-                className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 ${
-                  activeCategory === 'all' 
-                    ? 'bg-gray-900 text-white shadow-lg scale-105' 
+                className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 ${activeCategory === 'all'
+                    ? 'bg-gray-900 text-white shadow-lg scale-105'
                     : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-400'
-                }`}
+                  }`}
               >
                 All Services
               </button>
@@ -347,11 +346,10 @@ export default function ServicesPage() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
-                    activeCategory === cat.id
+                  className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${activeCategory === cat.id
                       ? 'bg-gray-900 text-white shadow-lg scale-105'
                       : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-400'
-                  }`}
+                    }`}
                 >
                   <cat.icon size={18} />
                   {cat.title}
@@ -374,7 +372,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.3 }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {filteredCategories.flatMap((category) => 
+              {filteredCategories.flatMap((category) =>
                 category.services.map((service, idx) => (
                   <motion.div
                     key={service.slug}
@@ -391,11 +389,11 @@ export default function ServicesPage() {
                   >
                     {/* Card Image */}
                     <div className="relative h-48 overflow-hidden">
-                      <Image 
-                        src={service.image} 
-                        alt={service.title} 
-                        fill 
-                        className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                       <div className="absolute bottom-4 left-4 text-white">
@@ -407,7 +405,7 @@ export default function ServicesPage() {
                     {/* Card Content */}
                     <div className="p-6 flex-1 flex flex-col">
                       <p className="text-gray-600 mb-6 line-clamp-2">{service.shortDesc}</p>
-                      
+
                       <div className="mt-auto flex items-center justify-between">
                         <div className="flex gap-2">
                           {service.techStack.slice(0, 3).map((tech: string, i: number) => (
@@ -439,7 +437,7 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">Why Partner With Us?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">We don't just deliver projects; we deliver business outcomes.</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: Zap, title: 'Agile Delivery', desc: 'Fast iterations and quick time-to-market.' },
@@ -466,60 +464,60 @@ export default function ServicesPage() {
         </div>
       </section>
 
-              <section className="py-18">
-                <div className="max-w-7xl relative z-1 mx-auto px-6">
-      
-                  {/* Heading */}
-                  <div className="mb-16">
-                    <h2 className="text-4xl lg:text-[2.5rem] font-semibold text-gray-800 mb-3">
-                      <span className="text-[#FD5D07]">Digitonix</span> Serve All Industries
-                    </h2>
-                    <p className="text-gray-700 font-medium text-lg">
-                      We stay on top of our industry by being experts in yours.
-                    </p>
-                  </div>
-      
-                  {/* Cards Grid */}
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {indus.map((item, index) => (
-                      <Indus key={index} title={item.title} Icon={item.icon} />
-                    ))}
-                  </div>
-      
-                </div>
-              </section>
-              <TopScorers />
-      
-              {/* Blog Preview Section */}
-              <section className="py-16">
-                <div className="max-w-7xl relative z-1 mx-auto px-4 sm:px-6 lg:px-8">
-      
-                  <div className="mb-16">
-                    <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-3">
-                      <span className="text-[#FD5D07]">Digitonix</span> Blogs
-                    </h2>
-                    <p className="text-gray-700 font-medium text-lg">
-                      We stay on top of our industry by being experts in yours.
-                    </p>
-                  </div>
-                  {/* Blog Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {blogPosts.slice(0, 3).map((post, index) => (
-                      <BlogCard
-                        key={post.id}
-                        title={post.title}
-                        excerpt={post.excerpt}
-                        image={post.image}
-                        category={post.category}
-                        date={post.date}
-                        readTime={post.readTime}
-                        slug={post.slug}
-                        index={index}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </section>
+      <section className="py-18">
+        <div className="max-w-7xl relative z-1 mx-auto px-6">
+
+          {/* Heading */}
+          <div className="mb-16">
+            <h2 className="text-4xl lg:text-[2.5rem] font-semibold text-gray-800 mb-3">
+              <span className="text-[#FD5D07]">Digitonix</span> Serve All Industries
+            </h2>
+            <p className="text-gray-700 font-medium text-lg">
+              We stay on top of our industry by being experts in yours.
+            </p>
+          </div>
+
+          {/* Cards Grid */}
+          {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {indus.map((item, index) => (
+              <Indus key={index} title={item.title} Icon={item.icon} />
+            ))}
+          </div> */}
+
+        </div>
+      </section>
+      <TopScorers />
+
+      {/* Blog Preview Section */}
+      <section className="py-16">
+        <div className="max-w-7xl relative z-1 mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="mb-16">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-3">
+              <span className="text-[#FD5D07]">Digitonix</span> Blogs
+            </h2>
+            <p className="text-gray-700 font-medium text-lg">
+              We stay on top of our industry by being experts in yours.
+            </p>
+          </div>
+          {/* Blog Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {blogPosts.slice(0, 3).map((post, index) => (
+              <BlogCard
+                key={post.id}
+                title={post.title}
+                excerpt={post.excerpt}
+                image={post.image}
+                category={post.category}
+                date={post.date}
+                readTime={post.readTime}
+                slug={post.slug}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* --- CTA Section --- */}
       <CTA
@@ -532,10 +530,10 @@ export default function ServicesPage() {
       {/* --- Detail Modal --- */}
       <AnimatePresence>
         {selectedService && (
-          <ServiceDetailModal 
-            service={selectedService} 
+          <ServiceDetailModal
+            service={selectedService}
             category={selectedCategoryData}
-            onClose={() => setSelectedService(null)} 
+            onClose={() => setSelectedService(null)}
           />
         )}
       </AnimatePresence>
