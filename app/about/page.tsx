@@ -291,19 +291,47 @@ const staggerContainer = {
   }
 }
 
+const aboutSlides = [
+  {
+    tag: 'Who We Are',
+    title: ['Trusted Technology', 'Partner For Growth'],
+    accent: 0,
+    description:
+      'Digitonix delivers innovative web, mobile, and software solutions that help businesses stay competitive in a rapidly evolving digital world.',
+    icon: Sparkles,
+            image: '/home/b1.png',
+
+    stat: { value: '250+', label: 'Projects Delivered' },
+  },
+
+  {
+    tag: 'Why Choose Us',
+    title: ['Innovation Meets', 'Business Strategy'],
+    accent: 0,
+    description:
+      'Our team combines technical excellence with business understanding to create solutions that generate value, improve efficiency, and drive growth.',
+    icon: Zap,
+    image: '/home/b2.png',
+    stat: { value: '98%', label: 'Client Retention' },
+  },
+
+  {
+    tag: 'Our Commitment',
+    title: ['Long-Term Partnerships', 'Built On Trust'],
+    accent: 0,
+    description:
+      'We focus on building lasting relationships through transparency, quality, and a commitment to delivering exceptional results for every client.',
+    icon: Shield,
+    image: '/home/b3.png',
+    stat: { value: '24/7', label: 'Support Available' },
+  },
+];
 
 export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Hero
-        title="Transform Your Business with Digital Excellence"
-        subtitle="Digital Agency"
-        description="Unlock your business potential with our comprehensive IT services, digital marketing strategies, and stunning graphic design solutions."
-        ctaText="Start Your Project"
-        ctaLink="/services"
-        secondaryCta={{ text: 'Watch Demo', link: '#' }}
-      />
+      <Hero  slides={aboutSlides} />
 
       <Stats stats={statsData} />
 
@@ -719,7 +747,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-<TopScorers />
+      <TopScorers />
       {/* --- CTA Section with Parallax --- */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
