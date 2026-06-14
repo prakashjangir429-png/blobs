@@ -98,7 +98,7 @@ export function Hero({ slides }) {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <h1 className="font-semibold text-[clamp(2.2rem,8vw,2.6rem)] text-[#0f2a6b]">
+                    <h1 className="font-semibold text-[clamp(2rem,8vw,2.6rem)] text-[#0f2a6b]">
                       {slide.title.map((line, i) => (
                         <span key={i} className={`mr-3 ${i === slide.accent ? 'gold-word' : ''}`}>
                           {line}

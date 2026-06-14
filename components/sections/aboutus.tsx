@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { ArrowUpRight, CheckCircle2, Award, Users, Briefcase, Clock } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Award, Users, Briefcase, Clock, ArrowRight } from "lucide-react";
 
 /* ── Animated Counter ── */
 function Counter({ target, suffix }: { target: number; suffix: string }) {
@@ -59,19 +59,19 @@ const cards = [
   {
     title: "Web Development",
     sub: "Custom websites, portals & web applications",
-    image: "/images/services/web-development.png",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA-9UlC-tj8dg9suAlG7cuWJe7a-u0086kfx822uYDag&s=10",
     href: "/services/web-development",
   },
   {
     title: "Mobile App Development",
     sub: "Android, iOS & cross-platform solutions",
-    image: "/images/services/mobile-app.png",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrbBRbG_j00SixYDMryAAiUXaAMGgi9ruJ7DsSI86GyMj4cv-BW9yDnW-b&s=10",
     href: "/services/mobile-app-development",
   },
   {
     title: "Digital Marketing",
     sub: "SEO, PPC, social media & lead generation",
-    image: "/images/services/digital-marketing.png",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe8hiXPsxzrl2uhrBpwG2HN7uqnzevnic2aYkVo4qR4g&s=10",
     href: "/services/digital-marketing",
   },
 ];
@@ -339,8 +339,8 @@ const TrueValueSection = () => {
                 variants={{ initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="">
-                  <Icon size={20} style={{ color: '#1a3fa0' }} className="w-14 h-14 stroke-1 " />
+                <div className="sm:block hidden">
+                  <Icon size={20} style={{ color: '#1a3fa0' }} className="w-14 h-11 stroke-1 " />
                 </div>
                 <div className="stat-number" style={{ background: 'linear-gradient(135deg, #0f2a6b, #2952cc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   <Counter target={number} suffix={suffix} />
@@ -373,74 +373,98 @@ const TrueValueSection = () => {
 export default TrueValueSection;
 
 
-
-import Image from "next/image";
 import {
   Star, Code2, Smartphone, Megaphone,
-  Palette, Shield, Cloud, ChevronRight, BadgeCheck
+  Palette, Shield, Cloud, ChevronRight,
+  BadgeCheck, Bot,
+  LayoutTemplate, TrendingUp, Zap,
 } from "lucide-react";
+import {
+  User, Phone, Mail, MessageSquare, ChevronDown, ShieldCheck
+} from 'lucide-react';
 
-/* ── Sample services (replace with your real `services` array) ── */
+// ... inside your RIGHT — Trust / Ratings card
+/* ─────────────────────────────────────────────
+   SERVICES  — SEO-optimised titles + copy
+───────────────────────────────────────────── */
 const services = [
   {
-    id: 1, slug: "web-design",
-    icon: <Code2 size={22} />,
+    id: 1, slug: "web-development",
+    icon: <Code2 size={20} />,
     title: "Web Development",
-    shortDescription: "Modern, responsive websites built for performance and conversions.",
-    features: ["Next.js / React", "CMS Integration", "SEO Ready"],
+    shortDescription:
+      "Custom Next.js & React websites built for speed, SEO rankings, and measurable conversions.",
+    features: ["Next.js / React / Node.js", "Core Web Vitals Optimised", "SEO-Ready Architecture"],
+    tag: "Most Popular",
   },
   {
-    id: 2, slug: "mobile",
-    icon: <Smartphone size={22} />,
-    title: "Mobile Apps",
-    shortDescription: "Cross-platform iOS & Android apps that users love.",
-    features: ["React Native", "Flutter", "App Store Deployment"],
+    id: 2, slug: "mobile-app-development",
+    icon: <Smartphone size={20} />,
+    title: "Mobile App Development",
+    shortDescription:
+      "iOS & Android apps crafted with Flutter and React Native — loved by users, rated 4.8+.",
+    features: ["Flutter & React Native", "App Store / Play Store", "Offline-First Design"],
+    tag: null,
   },
   {
-    id: 3, slug: "seo",
-    icon: <Megaphone size={22} />,
-    title: "Digital Marketing",
-    shortDescription: "Data-driven strategies to grow your reach and revenue.",
-    features: ["SEO & PPC", "Social Media", "Email Campaigns"],
+    id: 3, slug: "digital-marketing",
+    icon: <Megaphone size={20} />,
+    title: "Digital Marketing & SEO",
+    shortDescription:
+      "Data-driven SEO, PPC, and social campaigns that increase organic traffic and lower CAC.",
+    features: ["Technical SEO & Link Building", "Google Ads & Meta PPC", "Conversion Rate Optimisation"],
+    tag: "High ROI",
   },
   {
-    id: 4, slug: "branding",
-    icon: <Palette size={22} />,
+    id: 4, slug: "ui-ux-design",
+    icon: <Palette size={20} />,
     title: "UI/UX & Branding",
-    shortDescription: "Memorable identities and interfaces that convert visitors.",
-    features: ["Logo Design", "Design Systems", "Prototyping"],
+    shortDescription:
+      "Research-backed design systems and brand identities that build trust and drive engagement.",
+    features: ["Figma Prototyping", "Design Systems", "Brand Identity & Logo"],
+    tag: null,
   },
   {
-    id: 5, slug: "cloud",
-    icon: <Cloud size={22} />,
+    id: 5, slug: "ai-solutions",
+    icon: <Bot size={20} />,
+    title: "AI & Automation",
+    shortDescription:
+      "Custom AI integrations, LLM-powered tools, and workflow automation that slash operational costs.",
+    features: ["LLM & ChatGPT Integration", "Process Automation", "Predictive Analytics"],
+    tag: "Trending",
+  },
+  {
+    id: 6, slug: "cloud-devops",
+    icon: <Cloud size={20} />,
     title: "Cloud & DevOps",
-    shortDescription: "Scalable infrastructure and CI/CD pipelines for your product.",
-    features: ["AWS / Azure", "Docker & K8s", "24/7 Monitoring"],
-  },
-  {
-    id: 6, slug: "security",
-    icon: <Shield size={22} />,
-    title: "Cyber Security",
-    shortDescription: "Protect your assets with enterprise-grade security solutions.",
-    features: ["Pen Testing", "Compliance", "Threat Analysis"],
+    shortDescription:
+      "Scalable AWS / Azure infrastructure with CI/CD pipelines, 99.9% uptime SLA, and 24/7 monitoring.",
+    features: ["AWS / Azure / GCP", "Docker & Kubernetes", "24/7 Proactive Monitoring"],
+    tag: null,
   },
   {
     id: 7, slug: "ecommerce",
-    icon: <Code2 size={22} />,
-    title: "E-Commerce",
-    shortDescription: "High-converting stores on Shopify, WooCommerce or custom stacks.",
-    features: ["Payment Gateway", "Inventory Mgmt", "Analytics"],
+    icon: <ShoppingCart size={20} />,
+    title: "E-Commerce Development",
+    shortDescription:
+      "High-converting Shopify, WooCommerce and headless stores with seamless payment integrations.",
+    features: ["Shopify & WooCommerce", "Multi-Currency Payments", "Inventory & Analytics"],
+    tag: null,
   },
   {
-    id: 8, slug: "cms",
-    icon: <Code2 size={22} />,
-    title: "CMS Development",
-    shortDescription: "Empower your team to manage content effortlessly.",
-    features: ["WordPress", "Strapi / Sanity", "Headless CMS"],
+    id: 8, slug: "cyber-security",
+    icon: <Shield size={20} />,
+    title: "Cyber Security",
+    shortDescription:
+      "Enterprise-grade security audits, pen testing, and compliance frameworks to protect your assets.",
+    features: ["Penetration Testing", "ISO 27001 Compliance", "Threat Monitoring & SOC"],
+    tag: null,
   },
 ];
 
-/* ── Rating platforms ── */
+/* ─────────────────────────────────────────────
+   RATING PLATFORMS
+───────────────────────────────────────────── */
 const ratings = [
   {
     logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
@@ -468,79 +492,140 @@ const ratings = [
   },
 ];
 
-/* ── Service Card ── */
+/* ─────────────────────────────────────────────
+   STAT ITEMS
+───────────────────────────────────────────── */
+const statsss = [
+  { icon: <TrendingUp size={16} />, value: "500+", label: "Projects Delivered" },
+  { icon: <Users size={16} />, value: "200+", label: "Happy Clients" },
+  { icon: <Zap size={16} />, value: "12+", label: "Years of Expertise" },
+  { icon: <CheckCircle2 size={16} />, value: "98%", label: "Client Satisfaction" },
+];
+
+/* ─────────────────────────────────────────────
+   SERVICE CARD
+───────────────────────────────────────────── */
 function ServiceCard({
-  icon, title, shortDescription, features, slug, index,
+  icon, title, shortDescription, features, slug, tag, index,
 }: {
-  icon: React.ReactNode; title: string; shortDescription: string;
-  features: string[]; slug: string; index: number;
+  icon: React.ReactNode;
+  title: string;
+  shortDescription: string;
+  features: string[];
+  slug: string;
+  tag: string | null;
+  index: number;
 }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.a
-      href={`/services/${slug}`}
+      href={`/services`}
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: (index % 4) * 0.1 }}
-      className="group relative bg-white rounded-2xl p-6 border border-blue-100
-                 shadow-sm hover:shadow-xl hover:-translate-y-1.5
-                 transition-all duration-300 flex flex-col overflow-hidden"
+      className="group relative overflow-hidden rounded-2xl
+             border border-slate-200/70 bg-white
+             hover:border-[#1a3fa0]/20
+             shadow-sm hover:shadow-xl
+             transition-all duration-300
+             hover:-translate-y-1.5"
     >
-      {/* Top accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1a3fa0] to-[#e8a020]
-                      scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-t-2xl" />
 
-      {/* Icon */}
-      <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4
-                      bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/5
-                      text-[#1a3fa0] group-hover:bg-gradient-to-br
-                      group-hover:from-[#1a3fa0] group-hover:to-[#2952cc]
-                      group-hover:text-white transition-all duration-300">
+      {tag && (
+        <div className="absolute top-0 -right-1">
+          <span
+            className="text-xs  uppercase tracking-wider
+                   px-2 py-1 rounded-bl-xl
+                   bg-[#0f2a6b] text-white px-4
+                   border border-[#1a3fa0]/10"
+          >
+            {tag}
+          </span>
+        </div>
+      )}
+      <div
+        className="w-12 top-7 left-0 py-3 absolute shadow rounded-r-xl flex items-center justify-center
+                   bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/5
+                   text-[#1a3fa0]
+                   group-hover:from-[#1a3fa0]
+                   group-hover:to-[#2952cc]
+                   group-hover:text-white
+                   transition-all duration-300"
+      >
         {icon}
       </div>
 
-      {/* Title */}
-      <h3 className="font-semibold text-[#0f2a6b] text-base mb-2 leading-snug
-                     group-hover:text-[#1a3fa0] transition-colors"
-      >
-        {title}
-      </h3>
+      <div className="relative p-5 pb-3 mt-4">
+        {/* Icon + Title */}
+        <div className="flex items-start gap-3 mb-2">
 
-      {/* Description */}
-      <p className="text-[#6b7a9e] text-sm leading-relaxed mb-4 flex-1">
-        {shortDescription}
-      </p>
 
-      {/* Features */}
-      <ul className="space-y-1.5 mb-5">
-        {features.map((f) => (
-          <li key={f} className="flex items-center gap-2 text-xs font-medium text-[#3a4a72]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#e8a020] flex-shrink-0" />
-            {f}
-          </li>
-        ))}
-      </ul>
+          <div className="flex-1">
+            <h3
+              className="text-base ml-9 font-semibold mb-4 text-[#0f2a6b]
+                     leading-snug group-hover:text-[#1a3fa0]
+                     transition-colors"
+            >
+              {title}
+            </h3>
 
-      {/* Link */}
-      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1a3fa0]
-                       group-hover:text-[#e8a020] transition-colors">
-        Learn more
-        <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-      </span>
+            <p className="text-sm text-slate-600 mt-1 line-clamp-3">
+              {shortDescription}
+            </p>
+          </div>
+        </div>
+
+        {/* Features */}
+        <div className="space-y-2">
+          {features.slice(0, 3).map((feature) => (
+            <div key={feature} className="flex items-center gap-1">
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-300
+                     group-hover:translate-x-0.5
+                     group-hover:-translate-y-0.5"
+              />
+              <span className="text-sm text-slate-600 font-medium">
+                {feature}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="pt-3">
+          <div
+            className="inline-flex items-center gap-2
+                   px-3 py-2 rounded-xl
+                   bg-slate-50 group-hover:bg-[#1a3fa0]
+                   text-[#1a3fa0] group-hover:text-white
+                   text-[12px] font-semibold
+                   transition-all duration-300"
+          >
+            Explore Service
+
+            <ArrowUpRight
+              size={14}
+              className="transition-transform duration-300
+                     group-hover:translate-x-0.5
+                     group-hover:-translate-y-0.5"
+            />
+          </div>
+        </div>
+      </div>
     </motion.a>
   );
 }
 
-/* ── Main Section ── */
+/* ─────────────────────────────────────────────
+   MAIN SECTION
+───────────────────────────────────────────── */
 export function ServicesSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 24 },
+    initial: { opacity: 0, y: 22 },
     animate: inView ? { opacity: 1, y: 0 } : {},
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
   });
@@ -548,155 +633,252 @@ export function ServicesSection() {
   return (
     <section
       ref={ref}
-      className="w-full bg-[#f8f9fc] py-12 overflow-hidden relative"
+      id="services"
+      aria-labelledby="services-heading"
+      className="w-full bg-[#f4f6fb] py-16 md:py-20 overflow-hidden relative"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(26,63,160,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(26,63,160,0.035) 1px, transparent 1px)",
-        backgroundSize: "48px 48px",
+          "radial-gradient(circle at 20% 50%, rgba(26,63,160,0.04) 0%, transparent 60%)," +
+          "radial-gradient(circle at 80% 20%, rgba(232,160,32,0.06) 0%, transparent 50%)",
       }}
     >
-      {/* Orbs */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none opacity-60"
-        style={{ background: "radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%)", filter: "blur(50px)" }} />
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full pointer-events-none opacity-60"
-        style={{ background: "radial-gradient(circle, rgba(26,63,160,0.1) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(26,63,160,0.03) 1px, transparent 1px)," +
+            "linear-gradient(90deg, rgba(26,63,160,0.03) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
-        {/* ── TOP GRID: Left content + Right trust card ── */}
-        <div className="grid lg:grid-cols-5 gap-10 items-start mb-16">
+        {/* ── TOP LAYOUT: Left copy + Right trust card ── */}
+        <div className="grid lg:grid-cols-5 gap-10 xl:gap-16 items-start mb-16">
 
           {/* LEFT */}
-          <div className="lg:col-span-3">
-            {/* Tag */}
-            <motion.div {...fadeUp(0)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white
-                         border border-[#1a3fa0]/15 shadow-sm mb-6">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#1a3fa0]">
-                Our Services
+          <div className="lg:col-span-3 space-y-6">
+
+            {/* Eyebrow */}
+            <motion.div {...fadeUp(0)}>
+              <span
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                           bg-white border border-[#1a3fa0]/15 shadow-sm"
+              >
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1a3fa0]">
+                  Our Services
+                </span>
               </span>
             </motion.div>
 
-            {/* Headline */}
-            <motion.h2 {...fadeUp(0.08)}
-              className="text-3xl sm:text-[2.6rem] font-semibold text-[#0f2a6b] leading-tight mb-5"
+            {/* H2 — SEO keyword-rich */}
+            <motion.h2
+              {...fadeUp(0.07)}
+              id="services-heading"
+              className="text-3xl sm:text-4xl xl:text-[2.4rem] font-semibold text-[#0f2a6b] leading-[1.18]"
             >
-              <span className="text-[#e8a020]">Top Web</span> & Software<br />
-              Development Company
-              <span className="text-[#1a3fa0]"> in India</span>
+              Leading{" "}
+              <span className="text-[#e8a020]">Web &amp; Software</span>
+              <br />
+              Development Company{" "}
+              <span
+                className="relative whitespace-nowrap"
+                style={{
+                  background: "linear-gradient(90deg, #1a3fa0, #2952cc)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                in India
+              </span>
             </motion.h2>
-
-            {/* Gold divider */}
-            <motion.div {...fadeUp(0.12)}
-              className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-5" />
-
-            {/* Description */}
-            <motion.p {...fadeUp(0.16)}
-              className="text-[#4a5578] text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-              Digitonix has offered{" "}
-              <span className="font-semibold text-[#0f2a6b]">mobile app development</span>{" "}
-              and website development services since 2011. With a strong portfolio of{" "}
-              <span className="font-semibold text-[#0f2a6b]">500+ projects</span>, our
-              developers deliver high-quality, tailor-made products for iOS, Android and web.
+            {/* Description — keyword-dense for SEO */}
+            <motion.p
+              {...fadeUp(0.15)}
+              className="text-[#4a5578] text-base sm:text-lg leading-relaxed max-w-2xl font-light"
+            >
+              Digitonix is a trusted{" "}
+              <strong className="font-semibold text-[#0f2a6b]">
+                web development and mobile app development company in Jaipur
+              </strong>
+              , serving startups and enterprises across India since 2011. With{" "}
+              <strong className="font-semibold text-[#0f2a6b]">500+ delivered projects</strong> and
+              a 98% satisfaction rate, we build scalable, SEO-ready digital products that grow your
+              business.
             </motion.p>
 
-            {/* Quick trust pills */}
-            <motion.div {...fadeUp(0.2)} className="flex flex-wrap gap-2 mt-6">
-              {["ISO Certified", "500+ Projects", "12+ Years", "24/7 Support"].map((t) => (
-                <span key={t}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white
-                             border border-[#1a3fa0]/12 text-xs font-semibold text-[#1a3fa0] shadow-sm">
-                  <BadgeCheck size={12} className="text-[#e8a020]" />
-                  {t}
-                </span>
+            {/* Stats row */}
+            <motion.div {...fadeUp(0.19)} className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+              {statsss.map((s) => (
+                <div
+                  key={s.label}
+                  className="bg-white rounded-xl px-4 py-3 border border-[#1a3fa0]/10
+                             shadow-sm text-center"
+                >
+                  <div className="flex items-center justify-center gap-1.5 text-[#e8a020] mb-1">
+
+                    <span className="text-lg font-bold text-[#0f2a6b]">{s.value}</span>
+                  </div>
+                  <p className="text-[11px] font-medium text-[#9aa3bf] leading-tight">{s.label}</p>
+                </div>
               ))}
             </motion.div>
+
+            {/* Trust pills */}
+            <motion.div {...fadeUp(0.22)} className="flex flex-wrap gap-2">
+              {["ISO 9001:2015 Certified", "NASSCOM Member", "Google Partner", "24/7 Support"].map(
+                (t) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
+                               bg-white border border-[#1a3fa0]/12 text-[11px] font-semibold
+                               text-[#1a3fa0]"
+                  >
+                    <BadgeCheck size={11} className="text-[#e8a020]" />
+                    {t}
+                  </span>
+                )
+              )}
+            </motion.div>
           </div>
-
-          {/* RIGHT: Trust Card */}
-          <motion.div {...fadeUp(0.15)}
-            className="lg:col-span-2 bg-white rounded-2xl shadow-lg border border-[#1a3fa0]/08 overflow-hidden">
-
-            {/* Card header */}
-            <div className="px-6 py-4 bg-gradient-to-r from-[#0f2a6b] to-[#1a3fa0]">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#f0b832] mb-0.5">
-                Recognition
-              </p>
-              <h3 className="text-white font-semibold text-lg">
-                Trusted By Top Companies
-              </h3>
+          <motion.div
+            {...fadeUp(0.12)}
+            className="lg:col-span-2 relative bg-white rounded-[18px] border border-slate-400 shadow-sm overflow-hidden"
+          >
+            {/* Corner Badge */}
+            <div className="absolute top-0 right-0 bg-[#0f2a6b] text-white px-5 py-2.5 rounded-bl-[28px]  text-sm z-10">
+              Free Consultation
             </div>
 
-            {/* Ratings grid */}
             <div className="p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9aa3bf] mb-4">
-                Ratings & Reviews
-              </p>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                {ratings.map((r) => (
-                  <div key={r.platform}
-                    className="flex flex-col gap-2 p-3 rounded-xl border border-[#1a3fa0]/08
-                               bg-[#f8f9fc] hover:border-[#1a3fa0]/20 transition-colors">
-                    <div className="h-5 flex items-center">
-                      <img src={r.logo} alt={r.platform} className="h-full w-auto object-contain max-w-[100px]" />
-                    </div>
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={16} className="fill-[#e8a020] text-[#e8a020]" />
-                      ))}
-                      <span className="text-[16px] font-semibold text-[#0f2a6b] ml-1">{r.score}</span>
-                    </div>
-                    <span className="text-[13px] text-[#9aa3bf] font-medium">{r.reviews}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Certifications */}
-              <div className=" pt-3">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9aa3bf] mb-4">
-                  Certifications
+              {/* Heading */}
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-[#c62828]">
+                  Contact Now
+                </h3>
+                <p className="text-slate-500 text-sm font-medium">
+                  Please provide your project information
                 </p>
-                <div className="flex items-center justify-around">
-                  {/* ISO badge */}
-                  {[1, 2].map((i) => (
-                    <div key={i}
-                      className="flex flex-col items-center gap-2 p-3 px-10 rounded-xl bg-gradient-to-br
-                                 from-[#1a3fa0]/06 to-[#e8a020]/06 border border-[#1a3fa0]/10">
-
-                      <BadgeCheck size={30} className="text-blue-800 stroke-[1.4px]" />
-                      <span className="text-[10px] font-semibold text-[#0f2a6b] text-center leading-tight">
-                        ISO 9001<br />2015
-                      </span>
-                    </div>
-                  ))}
-                  <div className="flex flex-col items-center gap-2 p-3 px-10 rounded-xl bg-gradient-to-br
-                                  from-[#e8a020]/08 to-[#f0b832]/06 border border-[#e8a020]/20">
-
-                    <Star size={30} className="text-blue-800 stroke-[1.4px]" />
-                    <span className="text-[10px] font-semibold text-[#0f2a6b] text-center leading-tight">
-                      Award<br />Winner
-                    </span>
-                  </div>
-                </div>
               </div>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+                className="space-y-4"
+              >
+                {/* Name */}
+                <div>
+                  <label className="block text-xs text-slate-700 font-medium mb-1">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-xs text-slate-700 font-medium mb-1">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
+                  />
+                </div>
+
+                {/* Phone */}
+
+
+                {/* Row */}
+                <div className="grid md:grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-xs text-slate-700 font-medium mb-1">
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="Enter your mobile number"
+                      className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-slate-700 font-medium mb-1">
+                      Service Required <span className="text-red-500">*</span>
+                    </label>
+
+                    <select
+                      className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500"
+                    >
+                      <option>Select Service</option>
+                      <option>Web Development</option>
+                      <option>Mobile App Development</option>
+                      <option>UI/UX Design</option>
+                      <option>SEO & Marketing</option>
+                      <option>Custom Software</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs text-slate-700 font-medium mb-2">
+                    Project Details
+                  </label>
+                  <textarea
+                    rows={2}
+                    placeholder="Tell us about your project requirements..."
+                    className="w-full px-5 py-2 text-sm border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 resize-none"
+                  />
+                </div>
+
+                {/* Button */}
+                <div className="">
+                  <button
+                    type="submit"
+                    className=" flex items-center rounded-xl justify-center px-10 h-10 bg-[#0f2a6b] hover:from-red-600 hover:to-red-700 text-white text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    Submit
+                  </button>
+
+                  <p className="text-center text-xs font-medium text-slate-500 mt-3">
+                    Our team will contact you within 24 hours
+                  </p>
+                </div>
+              </form>
             </div>
           </motion.div>
         </div>
 
-        {/* ── SERVICE CARDS GRID ── */}
-        <motion.div {...fadeUp(0.1)}>
-          <div className="flex items-center gap-3 mb-8">
-            <h3 className="text-[#0f2a6b] font-semibold text-xl">
-              What We Offer
-            </h3>
-            <div className="flex-1 h-px bg-gradient-to-r from-[#1a3fa0]/20 to-transparent" />
-            <a href="/services"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1a3fa0]
-                         hover:text-[#e8a020] transition-colors">
-              View all services <ChevronRight size={14} />
+        {/* ── SERVICES GRID ── */}
+        <motion.div {...fadeUp(0.08)}>
+          {/* Section header row */}
+          <div className="flex items-center gap-4 mb-8">
+            <div>
+              <h3 className="text-[#0f2a6b] font-semibold text-3xl">What We Offer</h3>
+              <p className="text-slate-600 text-sm mt-0.5">
+                End-to-end digital solutions for modern businesses
+              </p>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-r from-[#1a3fa0]/15 to-transparent" />
+            <a
+              href="/services"
+              className="inline-flex border p-2 rounded-full px-4 items-center gap-1.5 font-semibold
+                         text-[#1a3fa0] hover:text-[#e8a020] transition-colors flex-shrink-0"
+            >
+              All Services
+              <ChevronRight size={16} />
             </a>
           </div>
 
+          {/* Cards grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {services.map((svc, idx) => (
               <ServiceCard
@@ -706,12 +888,12 @@ export function ServicesSection() {
                 shortDescription={svc.shortDescription}
                 features={svc.features}
                 slug={svc.slug}
+                tag={svc.tag}
                 index={idx}
               />
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );
@@ -723,22 +905,22 @@ import Link from "next/link";
 
 /* ── Developer roles (replace / extend as needed) ── */
 const developers = [
-  { label: "React Developer", icon: <Code2 size={18} /> },
-  { label: "Next.js Developer", icon: <Globe size={18} /> },
-  { label: "Node.js Developer", icon: <Server size={18} /> },
-  { label: "Flutter Developer", icon: <Smartphone size={18} /> },
-  { label: "React Native Dev", icon: <Layers size={18} /> },
-  { label: "Python Developer", icon: <Cpu size={18} /> },
-  { label: "Laravel Developer", icon: <Code2 size={18} /> },
-  { label: "WordPress Developer", icon: <Globe size={18} /> },
-  { label: "UI/UX Designer", icon: <Palette size={18} /> },
-  { label: "DevOps Engineer", icon: <GitBranch size={18} /> },
-  { label: "AWS Cloud Architect", icon: <Cloud size={18} /> },
-  { label: "Database Engineer", icon: <Database size={18} /> },
-  { label: "iOS Developer", icon: <Smartphone size={18} /> },
-  { label: "Android Developer", icon: <Smartphone size={18} /> },
-  { label: "Cybersecurity Expert", icon: <Shield size={18} /> },
-  { label: "Data Analyst", icon: <BarChart size={18} /> },
+  { label: "React Developer", icon: <Code2 size={16} /> },
+  { label: "Next.js Developer", icon: <Globe size={16} /> },
+  { label: "Node.js Developer", icon: <Server size={16} /> },
+  { label: "Flutter Developer", icon: <Smartphone size={16} /> },
+  { label: "React Native Dev", icon: <Layers size={16} /> },
+  { label: "Python Developer", icon: <Cpu size={16} /> },
+  { label: "Laravel Developer", icon: <Code2 size={16} /> },
+  { label: "WordPress Developer", icon: <Globe size={16} /> },
+  { label: "UI/UX Designer", icon: <Palette size={16} /> },
+  { label: "DevOps Engineer", icon: <GitBranch size={16} /> },
+  { label: "AWS Cloud Architect", icon: <Cloud size={16} /> },
+  { label: "Database Engineer", icon: <Database size={16} /> },
+  { label: "iOS Developer", icon: <Smartphone size={16} /> },
+  { label: "Android Developer", icon: <Smartphone size={16} /> },
+  { label: "Cybersecurity Expert", icon: <Shield size={16} /> },
+  { label: "Data Analyst", icon: <BarChart size={16} /> },
 ];
 
 /* ── Hover Card ── */
@@ -754,8 +936,8 @@ function HoverCard({ label, icon, index }: { label: string; icon: React.ReactNod
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: (index % 8) * 0.07 }}
       className="group relative flex flex-col items-center justify-center gap-2.5
-                 bg-white rounded-2xl p-4 text-center cursor-pointer overflow-hidden
-                 border border-[#1a3fa0]/10 shadow-sm
+                 bg-white rounded-2xl p-3 pb-4 text-center cursor-pointer overflow-hidden
+                 border border-[#1a3fa0]/10 
                  hover:shadow-lg hover:-translate-y-1.5 hover:border-[#1a3fa0]/25
                  transition-all duration-300"
     >
@@ -768,9 +950,9 @@ function HoverCard({ label, icon, index }: { label: string; icon: React.ReactNod
                       scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
       {/* Icon */}
-      <div className="relative z-10 w-10 h-10 rounded-xl flex items-center justify-center
-                      bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 text-[#1a3fa0]
-                      group-hover:bg-white/15 group-hover:text-white
+      <div className="relative z-10 w-8 h-8 rounded-xl flex items-center justify-center
+                      bg-gradient-to-br from-[#1a3fa0]/20 to-[#2952cc]/08 text-[#1a3fa0]
+                      group-hover:bg-white/25 group-hover:text-white
                       transition-all duration-300">
         {icon}
       </div>
@@ -781,13 +963,6 @@ function HoverCard({ label, icon, index }: { label: string; icon: React.ReactNod
         style={{ fontFamily: "DM Sans, sans-serif" }}>
         {label}
       </span>
-
-      {/* Arrow on hover */}
-      <ArrowUpRight
-        size={12}
-        className="relative z-10 absolute top-3 right-3 opacity-0 text-[#f0b832]
-                   group-hover:opacity-100 transition-opacity duration-200"
-      />
     </motion.a>
   );
 }
@@ -820,121 +995,149 @@ export function HireDevelopersSection() {
         style={{ background: "radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 items-start">
 
           {/* ── LEFT ── */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32">
-
+          <div className="lg:col-span-6 lg:sticky lg:top-32">
             {/* Tag */}
-            <motion.div {...fadeUp(0)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white
-                         border border-[#1a3fa0]/15 shadow-sm mb-6">
+            <motion.div
+              {...fadeUp(0)}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 mb-6"
+            >
               <span className="text-xs font-semibold uppercase tracking-widest text-[#1a3fa0]">
-                Solutions
+                Hire Dedicated Developers
               </span>
             </motion.div>
 
             {/* Heading */}
-            <motion.h2 {...fadeUp(0.08)}
-              className="text-3xl sm:text-[2.5rem] font-semibold text-[#0f2a6b] leading-[1.1] mb-4">
-              <span className="text-[#e8a020]">Hire Developers </span>
-              For Custom IT
-              Solutions
+            <motion.h2
+              {...fadeUp(0.08)}
+              className="text-3xl sm:text-4xl xl:text-[2.4rem] font-semibold text-[#0f2a6b] leading-[1.18]"
+            >
+              Hire Expert Developers for
+              <span className="text-[#e8a020]"> Web, Mobile & Software Development</span>
             </motion.h2>
 
-            {/* Gold divider */}
-            <motion.div {...fadeUp(0.12)}
-              className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-5" />
+            {/* Divider */}
+            <motion.div
+              {...fadeUp(0.12)}
+              className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-5"
+            />
 
             {/* Description */}
-            <motion.p {...fadeUp(0.16)}
-              className="text-[#4a5578] text-base leading-relaxed font-light mb-4">
-              We are one of the best IT consulting companies handling all aspects of software creation.{" "}
-              <span className="font-semibold text-[#1a3fa0]">Hire web developers</span> who excel in a wide range of
-              technology solutions and build websites that are efficient, flexible, and easy to maintain.
+            <motion.p
+              {...fadeUp(0.16)}
+              className="text-[#4a5578] text-base leading-relaxed mb-4"
+            >
+              Digitonix is a trusted software development company delivering custom
+              software development, web application development, mobile app development,
+              and AI-powered digital solutions for startups, enterprises, and growing
+              businesses worldwide.
             </motion.p>
 
-            <motion.p {...fadeUp(0.2)}
-              className="text-[#4a5578] text-base leading-relaxed font-light mb-8">
-              We also help you{" "}
-              <span className="font-semibold text-[#1a3fa0]">hire app developers</span>{" "}
-              who create bespoke applications to redefine your customer experiences.
+            <motion.p
+              {...fadeUp(0.20)}
+              className="text-[#4a5578] text-base leading-relaxed mb-4"
+            >
+              Hire dedicated developers with expertise in React.js, Next.js, Node.js,
+              React Native, Flutter, Laravel, WordPress, Python, and cloud technologies.
+              Our development teams build scalable, secure, and high-performance digital
+              products tailored to your business goals.
             </motion.p>
 
-            {/* Stats row */}
-            <motion.div {...fadeUp(0.24)}
-              className="flex gap-5 mb-8">
-              {[
-                { value: "500+", label: "Developers Hired" },
-                { value: "12+", label: "Years Expertise" },
-                { value: "98%", label: "Success Rate" },
-              ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-2xl font-extrabold text-[#0f2a6b]">
-                    {s.value}
-                  </p>
-                  <p className="text-[12px] font-semibold uppercase tracking-wide text-[#9aa3bf]">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
+            <motion.p
+              {...fadeUp(0.24)}
+              className="text-[#4a5578] text-base leading-relaxed mb-8"
+            >
+              Whether you need a dedicated development team, offshore developers,
+              enterprise software solutions, SaaS platforms, eCommerce applications,
+              CRM systems, or AI-driven products, we help businesses accelerate growth
+              with innovative technology solutions.
+            </motion.p>
 
             {/* CTA */}
-            <motion.div {...fadeUp(0.28)}>
+            <motion.div {...fadeUp(0.32)}>
               <Link
-                href="/hire"
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
-                           font-semibold text-sm text-white relative overflow-hidden
-                           shadow-lg shadow-[#1a3fa0]/25 hover:shadow-[#e8a020]/30
-                           hover:-translate-y-1 transition-all duration-300"
-                style={{ background: "linear-gradient(135deg, #1a3fa0, #2952cc)" }}
+               font-semibold text-sm text-white relative overflow-hidden
+               shadow-lg shadow-[#1a3fa0]/25 hover:shadow-[#e8a020]/30
+               hover:-translate-y-1 transition-all duration-300"
+                style={{
+                  background: "linear-gradient(135deg, #1a3fa0, #2952cc)",
+                }}
               >
-                {/* Gold hover overlay */}
-                <span className="absolute inset-0 bg-gradient-to-r from-[#e8a020] to-[#f0b832]
-                                 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span
+                  className="absolute inset-0 bg-gradient-to-r from-[#e8a020] to-[#f0b832]
+                 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
                 <span className="relative z-10">Hire Developers Now</span>
-                <ArrowUpRight size={16} className="relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight
+                  size={16}
+                  className="relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                />
               </Link>
             </motion.div>
 
-            {/* Process steps */}
-            <motion.div {...fadeUp(0.32)} className="mt-10 space-y-3">
+            {/* Process */}
+            <motion.div {...fadeUp(0.36)} className="mt-10 space-y-3">
               <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9aa3bf] mb-3">
-                How It Works
+                Simple Hiring Process
               </p>
+
               {[
-                { step: "01", text: "Share your requirements" },
-                { step: "02", text: "We match the perfect dev" },
-                { step: "03", text: "Start in 48 hours" },
+                {
+                  step: "01",
+                  text: "Share your project requirements",
+                },
+                {
+                  step: "02",
+                  text: "Select your dedicated developers",
+                },
+                {
+                  step: "03",
+                  text: "Launch and scale your product",
+                },
               ].map((item) => (
                 <div key={item.step} className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-semibold flex-shrink-0
-                                   text-white" style={{ background: "linear-gradient(135deg, #1a3fa0, #2952cc)" }}>
+                  <span
+                    className="w-7 h-7 rounded-full flex items-center justify-center
+                   text-[10px] font-semibold flex-shrink-0 text-white"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #1a3fa0, #2952cc)",
+                    }}
+                  >
                     {item.step}
                   </span>
-                  <span className="text-sm font-medium text-[#3a4a72]">{item.text}</span>
+
+                  <span className="text-sm font-medium text-[#3a4a72]">
+                    {item.text}
+                  </span>
+
                   <div className="flex-1 h-px bg-[#1a3fa0]/10" />
                 </div>
               ))}
             </motion.div>
+
+            {/* SEO Content */}
+
           </div>
 
           {/* ── RIGHT: Cards Grid ── */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-4">
             <motion.div {...fadeUp(0.1)}
               className="flex items-center gap-3 mb-6">
-              <h3 className="text-[#0f2a6b] font-semibold text-base whitespace-nowrap"
-                style={{ fontFamily: "Syne, sans-serif" }}>
+              <h3 className="text-[#0f2a6b] font-semibold text-xl whitespace-nowrap">
                 Our Expert Roles
               </h3>
               <div className="flex-1 h-px bg-gradient-to-r from-[#1a3fa0]/20 to-transparent" />
-              <span className="text-xs font-semibold text-[#9aa3bf]">
+              <span className="text-sm font-semibold text-slate-500">
                 {developers.length} Specializations
               </span>
             </motion.div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1">
               {developers.map((item, index) => (
                 <HoverCard key={index} label={item.label} icon={item.icon} index={index} />
               ))}
@@ -946,11 +1149,10 @@ export function HireDevelopersSection() {
                          justify-between gap-4 border border-[#1a3fa0]/12"
               style={{ background: "linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.06))" }}>
               <div>
-                <p className="font-semibold text-[#0f2a6b] text-sm mb-0.5"
-                  style={{ fontFamily: "Syne, sans-serif" }}>
+                <p className="font-semibold text-[#0f2a6b] text-sm mb-0.5">
                   Don't see your stack?
                 </p>
-                <p className="text-xs text-[#6b7a9e]">
+                <p className="text-xs">
                   We hire for any technology. Tell us what you need.
                 </p>
               </div>
@@ -959,13 +1161,26 @@ export function HireDevelopersSection() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold
                            text-[#1a3fa0] bg-white border border-[#1a3fa0]/20
                            hover:bg-[#1a3fa0] hover:text-white hover:border-[#1a3fa0]
-                           transition-all duration-250 shadow-sm whitespace-nowrap"
+                           transition-all duration-250 whitespace-nowrap"
               >
                 Talk to us <ArrowUpRight size={13} />
               </Link>
             </motion.div>
           </div>
         </div>
+        <motion.div
+          {...fadeUp(0.4)}
+          className="mt-8 p-5 rounded-2xl border border-[#1a3fa0]/10 bg-white/70"
+        >
+          <p className="text-sm text-[#6b7a9e] leading-relaxed">
+            Digitonix provides website development services, mobile application
+            development, custom software development, UI/UX design, cloud solutions,
+            DevOps consulting, AI development services, and enterprise software
+            solutions. Businesses across India and international markets trust our
+            experienced developers to build reliable, scalable, and growth-focused
+            digital products.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
@@ -1047,7 +1262,7 @@ function IndustryCard({
         {/* Icon + number row */}
         <div className="flex items-start justify-between">
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300"
+            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
             style={{
               background: hovered
                 ? "linear-gradient(135deg, #ffffff00, #e5e8ec)"
@@ -1057,7 +1272,7 @@ function IndustryCard({
               transform: hovered ? "scale(1.08) rotate(0deg)" : "scale(1) rotate(0deg)",
             }}
           >
-            <Icon size={24} />
+            <Icon size={18} />
           </div>
 
           {/* Arrow */}
@@ -1090,20 +1305,6 @@ function IndustryCard({
         >
           {title}
         </h3>
-
-        {/* Stat */}
-        <div
-          className="flex items-center gap-2 transition-all duration-200"
-        >
-          <span
-            className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300"
-            style={{
-              background: hovered ? "#e8a020" : "rgba(26,63,160,0.25)",
-              boxShadow: hovered ? "0 0 0 3px rgba(232,160,32,0.2)" : "none",
-            }}
-          />
-
-        </div>
       </div>
     </motion.div>
   );
@@ -1123,7 +1324,7 @@ export function IndustriesSection() {
   return (
     <section
       ref={ref}
-      className="w-full py-12 overflow-hidden relative bg-orange-50"
+      className="w-full py-12 overflow-hidden relative"
       style={{
         backgroundImage:
           "linear-gradient(rgba(26,63,160,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(26,63,160,0.035) 1px, transparent 1px)",
@@ -1138,41 +1339,58 @@ export function IndustriesSection() {
 
           {/* Left */}
           <div>
-            <motion.div {...fadeUp(0)}
+            {/* Tag */}
+            <motion.div
+              {...fadeUp(0)}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white
-                         border border-[#1a3fa0]/15 shadow-sm mb-6">
+             border border-[#1a3fa0]/15 shadow-sm mb-6"
+            >
               <span className="text-xs font-bold uppercase tracking-widest text-[#1a3fa0]">
-                Industries We Serve
+                Industry-Specific Software Solutions
               </span>
             </motion.div>
 
-            <motion.h2 {...fadeUp(0.08)}
-              className="text-3xl sm:text-[2.5rem] font-semibold text-[#0f2a6b] leading-tight mb-4">
-              <span className="text-[#e8a020]">Managed IT</span> services
-              customized for
-              your industry
+            {/* Heading */}
+            <motion.h2
+              {...fadeUp(0.08)}
+              className="text-3xl sm:text-4xl mb-3 xl:text-[2.4rem] font-semibold text-[#0f2a6b] leading-[1.18]"
+            >
+              Custom Software Development
+              <span className="text-[#e8a020]"> For Every Industry</span>
             </motion.h2>
-
-            <motion.div {...fadeUp(0.12)}
-              className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832]" />
+            <motion.p
+              {...fadeUp(0.16)}
+              className="text-[#4a5578] text-base leading-relaxed"
+            >
+              From healthcare, fintech, education, eCommerce, real estate, logistics,
+              manufacturing, and travel to startups and enterprises, we build secure,
+              scalable, and high-performance digital products that drive measurable
+              business growth.
+            </motion.p>
           </div>
 
           {/* Right */}
           <div>
-            <motion.p {...fadeUp(0.14)}
-              className="text-[#4a5578] text-base sm:text-lg leading-relaxed font-light mb-6">
-              Our vertical solutions expertise allows your business to streamline workflow and
-              increase productivity. No matter the industry, Digitonix has you covered with
-              <span className="font-semibold text-[#0f2a6b]"> compliant, tailored solutions</span> built
-              for your company's specific needs.
+            <motion.p
+              {...fadeUp(0.14)}
+              className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-6"
+            >
+              Digitonix delivers industry-focused software development services,
+              helping businesses streamline operations, automate workflows, improve
+              customer experiences, and accelerate digital transformation. Our team
+              develops custom web applications, mobile apps, enterprise software,
+              SaaS platforms, AI solutions, and cloud-based systems tailored to the
+              unique requirements of each industry.
             </motion.p>
+
+
 
             {/* Quick stats */}
             <motion.div {...fadeUp(0.18)} className="flex flex-wrap gap-3">
               {[
-                { v: "12+", l: "Industries" },
-                { v: "500+", l: "Projects" },
-                { v: "98%", l: "Satisfaction" },
+                { v: "15+", l: "Industries Served" },
+                { v: "500+", l: "Projects Delivered" },
+                { v: "98%", l: "Client Satisfaction" },
               ].map((s) => (
                 <div key={s.l}
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-white
@@ -1187,7 +1405,7 @@ export function IndustriesSection() {
         </div>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-1 mb-8">
           {industries.map((item, index) => (
             <IndustryCard
               key={item.title}
@@ -1198,30 +1416,6 @@ export function IndustriesSection() {
             />
           ))}
         </div>
-
-        {/* ── Bottom CTA strip ── */}
-        <motion.div {...fadeUp(0.2)}
-          className="rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center
-                     justify-between gap-4 border border-[#1a3fa0]/12"
-          style={{ background: "linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.05))" }}>
-          <div>
-            <p className="font-bold text-[#0f2a6b] text-sm mb-0.5"
-              style={{ fontFamily: "Syne, sans-serif" }}>
-              Don't see your industry?
-            </p>
-            <p className="text-xs text-[#6b7a9e]">
-              We work with every sector — let's talk about your unique requirements.
-            </p>
-          </div>
-          <a href="/contact"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold
-                       text-white transition-all duration-250 shadow-md whitespace-nowrap
-                       hover:-translate-y-0.5 hover:shadow-lg"
-            style={{ background: "linear-gradient(135deg, #1a3fa0, #2952cc)" }}>
-            Get in touch
-            <ChevronRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
-          </a>
-        </motion.div>
 
       </div>
     </section>

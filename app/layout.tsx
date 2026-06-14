@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable}>
       <body className="relative antialiased font-sans">
-       <div className='relative z-0'>
+       <div className='relative z-0 !font-medium'>
         <Navigation />
 
         {children}

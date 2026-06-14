@@ -81,7 +81,7 @@ export function Footer() {
 
   return (
     <>
-      <footer className="bg-gradient-to-b font-medium from-white to-slate-50/80 border-t border-[#1a3fa0]/10">
+      <footer className="bg-gradient-to-b font-semibold from-white to-slate-50/80 border-t border-[#1a3fa0]/10">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-6">
@@ -98,7 +98,7 @@ export function Footer() {
                 />
               </Link>
               
-              <p className="text-slate-600 text-sm leading-relaxed mb-6 max-w-sm">
+              <p className="text-slate-600 text-base leading-relaxed mb-6 max-w-sm">
                 We craft exceptional digital experiences that help businesses grow. 
                 Award-winning design and development agency trusted by 100+ clients worldwide.
               </p>
@@ -134,17 +134,17 @@ export function Footer() {
 
             {/* Services Column */}
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1a3fa0] mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#1a3fa0] mb-4">
                 Services
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2 font-semibold">
                 {footerServices.map((link, idx) => (
                   <li key={idx}>
                     <Link
                       href={link.href}
-                      className="group flex items-center text-sm text-slate-600 hover:text-[#b07010] transition-all duration-200"
+                      className="group flex items-center text-sm text-slate-700 hover:text-[#b07010] transition-all duration-200"
                     >
-                      <ChevronRight className="h-3 w-3 text-[#e8a020] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                      <ChevronRight className="h-3 w-3 text-[#e8a020] -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                       <span className="group-hover:translate-x-1 transition-transform duration-200">
                         {link.label}
                       </span>
@@ -156,17 +156,17 @@ export function Footer() {
 
             {/* Company Column */}
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1a3fa0] mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#1a3fa0] mb-4">
                 Company
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2 font-semibold">
                 {footerCompany.map((link, idx) => (
                   <li key={idx}>
                     <Link
                       href={link.href}
-                      className="group flex items-center text-sm text-slate-600 hover:text-[#b07010] transition-all duration-200"
+                      className="group flex items-center text-sm text-slate-700 hover:text-[#b07010] transition-all duration-200"
                     >
-                      <ChevronRight className="h-3 w-3 text-[#e8a020] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                      <ChevronRight className="h-3 w-3 text-[#e8a020] -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                       <span className="group-hover:translate-x-1 transition-transform duration-200">
                         {link.label}
                       </span>
@@ -178,17 +178,17 @@ export function Footer() {
 
             {/* Support Column */}
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1a3fa0] mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#1a3fa0] mb-4">
                 Support
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2 font-semibold">
                 {footerSupport.map((link, idx) => (
                   <li key={idx}>
                     <Link
                       href={link.href}
                       className="group flex items-center text-sm text-slate-600 hover:text-[#b07010] transition-all duration-200"
                     >
-                      <ChevronRight className="h-3 w-3 text-[#e8a020] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                      <ChevronRight className="h-3 w-3 text-[#e8a020] -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                       <span className="group-hover:translate-x-1 transition-transform duration-200">
                         {link.label}
                       </span>
@@ -200,113 +200,49 @@ export function Footer() {
 
             {/* Contact Column */}
             <div className="md:col-span-2 lg:col-span-1">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1a3fa0] mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#1a3fa0] mb-3">
                 Contact
               </h3>
-              <div className="space-y-3">
-                <div className="group flex items-start gap-3 p-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
-                  <div className="w-8 h-8 rounded-lg bg-[#1a3fa0]/8 flex items-center justify-center text-[#1a3fa0] group-hover:bg-[#e8a020] group-hover:text-white transition-all duration-200 flex-shrink-0">
-                    <Phone className="h-4 w-4" />
-                  </div>
+              <div className="space-y-1">
+                <div className="group flex items-start gap-3 px-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
+                 
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Call Us</p>
-                    <a href="tel:+15551234567" className="text-sm font-medium text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
-                      +1 (555) 123-4567
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Call Us</p>
+                    <a href="tel:+919887120429" className="text-sm font-semibold text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
+                      +91 9887120429
                     </a>
                   </div>
                 </div>
 
-                <div className="group flex items-start gap-3 p-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
-                  <div className="w-8 h-8 rounded-lg bg-[#1a3fa0]/8 flex items-center justify-center text-[#1a3fa0] group-hover:bg-[#e8a020] group-hover:text-white transition-all duration-200 flex-shrink-0">
-                    <Mail className="h-4 w-4" />
-                  </div>
+                <div className="group flex items-start gap-3 px-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
+                  
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Email Us</p>
-                    <a href="mailto:hello@company.com" className="text-sm font-medium text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
-                      hello@company.com
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Email Us</p>
+                    <a href="mailto:hello@digitonix.in" className="text-sm font-semibold text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
+                      hello@digitonix.in
                     </a>
                   </div>
                 </div>
 
-                <div className="group flex items-start gap-3 p-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
-                  <div className="w-8 h-8 rounded-lg bg-[#1a3fa0]/8 flex items-center justify-center text-[#1a3fa0] group-hover:bg-[#e8a020] group-hover:text-white transition-all duration-200 flex-shrink-0">
-                    <MapPin className="h-4 w-4" />
-                  </div>
+                <div className="group flex items-start gap-3 px-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
+                  
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Visit Us</p>
-                    <p className="text-sm font-medium text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Visit Us</p>
+                    <p className="text-sm font-semibold text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
                       123 Tech Street, Silicon Valley, CA 94025
                     </p>
                   </div>
                 </div>
 
-                <div className="group flex items-start gap-3 p-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
-                  <div className="w-8 h-8 rounded-lg bg-[#1a3fa0]/8 flex items-center justify-center text-[#1a3fa0] group-hover:bg-[#e8a020] group-hover:text-white transition-all duration-200 flex-shrink-0">
-                    <Clock className="h-4 w-4" />
-                  </div>
+                <div className="group flex items-start gap-3 px-2 -ml-2 rounded-lg hover:bg-[#1a3fa0]/5 transition-all duration-200 cursor-pointer">
+                
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Hours</p>
-                    <p className="text-sm font-medium text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
-                      Mon-Fri: 9AM - 6PM PST
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-0.5">Hours</p>
+                    <p className="text-sm font-semibold text-slate-700 group-hover:text-[#1a3fa0] transition-colors">
+                      Mon-Fri: 9AM - 6PM IST
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter Section */}
-          <div className="mt-12 pt-8 border-t border-[#1a3fa0]/10">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-lg font-bold text-[#0f2a6b] mb-2">
-                  Subscribe to Our Newsletter
-                </h3>
-                <p className="text-sm text-slate-500">
-                  Get the latest updates, insights, and exclusive offers delivered to your inbox.
-                </p>
-              </div>
-              
-              <div>
-                <form onSubmit={handleSubscribe} className="flex gap-3">
-                  <div className="flex-1 relative">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
-                      className="w-full px-4 py-3 rounded-xl border border-[#1a3fa0]/15 bg-white focus:outline-none focus:ring-2 focus:ring-[#1a3fa0]/30 focus:border-[#1a3fa0] transition-all text-sm"
-                      required
-                    />
-                    <AnimatePresence>
-                      {subscribed && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          className="absolute -top-12 left-0 right-0 bg-gradient-to-r from-[#1a3fa0] to-[#2952cc] text-white text-xs px-4 py-2 rounded-lg shadow-lg"
-                        >
-                          <div className="flex items-center gap-2">
-                                <span>✨</span>
-                            <span>Thanks for subscribing! Check your inbox soon.</span>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 bg-gradient-to-r from-[#1a3fa0] to-[#2952cc] text-white rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-[#1a3fa0]/25 transition-all duration-200 flex items-center gap-2 whitespace-nowrap"
-                  >
-                    <span>Subscribe</span>
-                    <Send className="h-4 w-4" />
-                  </motion.button>
-                </form>
-                <p className="text-xs text-slate-400 mt-3">
-                  We respect your privacy. Unsubscribe at any time.
-                </p>
               </div>
             </div>
           </div>
@@ -317,7 +253,7 @@ export function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-4 text-xs text-slate-500">
-                <span>© 2024 Your Company. All rights reserved.</span>
+                <span>© 2024 Digitonix. All rights reserved.</span>
                 <span className="w-1 h-1 bg-slate-300 rounded-full hidden sm:block"></span>
                 <div className="flex items-center gap-1">
                   <span>Made with</span>

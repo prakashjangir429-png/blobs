@@ -299,7 +299,7 @@ const aboutSlides = [
     description:
       'Digitonix delivers innovative web, mobile, and software solutions that help businesses stay competitive in a rapidly evolving digital world.',
     icon: Sparkles,
-            image: '/home/b1.png',
+    image: '/home/b1.png',
 
     stat: { value: '250+', label: 'Projects Delivered' },
   },
@@ -331,7 +331,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Hero  slides={aboutSlides} />
+      <Hero slides={aboutSlides} />
 
       <Stats stats={statsData} />
 

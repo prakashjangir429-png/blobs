@@ -1,10 +1,9 @@
 'use client'
 
 import { Hero } from '@/components/sections/Hero'
-import { CTA } from '@/components/sections/CTA'
 import { BlogCard } from '@/components/sections/BlogCard'
 import { blogPosts } from '@/data/blog'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import TrueValueSection, { HireDevelopersSection, IndustriesSection, ServicesSection } from '@/components/sections/aboutus'
 import {
     PartyPopper,
@@ -21,9 +20,17 @@ import {
     Briefcase,
     Sparkles,
     Zap,
-    Shield
+    Shield,
+    ArrowRight,
+    ChevronRight,
+    Mail,
+    Phone,
+    MapPin
 } from 'lucide-react'
 import TopScorers from '@/components/tesmonials'
+import Image from 'next/image'
+import Link from 'next/link'
+import BlogSection from './blogs'
 
 
 export const indus = [
@@ -95,7 +102,7 @@ const slides = [
             'Our team develops scalable websites, mobile applications, and enterprise software tailored to your business needs, ensuring performance, security, and a great user experience.',
         icon: Zap,
         image: '/home/b2.png',
- stat: { value: '98%', label: 'Client Satisfaction' },
+        stat: { value: '98%', label: 'Client Satisfaction' },
     },
 
     {
@@ -105,7 +112,7 @@ const slides = [
         description:
             'Increase visibility with SEO, digital marketing, and AI-powered solutions designed to attract qualified leads, improve conversions, and strengthen your online presence.',
         icon: Shield,
-                image: '/home/b3.png',
+        image: '/home/b3.png',
 
         stat: { value: '10+', label: 'Years Experience' },
     },
@@ -127,60 +134,76 @@ export default function Home() {
 
                 <TopScorers />
 
-                {/* Blog Preview Section */}
-                <section className="py-16">
-                    <div className="max-w-7xl relative z-1 mx-auto px-4 sm:px-6 lg:px-8">
+                <BlogSection/>
+                {/* CTA Section */}
+                <section className="relative py-12 overflow-hidden">
+                    <div className="absolute inset-0">
+                        <Image
+                            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                            alt="Background"
+                            fill
+                            className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/80" />
+                    </div>
 
-                        <div className="mb-16">
-                            <motion.h2
-                                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-                                className="text-3xl sm:text-[2.6rem] font-extrabold text-[#0f2a6b] leading-tight mb-3"
-                            >
-                                <span className="text-[#e8a020]">Digitonix</span> Blogs
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6">
+                                Ready to Build Something Great?
+                            </h2>
+                            <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                            Partner with Digitonix, the leading IT company in Jaipur, for world-class web development, mobile apps, and digital marketing solutions. Join 500+ businesses achieving measurable growth.
 
-                            </motion.h2>
+</p>
 
-                            {/* Gold divider */}
-                            <motion.div
-                                transition={{ duration: 0.5, delay: 0.12, transformOrigin: "left" }}
-                                className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-4 origin-left"
-                            />
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                    <Link
+                                        href="/contact"
+                                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-base shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 group"
+                                    >
+                                        Start Your Project
+                                        <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                </motion.div>
 
-                            <motion.p
-                                transition={{ duration: 0.5, delay: 0.14 }}
-                                className="text-[#4a5578] text-base sm:text-lg font-light max-w-lg"
-                            >
-                                We stay on top of our industry by being experts in yours.
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                    <Link
+                                        href="/portfolio"
+                                        className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 font-semibold text-base hover:bg-white/20 transition-all duration-300"
+                                    >
+                                        View Portfolio
+                                        <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                </motion.div>
+                            </div>
 
-                            </motion.p>
-
-                        </div>
-                        {/* Blog Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                            {blogPosts.slice(0, 3).map((post, index) => (
-                                <BlogCard
-                                    key={post.id}
-                                    title={post.title}
-                                    excerpt={post.excerpt}
-                                    image={post.image}
-                                    category={post.category}
-                                    date={post.date}
-                                    readTime={post.readTime}
-                                    slug={post.slug}
-                                    index={index}
-                                />
-                            ))}
-                        </div>
+                            {/* Contact Info */}
+                            <div className="mt-6 pt-6 border-t border-white/10">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div className="flex items-center justify-center gap-3 text-gray-300">
+                                        <Mail className="w-5 h-5 text-orange-400" />
+                                        <span>hello@digitonix.in</span>
+                                    </div>
+                                    <div className="flex items-center justify-center gap-3 text-gray-300">
+                                        <Phone className="w-5 h-5 text-orange-400" />
+                                        <span>+91 9887120429</span>
+                                    </div>
+                                    <div className="flex items-center justify-center gap-3 text-gray-300">
+                                        <MapPin className="w-5 h-5 text-orange-400" />
+                                        <span>Global Offices</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
                 </section>
-
-                {/* CTA Section */}
-                <CTA
-                    title="Ready to Transform Your Business?"
-                    description="Let's work together to bring your vision to life. Our team is ready to help you succeed in the digital world."
-                    ctaText="Start Your Journey"
-                    ctaLink="/contact"
-                />
 
             </div>
         </>
