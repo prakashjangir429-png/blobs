@@ -15,7 +15,6 @@ import {
 import { Hero } from '@/components/sections/Hero'
 import { CTA } from '@/components/sections/CTA'
 import TopScorers from '@/components/tesmonials'
-import { processSteps } from '../about/page'
 
 // --- Comprehensive Technology Data ---
 
@@ -596,82 +595,6 @@ export default function TechnologiesPage() {
       </section>
 
       <TopScorers/>
-            <section className="py-12 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
-              {/* Animated Background */}
-              <div className="absolute inset-0">
-                <div className="absolute top-0 left-0 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-3xl" />
-              </div>
-      
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="text-center mb-10"
-                >
-                  <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider mb-4 block">
-                    Our Methodology
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-semibold mb-2">
-                    How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">Work</span>
-                  </h2>
-                  <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                    A proven methodology that ensures quality, speed, and transparency throughout your project journey.
-                  </p>
-                </motion.div>
-      
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {processSteps.map((step, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
-                      whileHover={{ y: -10, scale: 1.02 }}
-                      className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-100 overflow-hidden"
-                    >
-                      {/* Gradient Background on Hover */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-      
-                      {/* Step Number */}
-                      <div className="text-7xl font-semibold text-white/20 absolute top-4 right-4 group-hover:text-white/40 transition-colors">
-                        {step.step}
-                      </div>
-      
-                      <step.icon className="w-12 stroke-[1.4] mb-4 h-12 text-white" />
-      
-                      {/* Content */}
-                      <h3 className="text-2xl font-semibold text-white mb-3">{step.title}</h3>
-                      <p className="text-gray-400 leading-relaxed mb-4">{step.desc}</p>
-      
-                      {/* Details */}
-                      <div className="space-y-2">
-                        {step.details.map((detail, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm text-gray-400">
-                            <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${step.color}`} />
-                            {detail}
-                          </div>
-                        ))}
-                      </div>
-      
-                      {/* Progress Bar */}
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/5">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${((idx + 1) / processSteps.length) * 100}%` }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 1 + idx * 0.1, duration: 0.8 }}
-                          className={`h-full bg-gradient-to-r ${step.color}`}
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </section>
 
 
       {/* --- CTA --- */}
