@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: 'Digital Agency - IT, Marketing & Design Services',
   description:
     'Professional digital agency specializing in IT services, digital marketing, and graphic design.',
+    verification: {
+    google: 'xT0RaeSQJoCHo2myQp_sBHrJu-OkDhYFlyu9akuTQRE',
+  },
 }
 
 export default function RootLayout({
