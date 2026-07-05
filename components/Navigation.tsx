@@ -599,7 +599,7 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-3">
           <div className="flex justify-between items-center h-[60px]">
 
             {/* ── Logo ── */}
@@ -610,7 +610,7 @@ export function Navigation() {
             >
               <Link href="/" className="flex items-center gap-2.5">
                 <Image
-                  src="./log.png"
+                  src="/log.png"
                   alt="Company Logo"
                   width={140}
                   height={46}

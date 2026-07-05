@@ -90,7 +90,7 @@ export function Footer() {
             <div className="lg:col-span-2">
               <Link href="/" className="inline-block mb-2">
                 <Image
-                  src="./log.png"
+                  src="/log.png"
                   alt="Company Logo"
                   width={160}
                   height={64}

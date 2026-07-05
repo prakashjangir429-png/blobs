@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,6 +46,7 @@ import {
   MessageSquare,
   Headphones,
 } from "lucide-react";
+import { CTASection } from "@/components/pages/aboutus";
 
 /* ── All services data (same as above, imported or defined here) ── */
 // For brevity, I'll show the page structure. You should import the data from a shared data file.
@@ -70,13 +71,15 @@ export default function ServiceDetailPage() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* ── HERO SECTION WITH PARALLAX ── */}
-      <ServiceHero
+      {/* <ServiceHero
         heroRef={heroRef}
         heroOpacity={heroOpacity}
         heroScale={heroScale}
         heroY={heroY}
         // service={service}
-      />
+      /> */}
+
+      <HeroSection/>
 
       {/* ── OVERVIEW SECTION ── */}
       <OverviewSection />
@@ -111,6 +114,184 @@ export default function ServiceDetailPage() {
   );
 }
 
+
+function HeroSection() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 28 },
+    animate: inView ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1], delay },
+  });
+
+  return (
+    <>
+      <style>{`
+        .about-hero-section {
+          background-image:
+            linear-gradient(rgba(26,63,160,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(26,63,160,0.03) 1px, transparent 1px);
+          background-size: 48px 48px;
+          background-color: #f8f9fc;
+        }
+        .about-hero-tag {
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 6px 20px; border-radius: 50px;
+          background: white;
+          border: 1.5px solid rgba(26,63,160,0.15);
+          box-shadow: 0 2px 10px rgba(26,63,160,0.07);
+          font-size: 0.72rem; font-weight: 700;
+          letter-spacing: 0.08em; text-transform: uppercase;
+          color: #1a3fa0;
+        }
+        .about-hero-tag-dot {
+          width: 7px; height: 7px; border-radius: 50%;
+          background: #e8a020;
+          box-shadow: 0 0 0 3px rgba(232,160,32,0.25);
+          animation: hero-pulse 2s ease infinite;
+        }
+        @keyframes hero-pulse {
+          0%,100% { box-shadow: 0 0 0 3px rgba(232,160,32,0.25); }
+          50%     { box-shadow: 0 0 0 7px rgba(232,160,32,0.08); }
+        }
+        .gold-word { color: #e8a020; }
+      `}</style>
+
+      <section
+        ref={ref}
+        className="about-hero-section relative w-full pt-32 pb-20 px-4 md:px-8 lg:px-12 overflow-hidden"
+      >
+        <div
+          className="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(26,63,160,0.09) 0%, transparent 70%)",
+            filter: "blur(50px)",
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* LEFT — Text */}
+            <div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  initial={{ opacity: 0, y: 16, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                  transition={{ duration: 0.4 }}
+                  className="hero-tag mb-4 w-fit"
+                >
+                  {"About us"}
+                </motion.div>
+              </AnimatePresence>
+              {/* Heading */}
+              <motion.h1
+                {...fadeUp(0.08)}
+                className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.25] mb-6"
+              >
+
+                <span className="gold-word">Your Trusted </span>{" "} <br/>
+                Technology Partner <br/> For Digital Growth
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                {...fadeUp(0.14)}
+                className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-4 font-light"
+              >
+                Digitonix is a leading{" "}
+                <strong className="font-semibold text-[#0f2a6b]">
+                  IT service provider and software development company in
+                  Jaipur, India
+                </strong>
+                , delivering innovative web, mobile, and custom software
+                solutions since 2011. With 55+ expert engineers and 650+
+                successful projects, we help businesses transform digitally
+                and achieve measurable growth.
+              </motion.p>
+
+              {/* Trust points */}
+              <motion.div
+                {...fadeUp(0.18)}
+                className="flex flex-wrap gap-3 mb-4"
+              >
+                {[
+                  "ISO 9001:2015 Certified",
+                  "13+ Years Experience",
+                  "24/7 Support",
+                  "Global Clientele",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full
+                               bg-white border border-[#1a3fa0]/12 text-xs font-semibold
+                               text-[#1a3fa0] shadow-sm"
+                  >
+                    <BadgeCheck size={12} className="text-[#e8a020]" />
+                    {item}
+                  </span>
+                ))}
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                {...fadeUp(0.22)}
+                className="flex flex-wrap gap-3"
+              >
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
+                             font-semibold text-sm text-white relative overflow-hidden
+                             shadow-lg shadow-[#1a3fa0]/25 hover:shadow-[#1a3fa0]/35
+                             hover:-translate-y-1 transition-all duration-300"
+                  style={{
+                    background: "linear-gradient(135deg, #1a3fa0, #2952cc)",
+                  }}
+                >
+                  <span className="relative z-10">Start Your Project</span>
+                  <ArrowUpRight
+                    size={16}
+                    className="relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  />
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full
+                             font-semibold text-sm text-[#1a3fa0] bg-white
+                             border border-[#1a3fa0]/20 hover:border-[#1a3fa0]/40
+                             hover:-translate-y-1 transition-all duration-300 shadow-sm"
+                >
+                  View Our Work
+                  <ChevronRight size={16} />
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* RIGHT — Image / Visual */}
+            <motion.div
+              {...fadeUp(0.12)}
+              className="relative flex justify-center lg:justify-end"
+            >
+              <div className="relative w-full max-w-[480px]">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src="/home/b1.png"
+                    alt="Digitonix Team - IT Service Provider in Jaipur"
+                    width={550}
+                    height={450}
+                    className="w-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
 /* ─────────────────────────────────────────────
    SERVICE HERO WITH PARALLAX
 ───────────────────────────────────────────── */
@@ -128,17 +309,19 @@ function ServiceHero({
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Parallax Background */}
       <motion.div
         style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
         className="absolute inset-0"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f2a6b] via-[#1a3fa0] to-[#0f2a6b]" />
-        <div className="absolute top-20 right-20 w-96 h-96 bg-[#e8a020]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#2952cc]/20 rounded-full blur-3xl" />
-        <div
+       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10" />
+                    <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+                    <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-3xl" />
+
+       <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
@@ -148,7 +331,7 @@ function ServiceHero({
         />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -157,7 +340,7 @@ function ServiceHero({
             transition={{ duration: 0.6 }}
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-gray-300 mb-6">
+            <div className="flex items-center gap-2 text-sm text-gray-800">
               <Link href="/" className="hover:text-white transition-colors">
                 Home
               </Link>
@@ -170,12 +353,6 @@ function ServiceHero({
               </Link>
               <ChevronRight size={14} />
               <span className="text-[#e8a020]">Custom Web Development</span>
-            </div>
-
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-[#e8a020] mb-6">
-              <BadgeCheck size={14} />
-              Most Popular Service
             </div>
 
             {/* Title */}
@@ -277,9 +454,6 @@ function OverviewSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
           >
             <span className="text-[#e8a020] font-semibold text-sm uppercase tracking-wider mb-3 block">
               Overview
@@ -320,9 +494,6 @@ function OverviewSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
             className="bg-[#f8f9fc] rounded-2xl p-8 border border-[#1a3fa0]/10"
           >
             <h3 className="text-xl font-bold text-[#0f2a6b] mb-4">
@@ -418,9 +589,6 @@ function FeaturesSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
@@ -436,10 +604,6 @@ function FeaturesSection() {
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
               className="group bg-white rounded-2xl p-6 border border-[#1a3fa0]/08 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 flex items-center justify-center mb-4">
@@ -473,9 +637,6 @@ function TechStackSection() {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-10"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
@@ -491,11 +652,6 @@ function TechStackSection() {
           {techs.map((tech, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              whileHover={{ scale: 1.05, y: -2 }}
               className="px-5 py-3 bg-[#f4f6fb] rounded-xl border border-[#1a3fa0]/10 text-sm font-semibold text-[#1a3fa0] hover:bg-[#1a3fa0] hover:text-white transition-all duration-300 cursor-default"
             >
               {tech}
@@ -527,9 +683,6 @@ function ServiceProcessSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-xs font-bold uppercase tracking-widest text-[#e8a020] mb-4">
@@ -547,11 +700,6 @@ function ServiceProcessSection() {
           {steps.map((step, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
-              whileHover={{ y: -5 }}
               className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
             >
               <div className="text-5xl font-bold text-white/8 absolute top-4 right-4 group-hover:text-[#e8a020]/15 transition-colors">{step.step}</div>
@@ -585,9 +733,6 @@ function WhyChooseServiceSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
@@ -603,10 +748,6 @@ function WhyChooseServiceSection() {
           {reasons.map((reason, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
               className="bg-[#f8f9fc] rounded-2xl p-6 border border-[#1a3fa0]/08 hover:shadow-md transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 flex items-center justify-center mb-3">
@@ -658,9 +799,6 @@ function PricingSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
@@ -675,10 +813,6 @@ function PricingSection() {
           {plans.map((plan, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
               className={`relative bg-white rounded-2xl p-8 border ${
                 plan.popular
                   ? "border-[#e8a020] shadow-xl ring-2 ring-[#e8a020]/20"
@@ -728,9 +862,6 @@ function CaseStudiesSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
@@ -748,10 +879,6 @@ function CaseStudiesSection() {
           {caseStudies.map((_, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
               className="group bg-white rounded-2xl overflow-hidden border border-[#1a3fa0]/08 shadow-sm hover:shadow-lg transition-all duration-300"
             >
               <div className="relative h-48 bg-gray-100">
@@ -820,9 +947,6 @@ function FAQSection() {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
@@ -835,10 +959,6 @@ function FAQSection() {
           {faqs.map((faq, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
               className="bg-white rounded-xl border border-[#1a3fa0]/08 overflow-hidden"
             >
               <button
@@ -854,9 +974,6 @@ function FAQSection() {
               </button>
               {openIndex === idx && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
                   className="px-6 pb-4"
                 >
                   <p className="text-[#4a5578] text-sm leading-relaxed">{faq.a}</p>
@@ -884,9 +1001,6 @@ function RelatedServicesSection() {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-10"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
@@ -911,83 +1025,6 @@ function RelatedServicesSection() {
             </Link>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   CTA SECTION
-───────────────────────────────────────────── */
-function CTASection() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -30]);
-
-  return (
-    <section ref={ref} className="relative py-20 overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-          alt="Contact Digitonix"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f2a6b]/95 to-[#0f2a6b]/85" />
-      </motion.div>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6">
-            Ready to Build Your Web Application?
-          </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Get in touch with our team for a free consultation and project
-            estimate. Let's create something exceptional together.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#e8a020] text-white font-semibold rounded-full hover:bg-[#f0b832] transition-all duration-300 shadow-lg shadow-[#e8a020]/30"
-            >
-              Start Your Project
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="https://wa.me/"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-semibold rounded-full hover:bg-white/20 transition-all duration-300"
-            >
-              <MessageSquare size={18} />
-              WhatsApp Us
-            </Link>
-          </div>
-
-          <div className="mt-10 pt-8 border-t border-white/10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center justify-center gap-3 text-gray-300">
-                <Mail className="w-5 h-5 text-[#e8a020]" />
-                <span className="text-sm">info@digitonix.in</span>
-              </div>
-              <div className="flex items-center justify-center gap-3 text-gray-300">
-                <Phone className="w-5 h-5 text-[#e8a020]" />
-                <span className="text-sm">+91 9887120429</span>
-              </div>
-              <div className="flex items-center justify-center gap-3 text-gray-300">
-                <MapPin className="w-5 h-5 text-[#e8a020]" />
-                <span className="text-sm">Jaipur, India | Global</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

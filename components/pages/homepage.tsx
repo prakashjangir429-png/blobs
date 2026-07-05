@@ -88,7 +88,7 @@ const slides = [
         title: ['Build Digital', 'Products That Grow Business'],
         accent: 0,
         description:
-            'From modern websites and mobile apps to custom software solutions, we help startups and businesses create digital products that deliver real results and long-term growth.',
+            'From modern websites and mobile apps to custom software solutions, we assist startups and businesses in creating digital products that provide real results and support long-term growth.',
         icon: Sparkles,
         image: '/home/b1.png',
         stat: { value: '500+', label: 'Projects Delivered' },

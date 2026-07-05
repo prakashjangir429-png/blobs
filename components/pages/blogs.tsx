@@ -90,7 +90,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
   "E-Commerce": { bg: "rgba(26,63,160,0.08)", text: "#1a3fa0", border: "rgba(26,63,160,0.15)" },
 }
 
-function BlogCard({ title, excerpt, image, category, date, readTime, slug, index, views, featured }: any) {
+export function BlogCard({ title, excerpt, image, category, date, readTime, slug, index, views, featured }: any) {
   const colors = categoryColors[category] || categoryColors["Web Development"]
 
   return (

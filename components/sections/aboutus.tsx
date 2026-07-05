@@ -246,7 +246,7 @@ const TrueValueSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
           {/* ── Top: Label + Heading + Description ── */}
-          <div className="grid lg:grid-cols-2 gap-8 items-end mb-14">
+          <div className="grid lg:grid-cols-2 gap-8 items-end ">
 
             {/* Left */}
             <div>
@@ -297,7 +297,7 @@ const TrueValueSection = () => {
           </div>
 
           {/* ── Service Cards ── */}
-          <motion.div
+          {/* <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
             initial="initial"
             animate={inView ? "animate" : "initial"}
@@ -323,10 +323,10 @@ const TrueValueSection = () => {
                 </div>
               </motion.a>
             ))}
-          </motion.div>
+          </motion.div> */}
 
           {/* ── Stats ── */}
-          <motion.div
+          {/* <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
             initial="initial"
             animate={inView ? "animate" : "initial"}
@@ -349,12 +349,17 @@ const TrueValueSection = () => {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-          <motion.div
+          </motion.div> */}
+         
+
+        </div>
+      </section>
+                <div>
+                   <motion.div
             {...fadeUp(0.4)}
-            className="max-w-4xl mx-auto text-center mt-12"
+            className="max-w-5xl mx-auto text-center mt-12"
           >
-            <p className="text-[#4a5578] leading-relaxed font-medium">
+            <p className="text-gray-700 text-lg leading-relaxed font-light">
               As a trusted IT company in India, Digitonix specializes in
               Web Development, Mobile App Development, Software Development,
               UI/UX Design, Cloud Solutions, AI Development, and Digital
@@ -363,9 +368,9 @@ const TrueValueSection = () => {
               a strong digital presence.
             </p>
           </motion.div>
+          <StatsSection />
 
-        </div>
-      </section>
+          </div>
     </>
   );
 };
@@ -544,7 +549,7 @@ function ServiceCard({
         </div>
       )}
       <div
-        className="w-12 top-7 left-0 py-3 absolute shadow rounded-r-xl flex items-center justify-center
+        className="w-12 top-6 left-0 py-3 absolute shadow rounded-r-xl flex items-center justify-center
                    bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/5
                    text-[#1a3fa0]
                    group-hover:from-[#1a3fa0]
@@ -581,9 +586,8 @@ function ServiceCard({
             <div key={feature} className="flex items-center gap-1">
               <ArrowRight
                 size={15}
-                className="transition-transform duration-300
-                     group-hover:translate-x-0.5
-                     group-hover:-translate-y-0.5"
+                className="transition-transform -translate-x-1 duration-300
+                     group-hover:translate-x-0"
               />
               <span className="text-sm text-slate-600 font-medium">
                 {feature}
@@ -596,7 +600,7 @@ function ServiceCard({
         <div className="pt-3">
           <div
             className="inline-flex items-center gap-2
-                   px-3 py-2 rounded-xl
+                   px-4 py-2.5 rounded-xl
                    bg-slate-50 group-hover:bg-[#1a3fa0]
                    text-[#1a3fa0] group-hover:text-white
                    text-[12px] font-semibold
@@ -606,9 +610,7 @@ function ServiceCard({
 
             <ArrowUpRight
               size={14}
-              className="transition-transform duration-300
-                     group-hover:translate-x-0.5
-                     group-hover:-translate-y-0.5"
+              className="transition-transform duration-300"
             />
           </div>
         </div>
@@ -714,14 +716,14 @@ export function ServicesSection() {
               {statsss.map((s) => (
                 <div
                   key={s.label}
-                  className="bg-white rounded-xl px-4 py-3 border border-[#1a3fa0]/10
-                             shadow-sm text-center"
+                  className="bg-white rounded-lg px-4 py-4 border border-[#1a3fa0]/20
+                              text-center"
                 >
                   <div className="flex items-center justify-center gap-1.5 text-[#e8a020] mb-1">
 
-                    <span className="text-lg font-bold text-[#0f2a6b]">{s.value}</span>
+                    <span className="text-xl font-semibold text-[#0f2a6b]">{s.value}</span>
                   </div>
-                  <p className="text-[11px] font-medium text-[#9aa3bf] leading-tight">{s.label}</p>
+                  <p className="text-[13px] text-gray-600 leading-tight">{s.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -745,10 +747,10 @@ export function ServicesSection() {
           </div>
           <motion.div
             {...fadeUp(0.12)}
-            className="lg:col-span-2 relative bg-white rounded-[18px] border border-slate-400 shadow-sm overflow-hidden"
+            className="lg:col-span-2 relative bg-white border-2 border-slate-400 shadow-2xl overflow-hidden"
           >
             {/* Corner Badge */}
-            <div className="absolute top-0 right-0 bg-[#0f2a6b] text-white px-5 py-2.5 rounded-bl-[28px]  text-sm z-10">
+            <div className="absolute top-0 right-0 bg-[#0f2a6b] text-white px-5 py-2.5 rounded-bl-[20px] text-sm z-10">
               Free Consultation
             </div>
 
@@ -777,7 +779,7 @@ export function ServicesSection() {
                   <input
                     type="text"
                     placeholder="Enter your full name"
-                    className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
+                    className="w-full h-11 px-5 border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
                   />
                 </div>
 
@@ -789,7 +791,7 @@ export function ServicesSection() {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
+                    className="w-full h-11 px-5 border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
                   />
                 </div>
 
@@ -805,7 +807,7 @@ export function ServicesSection() {
                     <input
                       type="tel"
                       placeholder="Enter your mobile number"
-                      className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
+                      className="w-full h-11 px-5 border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition"
                     />
                   </div>
                   <div>
@@ -814,7 +816,7 @@ export function ServicesSection() {
                     </label>
 
                     <select
-                      className="w-full h-11 px-5 border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500"
+                      className="w-full h-11 px-5 border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500"
                     >
                       <option>Select Service</option>
                       <option>Web Development</option>
@@ -835,7 +837,7 @@ export function ServicesSection() {
                   <textarea
                     rows={2}
                     placeholder="Tell us about your project requirements..."
-                    className="w-full px-5 py-2 text-sm border border-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 resize-none"
+                    className="w-full px-5 py-2 text-sm border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 resize-none"
                   />
                 </div>
 
@@ -843,7 +845,7 @@ export function ServicesSection() {
                 <div className="">
                   <button
                     type="submit"
-                    className=" flex items-center rounded-xl justify-center px-10 h-10 bg-[#0f2a6b] hover:from-red-600 hover:to-red-700 text-white text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                    className=" flex items-center rounded-lg justify-center px-10 h-10 bg-[#0f2a6b] hover:from-red-600 hover:to-red-700 text-white text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
                   >
                     Submit
                   </button>
@@ -1191,6 +1193,7 @@ import {
   ShoppingCart, Heart, GraduationCap, Building2, Plane,
   Landmark, Truck, Home, Utensils, Scale, Leaf
 } from "lucide-react";
+import { StatsSection } from "../pages/aboutus";
 
 /* ── Industries data ── */
 const industries = [

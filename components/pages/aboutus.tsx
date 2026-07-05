@@ -378,15 +378,25 @@ function HeroSection() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* LEFT — Text */}
             <div>
-
+              <AnimatePresence mode="wait">
+                <motion.div
+                  initial={{ opacity: 0, y: 16, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                  transition={{ duration: 0.4 }}
+                  className="hero-tag mb-4 w-fit"
+                >
+                  {"About us"}
+                </motion.div>
+              </AnimatePresence>
               {/* Heading */}
               <motion.h1
                 {...fadeUp(0.08)}
-                className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.15] mb-6"
+                className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.25] mb-6"
               >
 
-                <span className="gold-word">Your Trusted </span>{" "}
-                Technology Partner For Digital Growth
+                <span className="gold-word">Your Trusted </span>{" "} <br/>
+                Technology Partner <br/> For Digital Growth
               </motion.h1>
 
               {/* Description */}
