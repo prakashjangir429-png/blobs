@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { motion, useScroll, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios"
 import { useState, useEffect, useMemo } from "react";
 import {
   ArrowLeft,
@@ -39,157 +40,6 @@ import {
 } from "lucide-react";
 import { CTASection } from "@/components/pages/aboutus";
 
-/* ─────────────────────────────────────────────
-   BRAND COLORS (matching services page)
-   Primary: #0f2a6b / #1a3fa0 / #2952cc (deep navy)
-   Accent:  #e8a020 / #f0b832 (gold)
-   Text:    #4a5578 (body), #0f2a6b (headings)
-   BG:      #f8f9fc / #f4f6fb (light sections)
-   Cards:   white with border-[#1a3fa0]/10
-───────────────────────────────────────────── */
-
-const blogPosts = [
-  {
-    id: 1,
-    slug: "nextjs-vs-react-which-one-to-choose",
-    title: "Next.js vs React: Which One Should You Choose in 2024?",
-    excerpt:
-      "A comprehensive comparison of Next.js and React to help you make the right decision for your next web project.",
-    category: "Web Development",
-    author: "Rajesh Kumar",
-    date: "June 15, 2024",
-    readTime: "8 min read",
-    featured: true,
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-    tags: ["React", "Next.js", "Web Development"],
-    content: `
-## Introduction
-
-Choosing the right framework for your web development project is crucial. In this comprehensive guide, we'll compare Next.js and React to help you make an informed decision.
-
-## What is React?
-
-React is a JavaScript library for building user interfaces. It allows developers to create reusable UI components and manage the state of their applications efficiently.
-
-### Key Features of React
-- Component-based architecture
-- Virtual DOM for performance
-- Unidirectional data flow
-- Rich ecosystem and community support
-
-## What is Next.js?
-
-Next.js is a React framework that provides additional features like server-side rendering, static site generation, and API routes out of the box.
-
-### Key Features of Next.js
-- Server-side rendering (SSR)
-- Static site generation (SSG)
-- API routes
-- Image optimization
-- Automatic code splitting
-
-## When to Use React
-
-React is ideal for:
-- Single-page applications (SPAs)
-- Projects where you need complete control over the build process
-- Applications with complex client-side interactions
-
-## When to Use Next.js
-
-Next.js is perfect for:
-- SEO-critical websites
-- E-commerce platforms
-- Blogs and content-driven sites
-- Projects requiring both static and dynamic content
-
-## Performance Comparison
-
-Both frameworks offer excellent performance, but Next.js has an edge in initial load time due to its server-side rendering capabilities.
-
-- **React**: Slower initial load, faster subsequent navigation
-- **Next.js**: Faster initial load, optimized for SEO
-
-## Conclusion
-
-Both React and Next.js are powerful tools. Choose React for SPA-style applications and Next.js when you need SEO benefits and server-side capabilities.
-  `,
-  },
-  {
-    id: 2,
-    slug: "mobile-app-development-trends-2024",
-    title: "Top Mobile App Development Trends to Watch in 2024",
-    excerpt:
-      "Stay ahead of the curve with these emerging trends in mobile app development that will shape the industry.",
-    category: "Mobile Apps",
-    author: "Priya Sharma",
-    date: "June 10, 2024",
-    readTime: "6 min read",
-    featured: false,
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Mobile", "Flutter", "React Native"],
-    content: `
-## The Future of Mobile App Development
-
-The mobile app landscape is evolving rapidly. Here are the top trends you need to know in 2024.
-
-## 1. AI Integration
-
-Artificial intelligence is becoming a standard feature in mobile apps.
-
-### Applications of AI in Mobile Apps
-- Personalization
-- Chatbots and virtual assistants
-- Predictive analytics
-- Image and voice recognition
-
-## 2. Cross-Platform Development
-
-Flutter and React Native continue to dominate the cross-platform space.
-
-### Benefits of Cross-Platform
-- Single codebase for iOS and Android
-- Faster development cycles
-- Cost-effective solutions
-- Consistent user experience
-
-## 3. 5G Technology
-
-5G is enabling new possibilities for mobile apps.
-
-### 5G Capabilities
-- Faster download speeds
-- Lower latency
-- Enhanced gaming experiences
-- Improved AR/VR applications
-
-## 4. Wearable Technology
-
-Integration with smartwatches and other wearables is becoming essential.
-
-### Wearable Use Cases
-- Fitness tracking
-- Health monitoring
-- Notifications and alerts
-
-## 5. Blockchain and Mobile
-
-Blockchain technology is finding its way into mobile apps.
-
-### Blockchain Applications
-- Secure transactions
-- Digital identity verification
-- Supply chain tracking
-
-## Conclusion
-
-Staying ahead of these trends will help you create innovative and competitive mobile applications.
-  `,
-  },
-  // Add more posts with content...
-];
 
 // Helper Components
 const CodeBlock = ({ language, code }: { language: string; code: string }) => (
@@ -292,28 +142,67 @@ export default function BlogDetailPage() {
   const [post, setPost] = useState<any>(null);
   const [copied, setCopied] = useState(false);
   const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-  useEffect(() => {
-    const foundPost = blogPosts.find((p) => p.slug === slug);
-    if (!foundPost) {
-      router.push("/404");
-      return;
-    }
-    setPost(foundPost);
+  const fetchBlog = async () => {
+    try {
+      setLoading(true);
 
-    const contentLines = foundPost.content.split("\n");
-    const extractedHeadings = contentLines
-      .filter((line) => line.startsWith("## ") || line.startsWith("### "))
-      .map((line) => ({
-        id: line.replace(/^#+ /, "").toLowerCase().replace(/\s+/g, "-"),
-        text: line.replace(/^#+ /, ""),
-        level: line.startsWith("### ") ? 3 : 2,
-      }));
-    setHeadings(extractedHeadings);
-  }, [slug, router]);
+      const { data } = await axios.get(
+        `http://localhost:3001/api/blogs/slug/${slug}`
+      );
+
+      const foundPost = data.data;
+      setPost(foundPost);
+
+      const content = foundPost.content || "";
+
+      const extractedHeadings = content
+        .split("\n")
+        .filter(
+          (line: string) =>
+            line.startsWith("## ") || line.startsWith("### ")
+        )
+        .map((line: string) => ({
+          id: line
+            .replace(/^#+ /, "")
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, "")
+            .replace(/\s+/g, "-"),
+          text: line.replace(/^#+ /, ""),
+          level: line.startsWith("### ") ? 3 : 2,
+        }));
+
+      setHeadings(extractedHeadings);
+    } catch (error) {
+      console.error("Failed to fetch blog:", error);
+      router.push("/404");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (slug) {
+      fetchBlog();
+    }
+  }, [slug]);
+
+  // useEffect(() => {
+
+  //   const contentLines = foundPost.content.split("\n");
+  //   const extractedHeadings = contentLines
+  //     .filter((line) => line.startsWith("## ") || line.startsWith("### "))
+  //     .map((line) => ({
+  //       id: line.replace(/^#+ /, "").toLowerCase().replace(/\s+/g, "-"),
+  //       text: line.replace(/^#+ /, ""),
+  //       level: line.startsWith("### ") ? 3 : 2,
+  //     }));
+  //   setHeadings(extractedHeadings);
+  // }, [slug, router]);
 
   const handleShare = (platform: string) => {
     const url = encodeURIComponent(window.location.href);
@@ -379,7 +268,7 @@ function HeroSection({ post }: { post: any }) {
       <section className="blog-detail-hero relative w-full">
         {/* Background */}
         <div className="absolute inset-0">
-          <Image src={post.image} alt={post.title} fill className="object-cover" priority />
+          <Image src={post.featuredImage} alt={post.title} fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-[#0f2a6b]/90 to-white" />
         </div>
 
@@ -395,28 +284,28 @@ function HeroSection({ post }: { post: any }) {
                 {post.category}
               </span>
               <span className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
-                <Calendar size={14} /> {post.date}
+                <Calendar size={14} /> {post.createdAt}
               </span>
               <span className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
                 <Clock size={14} /> {post.readTime}
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-bold text-white leading-[1.1] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-semibold text-white leading-[1.3] mb-3">
               {post.title}
             </h1>
 
-            <p className="text-base text-gray-300 max-w-3xl mb-3 leading-relaxed">
+            {/* <p className="text-base text-gray-300 max-w-3xl mb-3 leading-relaxed">
               {post.excerpt}
-            </p>
+            </p> */}
 
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-[#e8a020]/20 flex items-center justify-center text-lg font-bold text-[#e8a020]">
-                { "D"}
+                {"D"}
               </div>
               <div>
                 <div className="text-white font-semibold">{"Digitonix"}</div>
-                <div className="text-gray-400 text-sm">Published on {post.date}</div>
+                <div className="text-gray-400 text-sm">Published on {post.createdAt}</div>
               </div>
             </div>
           </motion.div>
@@ -465,7 +354,485 @@ function MainContent({
               transition={{ duration: 0.6 }}
               className="prose prose-lg prose-slate max-w-none"
             >
-              <ContentParser content={post.content} />
+              <div className="blog-content-wrapper">
+                <div
+                  className="blog-content"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+
+                <style jsx global>{`
+        /* ─── Blog Content Styles ──────────────────────────────────────────── */
+        
+        .blog-content-wrapper {
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .blog-content {
+          color: #1a202c;
+          line-height: 1.5;
+          font-size: 1.1rem;
+        }
+
+        /* ─── Headings ────────────────────────────────────────────────────── */
+        
+        .blog-content h1 {
+          font-size: 2rem;
+          font-weight: 800;
+          color: #0f2a6b;
+          margin-top: 2.5rem;
+          margin-bottom: 1.25rem;
+          line-height: 1.2;
+          letter-spacing: -0.02em;
+          position: relative;
+          padding-bottom: 0.75rem;
+        }
+
+        .blog-content h1::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 4rem;
+          height: 0.25rem;
+          background: linear-gradient(to right, #1a3fa0, #e8a020);
+          border-radius: 0.125rem;
+        }
+
+        .blog-content h2 {
+          font-size: 1.7rem;
+          font-weight: 600;
+          color: #0f2a6b;
+          margin-top: 0.3rem;
+          margin-bottom: 1rem;
+          line-height: 1;
+          letter-spacing: -0.01em;
+          position: relative;
+          padding-left: 0.7rem;
+          border-left: 3px solid #e8a020;
+        }
+
+        .blog-content h2 .hash-link {
+          color: #1a3fa0;
+          opacity: 0.4;
+          transition: opacity 0.2s;
+          margin-right: 0.5rem;
+          text-decoration: none;
+          font-size: 0.8em;
+        }
+
+        .blog-content h2:hover .hash-link {
+          opacity: 1;
+        }
+
+        .blog-content h3 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: #1a3fa0;
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+          line-height: 1.1;
+        }
+
+        .blog-content h3 .hash-link {
+          color: #1a3fa0;
+          opacity: 0.3;
+          transition: opacity 0.2s;
+          margin-right: 0.5rem;
+          text-decoration: none;
+          font-size: 0.8em;
+        }
+
+        .blog-content h3:hover .hash-link {
+          opacity: 1;
+        }
+
+        .blog-content h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #2d3748;
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+          line-height: 1.1;
+        }
+
+        /* ─── Paragraphs ──────────────────────────────────────────────────── */
+
+        .blog-content p {
+          color: #394058;
+          margin-bottom: 1.25rem;
+          line-height: 1.7;
+        }
+
+        .blog-content p strong {
+          color: #0f2a6b;
+          font-weight: 600;
+        }
+
+        .blog-content p em {
+          color: #1a3fa0;
+          font-style: italic;
+        }
+
+        .blog-content p code {
+          background: #f0f4f8;
+          padding: 0.125rem 0.375rem;
+          border-radius: 0.25rem;
+          font-size: 0.875em;
+          color: #e83e8c;
+        }
+
+        /* ─── Lists ──────────────────────────────────────────────────────── */
+
+        .blog-content ul {
+          margin: 1rem 0 1.5rem 0;
+          padding-left: 1.5rem;
+          list-style-type: none;
+        }
+
+        .blog-content ul li {
+          position: relative;
+          padding-left: 1.75rem;
+          margin-bottom: 0.625rem;
+          color: #4a5578;
+          line-height: 1.7;
+        }
+
+        .blog-content ul li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.6rem;
+          width: 0.5rem;
+          height: 0.5rem;
+          background: #e8a020;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+
+        .blog-content ul li strong {
+          color: #0f2a6b;
+        }
+
+        .blog-content ol {
+          margin: 1rem 0 1.5rem 0;
+          padding-left: 1.75rem;
+          list-style-type: none;
+          counter-reset: item;
+        }
+
+        .blog-content ol li {
+          position: relative;
+          padding-left: 2.5rem;
+          margin-bottom: 0.625rem;
+          color: #4a5578;
+          line-height: 1.7;
+          counter-increment: item;
+        }
+
+        .blog-content ol li::before {
+          content: counter(item);
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1.75rem;
+          height: 1.75rem;
+          background: linear-gradient(135deg, #1a3fa0, #2952cc);
+          color: white;
+          font-size: 0.75rem;
+          font-weight: 700;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .blog-content ol li strong {
+          color: #0f2a6b;
+        }
+
+        /* ─── Blockquotes ────────────────────────────────────────────────── */
+
+        .blog-content blockquote {
+          margin: 1.5rem 0;
+          padding: 1.25rem 1.5rem;
+          background: #f8f9fc;
+          border-left: 4px solid #e8a020;
+          border-radius: 0 0.5rem 0.5rem 0;
+          color: #2d3748;
+          font-style: italic;
+          position: relative;
+        }
+
+        .blog-content blockquote::before {
+          content: '"';
+          position: absolute;
+          top: -0.25rem;
+          left: 0.75rem;
+          font-size: 3rem;
+          color: #e8a020;
+          opacity: 0.3;
+          font-family: Georgia, serif;
+        }
+
+        .blog-content blockquote p {
+          margin-bottom: 0;
+          color: #2d3748;
+        }
+
+        .blog-content blockquote cite {
+          display: block;
+          margin-top: 0.5rem;
+          font-size: 0.875rem;
+          color: #4a5578;
+          font-style: normal;
+          font-weight: 500;
+        }
+
+        /* ─── Code Blocks ────────────────────────────────────────────────── */
+
+        .blog-content pre {
+          margin: 1.5rem 0;
+          padding: 1.25rem;
+          background: #070c1a;
+          border-radius: 0.75rem;
+          overflow-x: auto;
+          position: relative;
+          border: 1px solid rgba(26, 63, 160, 0.2);
+        }
+
+        .blog-content pre::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 0.25rem 0.75rem;
+          background: rgba(232, 160, 32, 0.15);
+          color: #e8a020;
+          font-size: 0.625rem;
+          font-weight: 600;
+          border-radius: 0 0.75rem 0 0.5rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+
+        .blog-content pre code {
+          font-family:  monospace;
+          font-size: 1rem;
+          line-height: 1.4;
+          color: #e2e8f0;
+          padding: 0;
+        }
+
+        .blog-content pre code .comment {
+          color: #a0aec0;
+          font-style: italic;
+        }
+
+        .blog-content pre code .keyword {
+          color: #f687b3;
+        }
+
+        .blog-content pre code .string {
+          color: #68d391;
+        }
+
+        .blog-content pre code .function {
+          color: #63b3ed;
+        }
+
+        .blog-content pre code .number {
+          color: #f6ad55;
+        }
+
+        .blog-content pre code .tag {
+          color: #fc8181;
+        }
+
+        .blog-content pre code .attr {
+          color: #f6ad55;
+        }
+
+        /* ─── Inline Code ────────────────────────────────────────────────── */
+
+        .blog-content code:not(pre code) {
+          background: #f0f4f8;
+          padding: 0.125rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 0.875em;
+          color: #e83e8c;
+          font-family: 'Courier New', monospace;
+          border: 1px solid rgba(26, 63, 160, 0.08);
+        }
+
+        /* ─── Links ──────────────────────────────────────────────────────── */
+
+        .blog-content a {
+          color: #1a3fa0;
+          text-decoration: none;
+          font-weight: 500;
+          border-bottom: 2px solid rgba(232, 160, 32, 0.3);
+          transition: all 0.2s;
+        }
+
+        .blog-content a:hover {
+          color: #e8a020;
+          border-bottom-color: #e8a020;
+        }
+
+        /* ─── Images ─────────────────────────────────────────────────────── */
+
+        .blog-content img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 0.75rem;
+          margin: 1.5rem 0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ─── Tables ─────────────────────────────────────────────────────── */
+
+        .blog-content table {
+          width: 100%;
+          margin: 1.5rem 0;
+          border-collapse: collapse;
+          border-radius: 0.75rem;
+          overflow: hidden;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-content table thead {
+          background: linear-gradient(135deg, #0f2a6b, #1a3fa0);
+        }
+
+        .blog-content table th {
+          padding: 0.75rem 1rem;
+          text-align: left;
+          color: white;
+          font-weight: 600;
+          font-size: 0.875rem;
+          letter-spacing: 0.02em;
+        }
+
+        .blog-content table td {
+          padding: 0.75rem 1rem;
+          border-bottom: 1px solid #edf2f7;
+          color: #4a5578;
+        }
+
+        .blog-content table tbody tr:hover {
+          background: #f8f9fc;
+        }
+
+        .blog-content table tbody tr:last-child td {
+          border-bottom: none;
+        }
+
+        /* ─── Horizontal Rule ───────────────────────────────────────────── */
+
+        .blog-content hr {
+          margin: 2.5rem 0;
+          border: none;
+          height: 2px;
+          background: linear-gradient(to right, transparent, #e8a020, transparent);
+        }
+
+        /* ─── Responsive Adjustments ────────────────────────────────────── */
+
+        @media (max-width: 768px) {
+          .blog-content {
+            font-size: 1rem;
+          }
+
+          .blog-content h1 {
+            font-size: 2rem;
+          }
+
+          .blog-content h2 {
+            font-size: 1.625rem;
+          }
+
+          .blog-content h3 {
+            font-size: 1.25rem;
+          }
+
+          .blog-content pre {
+            padding: 1rem;
+            font-size: 0.8rem;
+            margin: 1rem -1rem;
+            border-radius: 0;
+          }
+
+          .blog-content pre::before {
+            font-size: 0.5rem;
+          }
+
+          .blog-content blockquote {
+            padding: 1rem;
+            margin: 1rem -1rem;
+          }
+
+          .blog-content table {
+            font-size: 0.875rem;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+          }
+
+          .blog-content ul,
+          .blog-content ol {
+            padding-left: 1rem;
+          }
+
+          .blog-content ul li {
+            padding-left: 1.5rem;
+          }
+
+          .blog-content ol li {
+            padding-left: 2rem;
+          }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .blog-content {
+            font-size: 1.0625rem;
+          }
+        }
+
+        /* ─── Print Styles ──────────────────────────────────────────────── */
+
+        @media print {
+          .blog-content {
+            font-size: 0.875rem;
+            color: #000;
+          }
+
+          .blog-content h1,
+          .blog-content h2,
+          .blog-content h3,
+          .blog-content h4 {
+            color: #000;
+          }
+
+          .blog-content pre {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+          }
+
+          .blog-content pre code {
+            color: #000;
+          }
+
+          .blog-content blockquote {
+            background: #f9f9f9;
+          }
+
+          .blog-content a {
+            color: #000;
+            border-bottom-color: #000;
+          }
+        }
+      `}</style>
+              </div>
 
               {/* Tags */}
               <div className="mt-12 pt-8 border-t border-[#1a3fa0]/10">
@@ -523,11 +890,10 @@ function MainContent({
                       <a
                         key={heading.id}
                         href={`#${heading.id}`}
-                        className={`block text-sm transition-colors hover:text-[#e8a020] ${
-                          heading.level === 3
+                        className={`block text-sm transition-colors hover:text-[#e8a020] ${heading.level === 3
                             ? "ml-4 text-[#4a5578] text-xs"
                             : "font-medium text-[#0f2a6b]"
-                        }`}
+                          }`}
                       >
                         {heading.text}
                       </a>
@@ -600,10 +966,7 @@ function MainContent({
    RELATED ARTICLES
 ───────────────────────────────────────────── */
 function RelatedArticles({ post }: { post: any }) {
-  const relatedPosts = blogPosts
-    .filter((p) => p.category === post.category && p.slug !== post.slug)
-    .slice(0, 3);
-
+  const relatedPosts = []
   if (relatedPosts.length === 0) return null;
 
   return (
