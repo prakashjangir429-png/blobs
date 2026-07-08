@@ -68,7 +68,7 @@ interface PaginatedResponse<T> {
 }
 
 // Base URL for API calls
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://newsbackend-ebon.vercel.app/api';
 
 export async function getAllBlogs(filters: BlogFilters = {}): Promise<PaginatedResponse<BlogPost>> {
   // Build query string
@@ -126,10 +126,9 @@ export async function getAllCategories(filters: CategoryFilters = {}): Promise<P
 }
 
 export async function getBlogBySlug(slug: string): Promise<{ success: boolean; data: BlogPost }> {
-  const url = `${API_BASE_URL}/blogs/${slug}`;
+  const url = `${API_BASE_URL}/blogs/slug/${slug}`;
   
   const response = await fetch(url, {
-    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
     },
