@@ -70,14 +70,6 @@ import {
 import TopScorers from "@/components/tesmonials";
 import { CTASection, StatsSection } from "@/components/pages/aboutus";
 
-/* ─────────────────────────────────────────────
-   BRAND COLORS
-   Primary: #0f2a6b / #1a3fa0 / #2952cc (deep navy)
-   Accent:  #e8a020 / #f0b832 (gold)
-   Text:    #4a5578 (body), #0f2a6b (headings)
-   BG:      #f8f9fc / #f4f6fb (light sections)
-   Cards:   white with border-[#1a3fa0]/10
-───────────────────────────────────────────── */
 
 /* ── Animated Counter ── */
 function Counter({ target, suffix }: { target: number; suffix: string }) {
@@ -567,10 +559,9 @@ function HeroSection({
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10" />
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-3xl" />
+          <div className="orb w-[600px] h-[600px] top-[-15%] right-[-10%] z-0" style={{ background: 'rgba(232,160,32,0.22)' }} />
+          <div className="orb w-[500px] h-[500px] bottom-[-10%] left-[-8%] z-0" style={{ background: 'rgba(26,63,160,0.2)' }} />
+          <div className="orb w-[300px] h-[300px] top-[30%] left-[20%] z-0" style={{ background: 'rgba(41,82,204,0.16)' }} />
 
           {/* Grid Pattern */}
           <div className="absolute inset-0" style={{
@@ -723,8 +714,8 @@ function ServicesGridSection({
           <button
             onClick={() => setSelectedCategory("all")}
             className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${selectedCategory === "all"
-                ? "bg-[#0f2a6b] text-white shadow-lg"
-                : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/20 hover:border-[#1a3fa0]/40"
+              ? "bg-[#0f2a6b] text-white shadow-lg"
+              : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/20 hover:border-[#1a3fa0]/40"
               }`}
           >
             All Services
@@ -734,8 +725,8 @@ function ServicesGridSection({
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 flex items-center gap-2 ${selectedCategory === cat.id
-                  ? "bg-[#0f2a6b] text-white shadow-lg"
-                  : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/20 hover:border-[#1a3fa0]/40"
+                ? "bg-[#0f2a6b] text-white shadow-lg"
+                : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/20 hover:border-[#1a3fa0]/40"
                 }`}
             >
               <cat.icon size={16} />

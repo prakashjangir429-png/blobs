@@ -1,0 +1,1559 @@
+{
+    "services": [
+        {
+            "slug": "web-development",
+            "name": "Web Development",
+            "breadcrumb": "Web Development",
+            "metaTitle": "Professional Web Development Services | Digitonix",
+            "metaDescription": "Get custom web development services from India's leading web development company. We build SEO-optimized, responsive websites that drive business growth. Contact us today!",
+            "metaKeywords": "web development company, custom web development, website development services, web development India, web development company in Jaipur",
+            "ogTitle": "Custom Web Development Services | Digitonix",
+            "ogDescription": "Expert web development services with 13+ years experience. Build scalable, secure, and high-performance websites. 200+ projects delivered with 98% client satisfaction.",
+            "hero": {
+                "title": "Custom Web",
+                "highlightedWord": "Development",
+                "description": "Digitonix is a leading IT service provider and software development company in Jaipur, India, delivering innovative web, mobile, and custom software solutions since 2011. With 55+ expert engineers and 650+ successful projects, we help businesses transform digitally and achieve measurable growth.",
+                "trustPoints": [
+                    "ISO 9001:2015 Certified",
+                    "13+ Years Experience",
+                    "24/7 Support",
+                    "Global Clientele"
+                ],
+                "ctaText": "Start Your Project",
+                "ctaLink": "/contact",
+                "secondaryCtaText": "View Our Work",
+                "secondaryCtaLink": "/portfolio",
+                "heroImage": "/home/b1.png"
+            },
+            "overview": {
+                "tag": "Overview",
+                "title": "Why Choose Our",
+                "highlightedWord": "Web Development",
+                "subtitle": "Services?",
+                "description": "As a leading web development company in Jaipur, India, Digitonix delivers enterprise-quality web solutions tailored to your unique business requirements. Our team of 55+ expert developers combines technical excellence with deep business understanding to create web applications that drive growth, improve user engagement, and deliver measurable ROI.",
+                "description2": "Whether you need a corporate website, e-commerce platform, SaaS application, or enterprise portal, we have the expertise to bring your vision to life using the latest technologies and best practices in web development.",
+                "keyPoints": [
+                    "SEO-Optimized Architecture",
+                    "Mobile-First Responsive Design",
+                    "Core Web Vitals Optimized",
+                    "Enterprise-Grade Security"
+                ],
+                "benefits": [
+                    {
+                        "title": "Customized Solutions",
+                        "description": "Tailor-made to your exact business requirements"
+                    },
+                    {
+                        "title": "Scalable Architecture",
+                        "description": "Built to grow with your business needs"
+                    },
+                    {
+                        "title": "SEO-Ready",
+                        "description": "Optimized for search engine visibility"
+                    },
+                    {
+                        "title": "Fast Performance",
+                        "description": "Optimized Core Web Vitals for better rankings"
+                    },
+                    {
+                        "title": "Ongoing Support",
+                        "description": "24/7 maintenance and technical support"
+                    }
+                ]
+            },
+            "features": {
+                "tag": "Key Features",
+                "title": "What Makes Our Service",
+                "highlightedWord": "Exceptional",
+                "features": [
+                    {
+                        "icon": "Code2",
+                        "title": "Custom Development",
+                        "description": "Bespoke web applications built from scratch tailored to your specific business logic and requirements."
+                    },
+                    {
+                        "icon": "Search",
+                        "title": "SEO Optimization",
+                        "description": "Built-in SEO best practices with server-side rendering, meta tags, structured data, and fast loading."
+                    },
+                    {
+                        "icon": "Smartphone",
+                        "title": "Responsive Design",
+                        "description": "Mobile-first approach ensuring perfect display and functionality across all devices and screen sizes."
+                    },
+                    {
+                        "icon": "Shield",
+                        "title": "Security First",
+                        "description": "Enterprise-grade security with SSL, data encryption, secure authentication, and regular audits."
+                    },
+                    {
+                        "icon": "Cloud",
+                        "title": "Cloud Deployment",
+                        "description": "Scalable cloud infrastructure on AWS, Google Cloud, or Azure with 99.9% uptime guarantee."
+                    },
+                    {
+                        "icon": "TrendingUp",
+                        "title": "Performance Optimized",
+                        "description": "Optimized Core Web Vitals scores ensuring better Google rankings and user experience."
+                    }
+                ]
+            },
+            "techStack": {
+                "title": "Technologies",
+                "highlightedWord": "We Use",
+                "description": "We leverage cutting-edge technologies to build future-ready web applications",
+                "technologies": [
+                    "React.js",
+                    "Next.js",
+                    "TypeScript",
+                    "Node.js",
+                    "PostgreSQL",
+                    "MongoDB",
+                    "AWS",
+                    "Docker",
+                    "GraphQL",
+                    "Redux",
+                    "Tailwind CSS",
+                    "Jest"
+                ]
+            },
+            "process": {
+                "tag": "Our Process",
+                "title": "How We",
+                "highlightedWord": "Deliver",
+                "description": "A structured, transparent process ensuring quality at every stage",
+                "steps": [
+                    {
+                        "step": "01",
+                        "title": "Discovery & Analysis",
+                        "description": "We analyze your business goals, target audience, competitors, and technical requirements to build a solid foundation.",
+                        "icon": "Search"
+                    },
+                    {
+                        "step": "02",
+                        "title": "Architecture & Design",
+                        "description": "Our architects design scalable system architecture while designers create intuitive UI/UX mockups.",
+                        "icon": "Layout"
+                    },
+                    {
+                        "step": "03",
+                        "title": "Agile Development",
+                        "description": "2-week sprints with regular demos, transparent communication, and continuous integration.",
+                        "icon": "Code2"
+                    },
+                    {
+                        "step": "04",
+                        "title": "QA & Testing",
+                        "description": "Comprehensive testing including unit, integration, performance, and security testing.",
+                        "icon": "Shield"
+                    },
+                    {
+                        "step": "05",
+                        "title": "Deployment & Launch",
+                        "description": "Smooth deployment to production with zero downtime and comprehensive monitoring setup.",
+                        "icon": "Rocket"
+                    },
+                    {
+                        "step": "06",
+                        "title": "Maintenance & Support",
+                        "description": "24/7 monitoring, regular updates, security patches, and ongoing optimization.",
+                        "icon": "Headphones"
+                    }
+                ]
+            },
+            "whyChoose": {
+                "tag": "Why Digitonix",
+                "title": "Why Choose Us For",
+                "highlightedWord": "Web Development?",
+                "reasons": [
+                    {
+                        "icon": "Users",
+                        "title": "55+ Expert Developers",
+                        "description": "Dedicated team with average 5+ years experience in web technologies."
+                    },
+                    {
+                        "icon": "Clock",
+                        "title": "13+ Years Experience",
+                        "description": "Delivering successful web projects since 2011 with proven track record."
+                    },
+                    {
+                        "icon": "Trophy",
+                        "title": "200+ Web Projects",
+                        "description": "Extensive portfolio of successful web applications across industries."
+                    },
+                    {
+                        "icon": "BadgeCheck",
+                        "title": "ISO 9001:2015 Certified",
+                        "description": "Certified quality management processes ensuring consistent excellence."
+                    },
+                    {
+                        "icon": "Headphones",
+                        "title": "24/7 Support",
+                        "description": "Round-the-clock technical support and maintenance services."
+                    },
+                    {
+                        "icon": "Globe",
+                        "title": "Global Clientele",
+                        "description": "Trusted by clients across 25+ countries with multilingual capabilities."
+                    }
+                ]
+            },
+            "pricing": {
+                "title": "Flexible",
+                "highlightedWord": "Pricing Plans",
+                "description": "Choose a plan that fits your requirements and budget",
+                "plans": [
+                    {
+                        "name": "Starter",
+                        "price": "Starting at $2,999",
+                        "features": [
+                            "Up to 5 Pages",
+                            "Responsive Design",
+                            "Basic SEO",
+                            "Contact Form",
+                            "1 Month Support"
+                        ],
+                        "popular": false
+                    },
+                    {
+                        "name": "Professional",
+                        "price": "Starting at $7,999",
+                        "features": [
+                            "Up to 20 Pages",
+                            "Custom Design",
+                            "Advanced SEO",
+                            "CMS Integration",
+                            "E-Commerce Ready",
+                            "3 Months Support"
+                        ],
+                        "popular": true
+                    },
+                    {
+                        "name": "Enterprise",
+                        "price": "Custom Quote",
+                        "features": [
+                            "Unlimited Pages",
+                            "Custom Architecture",
+                            "Full SEO Suite",
+                            "API Integration",
+                            "Cloud Deployment",
+                            "12 Months Support"
+                        ],
+                        "popular": false
+                    }
+                ]
+            },
+            "caseStudies": {
+                "tag": "Our Work",
+                "title": "Related",
+                "highlightedWord": "Case Studies",
+                "description": "See how we've helped businesses achieve their goals",
+                "studies": [
+                    {
+                        "title": "E-Commerce Platform Development",
+                        "description": "How we helped a retail brand achieve 200% growth with custom e-commerce solution",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-0?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/ecommerce-platform",
+                        "category": "E-Commerce"
+                    },
+                    {
+                        "title": "SaaS Application Launch",
+                        "description": "Building a scalable SaaS platform that attracted 10,000+ users in first 3 months",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-1?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/saas-platform",
+                        "category": "SaaS"
+                    },
+                    {
+                        "title": "Enterprise Portal Solution",
+                        "description": "Custom enterprise portal serving 5000+ employees with 99.9% uptime",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-2?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/enterprise-portal",
+                        "category": "Enterprise"
+                    }
+                ]
+            },
+            "faq": {
+                "title": "Frequently Asked",
+                "highlightedWord": "Questions",
+                "faqs": [
+                    {
+                        "question": "How long does it take to build a custom website?",
+                        "answer": "The timeline depends on the project complexity. A simple website takes 4-6 weeks, while complex web applications may take 3-6 months. We provide a detailed timeline during the discovery phase."
+                    },
+                    {
+                        "question": "What technologies do you use for web development?",
+                        "answer": "We specialize in React.js, Next.js, Node.js, TypeScript, and PostgreSQL. For CMS, we use WordPress and Strapi. We choose the best tech stack based on your project requirements."
+                    },
+                    {
+                        "question": "Do you provide website maintenance and support?",
+                        "answer": "Yes, we offer 24/7 maintenance and support services including security updates, performance optimization, content updates, and technical support."
+                    },
+                    {
+                        "question": "Is your web development SEO-friendly?",
+                        "answer": "Absolutely! All our websites are built with SEO best practices including server-side rendering, optimized Core Web Vitals, structured data, and mobile-first design."
+                    },
+                    {
+                        "question": "What is your development process?",
+                        "answer": "We follow an agile development methodology with 2-week sprints. Our process includes discovery, design, development, testing, deployment, and ongoing support with regular client demos and feedback sessions."
+                    },
+                    {
+                        "question": "Do you offer custom web development services?",
+                        "answer": "Yes, we specialize in custom web development tailored to your specific business requirements. We build bespoke solutions from scratch using modern technologies and best practices."
+                    }
+                ]
+            },
+            "relatedServices": {
+                "title": "Related",
+                "highlightedWord": "Services",
+                "services": [
+                    {
+                        "title": "E-Commerce Development",
+                        "slug": "ecommerce-development",
+                        "icon": "ShoppingBag"
+                    },
+                    {
+                        "title": "CMS Development",
+                        "slug": "cms-development",
+                        "icon": "Box"
+                    },
+                    {
+                        "title": "Mobile App Development",
+                        "slug": "cross-platform-app-development",
+                        "icon": "Smartphone"
+                    },
+                    {
+                        "title": "UI/UX Design",
+                        "slug": "ui-ux-design",
+                        "icon": "PenTool"
+                    }
+                ]
+            },
+            "cta": {
+                "title": "Ready to Build Something Great?",
+                "description":"2-week sprints with continuous integration and regular client demos."
+            }
+        },
+        {
+            "slug": "website-design",
+            "name": "Website Design",
+            "breadcrumb": "Website Design",
+            "metaTitle": "Professional Website Design Services | Digitonix",
+            "metaDescription": "Get stunning, user-centric website design services from India's top web design company. We create visually appealing, conversion-optimized websites that drive business growth.",
+            "metaKeywords": "website design company, web design services, professional website design, web design India, UI UX design company",
+            "ogTitle": "Professional Website Design Services | Digitonix",
+            "ogDescription": "Expert website design services with focus on user experience and conversion optimization. 200+ successful designs delivered with 98% client satisfaction.",
+            "hero": {
+                "title": "Website",
+                "highlightedWord": "Design",
+                "description": "At Digitonix, we combine creativity with strategy to design websites that captivate audiences and drive conversions. As a leading website design company in Jaipur, India, we create visually stunning, user-centric websites that reflect your brand identity and deliver exceptional user experiences.",
+                "trustPoints": [
+                    "200+ Designs Delivered",
+                    "Award-Winning Team",
+                    "User-Centric Approach",
+                    "Mobile-First Design"
+                ],
+                "ctaText": "Get a Free Design Consultation",
+                "ctaLink": "/contact",
+                "secondaryCtaText": "View Our Portfolio",
+                "secondaryCtaLink": "/portfolio",
+                "heroImage": "/services/website-design-hero.jpg"
+            },
+            "overview": {
+                "tag": "Overview",
+                "title": "Why Choose Our",
+                "highlightedWord": "Website Design",
+                "subtitle": "Services?",
+                "description": "Our website design services focus on creating engaging, user-friendly interfaces that convert visitors into customers. We blend aesthetic appeal with functionality, ensuring your website not only looks great but also delivers measurable business results.",
+                "description2": "From responsive design to interactive elements, we craft websites that provide seamless experiences across all devices and platforms.",
+                "keyPoints": [
+                    "Conversion-Optimized Design",
+                    "User Experience Focused",
+                    "Brand Identity Integration",
+                    "Mobile-Responsive Design"
+                ],
+                "benefits": [
+                    {
+                        "title": "User-Centered Design",
+                        "description": "Designs crafted with user psychology and behavior in mind"
+                    },
+                    {
+                        "title": "Brand Consistency",
+                        "description": "Visual identity that aligns perfectly with your brand"
+                    },
+                    {
+                        "title": "High Conversion Rates",
+                        "description": "Design optimized for maximum conversion and engagement"
+                    },
+                    {
+                        "title": "Fast Loading Design",
+                        "description": "Lightweight, optimized designs for quick loading"
+                    },
+                    {
+                        "title": "Cross-Device Compatibility",
+                        "description": "Seamless experience across all devices and screen sizes"
+                    }
+                ]
+            },
+            "features": {
+                "tag": "Key Features",
+                "title": "What Makes Our Service",
+                "highlightedWord": "Exceptional",
+                "features": [
+                    {
+                        "icon": "Palette",
+                        "title": "Custom Visual Design",
+                        "description": "Unique, tailored designs that stand out from competitors and reflect your brand identity."
+                    },
+                    {
+                        "icon": "PenTool",
+                        "title": "User Experience Focus",
+                        "description": "Intuitive navigation and user flows that guide visitors toward desired actions."
+                    },
+                    {
+                        "icon": "Smartphone",
+                        "title": "Responsive Design",
+                        "description": "Perfect display and functionality across all devices from desktop to mobile."
+                    },
+                    {
+                        "icon": "Layout",
+                        "title": "Modern Design Trends",
+                        "description": "Contemporary design elements and interactive features that engage users."
+                    },
+                    {
+                        "icon": "Target",
+                        "title": "Conversion Optimization",
+                        "description": "Strategic placement of CTAs and forms to maximize conversions."
+                    },
+                    {
+                        "icon": "Share2",
+                        "title": "Social Media Integration",
+                        "description": "Seamless integration with social platforms for enhanced reach and engagement."
+                    }
+                ]
+            },
+            "techStack": {
+                "title": "Design Tools",
+                "highlightedWord": "We Use",
+                "description": "We use industry-leading design tools to create exceptional designs",
+                "technologies": [
+                    "Figma",
+                    "Adobe XD",
+                    "Sketch",
+                    "Photoshop",
+                    "Illustrator",
+                    "InVision",
+                    "Zeplin",
+                    "Adobe Creative Suite",
+                    "After Effects",
+                    "Premiere Pro"
+                ]
+            },
+            "process": {
+                "tag": "Our Process",
+                "title": "How We",
+                "highlightedWord": "Design",
+                "description": "A systematic design process ensuring exceptional results",
+                "steps": [
+                    {
+                        "step": "01",
+                        "title": "Discovery & Research",
+                        "description": "We research your industry, target audience, and competitors to inform design decisions.",
+                        "icon": "Search"
+                    },
+                    {
+                        "step": "02",
+                        "title": "Wireframing",
+                        "description": "Creating layout sketches and wireframes to establish structure and user flow.",
+                        "icon": "PenTool"
+                    },
+                    {
+                        "step": "03",
+                        "title": "Visual Design",
+                        "description": "Developing high-fidelity designs with colors, typography, and visual elements.",
+                        "icon": "Palette"
+                    },
+                    {
+                        "step": "04",
+                        "title": "Interactive Prototyping",
+                        "description": "Building interactive prototypes for user testing and stakeholder feedback.",
+                        "icon": "Layout"
+                    },
+                    {
+                        "step": "05",
+                        "title": "User Testing",
+                        "description": "Conducting usability testing and gathering feedback for refinement.",
+                        "icon": "Users"
+                    },
+                    {
+                        "step": "06",
+                        "title": "Design Handoff",
+                        "description": "Delivering design assets and style guides for development implementation.",
+                        "icon": "Rocket"
+                    }
+                ]
+            },
+            "whyChoose": {
+                "tag": "Why Digitonix",
+                "title": "Why Choose Us For",
+                "highlightedWord": "Website Design?",
+                "reasons": [
+                    {
+                        "icon": "Star",
+                        "title": "Award-Winning Designers",
+                        "description": "Team of creative designers with recognized industry awards."
+                    },
+                    {
+                        "icon": "Users",
+                        "title": "User-Centric Approach",
+                        "description": "Designs focused on user behavior and conversion optimization."
+                    },
+                    {
+                        "icon": "Briefcase",
+                        "title": "200+ Design Projects",
+                        "description": "Extensive portfolio showcasing diverse design capabilities."
+                    },
+                    {
+                        "icon": "Shield",
+                        "title": "Industry Best Practices",
+                        "description": "Designs following latest industry standards and guidelines."
+                    }
+                ]
+            },
+            "pricing": {
+                "title": "Design",
+                "highlightedWord": "Packages",
+                "description": "Choose a package that fits your business needs",
+                "plans": [
+                    {
+                        "name": "Basic Design",
+                        "price": "Starting at $1,499",
+                        "features": [
+                            "Up to 5 Pages",
+                            "3 Design Concepts",
+                            "Basic UI Design",
+                            "2 Revisions",
+                            "1 Month Support"
+                        ],
+                        "popular": false
+                    },
+                    {
+                        "name": "Professional Design",
+                        "price": "Starting at $4,999",
+                        "features": [
+                            "Up to 20 Pages",
+                            "5 Design Concepts",
+                            "Advanced UI/UX Design",
+                            "Unlimited Revisions",
+                            "Interactive Prototype",
+                            "3 Months Support"
+                        ],
+                        "popular": true
+                    },
+                    {
+                        "name": "Enterprise Design",
+                        "price": "Custom Quote",
+                        "features": [
+                            "Unlimited Pages",
+                            "Custom Design System",
+                            "Full UX Research",
+                            "Unlimited Revisions",
+                            "User Testing Included",
+                            "12 Months Support"
+                        ],
+                        "popular": false
+                    }
+                ]
+            },
+            "caseStudies": {
+                "tag": "Our Work",
+                "title": "Related",
+                "highlightedWord": "Case Studies",
+                "description": "See how we've transformed brands through exceptional design",
+                "studies": [
+                    {
+                        "title": "E-Commerce Brand Redesign",
+                        "description": "Complete brand redesign resulted in 45% increase in conversion rate",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-3?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/brand-redesign",
+                        "category": "Brand Redesign"
+                    },
+                    {
+                        "title": "SaaS Platform Interface",
+                        "description": "User-centric design that attracted 15,000+ sign-ups in first month",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-4?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/saas-interface",
+                        "category": "SaaS Design"
+                    },
+                    {
+                        "title": "Mobile App UI/UX",
+                        "description": "Intuitive mobile app design with 4.8+ user rating on app stores",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-5?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/mobile-ui-ux",
+                        "category": "Mobile UI/UX"
+                    }
+                ]
+            },
+            "faq": {
+                "title": "Frequently Asked",
+                "highlightedWord": "Questions",
+                "faqs": [
+                    {
+                        "question": "How long does the website design process take?",
+                        "answer": "The timeline depends on the project complexity. A simple website design takes 2-3 weeks, while complex designs with extensive UX research may take 4-6 weeks."
+                    },
+                    {
+                        "question": "What design tools do you use?",
+                        "answer": "We primarily use Figma and Adobe XD for designing, along with Photoshop and Illustrator for graphic elements. We also use InVision and Zeplin for design handoff."
+                    },
+                    {
+                        "question": "Do you provide design revisions?",
+                        "answer": "Yes, we provide multiple revision rounds to ensure the design perfectly matches your vision. Our professional and enterprise packages include unlimited revisions."
+                    },
+                    {
+                        "question": "Do you create mobile-responsive designs?",
+                        "answer": "Absolutely! All our designs are mobile-first and fully responsive, ensuring an optimal experience across all devices."
+                    }
+                ]
+            },
+            "relatedServices": {
+                "title": "Related",
+                "highlightedWord": "Services",
+                "services": [
+                    {
+                        "title": "UI/UX Design",
+                        "slug": "ui-ux-design",
+                        "icon": "PenTool"
+                    },
+                    {
+                        "title": "Web Development",
+                        "slug": "web-development",
+                        "icon": "Code2"
+                    },
+                    {
+                        "title": "E-Commerce Development",
+                        "slug": "ecommerce-development",
+                        "icon": "ShoppingBag"
+                    }
+                ]
+            }
+        },
+        {
+            "slug": "custom-web-development",
+            "name": "Custom Web Development",
+            "breadcrumb": "Custom Web Development",
+            "metaTitle": "Custom Web Development Services | Digitonix",
+            "metaDescription": "Get custom web development services from India's leading web development company. Build scalable, secure, and high-performance web applications tailored to your needs.",
+            "metaKeywords": "custom web development, web application development, custom web solutions, enterprise web development, web development company",
+            "ogTitle": "Custom Web Development Services | Digitonix",
+            "ogDescription": "Expert custom web development services with 13+ years experience. Build secure, scalable, and high-performance web applications. Get a free quote today!",
+            "hero": {
+                "title": "Custom Web",
+                "highlightedWord": "Development",
+                "description": "Digitonix specializes in custom web development, delivering enterprise-grade web applications built from the ground up to meet your specific business requirements. With 13+ years of experience and 55+ expert developers, we create secure, scalable, and high-performance solutions that give you a competitive edge.",
+                "trustPoints": [
+                    "Enterprise-Grade Security",
+                    "Scalable Architecture",
+                    "High Performance",
+                    "Agile Development"
+                ],
+                "ctaText": "Get a Free Consultation",
+                "ctaLink": "/contact",
+                "secondaryCtaText": "View Our Work",
+                "secondaryCtaLink": "/portfolio",
+                "heroImage": "/services/custom-web-development-hero.jpg"
+            },
+            "overview": {
+                "tag": "Overview",
+                "title": "Why Choose Our",
+                "highlightedWord": "Custom Web Development",
+                "subtitle": "Services?",
+                "description": "Our custom web development services provide tailored solutions that perfectly align with your business needs. Unlike template-based solutions, we build applications from scratch using modern technologies and best practices, ensuring maximum flexibility, security, and performance.",
+                "description2": "Whether you need a complex enterprise system, SaaS application, or custom portal, our expert team delivers solutions that drive business growth and operational efficiency.",
+                "keyPoints": [
+                    "Bespoke Solutions",
+                    "Future-Proof Architecture",
+                    "Enterprise Security",
+                    "Scalable Performance"
+                ],
+                "benefits": [
+                    {
+                        "title": "Tailored Solutions",
+                        "description": "Custom-built applications that exactly match your requirements"
+                    },
+                    {
+                        "title": "Enterprise Security",
+                        "description": "Advanced security measures including encryption, authentication, and audit logs"
+                    },
+                    {
+                        "title": "Scalable Architecture",
+                        "description": "Built to handle growing user base and business demands"
+                    },
+                    {
+                        "title": "API Integration",
+                        "description": "Seamless integration with third-party services and systems"
+                    },
+                    {
+                        "title": "Performance Optimized",
+                        "description": "Fast loading times and optimal performance metrics"
+                    }
+                ]
+            },
+            "features": {
+                "tag": "Key Features",
+                "title": "What Makes Our Service",
+                "highlightedWord": "Exceptional",
+                "features": [
+                    {
+                        "icon": "Cpu",
+                        "title": "Custom Architecture",
+                        "description": "Designed specifically for your business requirements with optimal architecture."
+                    },
+                    {
+                        "icon": "Shield",
+                        "title": "Advanced Security",
+                        "description": "Multi-layer security including JWT, OAuth, SSL, and regular security audits."
+                    },
+                    {
+                        "icon": "Cloud",
+                        "title": "Cloud-Native Development",
+                        "description": "Leveraging cloud services for scalability, reliability, and cost-efficiency."
+                    },
+                    {
+                        "icon": "Code2",
+                        "title": "Clean Code Practices",
+                        "description": "Following industry best practices with clean, maintainable, and documented code."
+                    },
+                    {
+                        "icon": "Box",
+                        "title": "Microservices Ready",
+                        "description": "Architecture ready for microservices implementation and future scalability."
+                    },
+                    {
+                        "icon": "TrendingUp",
+                        "title": "Performance Optimization",
+                        "description": "Optimized for speed, Core Web Vitals, and SEO performance."
+                    }
+                ]
+            },
+            "techStack": {
+                "title": "Technologies",
+                "highlightedWord": "We Use",
+                "description": "We leverage cutting-edge technologies for custom development",
+                "technologies": [
+                    "React.js",
+                    "Next.js",
+                    "Vue.js",
+                    "Angular",
+                    "Node.js",
+                    "Python",
+                    "Java",
+                    "PostgreSQL",
+                    "MongoDB",
+                    "MySQL",
+                    "Redis",
+                    "AWS",
+                    "Docker",
+                    "Kubernetes",
+                    "GraphQL"
+                ]
+            },
+            "process": {
+                "tag": "Our Process",
+                "title": "How We",
+                "highlightedWord": "Develop",
+                "description": "A comprehensive development process for custom solutions",
+                "steps": [
+                    {
+                        "step": "01",
+                        "title": "Requirements Analysis",
+                        "description": "Deep dive into your business requirements, workflows, and technical needs.",
+                        "icon": "Search"
+                    },
+                    {
+                        "step": "02",
+                        "title": "System Architecture",
+                        "description": "Designing robust, scalable architecture with technology stack selection.",
+                        "icon": "Layout"
+                    },
+                    {
+                        "step": "03",
+                        "title": "Agile Development",
+                        "description": "2-week sprints with continuous integration and regular client demos.",
+                        "icon": "Code2"
+                    },
+                    {
+                        "step": "04",
+                        "title": "Quality Assurance",
+                        "description": "Comprehensive testing including unit, integration, performance, and security.",
+                        "icon": "Shield"
+                    },
+                    {
+                        "step": "05",
+                        "title": "Deployment",
+                        "description": "Zero-downtime deployment with monitoring and performance optimization.",
+                        "icon": "Rocket"
+                    },
+                    {
+                        "step": "06",
+                        "title": "Maintenance & Support",
+                        "description": "Ongoing maintenance, updates, and 24/7 technical support.",
+                        "icon": "Headphones"
+                    }
+                ]
+            },
+            "whyChoose": {
+                "tag": "Why Digitonix",
+                "title": "Why Choose Us For",
+                "highlightedWord": "Custom Development?",
+                "reasons": [
+                    {
+                        "icon": "Users",
+                        "title": "55+ Expert Developers",
+                        "description": "Dedicated team with deep expertise in multiple technologies."
+                    },
+                    {
+                        "icon": "Trophy",
+                        "title": "200+ Successful Projects",
+                        "description": "Proven track record of delivering complex custom solutions."
+                    },
+                    {
+                        "icon": "Clock",
+                        "title": "13+ Years Experience",
+                        "description": "Years of experience in custom application development."
+                    },
+                    {
+                        "icon": "Globe",
+                        "title": "Global Client Base",
+                        "description": "Trusted by clients in 25+ countries across industries."
+                    }
+                ]
+            },
+            "pricing": {
+                "title": "Custom",
+                "highlightedWord": "Pricing Plans",
+                "description": "Contact us for a detailed quote based on your requirements",
+                "plans": [
+                    {
+                        "name": "Startup",
+                        "price": "Starting at $9,999",
+                        "features": [
+                            "Full Custom Development",
+                            "Up to 10 Modules",
+                            "Basic Security",
+                            "3 Months Support",
+                            "Deployment Included"
+                        ],
+                        "popular": false
+                    },
+                    {
+                        "name": "Business",
+                        "price": "Starting at $24,999",
+                        "features": [
+                            "Enterprise Custom Development",
+                            "Unlimited Modules",
+                            "Advanced Security",
+                            "Integration Services",
+                            "6 Months Support",
+                            "Cloud Deployment"
+                        ],
+                        "popular": true
+                    },
+                    {
+                        "name": "Enterprise",
+                        "price": "Custom Quote",
+                        "features": [
+                            "Complex Enterprise Systems",
+                            "Microservices Architecture",
+                            "AI/ML Integration",
+                            "Full Security Suite",
+                            "12 Months Support",
+                            "Dedicated Team"
+                        ],
+                        "popular": false
+                    }
+                ]
+            },
+            "caseStudies": {
+                "tag": "Our Work",
+                "title": "Related",
+                "highlightedWord": "Case Studies",
+                "description": "See how we've built custom solutions for businesses",
+                "studies": [
+                    {
+                        "title": "Custom ERP System",
+                        "description": "Enterprise resource planning system serving 10,000+ employees",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-6?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/custom-erp",
+                        "category": "ERP"
+                    },
+                    {
+                        "title": "SaaS Platform Development",
+                        "description": "Custom SaaS application that scaled to 50,000+ users",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-7?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/saas-platform",
+                        "category": "SaaS"
+                    },
+                    {
+                        "title": "Healthcare Management Portal",
+                        "description": "Custom healthcare management system with advanced security and compliance",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-8?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/healthcare-portal",
+                        "category": "Healthcare"
+                    }
+                ]
+            },
+            "faq": {
+                "title": "Frequently Asked",
+                "highlightedWord": "Questions",
+                "faqs": [
+                    {
+                        "question": "What is the timeline for custom web development?",
+                        "answer": "Timelines vary based on complexity. Simple applications take 2-3 months, while complex enterprise solutions may take 6-12 months. We provide detailed timeline estimates during the planning phase."
+                    },
+                    {
+                        "question": "What technologies do you use for custom development?",
+                        "answer": "We use a wide range of technologies including React, Next.js, Node.js, Python, Java, PostgreSQL, MongoDB, and cloud platforms like AWS. We choose the best tech stack for your specific requirements."
+                    },
+                    {
+                        "question": "Do you provide maintenance and support?",
+                        "answer": "Yes, we offer comprehensive maintenance and support packages including security updates, performance optimization, bug fixes, and 24/7 technical support."
+                    },
+                    {
+                        "question": "Can you integrate with our existing systems?",
+                        "answer": "Absolutely! We have extensive experience integrating with third-party systems, APIs, and legacy applications."
+                    }
+                ]
+            },
+            "relatedServices": {
+                "title": "Related",
+                "highlightedWord": "Services",
+                "services": [
+                    {
+                        "title": "Web Development",
+                        "slug": "web-development",
+                        "icon": "Code2"
+                    },
+                    {
+                        "title": "E-Commerce Development",
+                        "slug": "ecommerce-development",
+                        "icon": "ShoppingBag"
+                    },
+                    {
+                        "title": "Cloud & DevOps",
+                        "slug": "cloud-devops",
+                        "icon": "Cloud"
+                    }
+                ]
+            }
+        },
+        {
+            "slug": "ecommerce-development",
+            "name": "E-Commerce Development",
+            "breadcrumb": "E-Commerce Development",
+            "metaTitle": "E-Commerce Development Services | Digitonix",
+            "metaDescription": "Get professional e-commerce development services from India's leading e-commerce company. Build powerful online stores with custom features, secure payment gateways, and high conversion rates.",
+            "metaKeywords": "e-commerce development, online store development, e-commerce solutions, custom e-commerce, e-commerce website, e-commerce company India",
+            "ogTitle": "E-Commerce Development Services | Digitonix",
+            "ogDescription": "Expert e-commerce development services with 13+ years experience. Build high-converting online stores with custom features, secure payments, and seamless user experience.",
+            "hero": {
+                "title": "E-Commerce",
+                "highlightedWord": "Development",
+                "description": "Digitonix offers comprehensive e-commerce development services, helping businesses build powerful online stores that drive sales and deliver exceptional shopping experiences. From custom platforms to popular solutions like Shopify and WooCommerce, we create e-commerce solutions that scale with your business.",
+                "trustPoints": [
+                    "100+ E-Commerce Projects",
+                    "Secure Payments",
+                    "Mobile Optimized",
+                    "High Conversion Rate"
+                ],
+                "ctaText": "Start Your Online Store",
+                "ctaLink": "/contact",
+                "secondaryCtaText": "View E-Commerce Portfolio",
+                "secondaryCtaLink": "/portfolio",
+                "heroImage": "/services/ecommerce-hero.jpg"
+            },
+            "overview": {
+                "tag": "Overview",
+                "title": "Why Choose Our",
+                "highlightedWord": "E-Commerce Development",
+                "subtitle": "Services?",
+                "description": "Our e-commerce development services combine technical excellence with retail expertise to create online stores that sell. We build custom solutions and optimize popular platforms to deliver seamless shopping experiences, secure transactions, and maximum conversion rates.",
+                "description2": "Whether you're launching a new online store or scaling an existing one, we provide the expertise and technology to help you succeed in the competitive e-commerce landscape.",
+                "keyPoints": [
+                    "Custom E-Commerce Solutions",
+                    "Secure Payment Integration",
+                    "Mobile-Optimized Stores",
+                    "SEO-Friendly Architecture"
+                ],
+                "benefits": [
+                    {
+                        "title": "Custom Shopping Experience",
+                        "description": "Tailored user journeys and shopping experiences"
+                    },
+                    {
+                        "title": "Multiple Payment Gateways",
+                        "description": "Integration with major payment providers for customer convenience"
+                    },
+                    {
+                        "title": "Inventory Management",
+                        "description": "Advanced inventory management and order tracking systems"
+                    },
+                    {
+                        "title": "Marketing Integration",
+                        "description": "Seamless marketing and analytics integration"
+                    },
+                    {
+                        "title": "Scalable Architecture",
+                        "description": "Built to handle growing traffic and product catalogs"
+                    }
+                ]
+            },
+            "features": {
+                "tag": "Key Features",
+                "title": "What Makes Our Service",
+                "highlightedWord": "Exceptional",
+                "features": [
+                    {
+                        "icon": "ShoppingBag",
+                        "title": "Custom E-Commerce Solutions",
+                        "description": "Tailored e-commerce platforms built to meet your specific business requirements."
+                    },
+                    {
+                        "icon": "Apple",
+                        "title": "Mobile Commerce Ready",
+                        "description": "Optimized for mobile shopping with responsive design and mobile-first experiences."
+                    },
+                    {
+                        "icon": "Shield",
+                        "title": "Secure Transactions",
+                        "description": "End-to-end security with PCI compliance, SSL encryption, and secure payment gateways."
+                    },
+                    {
+                        "icon": "Search",
+                        "title": "E-Commerce SEO",
+                        "description": "SEO-optimized product pages, category structures, and site architecture."
+                    },
+                    {
+                        "icon": "Box",
+                        "title": "Advanced Inventory Management",
+                        "description": "Real-time inventory tracking, automated reordering, and multi-warehouse support."
+                    },
+                    {
+                        "icon": "TrendingUp",
+                        "title": "Analytics & Insights",
+                        "description": "Comprehensive analytics for sales tracking, customer behavior, and performance optimization."
+                    }
+                ]
+            },
+            "techStack": {
+                "title": "E-Commerce",
+                "highlightedWord": "Technologies",
+                "description": "We leverage the best e-commerce platforms and technologies",
+                "technologies": [
+                    "Shopify",
+                    "WooCommerce",
+                    "Magento",
+                    "BigCommerce",
+                    "Custom Solutions",
+                    "React.js",
+                    "Next.js",
+                    "Node.js",
+                    "Stripe",
+                    "PayPal",
+                    "Razorpay"
+                ]
+            },
+            "process": {
+                "tag": "Our Process",
+                "title": "How We",
+                "highlightedWord": "Build",
+                "description": "A comprehensive e-commerce development process",
+                "steps": [
+                    {
+                        "step": "01",
+                        "title": "Business Analysis",
+                        "description": "Understanding your products, target audience, and business goals.",
+                        "icon": "Search"
+                    },
+                    {
+                        "step": "02",
+                        "title": "Platform Selection",
+                        "description": "Choosing the right e-commerce platform based on your requirements.",
+                        "icon": "Box"
+                    },
+                    {
+                        "step": "03",
+                        "title": "Custom Development",
+                        "description": "Building custom features and integrations for your store.",
+                        "icon": "Code2"
+                    },
+                    {
+                        "step": "04",
+                        "title": "Payment Integration",
+                        "description": "Setting up secure payment gateways and checkout flows.",
+                        "icon": "ShoppingBag"
+                    },
+                    {
+                        "step": "05",
+                        "title": "Testing & QA",
+                        "description": "Comprehensive testing including payment processing and user flows.",
+                        "icon": "Shield"
+                    },
+                    {
+                        "step": "06",
+                        "title": "Launch & Support",
+                        "description": "Store launch, monitoring, and ongoing support and optimization.",
+                        "icon": "Rocket"
+                    }
+                ]
+            },
+            "whyChoose": {
+                "tag": "Why Digitonix",
+                "title": "Why Choose Us For",
+                "highlightedWord": "E-Commerce?",
+                "reasons": [
+                    {
+                        "icon": "ShoppingBag",
+                        "title": "100+ E-Commerce Projects",
+                        "description": "Extensive experience building online stores across industries."
+                    },
+                    {
+                        "icon": "Shield",
+                        "title": "Secure & Compliant",
+                        "description": "PCI compliant, secure payment integration."
+                    },
+                    {
+                        "icon": "TrendingUp",
+                        "title": "Conversion Focused",
+                        "description": "Design optimized for high conversion rates."
+                    },
+                    {
+                        "icon": "Users",
+                        "title": "Expert Team",
+                        "description": "Dedicated team of e-commerce specialists."
+                    }
+                ]
+            },
+            "pricing": {
+                "title": "E-Commerce",
+                "highlightedWord": "Packages",
+                "description": "Choose the right package for your online store",
+                "plans": [
+                    {
+                        "name": "Starter Store",
+                        "price": "Starting at $3,999",
+                        "features": [
+                            "Up to 100 Products",
+                            "Basic Design",
+                            "Payment Gateway Integration",
+                            "1 Month Support",
+                            "SSL Security"
+                        ],
+                        "popular": false
+                    },
+                    {
+                        "name": "Professional Store",
+                        "price": "Starting at $9,999",
+                        "features": [
+                            "Up to 1000 Products",
+                            "Custom Design",
+                            "Multiple Payment Gateways",
+                            "Inventory Management",
+                            "SEO Optimization",
+                            "3 Months Support"
+                        ],
+                        "popular": true
+                    },
+                    {
+                        "name": "Enterprise Store",
+                        "price": "Custom Quote",
+                        "features": [
+                            "Unlimited Products",
+                            "Custom Architecture",
+                            "Advanced Features",
+                            "Multi-Warehouse",
+                            "Marketing Integration",
+                            "12 Months Support"
+                        ],
+                        "popular": false
+                    }
+                ]
+            },
+            "caseStudies": {
+                "tag": "Our Work",
+                "title": "Related",
+                "highlightedWord": "Case Studies",
+                "description": "See how we've built successful e-commerce stores",
+                "studies": [
+                    {
+                        "title": "Fashion Brand E-Commerce",
+                        "description": "Custom online store generating $2M+ in annual revenue",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-9?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/fashion-ecommerce",
+                        "category": "Fashion"
+                    },
+                    {
+                        "title": "B2B E-Commerce Platform",
+                        "description": "Wholesale platform serving 500+ business clients globally",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-10?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/b2b-ecommerce",
+                        "category": "B2B"
+                    },
+                    {
+                        "title": "Subscription E-Commerce",
+                        "description": "Subscription-based e-commerce store with recurring revenue model",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-11?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/subscription-ecommerce",
+                        "category": "Subscription"
+                    }
+                ]
+            },
+            "faq": {
+                "title": "Frequently Asked",
+                "highlightedWord": "Questions",
+                "faqs": [
+                    {
+                        "question": "Which e-commerce platform do you recommend?",
+                        "answer": "We recommend based on your specific needs. Shopify for ease of use, WooCommerce for WordPress integration, Magento for enterprise-scale, and custom solutions for unique requirements."
+                    },
+                    {
+                        "question": "How long does it take to build an e-commerce store?",
+                        "answer": "Timeline varies based on complexity. A basic store takes 4-8 weeks, while custom solutions may take 3-6 months. We provide detailed timeline estimates during planning."
+                    },
+                    {
+                        "question": "Do you provide payment gateway integration?",
+                        "answer": "Yes, we integrate multiple payment gateways including Stripe, PayPal, Razorpay, and region-specific payment providers."
+                    },
+                    {
+                        "question": "Is my e-commerce store secure?",
+                        "answer": "Absolutely! We implement SSL encryption, PCI compliance, secure authentication, and regular security audits to ensure your store is fully secure."
+                    }
+                ]
+            },
+            "relatedServices": {
+                "title": "Related",
+                "highlightedWord": "Services",
+                "services": [
+                    {
+                        "title": "Web Development",
+                        "slug": "web-development",
+                        "icon": "Code2"
+                    },
+                    {
+                        "title": "Digital Marketing",
+                        "slug": "digital-marketing",
+                        "icon": "Megaphone"
+                    },
+                    {
+                        "title": "SEO Services",
+                        "slug": "seo",
+                        "icon": "Search"
+                    }
+                ]
+            }
+        },
+        {
+            "slug": "cms-development",
+            "name": "CMS Development",
+            "breadcrumb": "CMS Development",
+            "metaTitle": "CMS Development Services | Digitonix",
+            "metaDescription": "Get professional CMS development services from India's leading CMS development company. Build powerful, user-friendly content management systems tailored to your business.",
+            "metaKeywords": "CMS development, content management system, custom CMS, WordPress development, CMS development company",
+            "ogTitle": "CMS Development Services | Digitonix",
+            "ogDescription": "Expert CMS development services with 13+ years experience. Build custom CMS solutions, WordPress sites, and scalable content management systems.",
+            "hero": {
+                "title": "CMS",
+                "highlightedWord": "Development",
+                "description": "Digitonix provides comprehensive CMS development services, empowering businesses with powerful content management solutions. From WordPress customization to custom CMS development, we build systems that make content management effortless and efficient.",
+                "trustPoints": [
+                    "150+ CMS Projects",
+                    "WordPress Experts",
+                    "Custom Solutions",
+                    "User-Friendly Admin"
+                ],
+                "ctaText": "Get Your CMS Solution",
+                "ctaLink": "/contact",
+                "secondaryCtaText": "View CMS Portfolio",
+                "secondaryCtaLink": "/portfolio",
+                "heroImage": "/services/cms-hero.jpg"
+            },
+            "overview": {
+                "tag": "Overview",
+                "title": "Why Choose Our",
+                "highlightedWord": "CMS Development",
+                "subtitle": "Services?",
+                "description": "Our CMS development services provide businesses with powerful, user-friendly content management solutions. We build custom CMS platforms and customize existing solutions to meet your specific content management needs.",
+                "description2": "With our expertise in both custom and open-source CMS solutions, we help you take full control of your content strategy with systems that are intuitive, scalable, and easy to manage.",
+                "keyPoints": [
+                    "Custom CMS Solutions",
+                    "WordPress Expertise",
+                    "Headless CMS",
+                    "User-Friendly Admin"
+                ],
+                "benefits": [
+                    {
+                        "title": "Custom Content Management",
+                        "description": "CMS tailored to your specific content types and workflows"
+                    },
+                    {
+                        "title": "User-Friendly Interface",
+                        "description": "Intuitive admin panels for non-technical users"
+                    },
+                    {
+                        "title": "Scalable Architecture",
+                        "description": "CMS built to handle growing content and traffic"
+                    },
+                    {
+                        "title": "SEO-Friendly",
+                        "description": "Built-in SEO features for better search visibility"
+                    },
+                    {
+                        "title": "Multi-Language Support",
+                        "description": "Support for multilingual content and internationalization"
+                    }
+                ]
+            },
+            "features": {
+                "tag": "Key Features",
+                "title": "What Makes Our Service",
+                "highlightedWord": "Exceptional",
+                "features": [
+                    {
+                        "icon": "Box",
+                        "title": "Custom CMS Solutions",
+                        "description": "Tailor-made CMS platforms designed for your content workflows."
+                    },
+                    {
+                        "icon": "Layout",
+                        "title": "WordPress Development",
+                        "description": "Custom themes, plugins, and full WordPress site development."
+                    },
+                    {
+                        "icon": "Code2",
+                        "title": "Headless CMS",
+                        "description": "Modern headless CMS architecture using Strapi, Contentful, or custom solutions."
+                    },
+                    {
+                        "icon": "Users",
+                        "title": "Multi-User Management",
+                        "description": "Advanced user roles and permissions for team content management."
+                    },
+                    {
+                        "icon": "Search",
+                        "title": "SEO Optimization",
+                        "description": "Built-in SEO features and structured data support."
+                    },
+                    {
+                        "icon": "Globe",
+                        "title": "Multi-Language Support",
+                        "description": "Internationalization and multi-language content management."
+                    }
+                ]
+            },
+            "techStack": {
+                "title": "CMS",
+                "highlightedWord": "Technologies",
+                "description": "We use the best CMS platforms and technologies",
+                "technologies": [
+                    "WordPress",
+                    "Strapi",
+                    "Contentful",
+                    "Drupal",
+                    "Joomla",
+                    "Custom CMS",
+                    "React.js",
+                    "Next.js",
+                    "Node.js",
+                    "GraphQL"
+                ]
+            },
+            "process": {
+                "tag": "Our Process",
+                "title": "How We",
+                "highlightedWord": "Build",
+                "description": "A systematic CMS development process",
+                "steps": [
+                    {
+                        "step": "01",
+                        "title": "Requirements Analysis",
+                        "description": "Understanding your content needs and management requirements.",
+                        "icon": "Search"
+                    },
+                    {
+                        "step": "02",
+                        "title": "CMS Selection",
+                        "description": "Choosing the right CMS platform for your needs.",
+                        "icon": "Box"
+                    },
+                    {
+                        "step": "03",
+                        "title": "Custom Development",
+                        "description": "Developing custom features, themes, and plugins.",
+                        "icon": "Code2"
+                    },
+                    {
+                        "step": "04",
+                        "title": "Content Migration",
+                        "description": "Migrating existing content to the new CMS platform.",
+                        "icon": "Layout"
+                    },
+                    {
+                        "step": "05",
+                        "title": "Testing & Training",
+                        "description": "Comprehensive testing and user training.",
+                        "icon": "Users"
+                    },
+                    {
+                        "step": "06",
+                        "title": "Launch & Support",
+                        "description": "Deployment, monitoring, and ongoing maintenance.",
+                        "icon": "Rocket"
+                    }
+                ]
+            },
+            "whyChoose": {
+                "tag": "Why Digitonix",
+                "title": "Why Choose Us For",
+                "highlightedWord": "CMS Development?",
+                "reasons": [
+                    {
+                        "icon": "Box",
+                        "title": "150+ CMS Projects",
+                        "description": "Extensive experience in CMS development and customization."
+                    },
+                    {
+                        "icon": "Users",
+                        "title": "WordPress Experts",
+                        "description": "Deep expertise in WordPress and custom CMS development."
+                    },
+                    {
+                        "icon": "Layout",
+                        "title": "Headless CMS Experience",
+                        "description": "Experience with modern headless CMS architecture."
+                    },
+                    {
+                        "icon": "Globe",
+                        "title": "Multi-Language Support",
+                        "description": "Expertise in multilingual CMS implementation."
+                    }
+                ]
+            },
+            "pricing": {
+                "title": "CMS",
+                "highlightedWord": "Packages",
+                "description": "Choose the right CMS solution for your needs",
+                "plans": [
+                    {
+                        "name": "Basic CMS",
+                        "price": "Starting at $1,999",
+                        "features": [
+                            "WordPress Development",
+                            "Up to 10 Pages",
+                            "Custom Theme",
+                            "1 Month Support",
+                            "Basic Training"
+                        ],
+                        "popular": false
+                    },
+                    {
+                        "name": "Professional CMS",
+                        "price": "Starting at $5,999",
+                        "features": [
+                            "Custom CMS Development",
+                            "Unlimited Pages",
+                            "Custom Features",
+                            "Multi-User Management",
+                            "SEO Optimization",
+                            "3 Months Support"
+                        ],
+                        "popular": true
+                    },
+                    {
+                        "name": "Enterprise CMS",
+                        "price": "Custom Quote",
+                        "features": [
+                            "Headless CMS",
+                            "Enterprise Features",
+                            "Multi-Language",
+                            "API Development",
+                            "Advanced Security",
+                            "12 Months Support"
+                        ],
+                        "popular": false
+                    }
+                ]
+            },
+            "caseStudies": {
+                "tag": "Our Work",
+                "title": "Related",
+                "highlightedWord": "Case Studies",
+                "description": "See how we've implemented CMS solutions",
+                "studies": [
+                    {
+                        "title": "Corporate CMS Implementation",
+                        "description": "Custom CMS for a corporate with 500+ content editors",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-12?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/corporate-cms",
+                        "category": "Corporate CMS"
+                    },
+                    {
+                        "title": "News Portal CMS",
+                        "description": "High-traffic news portal with custom CMS and workflow",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-13?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/news-cms",
+                        "category": "News Portal"
+                    },
+                    {
+                        "title": "Headless CMS Implementation",
+                        "description": "Modern headless CMS for omnichannel content delivery",
+                        "imageUrl": "https://images.unsplash.com/photo-1460925895917-14?auto=format&fit=crop&w=800&q=80",
+                        "link": "/portfolio/headless-cms",
+                        "category": "Headless CMS"
+                    }
+                ]
+            },
+            "faq": {
+                "title": "Frequently Asked",
+                "highlightedWord": "Questions",
+                "faqs": [
+                    {
+                        "question": "Which CMS platform is best for my business?",
+                        "answer": "We recommend based on your needs. WordPress for content-heavy sites, custom CMS for unique requirements, and headless CMS for omnichannel content delivery."
+                    },
+                    {
+                        "question": "Can you customize WordPress?",
+                        "answer": "Yes, we specialize in WordPress customization including custom themes, plugins, and functionality extensions."
+                    },
+                    {
+                        "question": "What is headless CMS?",
+                        "answer": "A headless CMS separates content management from presentation, allowing content to be delivered through APIs to any device or platform."
+                    },
+                    {
+                        "question": "Is my content secure in the CMS?",
+                        "answer": "Yes, we implement robust security measures including user authentication, role-based access, and regular security updates."
+                    }
+                ]
+            },
+            "relatedServices": {
+                "title": "Related",
+                "highlightedWord": "Services",
+                "services": [
+                    {
+                        "title": "Web Development",
+                        "slug": "web-development",
+                        "icon": "Code2"
+                    },
+                    {
+                        "title": "Website Design",
+                        "slug": "website-design",
+                        "icon": "Palette"
+                    },
+                    {
+                        "title": "SEO Services",
+                        "slug": "seo",
+                        "icon": "Search"
+                    }
+                ]
+            }
+        }
+    ]
+}

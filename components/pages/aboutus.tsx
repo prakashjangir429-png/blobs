@@ -374,7 +374,7 @@ function HeroSection() {
           }}
         />
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* LEFT — Text */}
             <div>
@@ -395,8 +395,8 @@ function HeroSection() {
                 className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.25] mb-6"
               >
 
-                <span className="gold-word">Your Trusted </span>{" "} <br/>
-                Technology Partner <br/> For Digital Growth
+                <span className="gold-word">Your Trusted </span>{" "}
+                Technology Partner  For Digital Growth
               </motion.h1>
 
               {/* Description */}
@@ -1087,7 +1087,8 @@ function TeamSection() {
 /* ─────────────────────────────────────────────
    CTA SECTION
 ───────────────────────────────────────────── */
-export function CTASection() {
+export function CTASection({service}) {
+  const data = service?.cta;
   return (
     <section className="relative py-12 overflow-hidden">
       <div className="absolute inset-0">
@@ -1108,11 +1109,10 @@ export function CTASection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6">
-            Ready to Build Something Great?
+            {data?.title || "Ready to Build Something Great?"}
           </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-            Partner with Digitonix, the leading IT company in Jaipur, for world-class web development, mobile apps, and digital marketing solutions. Join 500+ businesses achieving measurable growth.
-
+            {data?.description || "Partner with Digitonix, the leading IT company in Jaipur, for world-class web development, mobile apps, and digital marketing solutions. Join 500+ businesses achieving measurable growth."}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
