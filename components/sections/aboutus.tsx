@@ -448,7 +448,7 @@ const services = [
     tag: null,
   },
   {
-    id: 7, slug: "ecommerce",
+    id: 7, slug: "ecommerce-development",
     icon: <ShoppingCart size={20} />,
     title: "E-Commerce Development",
     shortDescription:
@@ -526,7 +526,7 @@ function ServiceCard({
 
   return (
     <motion.a
-      href={`/services`}
+      href={`/services/${slug}`}
       ref={ref}
       className="group relative overflow-hidden rounded-2xl
              border border-slate-200/70 bg-white
@@ -933,7 +933,7 @@ function HoverCard({ label, icon, index }: { label: string; icon: React.ReactNod
   return (
     <motion.a
       ref={ref}
-      href={`/hire/${label.toLowerCase().replace(/\s+/g, "-")}`}
+      href={`/hireus/${label.toLowerCase().replace(/\s+/g, "-")}`}
       initial={{ opacity: 0, y: 20, scale: 0.96 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: (index % 8) * 0.07 }}
@@ -1213,7 +1213,7 @@ const industries = [
 
 /* ── Industry Card ── */
 function IndustryCard({
-  title, icon: Icon, stat, index,
+  title, icon: Icon, stat, index,setIsModalOpen
 }: {
   title: string; icon: React.ElementType; stat: string; index: number;
 }) {
@@ -1224,8 +1224,7 @@ function IndustryCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 28, scale: 0.97 }}
-      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      onClick={() => setIsModalOpen(true)}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (index % 4) * 0.08 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -1314,7 +1313,7 @@ function IndustryCard({
 }
 
 /* ── Main Section ── */
-export function IndustriesSection() {
+export function IndustriesSection({setIsModalOpen}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -1411,6 +1410,7 @@ export function IndustriesSection() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-1 mb-8">
           {industries.map((item, index) => (
             <IndustryCard
+            setIsModalOpen={setIsModalOpen}
               key={item.title}
               title={item.title}
               icon={item.icon}

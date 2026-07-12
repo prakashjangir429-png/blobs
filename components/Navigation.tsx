@@ -142,9 +142,9 @@ const technologyTabs = [
     name: "Frontend",
     href: "/technologies/frontend",
     subTabs: [
-      { name: "React.js", href: "/technologies/react" },
+      { name: "React.js", href: "/technologies/reactjs" },
       { name: "Next.js", href: "/technologies/nextjs" },
-      { name: "Vue.js", href: "/technologies/vue" },
+      { name: "Vue.js", href: "/technologies/vuejs" },
       { name: "Angular", href: "/technologies/angular" },
       { name: "TypeScript", href: "/technologies/typescript" },
     ],
@@ -154,7 +154,7 @@ const technologyTabs = [
     href: "/technologies/backend",
     subTabs: [
       { name: "Node.js", href: "/technologies/nodejs" },
-      { name: "Express.js", href: "/technologies/express" },
+      { name: "Express.js", href: "/technologies/expressjs" },
       { name: "Python", href: "/technologies/python" },
       { name: "Django", href: "/technologies/django" },
       { name: "Laravel", href: "/technologies/laravel" },
@@ -690,15 +690,16 @@ export function Navigation() {
               onMouseEnter={() => handleDropdownEnter('services')}
               onMouseLeave={handleDropdownLeave}
             >
-              <div className="bg-white rounded-xl border shadow-2xl overflow-hidden min-w-[550px]">
+              <div className="bg-white border shadow-2xl overflow-hidden max-w-[90vw] min-w-[650px]">
                 <div className="flex">
 
                   {/* Main Menu */}
-                  <div className="w-64 border-r bg-slate-50 py-2">
+                  <div className="w-74 border-r bg-slate-50 py-2">
                     {serviceTabs.map((service) => (
-                      <button
+                      <Link
                         key={service.name}
                         onMouseEnter={() => setActiveService(service)}
+                        href={service.href}
                         className={`w-full flex items-center justify-between px-4 py-3 text-left transition-all
                 ${activeService.name === service.name
                             ? "bg-blue-50 text-[#1a3fa0]"
@@ -706,7 +707,7 @@ export function Navigation() {
                           }`}
                       >
                         <div className='flex gap-2 items-center '>
-                          <ArrowRight size={16} />
+                          {/* <ArrowRight size={16} /> */}
                           <span className="font-semibold text-sm">
                             {service.name}
                           </span>
@@ -714,7 +715,7 @@ export function Navigation() {
                         </div>
 
                         <ChevronRight size={16} />
-                      </button>
+                      </Link>
                     ))}
                   </div>
 

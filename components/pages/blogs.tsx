@@ -5,82 +5,6 @@ import { useRef } from "react"
 import Image from "next/image"
 import { ArrowRight, Clock, Calendar, Tag, TrendingUp } from "lucide-react"
 
-// SEO-optimized blog posts for Digitonix IT Company
-const blogPosts = [
-  {
-    id: 1,
-    title: "Top 10 Web Development Trends in 2026: What Every Business Needs to Know",
-    excerpt: "Discover the latest web development trends including AI-powered websites, next-gen frameworks, and how to future-proof your digital presence for maximum ROI.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    category: "Web Development",
-    date: "June 10, 2026",
-    readTime: "8 min read",
-    slug: "web-development-trends-2026",
-    views: "2.4K",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "How to Rank #1 on Google: Complete SEO Strategy Guide for 2026",
-    excerpt: "Master advanced SEO techniques that actually work. Learn keyword research, on-page optimization, technical SEO, and link building strategies from industry experts.",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=500&fit=crop",
-    category: "Digital Marketing",
-    date: "June 8, 2026",
-    readTime: "12 min read",
-    slug: "seo-strategy-guide-2026",
-    views: "3.1K",
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "React vs Next.js vs Vue: Choosing the Right Framework for Your Project",
-    excerpt: "A comprehensive comparison of modern JavaScript frameworks. Learn which framework is best for your web application based on performance, scalability, and developer experience.",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop",
-    category: "Technology",
-    date: "June 5, 2026",
-    readTime: "10 min read",
-    slug: "react-vs-nextjs-vs-vue",
-    views: "1.8K",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Mobile App Development Cost in 2026: Complete Budget Breakdown",
-    excerpt: "Planning to build a mobile app? Get detailed cost analysis for iOS, Android, and cross-platform development. Includes hidden costs and money-saving tips.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop",
-    category: "Mobile Development",
-    date: "June 3, 2026",
-    readTime: "15 min read",
-    slug: "mobile-app-development-cost-2026",
-    views: "4.2K",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "AI Integration in Business: How to Leverage Artificial Intelligence for Growth",
-    excerpt: "Explore practical AI applications for your business. From chatbots to predictive analytics, learn how AI can transform your operations and boost revenue.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
-    category: "AI & Innovation",
-    date: "June 1, 2026",
-    readTime: "11 min read",
-    slug: "ai-integration-business-growth",
-    views: "2.9K",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "E-commerce Website Development: Building a High-Converting Online Store",
-    excerpt: "Learn the essentials of e-commerce development including UX design, payment integration, inventory management, and conversion optimization strategies.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-    category: "E-Commerce",
-    date: "May 28, 2026",
-    readTime: "9 min read",
-    slug: "ecommerce-website-development-guide",
-    views: "3.5K",
-    featured: false,
-  },
-]
-
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
   "Web Development": { bg: "rgba(26,63,160,0.08)", text: "#1a3fa0", border: "rgba(26,63,160,0.15)" },
   "Digital Marketing": { bg: "rgba(232,160,32,0.1)", text: "#b07010", border: "rgba(232,160,32,0.2)" },
@@ -198,7 +122,7 @@ export function BlogCard({ title, excerpt, image, category, date, readTime, slug
   )
 }
 
-export default function BlogSection() {
+export default function BlogSection({blogPosts}) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: "-60px" })
 
@@ -280,12 +204,12 @@ export default function BlogSection() {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.slice(0, 3).map((post, index) => (
+          {blogPosts?.map((post, index) => (
             <BlogCard
               key={post.id}
               title={post.title}
               excerpt={post.excerpt}
-              image={post.image}
+              image={post.featuredImage}
               category={post.category}
               date={post.date}
               readTime={post.readTime}

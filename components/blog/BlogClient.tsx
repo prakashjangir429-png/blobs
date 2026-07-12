@@ -29,6 +29,7 @@ import {
   Eye,
 } from "lucide-react";
 import { CTASection } from "@/components/pages/aboutus";
+import { BlogCard } from "../pages/blogs";
 
 interface BlogPost {
   id: string;
@@ -112,11 +113,10 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
       {/* ── STICKY FILTERS ── */}
       <div
         ref={filterRef}
-        className={`sticky top-[72px] bg-white z-40 transition-all duration-300 ${
-          isFilterSticky
+        className={`sticky top-[72px] bg-white z-40 transition-all duration-300 ${isFilterSticky
             ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#1a3fa0]/10 py-2"
             : "bg-transparent py-3"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -128,11 +128,10 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  selectedCategory === category
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${selectedCategory === category
                     ? "bg-[#0f2a6b] text-white shadow-lg shadow-[#1a3fa0]/20"
                     : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 hover:shadow-md"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -414,99 +413,6 @@ function BlogGrid({
         </div>
       </div>
     </section>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   BLOG CARD COMPONENT
-───────────────────────────────────────────── */
-function BlogCard({
-  title,
-  excerpt,
-  image,
-  category,
-  date,
-  readTime,
-  slug,
-  views = 0,
-  featured = false,
-  index,
-}: {
-  title: string;
-  excerpt: string;
-  image: string;
-  category: string;
-  date: string;
-  readTime: string;
-  slug: string;
-  views?: number;
-  featured?: boolean;
-  index: number;
-}) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.08 }}
-      className="group relative bg-white rounded-xl border border-[#1a3fa0]/10 overflow-hidden hover:shadow-lg hover:shadow-[#1a3fa0]/5 transition-all duration-300 hover:-translate-y-1"
-    >
-      <Link href={`/blog/${slug}`} className="block">
-        <div className="relative h-56 overflow-hidden bg-[#f8f9fc]">
-          {image ? (
-            <Image
-              src={image}
-              alt={title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#1a3fa0]/10 to-[#e8a020]/10 flex items-center justify-center">
-              <span className="text-[#4a5578] text-sm">No image</span>
-            </div>
-          )}
-          <div className="absolute top-4 left-4 flex gap-2">
-            <span className="px-3 py-1 bg-[#e8a020] text-[#0f2a6b] text-xs font-bold rounded-full uppercase tracking-wider">
-              {category}
-            </span>
-            {featured && (
-              <span className="px-3 py-1 bg-[#0f2a6b] text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                Featured
-              </span>
-            )}
-          </div>
-          {views > 0 && (
-            <div className="absolute bottom-4 right-4 flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-full text-white text-xs">
-              <Eye size={12} />
-              <span>{views}</span>
-            </div>
-          )}
-        </div>
-
-        <div className="p-5">
-          <div className="flex items-center gap-3 text-xs text-[#4a5578] mb-3">
-            <span className="flex items-center gap-1">
-              <Calendar size={12} /> {date}
-            </span>
-            <span className="flex items-center gap-1">
-              <Clock size={12} /> {readTime}
-            </span>
-          </div>
-
-          <h3 className="text-lg font-semibold text-[#0f2a6b] mb-2 line-clamp-2 group-hover:text-[#e8a020] transition-colors">
-            {title}
-          </h3>
-
-          <p className="text-[#4a5578] text-sm line-clamp-2 mb-4">
-            {excerpt}
-          </p>
-
-          <span className="inline-flex items-center gap-2 text-[#1a3fa0] font-semibold text-sm group-hover:gap-3 transition-all">
-            Read More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </span>
-        </div>
-      </Link>
-    </motion.article>
   );
 }
 

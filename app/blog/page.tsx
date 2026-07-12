@@ -133,6 +133,7 @@ async function BlogContent() {
     }),
   ]);
 
+
   const blogPosts = blogsResponse.data;
   const categories = ['All', ...categoriesResponse.data.map((cat) => cat.name)];
 
@@ -144,10 +145,9 @@ export default function BlogPage() {
       fallback={
         <div className="min-h-screen bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="text-center mb-24 mt-24">
-              <div className="h-20 w-[50%] bg-gray-200 rounded-lg mx-auto mb-4 animate-pulse" />
-              <div className="h-20 w-[70%] bg-gray-200 rounded-lg mx-auto mb-3 animate-pulse" />
-              <div className="h-16 w-[50%] bg-gray-200 rounded-lg mx-auto mb-4 animate-pulse" />
+            <div className="text-center py-8">
+              <div className="my-8 h-[50vh] bg-gray-200 rounded-xl animate-pulse" />
+
             </div>
 
             {/* Category Filter Skeleton */}

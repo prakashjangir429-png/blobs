@@ -1,5 +1,8 @@
 import Home from "@/components/pages/homepage";
+import { getAllBlogs } from "@/lib/blogService";
 import type { Metadata } from "next";
+
+export const revalidate = 600; // Revalidate the page every 60 seconds
 
 export const metadata: Metadata = {
   title: "Best Web Development & Digital Marketing Company in Jaipur | Digitonix",
@@ -234,7 +237,17 @@ const schema = {
   ]
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [blogsResponse] = await Promise.all([
+    getAllBlogs({
+      sortBy: 'createdAt',
+      sortOrder: 'desc',
+      limit: 3,
+    })
+  ]);
+
+   const blogPosts = blogsResponse.data;
+
   return (
     <>
       <script
@@ -243,7 +256,7 @@ export default function HomePage() {
           __html: JSON.stringify(schema),
         }}
       />
-      <Home />
+      <Home blogPosts={blogPosts}/>
     </>
   );
 }

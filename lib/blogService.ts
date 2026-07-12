@@ -73,7 +73,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://newsbackend-ebo
 export async function getAllBlogs(filters: BlogFilters = {}): Promise<PaginatedResponse<BlogPost>> {
   // Build query string
   const params = new URLSearchParams();
-  
+
   Object.entries(filters).forEach(([key, value]) => {
     if (value !== undefined && value !== null && value !== '') {
       if (Array.isArray(value)) {
@@ -85,9 +85,10 @@ export async function getAllBlogs(filters: BlogFilters = {}): Promise<PaginatedR
   });
 
   const url = `${API_BASE_URL}/blogs?${params.toString()}`;
-  
+
   const response = await fetch(url, {
-    cache: 'no-store', // For server-side rendering
+    cache: 'force-cache',
+    revalidate: 600,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -102,7 +103,7 @@ export async function getAllBlogs(filters: BlogFilters = {}): Promise<PaginatedR
 
 export async function getAllCategories(filters: CategoryFilters = {}): Promise<PaginatedResponse<Category>> {
   const params = new URLSearchParams();
-  
+
   Object.entries(filters).forEach(([key, value]) => {
     if (value !== undefined && value !== null && value !== '') {
       params.append(key, String(value));
@@ -110,9 +111,10 @@ export async function getAllCategories(filters: CategoryFilters = {}): Promise<P
   });
 
   const url = `${API_BASE_URL}/blog-categories?${params.toString()}`;
-  
+
   const response = await fetch(url, {
-    cache: 'no-store',
+    cache: 'force-cache',
+    revalidate: 600,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -127,8 +129,10 @@ export async function getAllCategories(filters: CategoryFilters = {}): Promise<P
 
 export async function getBlogBySlug(slug: string): Promise<{ success: boolean; data: BlogPost }> {
   const url = `${API_BASE_URL}/blogs/slug/${slug}`;
-  
+
   const response = await fetch(url, {
+    cache: 'force-cache',
+    revalidate: 600,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -147,7 +151,7 @@ export async function getFeaturedBlogs(limit: number = 3): Promise<BlogPost[]> {
     status: 'published',
     limit,
   });
-  
+
   return response.data || [];
 }
 
@@ -157,7 +161,7 @@ export async function getBlogsByCategory(category: string, limit: number = 6): P
     status: 'published',
     limit,
   });
-  
+
   return response.data || [];
 }
 
@@ -168,6 +172,6 @@ export async function getRecentBlogs(limit: number = 5): Promise<BlogPost[]> {
     sortOrder: 'desc',
     limit,
   });
-  
+
   return response.data || [];
 }

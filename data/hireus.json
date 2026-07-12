@@ -1,0 +1,833 @@
+{
+  "developers": [
+    {
+      "slug": "react-developer",
+      "technology": "React.js",
+      "breadcrumb": "Hire React.js Developers",
+      "category": "Frontend",
+      "icon": "Code2",
+      "metaTitle": "Hire React.js Developers | Digitonix - Expert React Developers",
+      "metaDescription": "Hire dedicated React.js developers from Digitonix. 50+ React projects delivered, 13+ years experience. Build high-performance web applications with expert React developers.",
+      "metaKeywords": "hire react developers, react js developers, hire react js developers, react development team, react developers India",
+      "ogTitle": "Hire React.js Developers | Digitonix",
+      "ogDescription": "Hire dedicated React.js developers with 13+ years experience. Build scalable, high-performance web applications with expert React developers.",
+      "hero": {
+        "title": "Hire",
+        "highlightedWord": "React.js Developers",
+        "description": "Build high-performance web applications with our expert React.js developers. Digitonix provides dedicated React developers who specialize in building scalable, interactive, and SEO-friendly web applications using React.js and modern JavaScript technologies.",
+        "trustPoints": [
+          "50+ React Projects",
+          "Dedicated Developers",
+          "Flexible Hiring",
+          "98% Satisfaction"
+        ],
+        "ctaText": "Hire React Developers",
+        "ctaLink": "/contact",
+        "secondaryCtaText": "View React Portfolio",
+        "secondaryCtaLink": "/portfolio",
+        "heroImage": "/hire/react-hero.jpg"
+      },
+      "overview": {
+        "tag": "Why Hire",
+        "title": "Why Hire Our",
+        "highlightedWord": "React.js",
+        "subtitle": "Developers?",
+        "description": "Our React.js developers are experts in building modern, component-based web applications. They leverage React's virtual DOM, hooks, and ecosystem to create fast, interactive, and maintainable user interfaces.",
+        "description2": "With deep expertise in React ecosystem including Redux, Next.js, and TypeScript, our developers build solutions that are not only visually appealing but also optimized for performance and SEO.",
+        "keyPoints": [
+          "Component-Based Architecture",
+          "Virtual DOM Optimization",
+          "SEO-Friendly SPAs",
+          "State Management Expertise"
+        ],
+        "benefits": [
+          {
+            "title": "Dedicated Developers",
+            "description": "Full-time commitment to your project"
+          },
+          {
+            "title": "Scalable Solutions",
+            "description": "Build applications that grow with your business"
+          },
+          {
+            "title": "Performance Focus",
+            "description": "Optimized for speed and Core Web Vitals"
+          },
+          {
+            "title": "Transparent Process",
+            "description": "Regular updates and clear communication"
+          },
+          {
+            "title": "Flexible Hiring",
+            "description": "Hourly, monthly, or project-based engagement"
+          }
+        ]
+      },
+      "whyHire": {
+        "tag": "Why Hire",
+        "title": "Why Hire",
+        "highlightedWord": "React.js Developers",
+        "subtitle": "From Digitonix?",
+        "reasons": [
+          {
+            "icon": "Users",
+            "title": "Expert React Developers",
+            "description": "Our developers have 5+ years of React.js experience"
+          },
+          {
+            "icon": "Trophy",
+            "title": "50+ React Projects",
+            "description": "Proven track record in delivering successful React applications"
+          },
+          {
+            "icon": "Clock",
+            "title": "Flexible Engagement",
+            "description": "Hire developers on hourly, monthly, or project basis"
+          },
+          {
+            "icon": "Globe",
+            "title": "Global Experience",
+            "description": "Worked with clients across 25+ countries"
+          },
+          {
+            "icon": "Shield",
+            "title": "Quality Assurance",
+            "description": "Rigorous testing and code quality standards"
+          },
+          {
+            "icon": "Rocket",
+            "title": "Fast Onboarding",
+            "description": "Get started with your dedicated developer in 48 hours"
+          }
+        ]
+      },
+      "skills": {
+        "title": "Our React.js",
+        "highlightedWord": "Developers' Expertise",
+        "description": "Our developers bring a comprehensive set of skills to your project",
+        "skills": [
+          "React.js",
+          "Next.js",
+          "Redux",
+          "TypeScript",
+          "JavaScript (ES6+)",
+          "Tailwind CSS",
+          "React Query",
+          "Zustand",
+          "Jest",
+          "React Testing Library",
+          "GraphQL",
+          "REST APIs",
+          "Git & GitHub",
+          "Webpack",
+          "Vite"
+        ]
+      },
+      "process": {
+        "tag": "Our Hiring Process",
+        "title": "How We",
+        "highlightedWord": "Hire",
+        "description": "A simple and transparent hiring process",
+        "steps": [
+          {
+            "step": "01",
+            "title": "Share Your Requirements",
+            "description": "Tell us about your project, timeline, and developer requirements.",
+            "icon": "Search"
+          },
+          {
+            "step": "02",
+            "title": "Review Developer Profiles",
+            "description": "We share pre-vetted developer profiles matching your needs.",
+            "icon": "Users"
+          },
+          {
+            "step": "03",
+            "title": "Interview & Selection",
+            "description": "Interview developers and select the best fit for your team.",
+            "icon": "MessageSquare"
+          },
+          {
+            "step": "04",
+            "title": "Onboarding",
+            "description": "Get your dedicated developer onboarded and ready to work.",
+            "icon": "Rocket"
+          },
+          {
+            "step": "05",
+            "title": "Development",
+            "description": "Your developer starts working, with regular progress updates.",
+            "icon": "Code2"
+          },
+          {
+            "step": "06",
+            "title": "Support & Maintenance",
+            "description": "Ongoing support and maintenance for your project.",
+            "icon": "Headphones"
+          }
+        ]
+      },
+      "engagementModels": {
+        "title": "Flexible",
+        "highlightedWord": "Engagement Models",
+        "description": "Choose the engagement model that fits your needs",
+        "models": [
+          {
+            "name": "Hourly",
+            "price": "$25 - $45 / hour",
+            "features": [
+              "Flexible Hours",
+              "Weekly Billing",
+              "No Long-Term Commitment",
+              "Dedicated Developer",
+              "Regular Updates"
+            ],
+            "popular": false
+          },
+          {
+            "name": "Monthly",
+            "price": "$3,000 - $5,000 / month",
+            "features": [
+              "Dedicated Developer",
+              "Monthly Billing",
+              "Full-Time Commitment",
+              "Daily Updates",
+              "Performance Reviews"
+            ],
+            "popular": true
+          },
+          {
+            "name": "Project",
+            "price": "Custom Quote",
+            "features": [
+              "Fixed Project Cost",
+              "Defined Scope",
+              "Milestone-Based Payment",
+              "Complete Delivery",
+              "Post-Launch Support"
+            ],
+            "popular": false
+          }
+        ]
+      },
+      "caseStudies": {
+        "tag": "Our Work",
+        "title": "React.js",
+        "highlightedWord": "Success Stories",
+        "description": "See how we've helped businesses with React.js development",
+        "studies": [
+          {
+            "title": "SaaS Dashboard Development",
+            "description": "Built a real-time analytics dashboard serving 10,000+ users",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-0?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/react-saas-dashboard",
+            "category": "SaaS"
+          },
+          {
+            "title": "E-Commerce React Application",
+            "description": "High-performance e-commerce platform with 50,000+ products",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-1?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/react-ecommerce",
+            "category": "E-Commerce"
+          },
+          {
+            "title": "Enterprise React Solution",
+            "description": "Enterprise-level application with micro-frontend architecture",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-2?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/react-enterprise",
+            "category": "Enterprise"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked",
+        "highlightedWord": "Questions",
+        "faqs": [
+          {
+            "question": "How quickly can I hire a React.js developer?",
+            "answer": "We can provide dedicated React.js developers within 24-48 hours. We have a pool of pre-vetted developers ready to start immediately."
+          },
+          {
+            "question": "Do you provide React.js developers for long-term projects?",
+            "answer": "Yes, we offer flexible engagement options including long-term commitments. Our developers can work on multi-year projects with consistent quality."
+          },
+          {
+            "question": "What's the vetting process for React.js developers?",
+            "answer": "Our developers undergo a rigorous vetting process including technical assessments, project-based evaluations, and client communication tests."
+          },
+          {
+            "question": "Can I interview the developers before hiring?",
+            "answer": "Absolutely! We schedule interviews with shortlisted developers so you can assess their skills and fit for your project."
+          }
+        ]
+      },
+      "relatedTechnologies": {
+        "title": "Related",
+        "highlightedWord": "Technologies",
+        "technologies": [
+          {
+            "title": "Next.js",
+            "slug": "next-js",
+            "icon": "Code2"
+          },
+          {
+            "title": "Node.js",
+            "slug": "node-js",
+            "icon": "Code2"
+          },
+          {
+            "title": "TypeScript",
+            "slug": "typescript",
+            "icon": "Code2"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "next-js",
+      "technology": "Next.js",
+      "breadcrumb": "Hire Next.js Developers",
+      "category": "Frontend",
+      "icon": "Code2",
+      "metaTitle": "Hire Next.js Developers | Digitonix - Expert Next.js Developers",
+      "metaDescription": "Hire dedicated Next.js developers from Digitonix. 100+ Next.js projects delivered, 13+ years experience. Build SEO-optimized web applications with expert Next.js developers.",
+      "metaKeywords": "hire next.js developers, next js developers, hire nextjs developers, next.js development team, next.js developers India",
+      "ogTitle": "Hire Next.js Developers | Digitonix",
+      "ogDescription": "Hire dedicated Next.js developers with 13+ years experience. Build SEO-optimized, high-performance web applications with expert Next.js developers.",
+      "hero": {
+        "title": "Hire",
+        "highlightedWord": "Next.js Developers",
+        "description": "Build SEO-optimized, high-performance web applications with our expert Next.js developers. Digitonix provides dedicated Next.js developers specializing in server-side rendering, static site generation, and modern React development.",
+        "trustPoints": [
+          "100+ Next.js Projects",
+          "SEO Specialists",
+          "Dedicated Developers",
+          "Fast Onboarding"
+        ],
+        "ctaText": "Hire Next.js Developers",
+        "ctaLink": "/contact",
+        "secondaryCtaText": "View Next.js Portfolio",
+        "secondaryCtaLink": "/portfolio",
+        "heroImage": "/hire/nextjs-hero.jpg"
+      },
+      "overview": {
+        "tag": "Why Hire",
+        "title": "Why Hire Our",
+        "highlightedWord": "Next.js",
+        "subtitle": "Developers?",
+        "description": "Our Next.js developers are experts in building SEO-optimized web applications with Next.js's powerful features including server-side rendering, static site generation, and API routes.",
+        "description2": "With deep expertise in Next.js App Router, data fetching strategies, and deployment optimization, our developers create solutions that deliver exceptional user experiences and search engine visibility.",
+        "keyPoints": [
+          "Server-Side Rendering",
+          "Static Site Generation",
+          "API Routes",
+          "Image Optimization"
+        ],
+        "benefits": [
+          {
+            "title": "SEO Optimization",
+            "description": "Built-in SSR and SSG for better search rankings"
+          },
+          {
+            "title": "Fast Performance",
+            "description": "Automatic code splitting and optimization"
+          },
+          {
+            "title": "Developer Experience",
+            "description": "Excellent DX with hot reloading and error handling"
+          },
+          {
+            "title": "TypeScript Support",
+            "description": "First-class TypeScript support for type safety"
+          },
+          {
+            "title": "Deployment Flexibility",
+            "description": "Deploy anywhere - Vercel, AWS, or self-hosted"
+          }
+        ]
+      },
+      "whyHire": {
+        "tag": "Why Hire",
+        "title": "Why Hire",
+        "highlightedWord": "Next.js Developers",
+        "subtitle": "From Digitonix?",
+        "reasons": [
+          {
+            "icon": "Users",
+            "title": "Expert Next.js Developers",
+            "description": "Specialized team with deep Next.js and React expertise"
+          },
+          {
+            "icon": "Trophy",
+            "title": "100+ Next.js Projects",
+            "description": "Extensive experience building Next.js applications"
+          },
+          {
+            "icon": "Search",
+            "title": "SEO Specialists",
+            "description": "Expertise in Next.js SEO optimization strategies"
+          },
+          {
+            "icon": "Rocket",
+            "title": "Performance Experts",
+            "description": "Optimized for Core Web Vitals and Lighthouse scores"
+          }
+        ]
+      },
+      "skills": {
+        "title": "Our Next.js",
+        "highlightedWord": "Developers' Expertise",
+        "description": "Our developers bring a comprehensive set of Next.js skills to your project",
+        "skills": [
+          "Next.js 14",
+          "React.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Prisma",
+          "NextAuth.js",
+          "Vercel",
+          "AWS",
+          "GraphQL",
+          "REST APIs",
+          "Server Components",
+          "API Routes",
+          "ISR",
+          "Edge Functions",
+          "Middleware"
+        ]
+      },
+      "process": {
+        "tag": "Our Hiring Process",
+        "title": "How We",
+        "highlightedWord": "Hire",
+        "description": "A simple and transparent hiring process",
+        "steps": [
+          {
+            "step": "01",
+            "title": "Share Your Requirements",
+            "description": "Tell us about your project, timeline, and developer requirements.",
+            "icon": "Search"
+          },
+          {
+            "step": "02",
+            "title": "Review Developer Profiles",
+            "description": "We share pre-vetted developer profiles matching your needs.",
+            "icon": "Users"
+          },
+          {
+            "step": "03",
+            "title": "Interview & Selection",
+            "description": "Interview developers and select the best fit for your team.",
+            "icon": "MessageSquare"
+          },
+          {
+            "step": "04",
+            "title": "Onboarding",
+            "description": "Get your dedicated developer onboarded and ready to work.",
+            "icon": "Rocket"
+          },
+          {
+            "step": "05",
+            "title": "Development",
+            "description": "Your developer starts working, with regular progress updates.",
+            "icon": "Code2"
+          },
+          {
+            "step": "06",
+            "title": "Support & Maintenance",
+            "description": "Ongoing support and maintenance for your project.",
+            "icon": "Headphones"
+          }
+        ]
+      },
+      "engagementModels": {
+        "title": "Flexible",
+        "highlightedWord": "Engagement Models",
+        "description": "Choose the engagement model that fits your needs",
+        "models": [
+          {
+            "name": "Hourly",
+            "price": "$30 - $50 / hour",
+            "features": [
+              "Flexible Hours",
+              "Weekly Billing",
+              "No Long-Term Commitment",
+              "Dedicated Developer",
+              "Regular Updates"
+            ],
+            "popular": false
+          },
+          {
+            "name": "Monthly",
+            "price": "$3,500 - $5,500 / month",
+            "features": [
+              "Dedicated Developer",
+              "Monthly Billing",
+              "Full-Time Commitment",
+              "Daily Updates",
+              "Performance Reviews"
+            ],
+            "popular": true
+          },
+          {
+            "name": "Project",
+            "price": "Custom Quote",
+            "features": [
+              "Fixed Project Cost",
+              "Defined Scope",
+              "Milestone-Based Payment",
+              "Complete Delivery",
+              "Post-Launch Support"
+            ],
+            "popular": false
+          }
+        ]
+      },
+      "caseStudies": {
+        "tag": "Our Work",
+        "title": "Next.js",
+        "highlightedWord": "Success Stories",
+        "description": "See how we've helped businesses with Next.js development",
+        "studies": [
+          {
+            "title": "Blog Platform with Next.js",
+            "description": "Built a high-traffic blog platform with 2M+ monthly views",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-3?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/nextjs-blog",
+            "category": "Content"
+          },
+          {
+            "title": "E-Commerce Next.js Application",
+            "description": "High-performance e-commerce with ISR and real-time updates",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-4?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/nextjs-ecommerce",
+            "category": "E-Commerce"
+          },
+          {
+            "title": "SaaS Dashboard with Next.js",
+            "description": "Real-time dashboard with 10,000+ concurrent users",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-5?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/nextjs-saas",
+            "category": "SaaS"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked",
+        "highlightedWord": "Questions",
+        "faqs": [
+          {
+            "question": "Why hire Next.js developers from Digitonix?",
+            "answer": "Our Next.js developers are experts in building SEO-optimized, high-performance applications with 100+ successful projects delivered and 13+ years of experience."
+          },
+          {
+            "question": "Do you provide Next.js developers for complex projects?",
+            "answer": "Yes, our developers have experience with complex enterprise-level Next.js applications including micro-frontend architecture and large-scale deployments."
+          },
+          {
+            "question": "Can I hire Next.js developers for a short-term project?",
+            "answer": "Yes, we offer flexible engagement models including hourly, monthly, and project-based hiring to suit your needs."
+          },
+          {
+            "question": "What's the onboarding process for Next.js developers?",
+            "answer": "We handle the entire onboarding process including contracts, access setup, and project kickoff within 48 hours of selection."
+          }
+        ]
+      },
+      "relatedTechnologies": {
+        "title": "Related",
+        "highlightedWord": "Technologies",
+        "technologies": [
+          {
+            "title": "React.js",
+            "slug": "react-js",
+            "icon": "Code2"
+          },
+          {
+            "title": "Node.js",
+            "slug": "node-js",
+            "icon": "Code2"
+          },
+          {
+            "title": "TypeScript",
+            "slug": "typescript",
+            "icon": "Code2"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "node-js",
+      "technology": "Node.js",
+      "breadcrumb": "Hire Node.js Developers",
+      "category": "Backend",
+      "icon": "Code2",
+      "metaTitle": "Hire Node.js Developers | Digitonix - Expert Node.js Developers",
+      "metaDescription": "Hire dedicated Node.js developers from Digitonix. 100+ Node.js projects delivered, 13+ years experience. Build scalable backend applications with expert Node.js developers.",
+      "metaKeywords": "hire node.js developers, node js developers, hire nodejs developers, node.js development team, node.js developers India",
+      "ogTitle": "Hire Node.js Developers | Digitonix",
+      "ogDescription": "Hire dedicated Node.js developers with 13+ years experience. Build scalable, high-performance backend applications with expert Node.js developers.",
+      "hero": {
+        "title": "Hire",
+        "highlightedWord": "Node.js Developers",
+        "description": "Build scalable, high-performance backend applications with our expert Node.js developers. Digitonix provides dedicated Node.js developers specializing in event-driven architecture, microservices, and real-time applications.",
+        "trustPoints": [
+          "100+ Node.js Projects",
+          "Scalable Architecture",
+          "Dedicated Developers",
+          "24/7 Support"
+        ],
+        "ctaText": "Hire Node.js Developers",
+        "ctaLink": "/contact",
+        "secondaryCtaText": "View Node.js Portfolio",
+        "secondaryCtaLink": "/portfolio",
+        "heroImage": "/hire/nodejs-hero.jpg"
+      },
+      "overview": {
+        "tag": "Why Hire",
+        "title": "Why Hire Our",
+        "highlightedWord": "Node.js",
+        "subtitle": "Developers?",
+        "description": "Our Node.js developers are experts in building high-performance, event-driven backend applications. They leverage Node.js's asynchronous, non-blocking architecture to build scalable solutions that handle high concurrent requests efficiently.",
+        "description2": "With expertise in Express.js, NestJS, and microservices architecture, our developers create robust backend systems that power modern web and mobile applications.",
+        "keyPoints": [
+          "Event-Driven Architecture",
+          "High Performance",
+          "Microservices Ready",
+          "Real-Time Capabilities"
+        ],
+        "benefits": [
+          {
+            "title": "High Performance",
+            "description": "Non-blocking I/O for handling concurrent requests"
+          },
+          {
+            "title": "JavaScript Everywhere",
+            "description": "Unified JavaScript across frontend and backend"
+          },
+          {
+            "title": "Microservices Architecture",
+            "description": "Build scalable, maintainable microservices"
+          },
+          {
+            "title": "Real-Time Applications",
+            "description": "WebSocket and real-time communication support"
+          },
+          {
+            "title": "Rich Ecosystem",
+            "description": "Access to thousands of npm packages"
+          }
+        ]
+      },
+      "whyHire": {
+        "tag": "Why Hire",
+        "title": "Why Hire",
+        "highlightedWord": "Node.js Developers",
+        "subtitle": "From Digitonix?",
+        "reasons": [
+          {
+            "icon": "Users",
+            "title": "Expert Node.js Developers",
+            "description": "Dedicated team with deep Node.js and JavaScript expertise"
+          },
+          {
+            "icon": "Trophy",
+            "title": "100+ Node.js Projects",
+            "description": "Proven track record in successful Node.js development"
+          },
+          {
+            "icon": "Cloud",
+            "title": "Microservices Experts",
+            "description": "Specialized in building scalable microservices architecture"
+          },
+          {
+            "icon": "Rocket",
+            "title": "Performance Focused",
+            "description": "Optimized for high performance and scalability"
+          }
+        ]
+      },
+      "skills": {
+        "title": "Our Node.js",
+        "highlightedWord": "Developers' Expertise",
+        "description": "Our developers bring a comprehensive set of Node.js skills to your project",
+        "skills": [
+          "Node.js",
+          "Express.js",
+          "NestJS",
+          "TypeScript",
+          "MongoDB",
+          "PostgreSQL",
+          "MySQL",
+          "Redis",
+          "GraphQL",
+          "Socket.io",
+          "Docker",
+          "AWS",
+          "Microservices",
+          "REST APIs",
+          "Authentication"
+        ]
+      },
+      "process": {
+        "tag": "Our Hiring Process",
+        "title": "How We",
+        "highlightedWord": "Hire",
+        "description": "A simple and transparent hiring process",
+        "steps": [
+          {
+            "step": "01",
+            "title": "Share Your Requirements",
+            "description": "Tell us about your project, timeline, and developer requirements.",
+            "icon": "Search"
+          },
+          {
+            "step": "02",
+            "title": "Review Developer Profiles",
+            "description": "We share pre-vetted developer profiles matching your needs.",
+            "icon": "Users"
+          },
+          {
+            "step": "03",
+            "title": "Interview & Selection",
+            "description": "Interview developers and select the best fit for your team.",
+            "icon": "MessageSquare"
+          },
+          {
+            "step": "04",
+            "title": "Onboarding",
+            "description": "Get your dedicated developer onboarded and ready to work.",
+            "icon": "Rocket"
+          },
+          {
+            "step": "05",
+            "title": "Development",
+            "description": "Your developer starts working, with regular progress updates.",
+            "icon": "Code2"
+          },
+          {
+            "step": "06",
+            "title": "Support & Maintenance",
+            "description": "Ongoing support and maintenance for your project.",
+            "icon": "Headphones"
+          }
+        ]
+      },
+      "engagementModels": {
+        "title": "Flexible",
+        "highlightedWord": "Engagement Models",
+        "description": "Choose the engagement model that fits your needs",
+        "models": [
+          {
+            "name": "Hourly",
+            "price": "$25 - $45 / hour",
+            "features": [
+              "Flexible Hours",
+              "Weekly Billing",
+              "No Long-Term Commitment",
+              "Dedicated Developer",
+              "Regular Updates"
+            ],
+            "popular": false
+          },
+          {
+            "name": "Monthly",
+            "price": "$3,000 - $5,000 / month",
+            "features": [
+              "Dedicated Developer",
+              "Monthly Billing",
+              "Full-Time Commitment",
+              "Daily Updates",
+              "Performance Reviews"
+            ],
+            "popular": true
+          },
+          {
+            "name": "Project",
+            "price": "Custom Quote",
+            "features": [
+              "Fixed Project Cost",
+              "Defined Scope",
+              "Milestone-Based Payment",
+              "Complete Delivery",
+              "Post-Launch Support"
+            ],
+            "popular": false
+          }
+        ]
+      },
+      "caseStudies": {
+        "tag": "Our Work",
+        "title": "Node.js",
+        "highlightedWord": "Success Stories",
+        "description": "See how we've helped businesses with Node.js development",
+        "studies": [
+          {
+            "title": "Real-Time Chat Application",
+            "description": "Built a real-time chat platform with 1M+ active users",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-6?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/nodejs-chat",
+            "category": "Real-Time"
+          },
+          {
+            "title": "Microservices for E-Commerce",
+            "description": "Microservices architecture for a large e-commerce platform",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-7?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/nodejs-microservices",
+            "category": "Microservices"
+          },
+          {
+            "title": "SaaS Backend Development",
+            "description": "Scalable backend for a growing SaaS platform",
+            "imageUrl": "https://images.unsplash.com/photo-1460925895917-8?auto=format&fit=crop&w=800&q=80",
+            "link": "/portfolio/nodejs-saas",
+            "category": "SaaS"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked",
+        "highlightedWord": "Questions",
+        "faqs": [
+          {
+            "question": "Why hire Node.js developers from Digitonix?",
+            "answer": "Our Node.js developers are experts in building scalable, high-performance backend applications with 100+ successful projects delivered and 13+ years of experience."
+          },
+          {
+            "question": "Can I hire Node.js developers for microservices architecture?",
+            "answer": "Yes, our developers have extensive experience in designing and implementing microservices architecture for complex enterprise applications."
+          },
+          {
+            "question": "Do you provide Node.js developers for real-time applications?",
+            "answer": "Absolutely! Our developers are experts in building real-time applications using WebSocket and Socket.io integration."
+          },
+          {
+            "question": "What's the minimum hiring period for Node.js developers?",
+            "answer": "We offer flexible engagement with no minimum period for hourly contracts. Monthly contracts typically start with a one-month commitment."
+          }
+        ]
+      },
+      "relatedTechnologies": {
+        "title": "Related",
+        "highlightedWord": "Technologies",
+        "technologies": [
+          {
+            "title": "React.js",
+            "slug": "react-js",
+            "icon": "Code2"
+          },
+          {
+            "title": "Next.js",
+            "slug": "next-js",
+            "icon": "Code2"
+          },
+          {
+            "title": "MongoDB",
+            "slug": "mongodb",
+            "icon": "Database"
+          }
+        ]
+      }
+    }
+  ]
+}

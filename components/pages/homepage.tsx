@@ -31,6 +31,8 @@ import TopScorers from '@/components/tesmonials'
 import Image from 'next/image'
 import Link from 'next/link'
 import BlogSection from './blogs'
+import { useState } from 'react'
+import { EnquiryModal } from '../modal'
 
 
 export const indus = [
@@ -118,7 +120,8 @@ const slides = [
     },
 ];
 
-export default function Home() {
+export default function Home({ blogPosts }) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <>
@@ -129,12 +132,12 @@ export default function Home() {
 
                 <ServicesSection />
                 <HireDevelopersSection />
-                <IndustriesSection />
+                <IndustriesSection setIsModalOpen={setIsModalOpen} />
 
 
                 <TopScorers />
 
-                <BlogSection/>
+                <BlogSection blogPosts={blogPosts} />
                 {/* CTA Section */}
                 <section className="relative py-12 overflow-hidden">
                     <div className="absolute inset-0">
@@ -158,9 +161,9 @@ export default function Home() {
                                 Ready to Build Something Great?
                             </h2>
                             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-                            Partner with Digitonix, the leading IT company in Jaipur, for world-class web development, mobile apps, and digital marketing solutions. Join 500+ businesses achieving measurable growth.
+                                Partner with Digitonix, the leading IT company in Jaipur, for world-class web development, mobile apps, and digital marketing solutions. Join 500+ businesses achieving measurable growth.
 
-</p>
+                            </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -204,6 +207,10 @@ export default function Home() {
                         </motion.div>
                     </div>
                 </section>
+                <EnquiryModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                />
 
             </div>
         </>

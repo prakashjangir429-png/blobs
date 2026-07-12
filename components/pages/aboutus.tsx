@@ -1090,7 +1090,7 @@ function TeamSection() {
 export function CTASection({service}) {
   const data = service?.cta;
   return (
-    <section className="relative py-12 overflow-hidden">
+    <section className="relative pt-12 pb-6 overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
@@ -1111,7 +1111,7 @@ export function CTASection({service}) {
           <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6">
             {data?.title || "Ready to Build Something Great?"}
           </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 mb-10 max-w-5xl mx-auto">
             {data?.description || "Partner with Digitonix, the leading IT company in Jaipur, for world-class web development, mobile apps, and digital marketing solutions. Join 500+ businesses achieving measurable growth."}
           </p>
 

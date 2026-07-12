@@ -10,6 +10,7 @@ import {
   ArrowUpRight,
   CheckCircle2,
   ArrowRight,
+  Check,
   ChevronRight,
   Code2,
   Smartphone,
@@ -48,6 +49,7 @@ import {
   Headphones,
 } from "lucide-react";
 import { CTASection } from "@/components/pages/aboutus";
+import DynamicIcon from "../DynamicIcon";
 
 export default function ServiceDetailPage({service}) {
 
@@ -161,8 +163,8 @@ function HeroSection({ service }: any) {
             <ChevronRight size={14} />
             <span className="text-[#e8a020]">{service.breadcrumb}</span>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-7 gap-12 items-center">
+            <div className="lg:col-span-4">
               <motion.h1
                 {...fadeUp(0.08)}
                 className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.25] mb-6"
@@ -179,7 +181,7 @@ function HeroSection({ service }: any) {
               </motion.p>
 
               {/* Trust points */}
-              <motion.div
+              {/* <motion.div
                 {...fadeUp(0.18)}
                 className="flex flex-wrap gap-3 mb-4"
               >
@@ -194,7 +196,7 @@ function HeroSection({ service }: any) {
                     {stat}
                   </span>
                 ))}
-              </motion.div>
+              </motion.div> */}
 
               {/* CTAs */}
               <motion.div
@@ -233,7 +235,7 @@ function HeroSection({ service }: any) {
             {/* RIGHT — Image / Visual */}
             <motion.div
               {...fadeUp(0.12)}
-              className="relative flex justify-center lg:justify-end"
+              className="relative lg:col-span-3 flex justify-center lg:justify-end"
             >
               <div className="relative w-full max-w-[480px]">
                 <div className="relative overflow-hidden">
@@ -259,8 +261,9 @@ function OverviewSection({service}) {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-7 gap-12 items-center">
           <motion.div
+            className="lg:col-span-4"
           >
             <span className="text-[#e8a020] font-semibold text-sm uppercase tracking-wider mb-3 block">
               {overView.tag}
@@ -288,7 +291,7 @@ function OverviewSection({service}) {
           </motion.div>
 
           <motion.div
-            className="bg-[#f8f9fc] rounded-2xl p-8 border border-[#1a3fa0]/10"
+            className="bg-gradient-to-br from-[#1a3fa0]/20 hover:from-[#E8A020]/20 to-[#2952cc]/05 lg:col-span-3 p-8"
           >
             <h3 className="text-xl font-bold text-[#0f2a6b] mb-4">
               Key Benefits
@@ -296,13 +299,13 @@ function OverviewSection({service}) {
             {overView?.benefits?.map((item, i) => (
               <div key={i} className="flex items-start gap-3 mb-4 last:mb-0">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Star className="w-4 h-4 text-[#e8a020]" />
+                  <Check className="w-4 h-4 text-[#e8a020]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0f2a6b] text-sm">
+                  <p className="font-semibold text-[#0f2a6b] text-base">
                     {item.title}
                   </p>
-                  <p className="text-xs text-[#6b7a9e]">{item.description}</p>
+                  <p className="text-xs font-medium text-[#6b7a9e]">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -315,42 +318,10 @@ function OverviewSection({service}) {
 
 function FeaturesSection({service}) {
   const data = service.features;
-  const features = [
-    {
-      icon: Code2,
-      title: "Custom Development",
-      desc: "Bespoke web applications built from scratch tailored to your specific business logic and requirements.",
-    },
-    {
-      icon: Search,
-      title: "SEO Optimization",
-      desc: "Built-in SEO best practices with server-side rendering, meta tags, structured data, and fast loading.",
-    },
-    {
-      icon: Smartphone,
-      title: "Responsive Design",
-      desc: "Mobile-first approach ensuring perfect display and functionality across all devices and screen sizes.",
-    },
-    {
-      icon: Shield,
-      title: "Security First",
-      desc: "Enterprise-grade security with SSL, data encryption, secure authentication, and regular audits.",
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Deployment",
-      desc: "Scalable cloud infrastructure on AWS, Google Cloud, or Azure with 99.9% uptime guarantee.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Performance Optimized",
-      desc: "Optimized Core Web Vitals scores ensuring better Google rankings and user experience.",
-    },
-  ];
 
   return (
     <section
-      className="py-20"
+      className="py-12"
       style={{
         backgroundImage:
           "linear-gradient(rgba(26,63,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(26,63,160,0.03) 1px, transparent 1px)",
@@ -375,10 +346,10 @@ function FeaturesSection({service}) {
           {data?.features.map((feature, idx) => (
             <motion.div
               key={idx}
-              className="group bg-white rounded-2xl p-6 border border-[#1a3fa0]/08 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="group bg-gradient-to-br from-[#1a3fa0]/20 hover:from-[#E8A020]/20 to-[#2952cc]/05 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-[#1a3fa0]" />
+                <DynamicIcon name={feature.icon} className="w-6 h-6 text-[#1a3fa0]" />
               </div>
               <h3 className="text-lg font-bold text-[#0f2a6b] mb-2">
                 {feature.title}
@@ -406,16 +377,16 @@ function TechStackSection({service}) {
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             {data.title} <span className="text-[#e8a020]">{data.highlightedWord}</span>
           </h2>
-          <p className="text-[#4a5578] max-w-2xl mx-auto">
+          <p className="text-[#4a5578] max-w-4xl mx-auto">
            {data.description}
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap overflow-x-auto justify-center gap-3 pb-4">
           {data?.technologies?.map((tech, idx) => (
             <motion.div
               key={idx}
-              className="px-5 py-3 bg-[#f4f6fb] rounded-xl border border-[#1a3fa0]/10 text-sm font-semibold text-[#1a3fa0] hover:bg-[#1a3fa0] hover:text-white transition-all duration-300 cursor-default"
+              className="px-5 py-3 bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 rounded-full border border-[#1a3fa0]/10 text-sm font-semibold text-[#1a3fa0] hover:bg-[#1a3fa0] hover:text-white transition-all duration-300 cursor-default"
             >
               {tech}
             </motion.div>
@@ -431,16 +402,10 @@ function ServiceProcessSection({service}) {
 
   return (
     <section className="py-20 bg-[#0f2a6b] overflow-hidden relative">
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#e8a020]/10 blur-3xl" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-xs font-bold uppercase tracking-widest text-[#e8a020] mb-4">
-            {data.tag}
-          </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-3">
             {data.title} <span className="text-[#e8a020]">{data.highlightedWord}</span>
           </h2>
@@ -449,16 +414,14 @@ function ServiceProcessSection({service}) {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
           {data?.steps?.map((step, idx) => (
             <motion.div
               key={idx}
-              className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
+              className="group relative bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
             >
               <div className="text-5xl font-bold text-white/8 absolute top-4 right-4 group-hover:text-[#e8a020]/15 transition-colors">{step.step}</div>
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a3fa0] to-[#2952cc] flex items-center justify-center mb-4">
-                <step.icon className="w-5 h-5 text-white" />
-              </div>
+          
               <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
               <p className="text-sm text-gray-300 leading-relaxed">{step.description}</p>
             </motion.div>
@@ -473,7 +436,7 @@ function WhyChooseServiceSection({service}) {
   const data = service.whyChoose ;
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-14"
@@ -491,10 +454,10 @@ function WhyChooseServiceSection({service}) {
           {data?.reasons?.map((reason, idx) => (
             <motion.div
               key={idx}
-              className="bg-[#f8f9fc] rounded-2xl p-6 border border-[#1a3fa0]/08 hover:shadow-md transition-all duration-300"
+              className="bg-gradient-to-br hover:from-[#1a3fa0]/20 from-[#E8A020]/20 to-[#2952cc]/05 rounded-2xl p-6 hover:shadow-md transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 flex items-center justify-center mb-3">
-                <reason.icon className="w-5 h-5 text-[#1a3fa0]" />
+                <DynamicIcon name={reason.icon} className="w-5 h-5 text-[#1a3fa0]" />
               </div>
               <h3 className="font-bold text-[#0f2a6b] mb-1">{reason.title}</h3>
               <p className="text-sm text-[#4a5578]">{reason.description}</p>
@@ -530,33 +493,33 @@ function PricingSection({service}) {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {data?.plans.map((plan, idx) => (
             <motion.div
               key={idx}
-              className={`relative bg-white rounded-2xl p-8 border ${plan.popular
-                ? "border-[#e8a020] shadow-xl ring-2 ring-[#e8a020]/20"
-                : "border-[#1a3fa0]/08 shadow-sm"
+              className={`relative bg-white p-6 ${plan.popular
+                ? "border-[#e8a020] bg-gradient-to-br from-[#E8A020]/20 to-[#2952cc]/05 border-2 scale-105 shadow-2xl ring-2 ring-[#e8a020]/20"
+                : "border-[#1a3fa0]/08 bg-gradient-to-br from-[#1a3fa0]/20 hover:from-[#E8A020]/20 to-[#2952cc]/05"
                 }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#e8a020] text-white px-4 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-0 right-0 transform  bg-[#e8a020] text-white px-4 py-1.5 rounded-bl-xl text-xs font-bold">
                   Most Popular
                 </div>
               )}
               <h3 className="text-xl font-bold text-[#0f2a6b] mb-2">{plan.name}</h3>
-              <p className="text-2xl font-bold text-[#1a3fa0] mb-6">{plan.price}</p>
+              <p className="text-lg font-bold text-[#1a3fa0] mb-6">{plan.price}</p>
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-[#4a5578]">
-                    <CheckCircle2 className="w-4 h-4 text-[#e8a020] flex-shrink-0" />
+                  <li key={i} className="flex items-start gap-2 text-sm font-medium text-[#4a5578]">
+                    <Check className="w-5 h-5 mt-1 text-[#e8a020] flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
               </ul>
               <Link
                 href="/contact"
-                className={`block w-full py-3 rounded-xl font-semibold text-center transition-all duration-300 ${plan.popular
+                className={`block w-full py-3 shadow-xl rounded-xl font-semibold text-center transition-all duration-300 ${plan.popular
                   ? "bg-[#e8a020] text-white hover:bg-[#f0b832]"
                   : "bg-[#f4f6fb] text-[#1a3fa0] hover:bg-[#1a3fa0] hover:text-white"
                   }`}
@@ -576,7 +539,7 @@ function CaseStudiesSection({service}) {
   const caseStudies = [1, 2, 3];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-14"
@@ -596,7 +559,7 @@ function CaseStudiesSection({service}) {
           {data?.studies.map((item, idx) => (
             <motion.div
               key={idx}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#1a3fa0]/08 shadow-sm hover:shadow-lg transition-all duration-300"
+              className="group bg-gradient-to-br from-[#1a3fa0]/20 hover:from-[#E8A020]/20 to-[#2952cc]/05 overflow-hidden border border-[#1a3fa0]/08 hover:shadow-lg transition-all duration-300"
             >
               <div className="relative h-48 bg-gray-100">
                 <Image
@@ -700,7 +663,7 @@ function RelatedServicesSection({service}) {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-5 mx-auto">
           {data?.services.map((service, idx) => (
             <Link
               key={idx}
@@ -708,7 +671,7 @@ function RelatedServicesSection({service}) {
               className="group bg-[#f8f9fc] rounded-2xl p-6 border border-[#1a3fa0]/08 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-center"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 flex items-center justify-center mx-auto mb-3">
-                <service.icon className="w-6 h-6 text-[#1a3fa0]" />
+                <DynamicIcon name={service.icon} className="w-6 h-6 text-[#1a3fa0]" />
               </div>
               <h3 className="font-bold text-[#0f2a6b] mb-2">{service.title}</h3>
               <span className="text-sm text-[#1a3fa0] font-semibold group-hover:text-[#e8a020] transition-colors">
