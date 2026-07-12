@@ -140,7 +140,6 @@ const serviceTabs = [
 const technologyTabs = [
   {
     name: "Frontend",
-    href: "/technologies/frontend",
     subTabs: [
       { name: "React.js", href: "/technologies/reactjs" },
       { name: "Next.js", href: "/technologies/nextjs" },
@@ -151,7 +150,6 @@ const technologyTabs = [
   },
   {
     name: "Backend",
-    href: "/technologies/backend",
     subTabs: [
       { name: "Node.js", href: "/technologies/nodejs" },
       { name: "Express.js", href: "/technologies/expressjs" },
@@ -162,7 +160,6 @@ const technologyTabs = [
   },
   {
     name: "Mobile",
-    href: "/technologies/mobile",
     subTabs: [
       { name: "React Native", href: "/technologies/react-native" },
       { name: "Flutter", href: "/technologies/flutter" },
@@ -172,7 +169,6 @@ const technologyTabs = [
   },
   {
     name: "Database",
-    href: "/technologies/database",
     subTabs: [
       { name: "MongoDB", href: "/technologies/mongodb" },
       { name: "PostgreSQL", href: "/technologies/postgresql" },
@@ -183,7 +179,6 @@ const technologyTabs = [
   },
   {
     name: "Cloud & DevOps",
-    href: "/technologies/cloud-devops",
     subTabs: [
       { name: "AWS", href: "/technologies/aws" },
       { name: "Azure", href: "/technologies/azure" },

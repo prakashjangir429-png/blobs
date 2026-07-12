@@ -1,8 +1,6 @@
 'use client'
 
 import { Hero } from '@/components/sections/Hero'
-import { BlogCard } from '@/components/sections/BlogCard'
-import { blogPosts } from '@/data/blog'
 import { motion } from 'framer-motion'
 import TrueValueSection, { HireDevelopersSection, IndustriesSection, ServicesSection } from '@/components/sections/aboutus'
 import {

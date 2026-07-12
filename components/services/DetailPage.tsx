@@ -256,7 +256,7 @@ function HeroSection({ service }: any) {
   );
 }
 
-function OverviewSection({service}) {
+export function OverviewSection({service}) {
   const overView = service.overview;
   return (
     <section className="py-20 bg-white">
@@ -316,7 +316,7 @@ function OverviewSection({service}) {
   );
 }
 
-function FeaturesSection({service}) {
+export function FeaturesSection({service}) {
   const data = service.features;
 
   return (
@@ -432,7 +432,7 @@ function ServiceProcessSection({service}) {
   );
 }
 
-function WhyChooseServiceSection({service}) {
+export function WhyChooseServiceSection({service}) {
   const data = service.whyChoose ;
 
   return (
@@ -469,7 +469,7 @@ function WhyChooseServiceSection({service}) {
   );
 }
 
-function PricingSection({service}) {
+export function PricingSection({service}) {
   const data = service.pricing ;
 
   return (
@@ -534,7 +534,7 @@ function PricingSection({service}) {
   );
 }
 
-function CaseStudiesSection({service}) {
+export function CaseStudiesSection({service}) {
   const data = service.caseStudies ;
   const caseStudies = [1, 2, 3];
 
@@ -591,7 +591,7 @@ function CaseStudiesSection({service}) {
   );
 }
 
-function FAQSection({service}) {
+export function FAQSection({service}) {
   const data = service.faq ;
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -649,7 +649,7 @@ function FAQSection({service}) {
 /* ─────────────────────────────────────────────
    RELATED SERVICES
 ───────────────────────────────────────────── */
-function RelatedServicesSection({service}) {
+export function RelatedServicesSection({service}) {
   const data = service.relatedServices ;
 
   return (
