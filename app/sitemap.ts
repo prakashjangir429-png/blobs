@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Flat array of all technology hrefs
   const technologyHrefs = [
-    "/technologies/reactjs", "/technologies/nextjs", "/technologies/vuejs", "/technologies/angular",
+    "/technologies/reactjs", "/technologies/nextjs", "/technologies/vuejs", "/technologies/angular-js",
     "/technologies/typescript", "/technologies/nodejs", "/technologies/expressjs",
     "/technologies/python", "/technologies/django", "/technologies/laravel",
     "/technologies/react-native", "/technologies/flutter", "/technologies/android",
@@ -72,7 +72,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [...routes, ...serviceHrefs, ...technologyHrefs, ...hireus].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: route === '' ? 1 : 0.8,
+    changeFrequency: 'daily'
   }));
 }

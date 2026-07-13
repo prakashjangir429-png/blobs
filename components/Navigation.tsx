@@ -144,7 +144,7 @@ const technologyTabs = [
       { name: "React.js", href: "/technologies/reactjs" },
       { name: "Next.js", href: "/technologies/nextjs" },
       { name: "Vue.js", href: "/technologies/vuejs" },
-      { name: "Angular", href: "/technologies/angular" },
+      { name: "Angular", href: "/technologies/angular-js" },
       { name: "TypeScript", href: "/technologies/typescript" },
     ],
   },
