@@ -11,11 +11,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const description =
     "Explore expert articles from Digitonix on Web Development, Artificial Intelligence, SEO, Digital Marketing, UI/UX Design, Software Development, Cloud Technologies, and business growth strategies.";
 
-  const url = "https://digitonix.in/blog";
-  const image = "https://digitonix.in/log.png";
+  const url = "https://www.digitonix.in/blog";
+  const image = "https://www.digitonix.in/log.png";
 
   return {
-    metadataBase: new URL("https://digitonix.in"),
+    metadataBase: new URL("https://www.digitonix.in"),
     title,
     description,
     keywords: [
@@ -54,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [
       {
         name: "Digitonix",
-        url: "https://digitonix.in",
+        url: "https://www.digitonix.in",
       },
     ],
     creator: "Digitonix",

@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const description =
     "Hire dedicated developers, designers, and IT professionals from India's leading IT company. 55+ experts, flexible engagement models, 48hr onboarding. Start building your dream team today!";
   
-  const url = "https://www.digitonix.in/hire";
+  const url = "https://www.digitonix.in/hireus";
   const image = "https://www.digitonix.in/log.png";
 
   return {
