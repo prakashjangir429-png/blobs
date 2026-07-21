@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useInView } from "fra
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {services} from "@/data/services.json";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -383,13 +384,6 @@ const serviceCategories = [
   },
 ];
 
-const serviceStats = [
-  { number: 650, suffix: "+", label: "Projects Delivered", icon: Briefcase },
-  { number: 98, suffix: "%", label: "Client Satisfaction", icon: Star },
-  { number: 55, suffix: "+", label: "Expert Engineers", icon: Users },
-  { number: 13, suffix: "+", label: "Years Experience", icon: Clock },
-];
-
 const whyChooseUs = [
   {
     icon: Zap,
@@ -745,11 +739,7 @@ function ServicesGridSection({
             transition={{ duration: 0.3 }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {(selectedCategory === "all"
-              ? serviceCategories
-              : serviceCategories.filter((cat) => cat.id === selectedCategory)
-            ).flatMap((category) =>
-              category.services.map((service: any, idx: number) => (
+            {services.map((service: any, idx: number) => (
                 <motion.div
                   key={service.slug}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -765,38 +755,43 @@ function ServicesGridSection({
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
                       <Image
-                        src={service.image}
-                        alt={service.title}
+                        src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8ha0zBLnZARKomQQ5odVOiq7Cza2hnPHREMN0OOWHwnL2Qphmol7Gr4g&s=10"}
+                        alt={service.name || service.metaTitle}
                         fill
+                        onError={() => (
+                          <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
+                            <span className="text-gray-500">Image not found</span>
+                          </div>
+                        )}
                         className="object-cover transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
                         <div className="flex items-center gap-2 mb-1">
-                          <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center`}>
+                          {/* <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.category} flex items-center justify-center`}>
                             <service.icon className="w-4 h-4 text-white" />
-                          </div>
+                          </div> */}
                           <span className="text-xs font-medium uppercase tracking-wider opacity-80">
-                            {category.title}
+                            {service.category}
                           </span>
                         </div>
-                        <h3 className="text-lg font-semibold">{service.title}</h3>
+                        <h3 className="text-lg font-semibold">{service.name}</h3>
                       </div>
                     </div>
 
                     {/* Content */}
                     <div className="p-5">
-                      <p className="text-base text-[#4a5578] mb-4 line-clamp-3">
-                        {service.shortDesc}
+                      <p className="text-base text-[#4a5578] mb-4 line-clamp-2">
+                        {service.description}
                       </p>
 
                       <div className="flex items-center justify-between">
                         <div className="flex gap-1.5">
-                          {service.techStack.slice(0, 3).map((tech: string, i: number) => (
+                          {/* {service.techStack.slice(0, 3).map((tech: string, i: number) => (
                             <span key={i} className="text-xs font-medium px-2 py-1 bg-[#f4f6fb] text-[#1a3fa0] rounded-md border border-[#1a3fa0]/08">
                               {tech}
                             </span>
-                          ))}
+                          ))} */}
                         </div>
                         <span className="flex items-center text-[#e8a020] font-semibold text-sm group-hover:translate-x-1 transition-transform">
                           Explore <ArrowRight size={14} className="ml-1" />
@@ -805,8 +800,7 @@ function ServicesGridSection({
                     </div>
                   </Link>
                 </motion.div>
-              ))
-            )}
+            ))}
           </motion.div>
         </AnimatePresence>
       </div>

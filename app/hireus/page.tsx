@@ -10,12 +10,13 @@ import {
   faqs,
 } from "@/data/hire";
 import HireClient from "@/components/hireus/HireUs";
+import { technologies } from "@/data/technologies.json";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Hire Top Developers & IT Professionals | Dedicated Teams | Digitonix";
   const description =
     "Hire dedicated developers, designers, and IT professionals from India's leading IT company. 55+ experts, flexible engagement models, 48hr onboarding. Start building your dream team today!";
-  
+
   const url = "https://www.digitonix.in/hireus";
   const image = "https://www.digitonix.in/log.png";
 
@@ -257,7 +258,7 @@ export default function HirePage() {
         initialData={{
           hireBenefits,
           hireProcess,
-          techStack,
+          techStack: technologies,
           engagementModels,
           whyHireUs,
           faqs,

@@ -61,6 +61,7 @@ import {
   Server,
   Database,
 } from "lucide-react";
+import { HireDevelopersSection } from "../sections/aboutus";
 
 // Icon mapping for dynamic icon rendering
 const iconMap: Record<string, any> = {
@@ -122,6 +123,7 @@ export default function HireClient({ initialData }: HireClientProps) {
       <EngagementModelsSection engagementModels={engagementModels} />
       <TechStackSection techStack={techStack} stats={stats} />
       <ProcessSection hireProcess={hireProcess} />
+      <HireDevelopersSection/>
       <FAQSection faqs={faqs} />
       <CTASection />
     </div>
@@ -480,19 +482,32 @@ function TechStackSection({ techStack, stats }: { techStack: any[]; stats: any }
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {techStack.map((tech, idx) => (
             <motion.div
               key={tech.name}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: idx * 0.05 }}
-              className="group bg-white rounded-xl p-5 text-center border border-[#1a3fa0]/08 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="group bg-white rounded-xl p-4 text-center border border-[#1a3fa0]/08 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="text-3xl mb-2">{tech.icon}</div>
-              <div className="text-sm font-semibold text-[#0f2a6b] group-hover:text-[#e8a020] transition-colors">
-                {tech.name}
-              </div>
+              <Link href={`/technologies/${tech?.slug}`}>
+                <div className="p-3 flex items-center justify-center mb-1">
+                  <div className="w-14 h-14 rounded-xl bg-[#f8f9fc] flex items-center justify-center p-2 group-hover:shadow-md transition-all">
+                    <Image
+                      src={tech?.hero?.heroImage}
+                      alt={tech.name}
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
+                  </div>
+
+                </div>
+                <div className="text-sm font-semibold text-[#0f2a6b] group-hover:text-[#e8a020] transition-colors">
+                  {tech.name}
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

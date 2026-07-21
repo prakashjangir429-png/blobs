@@ -43,120 +43,9 @@ import {
 } from "lucide-react";
 import { CTASection } from "@/components/pages/aboutus";
 import TopScorers from "@/components/tesmonials";
-import { techCategories ,technologies  } from "@/data/techData";
-/* ─────────────────────────────────────────────
-   TECH DETAIL MODAL
-───────────────────────────────────────────── */
-function TechDetailModal({ tech, onClose }: { tech: any; onClose: () => void }) {
-  if (!tech) return null;
-  const CategoryIcon = techCategories.find((c) => c.id === tech.category)?.icon || Code2;
-  const categoryColor =
-    techCategories.find((c) => c.id === tech.category)?.color || "from-gray-500 to-gray-600";
+import { techCategories } from "@/data/techData";
+import { technologies } from "@/data/technologies.json";
 
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.9, y: 20, opacity: 0 }}
-        animate={{ scale: 1, y: 0, opacity: 1 }}
-        exit={{ scale: 0.9, y: 20, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-hidden shadow-2xl relative"
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-50 p-2 bg-white/80 backdrop-blur rounded-full hover:bg-gray-100 transition-colors shadow-sm"
-        >
-          <X size={24} className="text-gray-600" />
-        </button>
-
-        {/* Header */}
-        <div className={`relative bg-gradient-to-r ${categoryColor} p-8 flex items-end`}>
-          <div className="absolute inset-0 bg-black/10" />
-          <div className="relative z-10 flex items-end gap-6 w-full">
-            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center p-3 shadow-lg">
-              <Image src={tech.logo} alt={tech.name} width={64} height={64} className="object-contain" />
-            </div>
-            <div className="mb-2 text-white">
-              <div className="flex items-center gap-2 mb-1 opacity-90">
-                <CategoryIcon size={16} />
-                <span className="text-sm font-semibold uppercase tracking-wider">
-                  {techCategories.find((c) => c.id === tech.category)?.label}
-                </span>
-              </div>
-              <h2 className="text-3xl font-bold">{tech.name}</h2>
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-8 space-y-6 max-h-[60vh] overflow-y-auto">
-          {/* Overview */}
-          <div>
-            <h3 className="text-lg font-semibold text-[#0f2a6b] mb-3 flex items-center gap-2">
-              <BookOpen size={18} className="text-[#e8a020]" /> Overview
-            </h3>
-            <p className="text-[#4a5578] leading-relaxed">{tech.description}</p>
-            <p className="text-[#4a5578] mt-3 leading-relaxed">{tech.details}</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Features */}
-            <div>
-              <h3 className="text-lg font-semibold text-[#0f2a6b] mb-3 flex items-center gap-2">
-                <CheckCircle size={18} className="text-[#e8a020]" /> Key Features
-              </h3>
-              <ul className="space-y-2">
-                {tech.features.map((feat: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-[#4a5578]">
-                    <CheckCircle size={16} className="text-[#e8a020] mt-0.5 shrink-0" />
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Use Cases */}
-            <div>
-              <h3 className="text-lg font-semibold text-[#0f2a6b] mb-3 flex items-center gap-2">
-                <Target size={18} className="text-[#e8a020]" /> Common Use Cases
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {tech.useCases.map((use: string, i: number) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1.5 bg-[#f8f9fc] text-[#1a3fa0] rounded-lg text-sm font-medium border border-[#1a3fa0]/10"
-                  >
-                    {use}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Action */}
-          <div className="pt-6 border-t border-[#1a3fa0]/10 flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="flex-1 bg-[#0f2a6b] text-white py-3 rounded-xl font-semibold text-center hover:bg-[#1a3fa0] transition-colors flex items-center justify-center gap-2"
-            >
-              Build with {tech.name} <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   MAIN TECHNOLOGIES PAGE
-───────────────────────────────────────────── */
 export default function TechnologiesPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -180,7 +69,7 @@ export default function TechnologiesPage() {
       const matchesCategory = activeCategory === "all" || tech.category === activeCategory;
       const matchesSearch =
         tech.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        tech.description.toLowerCase().includes(searchQuery.toLowerCase());
+        tech.metaDescription.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
@@ -200,8 +89,8 @@ export default function TechnologiesPage() {
       <div
         ref={filterRef}
         className={`sticky top-18 bg-white z-40 transition-all duration-300 ${isFilterSticky
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#1a3fa0]/10 py-3"
-            : "bg-transparent py-4"
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#1a3fa0]/10 py-3"
+          : "bg-transparent py-4"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -209,8 +98,8 @@ export default function TechnologiesPage() {
             <button
               onClick={() => setActiveCategory("all")}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${activeCategory === "all"
-                  ? "bg-[#0f2a6b] text-white shadow-lg shadow-[#1a3fa0]/20"
-                  : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 hover:shadow-md"
+                ? "bg-[#0f2a6b] text-white shadow-lg shadow-[#1a3fa0]/20"
+                : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 hover:shadow-md"
                 }`}
             >
               <Layers size={15} /> All
@@ -220,8 +109,8 @@ export default function TechnologiesPage() {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${activeCategory === cat.id
-                    ? `bg-[#0f2a6b] text-white shadow-lg shadow-[#1a3fa0]/20`
-                    : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 hover:shadow-md"
+                  ? `bg-[#0f2a6b] text-white shadow-lg shadow-[#1a3fa0]/20`
+                  : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 hover:shadow-md"
                   }`}
               >
                 <cat.icon size={15} />
@@ -431,34 +320,28 @@ function TechGrid({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <AnimatePresence>
               {filteredTech.map((tech) => {
-                const catColor =
-                  techCategories.find((c) => c.id === tech.category)?.color || "from-gray-500 to-gray-600";
-                return (
+                  return (
                   <motion.div
                     key={tech.id}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     whileHover={{ y: -8 }}
-                    onClick={() => setSelectedTech(tech)}
                     className="group bg-white rounded-2xl border border-[#1a3fa0]/08 shadow-sm hover:shadow-xl hover:border-[#e8a020]/30 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col"
                   >
                     {/* Card Header */}
+                    <Link href={`/technologies/${tech?.slug}`}>
                     <div className="p-5 flex items-start justify-between">
                       <div className="w-14 h-14 rounded-xl bg-[#f8f9fc] flex items-center justify-center p-2 group-hover:shadow-md transition-all">
                         <Image
-                          src={tech.logo}
+                          src={tech?.hero?.heroImage}
                           alt={tech.name}
                           width={40}
                           height={40}
                           className="object-contain"
                         />
                       </div>
-                      <span
-                        className={`px-2 py-1 rounded-md text-xs font-semibold text-white bg-gradient-to-r ${catColor}`}
-                      >
-                        {tech.proficiency}%
-                      </span>
+                     
                     </div>
 
                     {/* Card Body */}
@@ -467,10 +350,10 @@ function TechGrid({
                         {tech.name}
                       </h3>
                       <p className="text-sm text-[#4a5578] line-clamp-2 mb-4 flex-1">
-                        {tech.description}
+                        {tech.metaDescription}
                       </p>
 
-                      <div className="pt-4 border-t border-[#1a3fa0]/08 flex items-center justify-between">
+                      <div className="pt-4 opacity-0 group-hover:opacity-100 border-t border-[#1a3fa0]/08 flex items-center justify-between">
                         <span className="text-xs font-medium text-[#4a5578] uppercase tracking-wider">
                           {techCategories.find((c) => c.id === tech.category)?.label}
                         </span>
@@ -479,6 +362,8 @@ function TechGrid({
                         </span>
                       </div>
                     </div>
+
+                    </Link>
                   </motion.div>
                 );
               })}

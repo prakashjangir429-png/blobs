@@ -31,6 +31,7 @@ import Link from 'next/link'
 import BlogSection from './blogs'
 import { useState } from 'react'
 import { EnquiryModal } from '../modal'
+import TechStackSlider from '../sections/technologies'
 
 
 export const indus = [
@@ -126,6 +127,7 @@ export default function Home({ blogPosts }) {
 
             <div className="relative min-h-screen">
                 <Hero slides={slides} />
+                <TechStackSlider/>
                 <TrueValueSection />
 
                 <ServicesSection />

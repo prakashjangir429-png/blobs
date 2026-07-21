@@ -1,7 +1,8 @@
 // app/technologies/page.tsx
 import { Metadata } from "next";
 import TechnologiesPage from "@/components/technologies/technologies";
-import { techCategories ,technologies  } from "@/data/techData";
+import { techCategories  } from "@/data/techData";
+import { technologies } from "@/data/technologies.json";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Technology Stack & Expertise | Web, Mobile, Cloud & AI Technologies | Digitonix";
