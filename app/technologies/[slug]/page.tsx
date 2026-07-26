@@ -66,7 +66,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const { slug } = await params
     const tech = technologiesData.technologies.find((t) => t.slug == slug);
 
-    if (!tech) {
+    const seo = technologiesData?.seo.find((s) => s.slug == slug);
+
+    if (!seo) {
         return {
             title: "Technology Not Found",
             description: "The technology you're looking for doesn't exist.",
@@ -74,12 +76,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 
     return {
-        title: tech.metaTitle,
-        description: tech.metaDescription,
-        keywords: tech.metaKeywords,
+        title: seo.metaTitle,
+        description: seo.metaDescription,
+        keywords: seo.metaKeywords,
         openGraph: {
-            title: tech.ogTitle || tech.metaTitle,
-            description: tech.ogDescription || tech.metaDescription,
+            title: seo.metaTitle || seo.metaTitle,
+            description: seo.metaDescription || seo.metaDescription,
             type: "website",
         },
         alternates: {
@@ -91,7 +93,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function TechnologyDetailPage({ params }: { params: { slug: string } }) {
     const { slug } = await params
 
-    console.log(slug)
     const tech = technologiesData.technologies.find((t) => t.slug == slug);
 
     if (!tech) {

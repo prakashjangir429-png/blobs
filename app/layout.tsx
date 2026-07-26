@@ -4,6 +4,7 @@ import './globals.css'
 import RainbowCursor from '@/components/Rainbow'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
+import KKKmain from '@/lib/humanize'
 
 const notoSans = Noto_Sans({
   subsets: ['latin'],
@@ -22,26 +23,31 @@ export const metadata: Metadata = {
   title: 'Digital Agency - IT, Marketing & Design Services',
   description:
     'Professional digital agency specializing in IT services, digital marketing, and graphic design.',
-    verification: {
+  verification: {
     google: 'xT0RaeSQJoCHo2myQp_sBHrJu-OkDhYFlyu9akuTQRE',
   },
 }
+
+  // KKKmain()
+
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+
   return (
     <html lang="en" className={outfit.variable}>
       <body className="relative antialiased font-sans">
-       <div className='relative z-0 !font-medium'>
-        <Navigation />
+        <div className='relative z-0 !font-medium'>
+          <Navigation />
 
-        {children}
-        <Footer />
+          {children}
+          <Footer />
 
-        </div> 
+        </div>
         {/* <RainbowCursor/> */}
 
       </body>

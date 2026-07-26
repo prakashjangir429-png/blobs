@@ -5,9 +5,11 @@ import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = await params;
-  const service = servicesData.services.find((s) => s.slug === slug);
+  const service = servicesData.services.find((s) => s.slug == slug);
 
-  if (!service) {
+  const seo = servicesData?.seo.find((s) => s.slug == slug);
+
+  if (!seo) {
     return {
       title: "Service Not Found | Digitonix",
       description: "The requested service page could not be found.",
@@ -15,16 +17,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: service.metaTitle || `${service.name} Services | Digitonix`,
-    description: service.metaDescription || `Professional ${service.name} services by Digitonix.`,
-    keywords: service.metaKeywords?.split(", ") || [service.name, "Digitonix", "Jaipur"],
+    title: seo.metaTitle || `${service.name} Services | Digitonix`,
+    description: seo.metaDescription || `Professional ${service.name} services by Digitonix.`,
+    keywords: [...seo.metaKeywords?.split(", "), "Digitonix", "best it company Jaipur", "IT services", "web development", "mobile app development", "digital marketing"] || [service.name, "Digitonix", "best it company Jaipur", "IT services", "web development", "mobile app development", "digital marketing"],
     authors: [{ name: "Digitonix" }],
     creator: "Digitonix",
     publisher: "Digitonix",
 
     openGraph: {
-      title: service.ogTitle || service.metaTitle || `${service.name} | Digitonix`,
-      description: service.ogDescription || service.metaDescription || `Expert ${service.name} services by Digitonix.`,
+      title: service.metaTitle || service.metaTitle || `${service.name} | Digitonix`,
+      description: service.metaDescription || service.metaDescription || `Expert ${service.name} services by Digitonix.`,
       url: `https://www.digitonix.in/services/${slug}`,
       siteName: "Digitonix",
       locale: "en_US",
@@ -34,15 +36,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
           url: "https://www.digitonix.in/log.png",
           width: 1200,
           height: 630,
-          alt: service.ogTitle || `${service.name} - Digitonix`,
+          alt: service.metaTitle || `${service.name} - Digitonix`,
         },
       ],
     },
 
     twitter: {
       card: "summary_large_image",
-      title: service.ogTitle || `${service.name} | Digitonix`,
-      description: service.ogDescription || service.metaDescription || `${service.name} services by Digitonix.`,
+      title: service.metaTitle || `${service.name} | Digitonix`,
+      description: service.metaDescription || service.metaDescription || `${service.name} services by Digitonix.`,
       images: ["https://www.digitonix.in/log.png"],
     },
 

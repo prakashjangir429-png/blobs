@@ -240,7 +240,7 @@ function HeroSection({ service }: any) {
               <div className="relative w-full max-w-[480px]">
                 <div className="relative overflow-hidden">
                   <Image
-                    src={heroData.heroImage || "/home/b1.png"}
+                    src={"/home/b1.png"}
                     alt={service.name || ""}
                     width={550}
                     height={450}
