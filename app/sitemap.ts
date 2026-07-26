@@ -71,7 +71,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [...routes, ...serviceHrefs, ...technologyHrefs, ...hireus].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'daily'
+    lastModified: new Date()
   }));
 }
