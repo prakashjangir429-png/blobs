@@ -1,6 +1,5 @@
 // app/blog/page.tsx (Server Component)
 import BlogClient from '@/components/blog/BlogClient';
-import { getAllBlogs, getAllCategories } from '@/lib/blogService';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
@@ -8,8 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title =
     "Digitonix Blog | Web Development, AI, SEO & Digital Growth Insights";
 
-  const description =
-    "Explore expert articles from Digitonix on Web Development, Artificial Intelligence, SEO, Digital Marketing, UI/UX Design, Software Development, Cloud Technologies, and business growth strategies.";
+  const description = "Explore expert articles from Digitonix on Web Development, Artificial Intelligence, SEO, Digital Marketing, UI/UX Design, Software Development, Cloud Technologies, and business growth strategies.";
 
   const url = "https://www.digitonix.in/blog";
   const image = "https://www.digitonix.in/log.png";
@@ -119,35 +117,107 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+// API base URL - use environment variable for production
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
+
+// Server-side fetch function for blogs
+async function fetchBlogs() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/blogs?sortBy=createdAt&sortOrder=desc&limit=12&status=published`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Enable ISR with revalidation
+      next: { revalidate: 60 }, // Revalidate every 60 seconds
+    });
+
+
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blogs: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log(data)
+    return data;
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    throw error;
+  }
+}
+
+// Server-side fetch function for categories
+async function fetchCategories() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/blog-categories?isActive=true&limit=50`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Enable ISR with revalidation
+      next: { revalidate: 300 }, // Revalidate every 5 minutes
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch categories: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    throw error;
+  }
+}
 
 async function BlogContent() {
-  const [blogsResponse, categoriesResponse] = await Promise.all([
-    getAllBlogs({
-      sortBy: 'createdAt',
-      sortOrder: 'desc',
-      limit: 12,
-    }),
-    getAllCategories({
-      isActive: true,
-      limit: 50,
-    }),
-  ]);
+  try {
+    // Fetch blogs and categories in parallel
+    const [blogsResponse, categoriesResponse] = await Promise.all([
+      fetchBlogs(),
+      fetchCategories(),
+    ]);
 
+    const blogPosts = blogsResponse.data || [];
+    const categoryData = categoriesResponse.data || [];
+    const categories = ['All', ...categoryData.map((cat: any) => cat.name)];
 
-  const blogPosts = blogsResponse.data;
-  const categories = ['All', ...categoriesResponse.data.map((cat) => cat.name)];
-
-  return <BlogClient initialBlogs={blogPosts} initialCategories={categories} />;
+    return <BlogClient initialBlogs={blogPosts} initialCategories={categories} />;
+  } catch (error) {
+    console.error('Error loading blog content:', error);
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto px-4">
+          <div className="text-6xl mb-4">📝</div>
+          <h2 className="text-2xl font-semibold text-[#0f2a6b] mb-2">
+            Unable to load blog posts
+          </h2>
+          <p className="text-[#4a5578] mb-6">
+            We're having trouble loading the blog content. Please try again later or contact our support team.
+          </p>
+          <a
+            href="/blog"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+          >
+            Refresh Page
+          </a>
+        </div>
+      </div>
+    );
+  }
 }
+
 export default function BlogPage() {
   return (
     <Suspense
       fallback={
         <div className="min-h-screen bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            {/* Hero Skeleton */}
             <div className="text-center py-8">
-              <div className="my-8 h-[50vh] bg-gray-200 rounded-xl animate-pulse" />
-
+              <div className="h-12 w-2/3 mx-auto bg-gray-200 rounded-lg animate-pulse mb-4" />
+              <div className="h-4 w-1/2 mx-auto bg-gray-200 rounded animate-pulse" />
             </div>
 
             {/* Category Filter Skeleton */}
@@ -159,6 +229,8 @@ export default function BlogPage() {
                 />
               ))}
             </div>
+
+            {/* Blog Grid Skeleton */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(9)].map((_, index) => (
                 <div
@@ -208,38 +280,3 @@ export default function BlogPage() {
     </Suspense>
   );
 }
-// Server Component - fetches data on the server
-// export default async function BlogPage() {
-//   try {
-//     // Fetch blogs and categories in parallel
-//     const [blogsResponse, categoriesResponse] = await Promise.all([
-//       getAllBlogs({
-//         sortBy: 'createdAt',
-//         sortOrder: 'desc',
-//         limit: 12,
-//       }),
-//       getAllCategories({
-//         isActive: true,
-//         limit: 50,
-//       }),
-//     ]);
-//     const blogPosts = blogsResponse.data
-
-//     const categories = ['All', ...categoriesResponse.data.map((cat) => cat.name)];
-//     return <BlogClient initialBlogs={blogPosts} initialCategories={categories} />;
-//   } catch (error) {
-//     console.error('Error fetching blog data:', error);
-//     return (
-//       <div className="min-h-screen flex items-center justify-center">
-//         <div className="text-center">
-//           <h2 className="text-2xl font-semibold text-[#0f2a6b] mb-2">
-//             Unable to load blog posts
-//           </h2>
-//           <p className="text-[#4a5578]">
-//             Please try again later or contact support.
-//           </p>
-//         </div>
-//       </div>
-//     );
-//   }
-// }

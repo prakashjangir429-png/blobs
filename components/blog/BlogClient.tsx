@@ -4,7 +4,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import {
   Search,
   Calendar,
@@ -27,23 +27,33 @@ import {
   ArrowUpRight,
   ChevronDown,
   Eye,
+  ThumbsUp,
+  Tag,
+  X,
+  Loader2,
 } from "lucide-react";
 import { CTASection } from "@/components/pages/aboutus";
 import { BlogCard } from "../pages/blogs";
+// import { toast } from "react-hot-toast";
 
 interface BlogPost {
-  id: string;
-  slug: string;
+  _id: string;
   title: string;
-  excerpt: string;
+  slug: string;
+  excerpt?: string;
+  content: string;
+  featuredImage?: string;
+  author?: string;
   category: string;
-  author: string;
-  date: string;
-  readTime: string;
+  categoryName?: string;
+  tags?: string[];
+  status: string;
   featured: boolean;
-  image: string;
-  tags: string[];
-  views?: number;
+  views: number;
+  likes: number;
+  readTime: number;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface BlogClientProps {
@@ -51,41 +61,85 @@ interface BlogClientProps {
   initialCategories: string[];
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
 export default function BlogClient({ initialBlogs, initialCategories }: BlogClientProps) {
-  const [blogs] = useState<BlogPost[]>(initialBlogs);
-  const [categories] = useState<string[]>(initialCategories);
+  const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs);
+  const [categories, setCategories] = useState<string[]>(initialCategories);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [isFilterSticky, setIsFilterSticky] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState("latest");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const filterRef = useRef<HTMLDivElement>(null);
+  const blogsPerPage = 9;
 
+  // Filter and sort blogs
   const filteredPosts = useMemo(() => {
-    return blogs.filter((post) => {
-      const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-      const matchesSearch =
+    let filtered = blogs.filter((post) => {
+      const matchesCategory = selectedCategory === "All" || 
+        post.categoryName === selectedCategory || 
+        post.category === selectedCategory;
+      
+      const matchesSearch = !searchQuery.trim() || 
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+        (post.excerpt || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (post.tags || []).some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (post.categoryName || '').toLowerCase().includes(searchQuery.toLowerCase());
+
       return matchesCategory && matchesSearch;
     });
-  }, [blogs, selectedCategory, searchQuery]);
 
-  const featuredPost = filteredPosts.find((p) => p.featured) || filteredPosts[0];
-  const regularPosts = filteredPosts.filter((p) => p.slug != featuredPost?.slug);
-
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setTimeout(() => {
-        setSubscribed(false);
-        setEmail("");
-      }, 3000);
+    // Sort blogs
+    switch (sortBy) {
+      case 'oldest':
+        filtered = [...filtered].sort((a, b) => 
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
+        break;
+      case 'popular':
+        filtered = [...filtered].sort((a, b) => (b.views || 0) - (a.views || 0));
+        break;
+      case 'liked':
+        filtered = [...filtered].sort((a, b) => (b.likes || 0) - (a.likes || 0));
+        break;
+      case 'trending':
+        filtered = [...filtered].sort((a, b) => 
+          ((b.views || 0) + (b.likes || 0) * 2) - ((a.views || 0) + (a.likes || 0) * 2)
+        );
+        break;
+      default: // latest
+        filtered = [...filtered].sort((a, b) => 
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
     }
-  };
+
+    return filtered;
+  }, [blogs, selectedCategory, searchQuery, sortBy]);
+
+  // Pagination
+  const totalPages = Math.ceil(filteredPosts.length / blogsPerPage);
+  const paginatedPosts = useMemo(() => {
+    const startIndex = (currentPage - 1) * blogsPerPage;
+    return filteredPosts.slice(startIndex, startIndex + blogsPerPage);
+  }, [filteredPosts, currentPage]);
+
+  const featuredPost = useMemo(() => {
+    return filteredPosts.find((p) => p.featured) || filteredPosts[0];
+  }, [filteredPosts]);
+
+  const regularPosts = useMemo(() => {
+    return paginatedPosts.filter((p) => p.slug !== featuredPost?.slug);
+  }, [paginatedPosts, featuredPost]);
+
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, searchQuery, sortBy]);
 
   // Handle scroll for sticky filter
   useEffect(() => {
@@ -99,24 +153,80 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleCategoryChange = useCallback((category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  }, []);
+
+  const handleSearchChange = useCallback((query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  }, []);
+
+  const handleSortChange = useCallback((sort: string) => {
+    setSortBy(sort);
+    setCurrentPage(1);
+  }, []);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      // toast.error('Please enter a valid email address');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Simulate API call - replace with actual newsletter API
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setSubscribed(true);
+      // toast.success('Successfully subscribed to newsletter!');
+      setTimeout(() => {
+        setSubscribed(false);
+        setEmail("");
+      }, 3000);
+    } catch (error) {
+      // toast.error('Failed to subscribe. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  };
+
+  const clearFilters = () => {
+    setSearchQuery("");
+    setSelectedCategory("All");
+    setSortBy("latest");
+    setCurrentPage(1);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* ── HERO SECTION ── */}
       <HeroSection
         searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
+        setSearchQuery={handleSearchChange}
         selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
+        setSelectedCategory={handleCategoryChange}
         categories={categories}
+        totalPosts={filteredPosts.length}
       />
 
       {/* ── STICKY FILTERS ── */}
       <div
         ref={filterRef}
-        className={`sticky top-[72px] bg-white z-40 transition-all duration-300 ${isFilterSticky
+        className={`sticky top-[72px] bg-white z-40 transition-all duration-300 ${
+          isFilterSticky
             ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#1a3fa0]/10 py-2"
             : "bg-transparent py-3"
-          }`}
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -127,15 +237,32 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${selectedCategory === category
+                onClick={() => handleCategoryChange(category)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  selectedCategory === category
                     ? "bg-[#0f2a6b] text-white shadow-lg shadow-[#1a3fa0]/20"
                     : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 hover:shadow-md"
-                  }`}
+                }`}
               >
                 {category}
               </button>
             ))}
+            
+            {/* Sort Dropdown */}
+            <div className="relative ml-2">
+              <select
+                value={sortBy}
+                onChange={(e) => handleSortChange(e.target.value)}
+                className="appearance-none px-4 py-2 rounded-full text-sm font-semibold bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#1a3fa0] transition-all"
+              >
+                <option value="latest">Latest</option>
+                <option value="oldest">Oldest</option>
+                <option value="popular">Most Viewed</option>
+                <option value="liked">Most Liked</option>
+                <option value="trending">Trending</option>
+              </select>
+              <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#4a5578] pointer-events-none" />
+            </div>
           </div>
         </div>
       </div>
@@ -147,17 +274,46 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
         filteredPosts={filteredPosts}
         searchQuery={searchQuery}
         selectedCategory={selectedCategory}
-        setSearchQuery={setSearchQuery}
-        setSelectedCategory={setSelectedCategory}
+        sortBy={sortBy}
+        setSearchQuery={handleSearchChange}
+        setSelectedCategory={handleCategoryChange}
+        formatDate={formatDate}
       />
 
-      {/* ── NEWSLETTER ── */}
-      <NewsletterSection
-        email={email}
-        setEmail={setEmail}
-        subscribed={subscribed}
-        handleSubscribe={handleSubscribe}
-      />
+      {/* ── PAGINATION ── */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-2 py-8">
+          <button
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="p-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            <ChevronRight className="rotate-180" size={20} />
+          </button>
+          
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={`w-10 h-10 rounded-lg font-medium transition-colors ${
+                currentPage === page
+                  ? 'bg-[#0f2a6b] text-white'
+                  : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              {page}
+            </button>
+          ))}
+          
+          <button
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="p-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      )}
 
       {/* ── CTA SECTION ── */}
       <CTASection />
@@ -174,12 +330,14 @@ function HeroSection({
   selectedCategory,
   setSelectedCategory,
   categories,
+  totalPosts,
 }: {
   searchQuery: string;
   setSearchQuery: (q: string) => void;
   selectedCategory: string;
   setSelectedCategory: (cat: string) => void;
   categories: string[];
+  totalPosts: number;
 }) {
   return (
     <>
@@ -272,6 +430,24 @@ function HeroSection({
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-3.5 rounded-full border border-[#1a3fa0]/15 shadow-lg focus:outline-none focus:ring-2 focus:ring-[#1a3fa0] focus:border-transparent text-[#0f2a6b] placeholder:text-[#4a5578]/60 bg-white"
               />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#4a5578] hover:text-[#0f2a6b]"
+                >
+                  <X size={18} />
+                </button>
+              )}
+            </motion.div>
+
+            {/* Post Count */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-4 text-sm text-[#4a5578]"
+            >
+              {totalPosts} article{totalPosts !== 1 ? 's' : ''} available
             </motion.div>
           </div>
         </div>
@@ -300,32 +476,46 @@ function BlogGrid({
   filteredPosts,
   searchQuery,
   selectedCategory,
+  sortBy,
   setSearchQuery,
   setSelectedCategory,
+  formatDate,
 }: {
-  featuredPost: any;
-  regularPosts: any[];
-  filteredPosts: any[];
+  featuredPost: BlogPost | undefined;
+  regularPosts: BlogPost[];
+  filteredPosts: BlogPost[];
   searchQuery: string;
   selectedCategory: string;
+  sortBy: string;
   setSearchQuery: (q: string) => void;
   setSelectedCategory: (cat: string) => void;
+  formatDate: (date: string) => string;
 }) {
+  const hasActiveFilters = searchQuery || selectedCategory !== "All";
+
   return (
     <section className="py-10 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <motion.div className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
-            Latest <span className="text-[#e8a020]">Articles</span>
+            {hasActiveFilters ? "Search Results" : "Latest "}
+            {!hasActiveFilters && <span className="text-[#e8a020]">Articles</span>}
           </h2>
           <p className="text-[#4a5578] max-w-2xl mx-auto">
-            Stay updated with our latest insights and industry trends
+            {hasActiveFilters
+              ? `Showing ${filteredPosts.length} result${filteredPosts.length !== 1 ? 's' : ''} for your search`
+              : "Stay updated with our latest insights and industry trends"}
           </p>
         </motion.div>
 
         {/* Featured Post */}
-        {featuredPost && !searchQuery && selectedCategory === "All" && (
+        {featuredPost && !hasActiveFilters && (
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -334,12 +524,18 @@ function BlogGrid({
             className="mb-12"
           >
             <Link href={`/blog/${featuredPost.slug}`} className="group block relative rounded-2xl overflow-hidden shadow-lg aspect-[21/8] sm:aspect-[21/6]">
-              <Image
-                src={featuredPost.featuredImage}
-                alt={featuredPost.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+              {featuredPost.featuredImage ? (
+                <Image
+                  src={featuredPost.featuredImage}
+                  alt={featuredPost.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center">
+                  <span className="text-6xl">📝</span>
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f2a6b] via-[#0f2a6b]/60 to-transparent" />
 
               <div className="absolute bottom-0 left-0 p-6 md:px-10 w-full md:w-3/4">
@@ -348,18 +544,20 @@ function BlogGrid({
                     Featured
                   </span>
                   <span className="flex items-center gap-1 text-gray-300 text-sm font-medium">
-                    <Calendar size={14} /> {featuredPost.date}
+                    <Calendar size={14} /> {formatDate(featuredPost.createdAt)}
                   </span>
                   <span className="flex items-center gap-1 text-gray-300 text-sm font-medium">
-                    <Clock size={14} /> {featuredPost.readTime}
+                    <Clock size={14} /> {featuredPost.readTime} min read
                   </span>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2 leading-tight group-hover:text-[#e8a020] transition-colors">
                   {featuredPost.title}
                 </h2>
-                <p className="text-gray-300 text-sm line-clamp-2 mb-2 max-w-3xl">
-                  {featuredPost.excerpt}
-                </p>
+                {featuredPost.excerpt && (
+                  <p className="text-gray-300 text-sm line-clamp-2 mb-2 max-w-3xl">
+                    {featuredPost.excerpt}
+                  </p>
+                )}
                 <span className="inline-flex items-center gap-2 text-[#e8a020] font-semibold group-hover:gap-3 transition-all">
                   Read Article <ArrowRight size={18} />
                 </span>
@@ -369,124 +567,48 @@ function BlogGrid({
         )}
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
-            {regularPosts.length > 0 ? (
-              regularPosts.map((post, index) => (
+        {regularPosts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence mode="popLayout">
+              {regularPosts.map((post, index) => (
                 <BlogCard
-                  key={post.id}
+                  key={post._id}
                   title={post.title}
-                  excerpt={post.excerpt}
-                  image={post.featuredImage}
-                  category={post.category}
-                  date={post.date}
-                  readTime={post.readTime}
+                  excerpt={post.excerpt || ''}
+                  image={post.featuredImage || ''}
+                  category={post.categoryName || post.category}
+                  date={formatDate(post.createdAt)}
+                  readTime={`${post.readTime} min read`}
                   slug={post.slug}
                   views={post.views}
                   featured={post.featured}
                   index={index}
                 />
-              ))
-            ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="col-span-full py-20 text-center"
-              >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#f8f9fc] mb-4 border border-[#1a3fa0]/10">
-                  <Search size={32} className="text-[#4a5578]" />
-                </div>
-                <h3 className="text-xl font-semibold text-[#0f2a6b] mb-2">No articles found</h3>
-                <p className="text-[#4a5578]">Try adjusting your search or category filter.</p>
-                <button
-                  onClick={() => {
-                    setSearchQuery("");
-                    setSelectedCategory("All");
-                  }}
-                  className="mt-4 text-[#e8a020] font-semibold hover:underline"
-                >
-                  Clear all filters
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   NEWSLETTER SECTION
-───────────────────────────────────────────── */
-function NewsletterSection({
-  email,
-  setEmail,
-  subscribed,
-  handleSubscribe,
-}: {
-  email: string;
-  setEmail: (e: string) => void;
-  subscribed: boolean;
-  handleSubscribe: (e: React.FormEvent) => void;
-}) {
-  return (
-    <section className="relative py-20 px-4 md:px-8 lg:px-12 bg-[#0f2a6b] overflow-hidden">
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#e8a020]/10 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#2952cc]/10 blur-3xl" />
-
-      <div className="max-w-4xl mx-auto relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm mb-6">
-            <Mail size={32} className="text-[#e8a020]" />
+              ))}
+            </AnimatePresence>
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-            Stay Ahead of the Curve
-          </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join 10,000+ subscribers. Get the latest insights on tech, design,
-            and marketing delivered straight to your inbox every week.
-          </p>
-
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <div className="relative flex-1">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                required
-                className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e8a020] focus:border-transparent transition-all"
-              />
-              {subscribed && (
-                <motion.div
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-green-400 flex items-center gap-1 text-sm font-medium"
-                >
-                  <CheckCircle size={16} /> Subscribed!
-                </motion.div>
-              )}
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="col-span-full py-20 text-center"
+          >
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#f8f9fc] mb-4 border border-[#1a3fa0]/10">
+              <Search size={32} className="text-[#4a5578]" />
             </div>
+            <h3 className="text-xl font-semibold text-[#0f2a6b] mb-2">No articles found</h3>
+            <p className="text-[#4a5578]">Try adjusting your search or category filter.</p>
             <button
-              type="submit"
-              disabled={subscribed}
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#e8a020] to-[#f0b832] text-[#0f2a6b] font-semibold shadow-lg shadow-[#e8a020]/25 hover:shadow-[#e8a020]/40 hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("All");
+              }}
+              className="mt-4 px-6 py-2 bg-[#0f2a6b] text-white font-semibold rounded-full hover:bg-[#1a3fa0] transition-colors"
             >
-              {subscribed ? "Welcome!" : "Subscribe Now"}
+              Clear all filters
             </button>
-          </form>
-
-          <p className="mt-4 text-xs text-gray-400">
-            By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.
-          </p>
-        </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
