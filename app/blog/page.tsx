@@ -118,7 +118,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 // API base URL - use environment variable for production
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://g-backend-gamma.vercel.app/api/v1';
 
 // Server-side fetch function for blogs
 async function fetchBlogs() {
@@ -129,17 +129,14 @@ async function fetchBlogs() {
         'Content-Type': 'application/json',
       },
       // Enable ISR with revalidation
-      next: { revalidate: 60 }, // Revalidate every 60 seconds
+      next: { revalidate: 600 }, // Revalidate every 60 seconds
     });
-
-
 
     if (!response.ok) {
       throw new Error(`Failed to fetch blogs: ${response.statusText}`);
     }
 
     const data = await response.json();
-    console.log(data)
     return data;
   } catch (error) {
     console.error('Error fetching blogs:', error);

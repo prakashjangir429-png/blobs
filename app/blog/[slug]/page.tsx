@@ -9,10 +9,38 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://g-backend-gamma.vercel.app/api/v1';
+
+// Server-side fetch function for blogs
+async function fetchBlog(slug) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/blogs/slug/${slug}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Enable ISR with revalidation
+      next: { revalidate: 60 }, // Revalidate every 60 seconds
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blogs: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    throw error;
+  }
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const data = await getBlogBySlug(slug);
-  const post = data?.data;
+
+  const data =  await fetchBlog(slug)
+
+  const post = data.data;
 
   if (!post) {
     return {
@@ -72,11 +100,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const data = await getBlogBySlug(slug);
-  const post = data?.data;
+
+  const data =  await fetchBlog(slug)
+
+  const post = data.data;
+
 
   if (!post) {
-    notFound();
+   return notFound();
   }
 
   // Structured data for SEO
