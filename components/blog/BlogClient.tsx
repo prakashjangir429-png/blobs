@@ -228,8 +228,8 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
             : "bg-transparent py-3"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-2.5">
+        <div className="max-w-full mx-auto px-4">
+          <div className="flex overflow-x-auto scrollbar-hide items-center gap-2.5">
             <div className="flex items-center gap-2 text-[#4a5578] mr-1">
               <Filter size={16} />
               <span className="text-xs font-medium uppercase tracking-wider">Filter:</span>
@@ -238,7 +238,7 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
               <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full text-xs flex-1 font-semibold whitespace-nowrap transition-all duration-300 ${
                   selectedCategory === category
                     ? "bg-[#0f2a6b] text-white shadow-lg shadow-[#1a3fa0]/20"
                     : "bg-white text-[#1a3fa0] border border-[#1a3fa0]/15 hover:border-[#1a3fa0]/40 hover:shadow-md"
