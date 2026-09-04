@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { CTASection } from "@/components/pages/aboutus";
 import { HeroSection, MainContent, RelatedArticles } from "@/components/blog/blogcom";
 import { getBlogBySlug } from "@/lib/blogService";
+import Image from "next/image";
+import { Calendar, Clock, User } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -12,73 +14,101 @@ interface PageProps {
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://g-backend-gamma.vercel.app/api/v1';
 
 // Server-side fetch function for blogs
-async function fetchBlog(slug) {
+async function fetchBlog(slug: string) {
   try {
     const response = await fetch(`${API_BASE_URL}/blogs/slug/${slug}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      // Enable ISR with revalidation
-      next: { revalidate: 60 }, // Revalidate every 60 seconds
+      cache: 'no-store', // Use no-store for first render, or force-cache
+      // Remove revalidate for now to test
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch blogs: ${response.statusText}`);
+      // Log detailed error
+      console.error(`API Error: ${response.status} ${response.statusText}`);
+      return null;
     }
 
     const data = await response.json();
     return data;
   } catch (error) {
     console.error('Error fetching blogs:', error);
-    throw error;
+    return null; // Return null instead of throwing
+  }
+}
+
+// Add generateStaticParams for static generation
+export async function generateStaticParams() {
+  try {
+    // Fetch all blog slugs
+    const response = await fetch(`${API_BASE_URL}/blogs`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) return [];
+
+    const data = await response.json();
+    const blogs = data.data || [];
+
+    return blogs.map((blog: any) => ({
+      slug: blog.slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
   }
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-
-  const data =  await fetchBlog(slug)
-
-  const post = data.data;
+  const data = await fetchBlog(slug);
+  const post = data?.data;
 
   if (!post) {
     return {
       title: "Blog Post Not Found",
       description: "The requested blog post could not be found.",
+      robots: {
+        index: false,
+        follow: true,
+      },
     };
   }
 
-  const title = post.metaTitle || post.title;
-  const description = post.metaDescription || post.excerpt || post.content.slice(0, 160);
+  const title = post.metaTitle || post.title || 'Blog Post';
+  const description = post.metaDescription || post.excerpt || 'Read this blog post on Digitonix';
   const keywords = post.metaKeywords || post.tags || [];
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://digitonix.in";
   const canonicalUrl = `${baseUrl}/blog/${post.slug}`;
 
   return {
-    title: title,
-    description: description,
-    keywords: keywords.join(", "),
-    authors: [{ name: post.author }],
+    title,
+    description,
+    keywords: Array.isArray(keywords) ? keywords.join(", ") : keywords,
+    authors: post.author ? [{ name: post.author }] : undefined,
     category: post.category,
     openGraph: {
-      title: title,
-      description: description,
+      title,
+      description,
       type: "article",
       url: canonicalUrl,
       images: post.featuredImage ? [{ url: post.featuredImage }] : [],
-      article: {
-        publishedTime: post.createdAt,
-        authors: [post.author],
-        tags: post.tags,
-        section: post.category,
-      },
+      publishedTime: post.createdAt,
+      modifiedTime: post.updatedAt || post.createdAt,
+      authors: post.author ? [post.author] : [],
+      tags: Array.isArray(post.tags) ? post.tags : [],
+      section: post.category,
     },
     twitter: {
       card: "summary_large_image",
-      title: title,
-      description: description,
+      title,
+      description,
       images: post.featuredImage ? [post.featuredImage] : [],
     },
     alternates: {
@@ -100,28 +130,41 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  const data = await fetchBlog(slug);
+  const post = data?.data;
 
-  const data =  await fetchBlog(slug)
-
-  const post = data.data;
-
-
+  // If no post found, show a proper 404
   if (!post) {
-   return notFound();
+    notFound();
   }
+
+  // Ensure post has required fields with fallbacks
+  const safePost = {
+    ...post,
+    title: post.title || 'Untitled Post',
+    content: post.content || '',
+    excerpt: post.excerpt || '',
+    featuredImage: post.featuredImage || '',
+    author: post.author || 'Digitonix Team',
+    tags: post.tags || [],
+    category: post.category || 'General',
+    createdAt: post.createdAt || new Date().toISOString(),
+    readTime: post.readTime || 5,
+    slug: post.slug || slug,
+  };
 
   // Structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.title,
-    description: post.excerpt || post.content.slice(0, 160),
-    image: post.featuredImage,
-    datePublished: post.createdAt,
-    dateModified: post.createdAt,
+    headline: safePost.title,
+    description: safePost.excerpt || safePost.content.slice(0, 160),
+    image: safePost.featuredImage || undefined,
+    datePublished: safePost.createdAt,
+    dateModified: post.updatedAt || safePost.createdAt,
     author: {
       "@type": "Person",
-      name: post.author,
+      name: safePost.author,
     },
     publisher: {
       "@type": "Organization",
@@ -133,12 +176,12 @@ export default async function BlogDetailPage({ params }: PageProps) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://digitonix.in/blog/${post.slug}`,
+      "@id": `https://digitonix.in/blog/${safePost.slug}`,
     },
-    keywords: post.tags?.join(", "),
-    articleSection: post.category,
-    wordCount: post.content.split(/\s+/).length,
-    timeRequired: `PT${post.readTime}M`,
+    keywords: safePost.tags?.join(", "),
+    articleSection: safePost.category,
+    wordCount: safePost.content?.split(/\s+/).length || 0,
+    timeRequired: `PT${safePost.readTime}M`,
   };
 
   return (
@@ -150,14 +193,77 @@ export default async function BlogDetailPage({ params }: PageProps) {
       />
 
       <article className="min-h-screen bg-white">
-        {/* ── HERO SECTION ── */}
-        <HeroSection post={post} />
+        <>
+          <style>{`
+        .blog-detail-hero {
+          position: relative;
+          overflow: hidden;
+          min-height: 50vh;
+          display: flex;
+          align-items: flex-end;
+          padding-top: 80px;
+        }
+        .gold-word { color: #e8a020; }
+      `}</style>
+
+          <section className="blog-detail-hero relative w-full">
+            {/* Background */}
+            <div className="absolute inset-0">
+              {post.featuredImage ? (
+                <Image
+                  src={safePost.featuredImage}
+                  alt={safePost.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-[#0f2a6b] to-[#1a3fa0]" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-[#0f2a6b]/90 to-white" />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-1 relative z-10 pb-6 w-full">
+              <div className="max-w-4xl">
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  <span className="px-3 py-1.5 bg-[#e8a020] text-[#0f2a6b] text-xs font-bold rounded-full uppercase tracking-wider">
+                    {safePost.category}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
+                    <Calendar size={14} /> {safePost.createdAt.toLocaleDateString()}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
+                    <Clock size={14} /> {safePost.readTime} min read
+                  </span>
+                  <span className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
+                    <User size={14} /> {safePost.author}
+                  </span>
+                </div>
+
+                <h1 className="text-3xl sm:text-4xl font-semibold text-white leading-[1.3] mb-3">
+                  {safePost.title}
+                </h1>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-[#e8a020]/20 flex items-center justify-center text-lg font-bold text-[#e8a020]">
+                    {safePost.author.charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold">{safePost.author}</div>
+                    <div className="text-gray-400 text-sm">Published on {safePost.createdAt}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          </>
 
         {/* ── MAIN CONTENT ── */}
-        <MainContent post={post} headings={[]} />
+        <MainContent post={safePost} headings={[]} />
 
         {/* ── RELATED ARTICLES ── */}
-        <RelatedArticles post={post} />
+        <RelatedArticles post={safePost} />
 
         {/* ── CTA SECTION ── */}
         <CTASection />
