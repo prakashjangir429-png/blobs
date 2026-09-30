@@ -138,7 +138,7 @@ function HeroSection({ service }: any) {
 
       <section
         ref={ref}
-        className="about-hero-section relative w-full pt-32 pb-20 px-4 md:px-8 lg:px-12 overflow-hidden"
+        className="about-hero-section relative w-full pt-32 pb-12 px-4 md:px-8 lg:px-12 overflow-hidden"
       >
         <div
           className="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none"
@@ -165,20 +165,18 @@ function HeroSection({ service }: any) {
           </div>
           <div className="grid lg:grid-cols-7 gap-12 items-center">
             <div className="lg:col-span-4">
-              <motion.h1
-                {...fadeUp(0.08)}
+              <h1
                 className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.25] mb-6"
               >
                 <span className="gold-word">{heroData.title} </span>{" "}
                 {heroData.highlightedWord}
-              </motion.h1>
+              </h1>
 
               {/* Description */}
-              <motion.p
-                {...fadeUp(0.14)}
+              <p
                 className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-4 font-light"
               >{heroData.description}
-              </motion.p>
+              </p>
 
               {/* Trust points */}
               {/* <motion.div
@@ -199,8 +197,7 @@ function HeroSection({ service }: any) {
               </motion.div> */}
 
               {/* CTAs */}
-              <motion.div
-                {...fadeUp(0.22)}
+              <div
                 className="flex flex-wrap gap-3"
               >
                 <Link
@@ -229,7 +226,7 @@ function HeroSection({ service }: any) {
                   View Our Work
                   <ChevronRight size={16} />
                 </Link>
-              </motion.div>
+              </div>
             </div>
 
             {/* RIGHT — Image / Visual */}
