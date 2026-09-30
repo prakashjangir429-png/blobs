@@ -11,7 +11,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://g-backend-gamma.vercel.app/api/v1';
+const API_BASE_URL = 'https://g-backend-gamma.vercel.app/api/v1';
 
 // Server-side fetch function for blogs
 async function fetchBlog(slug: string) {
@@ -192,23 +192,11 @@ export default async function BlogDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="min-h-screen bg-white">
+      <article className="min-h-screen">
         <>
-          <style>{`
-        .blog-detail-hero {
-          position: relative;
-          overflow: hidden;
-          min-height: 50vh;
-          display: flex;
-          align-items: flex-end;
-          padding-top: 80px;
-        }
-        .gold-word { color: #e8a020; }
-      `}</style>
-
-          <section className="blog-detail-hero relative w-full">
+          <section className="blog-detail-her bg-gradient-to-br from-white to-[#1a3fa0] relative w-full">
             {/* Background */}
-            <div className="absolute inset-0">
+            {/* <div className="absolute inset-0">
               {post.featuredImage ? (
                 <Image
                   src={safePost.featuredImage}
@@ -222,16 +210,23 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 <div className="w-full h-full bg-gradient-to-br from-[#0f2a6b] to-[#1a3fa0]" />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-[#0f2a6b]/90 to-white" />
-            </div>
+            </div> */}
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-1 relative z-10 pb-6 w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-1 relative z-10 pb-6 py-36 w-full">
               <div className="max-w-4xl">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="px-3 py-1.5 bg-[#e8a020] text-[#0f2a6b] text-xs font-bold rounded-full uppercase tracking-wider">
                     {safePost.category}
                   </span>
                   <span className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
-                    <Calendar size={14} /> {safePost.createdAt.toLocaleDateString()}
+                    <Calendar size={14} />
+                    {safePost?.createdAt
+                      ? new Date(safePost.createdAt).toLocaleDateString("en-IN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })
+                      : "Date not available"}
                   </span>
                   <span className="flex items-center gap-1.5 text-gray-300 text-sm font-medium">
                     <Clock size={14} /> {safePost.readTime} min read
@@ -241,23 +236,13 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   </span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl font-semibold text-white leading-[1.3] mb-3">
+                <h1 className="text-2xl sm:text-3xl font-semibold text-white leading-[1.3] mb-6">
                   {safePost.title}
                 </h1>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-[#e8a020]/20 flex items-center justify-center text-lg font-bold text-[#e8a020]">
-                    {safePost.author.charAt(0).toUpperCase()}
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold">{safePost.author}</div>
-                    <div className="text-gray-400 text-sm">Published on {safePost.createdAt}</div>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
-          </>
+        </>
 
         {/* ── MAIN CONTENT ── */}
         <MainContent post={safePost} headings={[]} />

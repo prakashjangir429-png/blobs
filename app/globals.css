@@ -889,6 +889,7 @@
     color: #000;
     border-bottom-color: #000;
   }
+}
 
   @layer base {
     * {

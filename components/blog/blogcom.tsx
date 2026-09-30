@@ -84,7 +84,7 @@ export function MainContent({
   headings,
 }:any) {
   return (
-    <section className="py-12 px-4 md:px-8 lg:px-12 bg-white">
+    <section className="py-12 px-4 md:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-12">
           {/* Left: Article Content */}
