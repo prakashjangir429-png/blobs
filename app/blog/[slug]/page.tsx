@@ -194,9 +194,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       <article className="min-h-screen">
         <>
-          <section className="blog-detail-her bg-gradient-to-br from-white to-[#1a3fa0] relative w-full">
+          <section className="blog-detail-her relative w-full">
             {/* Background */}
-            {/* <div className="absolute inset-0">
+            <div className="absolute inset-0">
               {post.featuredImage ? (
                 <Image
                   src={safePost.featuredImage}
@@ -207,10 +207,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-[#0f2a6b] to-[#1a3fa0]" />
+                <div className="w-full h-full bg-gradient-to-br from-[#0f2a6b]/50 to-[#1a3fa0]/50" />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-[#0f2a6b]/90 to-white" />
-            </div> */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-[#0f2a6b]/60 to-white" />
+            </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-1 relative z-10 pb-6 py-36 w-full">
               <div className="max-w-4xl">
