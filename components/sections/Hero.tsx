@@ -68,35 +68,25 @@ export function Hero({ slides }) {
           <div className="grid lg:grid-cols-2 gap-6 items-center">
 
             {/* ─── LEFT: Text ─── */}
-            <motion.div
+            <div
               className="flex flex-col justify-center"
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               {/* Tag */}
               <AnimatePresence mode="wait">
-                <motion.div
+                <div
                   key={`tag-${current}`}
-                  initial={{ opacity: 0, y: 16, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -12, scale: 0.96 }}
-                  transition={{ duration: 0.4 }}
+            
                   className="hero-tag mb-4 w-fit"
                 >
                   {slide.tag}
-                </motion.div>
+                </div>
               </AnimatePresence>
 
               {/* Headline */}
               <div className="mb-3 relative">
                 <AnimatePresence mode="wait">
-                  <motion.div
+                  <div
                     key={`title-${current}`}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <h1 className="font-semibold text-[clamp(2rem,8vw,2.6rem)] text-[#0f2a6b]">
                       {slide.title.map((line, i) => (
@@ -105,30 +95,25 @@ export function Hero({ slides }) {
                         </span>
                       ))}
                     </h1>
-                  </motion.div>
+                  </div>
                 </AnimatePresence>
               </div>
 
               {/* Description */}
               <AnimatePresence mode="wait">
-                <motion.p
+                <p
                   key={`desc-${current}`}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
+                 
                   className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-8 font-medium"
                 >
                   {slide.description}
-                </motion.p>
+                </p>
               </AnimatePresence>
 
               {/* CTAs */}
-              <motion.div
+              <div
                 className="flex flex-wrap gap-2 mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                
               >
                 <Link href="https://wa.me/" className="btn-primary">
                   <MessageCircle size={17} />
@@ -139,14 +124,12 @@ export function Hero({ slides }) {
                   <Phone size={17} />
                   <span>Contact Us</span>
                 </Link>
-              </motion.div>
+              </div>
 
               {/* Trust row */}
-              <motion.div
+              <div
                 className="flex flex-wrap gap-5"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+               
               >
                 {['Free Consultation', 'No Hidden Costs', '24/7 Support'].map((t) => (
                   <div key={t} className="trust-item">
@@ -158,14 +141,11 @@ export function Hero({ slides }) {
                     {t}
                   </div>
                 ))}
-              </motion.div>
+              </div>
 
               {/* Slide navigation dots */}
-              <motion.div
+              <div
                 className="flex gap-2 mt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
               >
                 {slides.map((_, i) => (
                   <button
@@ -175,35 +155,25 @@ export function Hero({ slides }) {
                     aria-label={`Slide ${i + 1}`}
                   >
                     {i === current && (
-                      <motion.div
+                      <div
                         className="slide-dot-fill"
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: progress / 100 }}
-                        transition={{ duration: 0.05, ease: 'linear' }}
                       />
                     )}
                   </button>
                 ))}
 
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             {/* ─── RIGHT: Image ─── */}
-            <motion.div
+            <div
               className="relative w-full flex justify-center lg:justify-end"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               {/* Main image */}
               <div className="relative w-full max-w-[480px]">
                 <AnimatePresence mode="wait">
-                  <motion.div
+                  <div
                     key={`img-${current}`}
-                    initial={{ opacity: 0, scale: 0.94, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 1.03, y: -10 }}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <div className="">
                       <img
@@ -212,26 +182,23 @@ export function Hero({ slides }) {
                         className="w-full scale-110 h-full object-cover"
                       />
                     </div>
-                  </motion.div>
+                  </div>
                 </AnimatePresence>
 
                 <div className="absolute -inset-6 rounded-[36px] border border-dashed opacity-10 -z-10" style={{ borderColor: '#e8a020' }} />
 
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Scroll hint */}
-        <motion.div
+        <div
           className="scroll-hint hidden md:flex"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
         >
           <span className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'rgba(26,63,160,0.5)' }}>Scroll</span>
           <div className="scroll-line" />
-        </motion.div>
+        </div>
       </section>
     </>
   );

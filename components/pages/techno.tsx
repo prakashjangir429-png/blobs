@@ -101,25 +101,22 @@ export function TechHeroSection({ type, tech }: any) {
 
 
                             {/* Heading */}
-                            <motion.h1
-                                {...fadeUp(0.08)}
+                            <h1
                                 className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.25] mb-6"
                             >
                                 <span className="gold-word">{heroData.title} </span> {" "}
                                 {heroData.highlightedWord}
-                            </motion.h1>
+                            </h1>
 
                             {/* Description */}
-                            <motion.p
-                                {...fadeUp(0.14)}
+                            <p
                                 className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-4 font-light"
                             >
                                 {heroData.description}
-                            </motion.p>
+                            </p>
 
                             {/* Trust points */}
-                            <motion.div
-                                {...fadeUp(0.18)}
+                            <div
                                 className="flex flex-wrap gap-3 mb-4"
                             >
                                 {heroData.trustPoints.map((point: string, i: number) => (
@@ -133,11 +130,10 @@ export function TechHeroSection({ type, tech }: any) {
                                         {point}
                                     </span>
                                 ))}
-                            </motion.div>
+                            </div>
 
                             {/* CTAs */}
-                            <motion.div
-                                {...fadeUp(0.22)}
+                            <div
                                 className="flex flex-wrap gap-3"
                             >
                                 <Link
@@ -166,12 +162,11 @@ export function TechHeroSection({ type, tech }: any) {
                                     {heroData.secondaryCtaText}
                                     <ChevronRight size={16} />
                                 </Link>
-                            </motion.div>
+                            </div>
                         </div>
 
                         {/* RIGHT — Image / Visual */}
-                        <motion.div
-                            {...fadeUp(0.12)}
+                        <div
                             className="relative flex justify-center lg:justify-end"
                         >
                             <div className="relative w-full max-w-[480px]">
@@ -200,7 +195,7 @@ export function TechHeroSection({ type, tech }: any) {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>

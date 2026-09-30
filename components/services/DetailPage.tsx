@@ -140,14 +140,14 @@ function HeroSection({ service }: any) {
         ref={ref}
         className="about-hero-section relative w-full pt-32 pb-12 px-4 md:px-8 lg:px-12 overflow-hidden"
       >
-        <div
+        {/* <div
           className="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none"
           style={{
             background:
-              "radial-gradient(circle, rgba(26,63,160,0.09) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(26,63,160,0.09) 0%, transparent 50%)",
             filter: "blur(50px)",
           }}
-        />
+        /> */}
         <div className="max-w-7xl px-4 mx-auto relative z-10">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
@@ -230,8 +230,7 @@ function HeroSection({ service }: any) {
             </div>
 
             {/* RIGHT — Image / Visual */}
-            <motion.div
-              {...fadeUp(0.12)}
+            <div
               className="relative lg:col-span-3 flex justify-center lg:justify-end"
             >
               <div className="relative w-full max-w-[480px]">
@@ -245,7 +244,7 @@ function HeroSection({ service }: any) {
                   />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

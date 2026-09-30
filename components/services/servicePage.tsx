@@ -549,7 +549,7 @@ function HeroSection({
         className="services-hero-section relative min-h-[95vh] flex items-center justify-center"
       >
         {/* Parallax Background */}
-        <motion.div
+        <div
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="absolute inset-0"
         >
@@ -562,38 +562,29 @@ function HeroSection({
             backgroundImage: `radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.4) 1px, transparent 0)`,
             backgroundSize: '40px 40px'
           }} />
-        </motion.div>
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
           <div className="text-center max-w-7xl mx-auto">
             {/* Live Hiring Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <div
               className="services-hero-tag mb-6 mx-auto w-fit"
             >
               Leading IT Services Company in India
-            </motion.div>
+            </div>
 
             {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+            <h1
               className="text-4xl sm:text-5xl font-semibold text-[#0f2a6b] leading-tight mb-6"
             >
               Comprehensive{" "}
               <span className="gold-word">Digital Solutions</span>
               <br />
               For Your Business Growth
-            </motion.h1>
+            </h1>
 
             {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+            <p
               className="text-base sm:text-lg text-[#4a5578] leading-relaxed mb-8 max-w-6xl mx-auto font-light"
             >
               Digitonix is a trusted{" "}
@@ -601,13 +592,10 @@ function HeroSection({
                 web development, mobile app development, and digital marketing company in Jaipur, India
               </strong>
               . Since 2011, we've delivered 650+ projects with 98% client satisfaction, helping startups, SMEs, and enterprises achieve measurable digital growth through innovative technology solutions.
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+            <div
               className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
             >
               <Link
@@ -630,13 +618,10 @@ function HeroSection({
                 View Our Portfolio
                 <ChevronRight size={18} />
               </Link>
-            </motion.div>
+            </div>
 
             {/* Trust Signals */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
+            <div
               className="flex flex-wrap items-center justify-center gap-6"
             >
               {[
@@ -650,20 +635,18 @@ function HeroSection({
                   <span className="font-medium">{item.text}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+        <div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <div className="w-6 h-10 rounded-full border-2 border-[#1a3fa0]/20 flex justify-center">
             <div className="w-1 h-2 bg-[#1a3fa0] rounded-full mt-2" />
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );
