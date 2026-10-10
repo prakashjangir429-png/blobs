@@ -169,7 +169,7 @@ function HeroSection({ companyInfo }: { companyInfo: ContactClientProps["initial
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-28 pb-16">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -177,9 +177,9 @@ function HeroSection({ companyInfo }: { companyInfo: ContactClientProps["initial
             >
               <Sparkles size={14} className="text-[#e8a020]" />
               Get in Touch
-            </motion.div>
+            </div>
 
-            <motion.h1
+            <h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -187,9 +187,9 @@ function HeroSection({ companyInfo }: { companyInfo: ContactClientProps["initial
             >
               Let's Build Something{" "}
               <span className="gold-word">Extraordinary</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
+            <p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -197,9 +197,9 @@ function HeroSection({ companyInfo }: { companyInfo: ContactClientProps["initial
             >
               Have a project in mind? We'd love to hear from you. Send us a
               message and we'll respond within {companyInfo.responseTime}.
-            </motion.p>
+            </p>
 
-            <motion.div
+            <div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -219,11 +219,11 @@ function HeroSection({ companyInfo }: { companyInfo: ContactClientProps["initial
                   </div>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        <motion.div
+        <div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -231,7 +231,7 @@ function HeroSection({ companyInfo }: { companyInfo: ContactClientProps["initial
           <div className="w-6 h-10 rounded-full border-2 border-[#1a3fa0]/20 flex justify-center">
             <div className="w-1 h-2 bg-[#1a3fa0] rounded-full mt-2" />
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );
@@ -268,7 +268,7 @@ function MainContent({
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-8">
             {/* Contact Form */}
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -282,7 +282,7 @@ function MainContent({
               </div>
 
               {formState === "success" ? (
-                <motion.div
+                <div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center"
@@ -308,7 +308,7 @@ function MainContent({
                   >
                     Send another message
                   </button>
-                </motion.div>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -421,7 +421,7 @@ function MainContent({
                   </button>
                 </form>
               )}
-            </motion.div>
+            </div>
 
             {/* Direct Contact Info Cards */}
             <div className="grid sm:grid-cols-3 gap-4">
@@ -451,7 +451,7 @@ function MainContent({
                   bg: "bg-[#2952cc]/5",
                 },
               ].map((item, i) => (
-                <motion.div
+                <div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -463,7 +463,7 @@ function MainContent({
                   <h3 className="font-semibold text-[#0f2a6b] text-sm">{item.title}</h3>
                   <p className="text-[#0f2a6b] font-medium text-sm mt-1">{item.value}</p>
                   <p className="text-[#4a5578] text-xs mt-1">{item.sub}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -471,7 +471,7 @@ function MainContent({
           {/* Right Column */}
           <div className="lg:col-span-5 space-y-6">
             {/* Office Selector */}
-            <motion.div
+            <div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -512,7 +512,7 @@ function MainContent({
                       </h3>
                       <p className="text-sm text-[#4a5578] mt-0.5 line-clamp-1">{office.address}</p>
                       {activeOffice.id === office.id && (
-                        <motion.div
+                        <div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           className="mt-2 flex flex-wrap gap-1.5"
@@ -525,7 +525,7 @@ function MainContent({
                               {f}
                             </span>
                           ))}
-                        </motion.div>
+                        </div>
                       )}
                     </div>
                     {activeOffice.id === office.id && (
@@ -534,10 +534,10 @@ function MainContent({
                   </button>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* Map Visualization */}
-            <motion.div
+            <div
               layout
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -589,7 +589,7 @@ function MainContent({
                   {activeOffice.email} <ArrowRight size={14} />
                 </a>
               </div>
-            </motion.div>
+            </div>
 
             {/* Social Links */}
             <div className="bg-[#0f2a6b] rounded-2xl p-6 text-center">
@@ -626,7 +626,7 @@ function FAQSection({ faqs }: { faqs: { q: string; a: string }[] }) {
   return (
     <section className="py-16 px-4 md:px-8 lg:px-12 bg-[#f8f9fc] border-t border-[#1a3fa0]/08">
       <div className="max-w-4xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -636,11 +636,11 @@ function FAQSection({ faqs }: { faqs: { q: string; a: string }[] }) {
             Frequently Asked <span className="text-[#e8a020]">Questions</span>
           </h2>
           <p className="text-[#4a5578]">Quick answers to common questions about working with us.</p>
-        </motion.div>
+        </div>
 
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
-            <motion.div
+            <div
               key={idx}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -666,7 +666,7 @@ function FAQSection({ faqs }: { faqs: { q: string; a: string }[] }) {
               >
                 <div className="px-6 pb-4 text-sm text-[#4a5578] leading-relaxed">{faq.a}</div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

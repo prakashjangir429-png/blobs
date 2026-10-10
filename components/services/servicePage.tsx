@@ -669,7 +669,7 @@ function ServicesGridSection({
     <section className="py-12 bg-white" id="services-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -684,7 +684,7 @@ function ServicesGridSection({
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             End-to-end digital solutions tailored to your business needs
           </p>
-        </motion.div>
+        </div>
 
         {/* Category Filter Pills */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -714,7 +714,7 @@ function ServicesGridSection({
 
         {/* Services Grid */}
         <AnimatePresence mode="wait">
-          <motion.div
+          <div
             key={selectedCategory}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -723,7 +723,7 @@ function ServicesGridSection({
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {services.map((service: any, idx: number) => (
-                <motion.div
+                <div
                   key={service.slug}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -782,9 +782,9 @@ function ServicesGridSection({
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
             ))}
-          </motion.div>
+          </div>
         </AnimatePresence>
       </div>
     </section>
@@ -808,7 +808,7 @@ function WhyChooseUsSection() {
       }}
     >
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -823,11 +823,11 @@ function WhyChooseUsSection() {
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             We deliver quality, innovation, and measurable results that drive your business forward
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-2">
           {whyChooseUs.map((item, idx) => (
-            <motion.div
+            <div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -838,7 +838,7 @@ function WhyChooseUsSection() {
               <item.icon className="w-6 h-6 stroke-[1.5] mb-2 text-[#1a3fa0]" />
               <h3 className="text-lg font-bold text-[#0f2a6b] mb-2">{item.title}</h3>
               <p className="text-sm text-[#4a5578] leading-relaxed">{item.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -864,7 +864,7 @@ function ProcessSection() {
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#2952cc]/10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -879,11 +879,11 @@ function ProcessSection() {
           <p className="text-gray-300 max-w-2xl mx-auto">
             A proven methodology ensuring quality, transparency, and timely delivery
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((step, idx) => (
-            <motion.div
+            <div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -898,7 +898,7 @@ function ProcessSection() {
               </div>
               <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
               <p className="text-sm text-gray-300 leading-relaxed">{step.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -913,7 +913,7 @@ function ClientsSection() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -925,11 +925,11 @@ function ClientsSection() {
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             Trusted by <span className="text-[#e8a020]">Industry Leaders</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {clientLogos.map((client, idx) => (
-            <motion.div
+            <div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -941,7 +941,7 @@ function ClientsSection() {
                 <Building2 className="w-8 h-8 text-[#1a3fa0]" />
               </div>
               <p className="text-sm font-semibold text-[#0f2a6b]">{client.industry}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

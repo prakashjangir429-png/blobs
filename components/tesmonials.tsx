@@ -166,7 +166,7 @@ function TestimonialCard({
 
   return (
     <div className="relative px-2 my-2 sm:px-3 h-full">
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -270,7 +270,7 @@ function TestimonialCard({
           </div>
 
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -317,7 +317,7 @@ export default function Testimonials() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
           <div className="max-w-3xl">
             {/* Tag */}
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -328,9 +328,9 @@ export default function Testimonials() {
               <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#1a3fa0]">
                 Client Testimonials
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h2
+            <h2
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -362,8 +362,8 @@ export default function Testimonials() {
               >
                 India & Beyond
               </span>
-            </motion.h2>
-            <motion.p
+            </h2>
+            <p
               initial={{ opacity: 0, y: 14 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.14 }}
@@ -382,11 +382,11 @@ export default function Testimonials() {
                 SEO & digital marketing
               </span>{" "}
               services help startups and enterprises achieve measurable growth.
-            </motion.p>
+            </p>
           </div>
 
           {/* Stats row */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.2 }}
@@ -417,12 +417,12 @@ export default function Testimonials() {
                 <div className="text-[10px] text-[#9aa3bf]">{stat.sub}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Slider */}
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 24 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.25 }}
@@ -458,7 +458,7 @@ export default function Testimonials() {
             <ArrowRight size={18} />
           </button>
         </div>
-      </motion.div>
+      </div>
 
       {/* Side gradient fades */}
       <div

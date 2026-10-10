@@ -23,7 +23,7 @@ export function ServiceCard({
   index = 0,
 }: ServiceCardProps) {
   return (
-    <motion.div
+    <div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.1 }}
@@ -66,6 +66,6 @@ export function ServiceCard({
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }

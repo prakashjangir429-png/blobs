@@ -379,7 +379,7 @@ function HeroSection() {
             {/* LEFT — Text */}
             <div>
               <AnimatePresence mode="wait">
-                <motion.div
+                <div
                   initial={{ opacity: 0, y: 16, scale: 0.96 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -12, scale: 0.96 }}
@@ -387,20 +387,20 @@ function HeroSection() {
                   className="hero-tag mb-4 w-fit"
                 >
                   {"About us"}
-                </motion.div>
+                </div>
               </AnimatePresence>
               {/* Heading */}
-              <motion.h1
+              <h1
                 {...fadeUp(0.08)}
                 className="text-3xl sm:text-4xl md:text-[2.6rem] font-semibold text-[#0f2a6b] leading-[1.25] mb-6"
               >
 
                 <span className="gold-word">Your Trusted </span>{" "}
                 Technology Partner  For Digital Growth
-              </motion.h1>
+              </h1>
 
               {/* Description */}
-              <motion.p
+              <p
                 {...fadeUp(0.14)}
                 className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-4 font-light"
               >
@@ -413,10 +413,10 @@ function HeroSection() {
                 solutions since 2011. With 55+ expert engineers and 650+
                 successful projects, we help businesses transform digitally
                 and achieve measurable growth.
-              </motion.p>
+              </p>
 
               {/* Trust points */}
-              <motion.div
+              <div
                 {...fadeUp(0.18)}
                 className="flex flex-wrap gap-3 mb-4"
               >
@@ -436,10 +436,10 @@ function HeroSection() {
                     {item}
                   </span>
                 ))}
-              </motion.div>
+              </div>
 
               {/* CTAs */}
-              <motion.div
+              <div
                 {...fadeUp(0.22)}
                 className="flex flex-wrap gap-3"
               >
@@ -469,11 +469,11 @@ function HeroSection() {
                   View Our Work
                   <ChevronRight size={16} />
                 </Link>
-              </motion.div>
+              </div>
             </div>
 
             {/* RIGHT — Image / Visual */}
-            <motion.div
+            <div
               {...fadeUp(0.12)}
               className="relative flex justify-center lg:justify-end"
             >
@@ -488,7 +488,7 @@ function HeroSection() {
                   />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -506,7 +506,7 @@ export function StatsSection() {
   return (
     <section className="relative w-full py-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           ref={ref}
           className="grid grid-cols-2 md:grid-cols-4 gap-4"
           initial="initial"
@@ -514,7 +514,7 @@ export function StatsSection() {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           {aboutStats.map(({ number, suffix, label, description, icon: Icon }) => (
-            <motion.div
+            <div
               key={label}
               variants={{
                 initial: { opacity: 0, y: 24 },
@@ -546,9 +546,9 @@ export function StatsSection() {
                 {label}
               </div>
               <div className="text-xs text-gray-600">{description}</div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -582,19 +582,19 @@ function WhoWeAreSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT */}
           <div>
-            <motion.div {...fadeUp(0)} className="about-hero-tag mb-5 w-fit">
+            <div {...fadeUp(0)} className="about-hero-tag mb-5 w-fit">
               Who We Are
-            </motion.div>
+            </div>
 
-            <motion.h2
+            <h2
               {...fadeUp(0.08)}
               className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] leading-[1.18] mb-5"
             >
               Leading IT Company{" "}
               <span className="text-[#e8a020]">Since 2011</span>
-            </motion.h2>
+            </h2>
 
-            <motion.p
+            <p
               {...fadeUp(0.12)}
               className="text-[#4a5578] text-base leading-relaxed mb-4"
             >
@@ -606,9 +606,9 @@ function WhoWeAreSection() {
               . Since 2011, we have been helping startups, SMEs, and
               enterprises build scalable digital products that drive business
               growth and innovation.
-            </motion.p>
+            </p>
 
-            <motion.p
+            <p
               {...fadeUp(0.16)}
               className="text-[#4a5578] text-base leading-relaxed mb-6"
             >
@@ -617,10 +617,10 @@ function WhoWeAreSection() {
               cloud services, AI integration, UI/UX design, and digital
               marketing. We combine technical expertise with deep business
               understanding to create solutions that generate real value.
-            </motion.p>
+            </p>
 
             {/* Key differentiators */}
-            <motion.div
+            <div
               {...fadeUp(0.2)}
               className="grid grid-cols-2 gap-3"
             >
@@ -642,13 +642,13 @@ function WhoWeAreSection() {
                   </span>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* RIGHT — Mission/Vision Cards */}
           <div className="space-y-3">
             {/* Mission Card */}
-            <motion.div
+            <div
               {...fadeUp(0.14)}
               className="bg-white p-6 border border-slate-300"
             >
@@ -661,10 +661,10 @@ function WhoWeAreSection() {
                 transformation, improve operational efficiency, and create
                 sustainable competitive advantages in the global marketplace.
               </p>
-            </motion.div>
+            </div>
 
             {/* Vision Card */}
-            <motion.div
+            <div
               {...fadeUp(0.18)}
               className="bg-white p-6 border border-slate-300"
             >
@@ -679,7 +679,7 @@ function WhoWeAreSection() {
                 can leverage world-class technology to achieve extraordinary
                 results.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -697,7 +697,7 @@ function ExpertiseSection() {
   return (
     <section className="relative w-full py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -714,16 +714,16 @@ function ExpertiseSection() {
             We deliver comprehensive digital solutions across the technology
             spectrum
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
           initial="initial"
           animate={inView ? "animate" : "initial"}
           variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
         >
           {expertiseAreas.map((item, idx) => (
-            <motion.div
+            <div
               key={item.title}
               variants={{
                 initial: { opacity: 0, y: 20 },
@@ -739,9 +739,9 @@ function ExpertiseSection() {
               <p className="text-sm font-semibold text-[#0f2a6b] group-hover:text-white transition-colors">
                 {item.title}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -773,7 +773,7 @@ function ValuesSection() {
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <motion.div {...fadeUp(0)} className="text-center mb-14">
+        <div {...fadeUp(0)} className="text-center mb-14">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
             Our Core Values
           </span>
@@ -784,12 +784,12 @@ function ValuesSection() {
             These principles guide every project we undertake and every client
             relationship we build
           </p>
-        </motion.div>
+        </div>
 
         {/* Values Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {values.map((val, idx) => (
-            <motion.div
+            <div
               key={val.title}
               {...fadeUp(0.05 * idx)}
               className="group bg-white rounded-2xl p-7 border border-[#1a3fa0]/08
@@ -813,7 +813,7 @@ function ValuesSection() {
               <span className="inline-block px-4 py-1.5 bg-gradient-to-br from-[#1a3fa0]/08 to-[#2952cc]/05 rounded-full text-xs font-semibold text-[#1a3fa0]">
                 {val.stats}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -831,7 +831,7 @@ function TimelineSection() {
   return (
     <section className="relative w-full py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -847,14 +847,14 @@ function TimelineSection() {
             From humble beginnings to a trusted technology partner — our
             growth journey
           </p>
-        </motion.div>
+        </div>
 
         <div ref={ref} className="relative max-w-4xl mx-auto">
           {/* Timeline Line */}
           <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#1a3fa0]/20 via-[#e8a020]/30 to-[#1a3fa0]/20 transform md:-translate-x-1/2" />
 
           {timeline.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
             >
               {/* Timeline Dot */}
@@ -887,7 +887,7 @@ function TimelineSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -920,7 +920,7 @@ function ProcessSection() {
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#2952cc]/10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -937,11 +937,11 @@ function ProcessSection() {
             A proven, transparent methodology that ensures quality and timely
             delivery
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {processSteps.map((step, idx) => (
-            <motion.div
+            <div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -979,7 +979,7 @@ function ProcessSection() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -1000,7 +1000,7 @@ function TeamSection() {
       className="relative w-full py-20 px-4 md:px-8 lg:px-12 bg-white"
     >
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -1016,11 +1016,11 @@ function TeamSection() {
             Experienced professionals dedicated to delivering excellence in
             every project
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, idx) => (
-            <motion.div
+            <div
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1076,7 +1076,7 @@ function TeamSection() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -1102,7 +1102,7 @@ export function CTASection({service}) {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -1116,7 +1116,7 @@ export function CTASection({service}) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-base shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 group"
@@ -1124,9 +1124,9 @@ export function CTASection({service}) {
                 Start Your Project
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/portfolio"
                 className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 font-semibold text-base hover:bg-white/20 transition-all duration-300"
@@ -1134,7 +1134,7 @@ export function CTASection({service}) {
                 View Portfolio
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
           </div>
 
           {/* Contact Info */}
@@ -1154,7 +1154,7 @@ export function CTASection({service}) {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

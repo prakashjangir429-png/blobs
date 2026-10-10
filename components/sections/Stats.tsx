@@ -58,7 +58,7 @@ function StatCounter({ stat, index }: { stat: StatItem; index: number }) {
   }, [inView, stat.number])
 
   return (
-    <motion.div
+    <div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -70,6 +70,6 @@ function StatCounter({ stat, index }: { stat: StatItem; index: number }) {
         {count}{stat.suffix || '+'}
       </div>
       <p className="text-[#FD5D07] text-base">{stat.label}</p>
-    </motion.div>
+    </div>
   )
 }

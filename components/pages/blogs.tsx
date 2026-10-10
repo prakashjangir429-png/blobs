@@ -18,7 +18,7 @@ export function BlogCard({ title, excerpt, image, category, date, readTime, slug
   const colors = categoryColors[category] || categoryColors["Web Development"]
 
   return (
-    <motion.article
+    <article
       className=" relative bg-slate-100 overflow-hidden border border-[#1a3fa0]/10
                  transition-all duration-500 hover:-translate-y-2
                  hover:shadow-[0_20px_60px_-15px_rgba(26,63,160,0.15)]
@@ -118,7 +118,7 @@ export function BlogCard({ title, excerpt, image, category, date, readTime, slug
         className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{ background: "linear-gradient(90deg, #1a3fa0, #e8a020)" }}
       />
-    </motion.article>
+    </article>
   )
 }
 
@@ -147,7 +147,7 @@ export default function BlogSection({blogPosts}) {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8">
           <div className="max-w-2xl">
 
-            <motion.h2
+            <h2
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
@@ -163,9 +163,9 @@ export default function BlogSection({blogPosts}) {
                 Digitonix
               </span>{" "}
               Blog & Resources
-            </motion.h2>
+            </h2>
 
-            <motion.p
+            <p
               initial={{ opacity: 0, y: 14 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.14 }}
@@ -176,11 +176,11 @@ export default function BlogSection({blogPosts}) {
               <span className="font-semibold text-[#0f2a6b]">digital marketing</span>,{" "}
               <span className="font-semibold text-[#0f2a6b]">mobile apps</span>, and{" "}
               <span className="font-semibold text-[#0f2a6b]">AI solutions</span> to help your business grow.
-            </motion.p>
+            </p>
           </div>
 
           {/* View all button */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.2 }}
@@ -199,7 +199,7 @@ export default function BlogSection({blogPosts}) {
                 className="group-hover:translate-x-1 transition-transform duration-300"
               />
             </a>
-          </motion.div>
+          </div>
         </div>
 
         {/* Blog Grid */}
@@ -222,7 +222,7 @@ export default function BlogSection({blogPosts}) {
         </div>
 
         {/* Bottom newsletter CTA */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -273,7 +273,7 @@ export default function BlogSection({blogPosts}) {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

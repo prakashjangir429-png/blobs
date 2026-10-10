@@ -36,7 +36,7 @@ export function BlogCard({
   }
 
   return (
-    <motion.div
+    <div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -85,16 +85,16 @@ export function BlogCard({
             </div>
 
             {/* CTA */}
-            <motion.div
+            <div
               className="inline-flex items-center hover:text-[#f59e0b] gap-2 text-primary font-semibold text-sm"
               whileHover={{ gap: 8 }}
             >
               Read More
               <ArrowRight size={16} />
-            </motion.div>
+            </div>
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   )
 }

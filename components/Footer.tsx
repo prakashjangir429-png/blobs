@@ -159,7 +159,7 @@ export function Footer() {
               {/* Social Links */}
               <div className="flex gap-2">
                 {socialLinks.map((social, idx) => (
-                  <motion.a
+                  <a
                     key={idx}
                     href={social.href}
                     whileHover={{ y: -3 }}
@@ -167,7 +167,7 @@ export function Footer() {
                     aria-label={social.label}
                   >
                     {social.icon}
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </div>
@@ -325,7 +325,7 @@ export function Footer() {
       {/* Scroll to Top Button */}
       <AnimatePresence>
         {showScrollTop && (
-          <motion.button
+          <button
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -334,7 +334,7 @@ export function Footer() {
             aria-label="Scroll to top"
           >
             <ArrowUp className="h-5 w-5 group-hover:-translate-y-0.5 transition-transform" />
-          </motion.button>
+          </button>
         )}
       </AnimatePresence>
     </>

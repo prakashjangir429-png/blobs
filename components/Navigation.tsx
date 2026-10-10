@@ -586,7 +586,7 @@ export function Navigation() {
         }
       `}</style>
 
-      <motion.nav
+      <nav
         ref={navRef}
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'nav-glass py-2' : 'bg-transparent py-3'
           }`}
@@ -598,7 +598,7 @@ export function Navigation() {
           <div className="flex justify-between items-center h-[60px]">
 
             {/* ── Logo ── */}
-            <motion.div
+            <div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -612,14 +612,14 @@ export function Navigation() {
                   className=" object-contain"
                 />
               </Link>
-            </motion.div>
+            </div>
 
             {/* ── Desktop Nav Links ── */}
             <div className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link, index) => {
                 const active = isActive(link.href, link.exact)
                 return (
-                  <motion.div
+                  <div
                     key={link.href}
                     initial={{ opacity: 0, y: -12 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -639,14 +639,14 @@ export function Navigation() {
                         />
                       )}
                     </Link>
-                  </motion.div>
+                  </div>
                 )
               })}
             </div>
 
             {/* ── CTA + Mobile Toggle ── */}
             <div className="flex items-center gap-3">
-              <motion.div
+              <div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -656,7 +656,7 @@ export function Navigation() {
                   <Phone className="h-3.5 w-3.5" />
                   <span>Connect Us</span>
                 </Link>
-              </motion.div>
+              </div>
 
               <button
                 className="lg:hidden p-2 rounded-xl transition-colors"
@@ -667,16 +667,16 @@ export function Navigation() {
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
               >
-                <motion.div animate={isOpen ? { rotate: 180 } : { rotate: 0 }} transition={{ duration: 0.25 }}>
+                <div animate={isOpen ? { rotate: 180 } : { rotate: 0 }} transition={{ duration: 0.25 }}>
                   {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </motion.div>
+                </div>
               </button>
             </div>
           </div>
         </div>
         <AnimatePresence>
           {activeDropdown === 'services' && (
-            <motion.div
+            <div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -739,10 +739,10 @@ export function Navigation() {
 
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
           {activeDropdown === 'technologies' && (
-            <motion.div
+            <div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -803,7 +803,7 @@ export function Navigation() {
 
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
         </AnimatePresence>
 
@@ -813,7 +813,7 @@ export function Navigation() {
         <div className="lg:hidden px-4">
           <AnimatePresence>
             {isOpen && (
-              <motion.div
+              <div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -848,14 +848,14 @@ export function Navigation() {
                         <span style={{ fontWeight: active || isAccOpen ? 700 : 600, color: active || isAccOpen ? '#1a3fa0' : undefined }}>
                           {link.label}
                         </span>
-                        <motion.div animate={{ rotate: isAccOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                        <div animate={{ rotate: isAccOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
                           <ChevronDown className="h-4 w-4" style={{ color: isAccOpen ? '#1a3fa0' : '#9ca3af' }} />
-                        </motion.div>
+                        </div>
                       </button>
 
                       <AnimatePresence>
                         {isAccOpen && (
-                          <motion.div
+                          <div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
@@ -918,7 +918,7 @@ export function Navigation() {
                                 ))}
                               </div>
                             )}
-                          </motion.div>
+                          </div>
                         )}
                       </AnimatePresence>
                     </div>
@@ -936,11 +936,11 @@ export function Navigation() {
                     <span>Get Started</span>
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             )}
           </AnimatePresence>
         </div>
-      </motion.nav>
+      </nav>
     </>
   )
 }

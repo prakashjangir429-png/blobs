@@ -197,7 +197,7 @@ function HeroSection({ project }: { project: ProjectData }) {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[50vh] flex items-end pb-12">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -240,7 +240,7 @@ function HeroSection({ project }: { project: ProjectData }) {
               <Camera size={16} /> View Gallery
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -262,15 +262,15 @@ function DetailsSection({ project }: { project: ProjectData }) {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-12">
-            <motion.div {...fadeUp(0)}>
+            <div {...fadeUp(0)}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f8f9fc] border border-[#1a3fa0]/10 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
                 <Briefcase size={14} /> The Challenge
               </span>
               <h2 className="text-3xl font-semibold text-[#0f2a6b] mb-4">Understanding the Challenge</h2>
               <p className="text-lg text-[#4a5578] leading-relaxed">{project.challenge}</p>
-            </motion.div>
+            </div>
 
-            <motion.div {...fadeUp(0.1)}>
+            <div {...fadeUp(0.1)}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f8f9fc] border border-[#1a3fa0]/10 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
                 <Lightbulb size={14} /> Our Solution
               </span>
@@ -279,7 +279,7 @@ function DetailsSection({ project }: { project: ProjectData }) {
 
               <div className="grid grid-cols-2 gap-3">
                 {project.services.map((service, i) => (
-                  <motion.div
+                  <div
                     key={i}
                     initial={{ opacity: 0, x: -10 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -288,14 +288,14 @@ function DetailsSection({ project }: { project: ProjectData }) {
                   >
                     <CheckCircle size={16} className="text-[#e8a020] flex-shrink-0" />
                     <span className="text-sm font-medium text-[#0f2a6b]">{service}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
 
           <div className="lg:col-span-1">
-            <motion.div {...fadeUp(0.05)} className="sticky top-24 space-y-6">
+            <div {...fadeUp(0.05)} className="sticky top-24 space-y-6">
               <div className="bg-[#f8f9fc] rounded-2xl p-6 border border-[#1a3fa0]/08">
                 <h3 className="text-lg font-bold text-[#0f2a6b] mb-4 pb-2 border-b border-[#1a3fa0]/10 flex items-center gap-2">
                   <Layers size={18} className="text-[#1a3fa0]" /> Project Details
@@ -343,7 +343,7 @@ function DetailsSection({ project }: { project: ProjectData }) {
               >
                 Start Similar Project
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -369,7 +369,7 @@ function GallerySection({
   return (
     <section id="gallery" ref={ref} className="relative py-20 px-4 md:px-8 lg:px-12 bg-[#f8f9fc]">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -382,10 +382,10 @@ function GallerySection({
             Visual <span className="text-[#e8a020]">Showcase</span>
           </h2>
           <p className="text-[#4a5578] max-w-2xl mx-auto">Explore the visual journey of this project</p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-4">
-          <motion.div
+          <div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
@@ -401,10 +401,10 @@ function GallerySection({
                 <Maximize2 size={24} className="text-white" />
               </div>
             </button>
-          </motion.div>
+          </div>
 
           {project.gallery.map((img, i) => (
-            <motion.button
+            <button
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -418,7 +418,7 @@ function GallerySection({
             >
               <Image src={img} alt={`Gallery image ${i + 1}`} fill className="object-cover" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-            </motion.button>
+            </button>
           ))}
         </div>
       </div>
@@ -434,7 +434,7 @@ function MetricsSection({ project }: { project: ProjectData }) {
   return (
     <section ref={ref} className="relative py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -446,11 +446,11 @@ function MetricsSection({ project }: { project: ProjectData }) {
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             Measurable <span className="text-[#e8a020]">Impact</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {project.results.map((result, i) => (
-            <motion.div
+            <div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -462,7 +462,7 @@ function MetricsSection({ project }: { project: ProjectData }) {
                 {result.metric}
               </div>
               <div className="text-sm text-[#4a5578] font-medium">{result.label}</div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -487,7 +487,7 @@ function ApproachSection() {
   return (
     <section ref={ref} className="relative py-20 px-4 md:px-8 lg:px-12 bg-[#f8f9fc]">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -499,11 +499,11 @@ function ApproachSection() {
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             How We <span className="text-[#e8a020]">Delivered</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {steps.map((step, i) => (
-            <motion.div
+            <div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -519,7 +519,7 @@ function ApproachSection() {
                   <p className="text-sm text-[#4a5578]">{step.desc}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -538,7 +538,7 @@ function TestimonialSection({ project }: { project: ProjectData }) {
       <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#e8a020]/10 blur-3xl" />
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -557,7 +557,7 @@ function TestimonialSection({ project }: { project: ProjectData }) {
               <div className="text-[#e8a020] text-sm">{project.testimonial.role}</div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -571,7 +571,7 @@ function RelatedProjects({ projects }: { projects: ProjectData[] }) {
   return (
     <section ref={ref} className="relative py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -583,11 +583,11 @@ function RelatedProjects({ projects }: { projects: ProjectData[] }) {
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             More <span className="text-[#e8a020]">Projects</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {projects.map((proj, i) => (
-            <motion.div
+            <div
               key={proj.slug}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -610,7 +610,7 @@ function RelatedProjects({ projects }: { projects: ProjectData[] }) {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -647,7 +647,7 @@ function GalleryModal({
   }, [onClose, onNext, onPrev]);
 
   return (
-    <motion.div
+    <div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -664,7 +664,7 @@ function GalleryModal({
         <ChevronRight size={32} />
       </button>
 
-      <motion.div
+      <div
         key={currentIndex}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -676,8 +676,8 @@ function GalleryModal({
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full">
           {currentIndex + 1} / {images.length}
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 

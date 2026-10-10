@@ -175,7 +175,7 @@ function HeroSection({ stats }: { stats: any }) {
         <div className="max-w-7xl px-4 mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <motion.div
+              <div
                 initial={{ opacity: 0, y: 16, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.4 }}
@@ -183,21 +183,21 @@ function HeroSection({ stats }: { stats: any }) {
               >
                 <UserPlus size={14} className="text-[#e8a020]" />
                 Hire Expert Developers
-              </motion.div>
+              </div>
 
-              <motion.h1 {...fadeUp(0.08)} className="text-3xl sm:text-4xl md:text-[2.8rem] font-semibold text-[#0f2a6b] leading-[1.2] mb-6">
+              <h1 {...fadeUp(0.08)} className="text-3xl sm:text-4xl md:text-[2.8rem] font-semibold text-[#0f2a6b] leading-[1.2] mb-6">
                 Hire Top Tech <br />
                 <span className="gold-word">Talent</span> From India
-              </motion.h1>
+              </h1>
 
-              <motion.p {...fadeUp(0.14)} className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-4 font-light">
+              <p {...fadeUp(0.14)} className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-4 font-light">
                 Access skilled developers, designers, and project managers
                 from India's leading IT services company. Build your dream
                 team with <strong className="font-semibold text-[#0f2a6b]">{stats.expertCount}+ experts</strong> and
                 <strong className="font-semibold text-[#0f2a6b]"> {stats.yearsExperience} years</strong> of delivery excellence.
-              </motion.p>
+              </p>
 
-              <motion.div {...fadeUp(0.18)} className="flex flex-wrap gap-3 mb-6">
+              <div {...fadeUp(0.18)} className="flex flex-wrap gap-3 mb-6">
                 {["Dedicated Teams", "Flexible Engagement", "Cost-Effective", "Quick Onboarding"].map(
                   (item) => (
                     <span
@@ -209,9 +209,9 @@ function HeroSection({ stats }: { stats: any }) {
                     </span>
                   )
                 )}
-              </motion.div>
+              </div>
 
-              <motion.div {...fadeUp(0.22)} className="flex flex-wrap gap-3">
+              <div {...fadeUp(0.22)} className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm text-white relative overflow-hidden shadow-lg shadow-[#1a3fa0]/25 hover:shadow-[#1a3fa0]/35 hover:-translate-y-1 transition-all duration-300"
@@ -227,10 +227,10 @@ function HeroSection({ stats }: { stats: any }) {
                   How It Works
                   <ChevronRight size={16} />
                 </Link>
-              </motion.div>
+              </div>
             </div>
 
-            <motion.div {...fadeUp(0.12)} className="relative flex justify-center lg:justify-end">
+            <div {...fadeUp(0.12)} className="relative flex justify-center lg:justify-end">
               <div className="relative w-full max-w-[500px]">
                 <div className="relative overflow-hidden rounded-2xl">
                   <Image
@@ -260,7 +260,7 @@ function HeroSection({ stats }: { stats: any }) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -276,7 +276,7 @@ function WhyHireSection({ whyHireUs }: { whyHireUs: any[] }) {
   return (
     <section ref={ref} className="relative w-full py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -291,13 +291,13 @@ function WhyHireSection({ whyHireUs }: { whyHireUs: any[] }) {
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             Partner with India's most trusted IT services provider for your development needs
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {whyHireUs.map((item, idx) => {
             const Icon = getIcon(item.icon);
             return (
-              <motion.div
+              <div
                 key={item.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -309,7 +309,7 @@ function WhyHireSection({ whyHireUs }: { whyHireUs: any[] }) {
                 </div>
                 <h3 className="text-lg font-bold text-[#0f2a6b] mb-2">{item.title}</h3>
                 <p className="text-sm text-[#4a5578] leading-relaxed">{item.description}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -341,7 +341,7 @@ function BenefitsSection({ hireBenefits }: { hireBenefits: any[] }) {
       }}
     >
       <div className="max-w-7xl mx-auto">
-        <motion.div {...fadeUp(0)} className="text-center mb-14">
+        <div {...fadeUp(0)} className="text-center mb-14">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
             Why Choose Us
           </span>
@@ -351,13 +351,13 @@ function BenefitsSection({ hireBenefits }: { hireBenefits: any[] }) {
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             We provide everything you need to build, scale, and succeed
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {hireBenefits.map((benefit, idx) => {
             const Icon = getIcon(benefit.icon);
             return (
-              <motion.div
+              <div
                 key={benefit.title}
                 {...fadeUp(0.05 * idx)}
                 className="group bg-white rounded-2xl p-7 border border-[#1a3fa0]/08 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden"
@@ -371,7 +371,7 @@ function BenefitsSection({ hireBenefits }: { hireBenefits: any[] }) {
                 <span className="inline-block px-4 py-1.5 bg-gradient-to-br from-[#1a3fa0]/08 to-[#2952cc]/05 rounded-full text-xs font-semibold text-[#1a3fa0]">
                   {benefit.stats}
                 </span>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -388,7 +388,7 @@ function EngagementModelsSection({ engagementModels }: { engagementModels: any[]
   return (
     <section ref={ref} className="relative w-full py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -403,13 +403,13 @@ function EngagementModelsSection({ engagementModels }: { engagementModels: any[]
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             Choose the engagement model that best fits your project needs
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {engagementModels.map((model, idx) => {
             const Icon = getIcon(model.icon);
             return (
-              <motion.div
+              <div
                 key={model.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -439,7 +439,7 @@ function EngagementModelsSection({ engagementModels }: { engagementModels: any[]
                   Choose {model.title}
                   <ArrowRight size={16} />
                 </Link>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -465,7 +465,7 @@ function TechStackSection({ techStack, stats }: { techStack: any[]; stats: any }
       }}
     >
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -480,11 +480,11 @@ function TechStackSection({ techStack, stats }: { techStack: any[]; stats: any }
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             Our engineers are proficient in {stats.totalTechnologies}+ modern technologies and frameworks
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {techStack.map((tech, idx) => (
-            <motion.div
+            <div
               key={tech.name}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -508,7 +508,7 @@ function TechStackSection({ techStack, stats }: { techStack: any[]; stats: any }
                   {tech.name}
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -528,7 +528,7 @@ function ProcessSection({ hireProcess }: { hireProcess: any[] }) {
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#2952cc]/10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -543,13 +543,13 @@ function ProcessSection({ hireProcess }: { hireProcess: any[] }) {
           <p className="text-gray-300 max-w-2xl mx-auto">
             A simple, transparent process to get you started in no time
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {hireProcess.map((step, idx) => {
             const Icon = getIcon(step.icon);
             return (
-              <motion.div
+              <div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -573,7 +573,7 @@ function ProcessSection({ hireProcess }: { hireProcess: any[] }) {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -589,7 +589,7 @@ function FAQSection({ faqs }: { faqs: any[] }) {
   return (
     <section className="relative w-full py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-4xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -604,11 +604,11 @@ function FAQSection({ faqs }: { faqs: any[] }) {
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             Everything you need to know about hiring with us
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <motion.div
+            <div
               key={idx}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -632,7 +632,7 @@ function FAQSection({ faqs }: { faqs: any[] }) {
                   {faq.a}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -655,7 +655,7 @@ function CTASection() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -670,7 +670,7 @@ function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] text-[#0f2a6b] font-semibold text-base shadow-lg shadow-[#e8a020]/30 hover:shadow-[#e8a020]/50 transition-all duration-300 group"
@@ -678,9 +678,9 @@ function CTASection() {
                 Hire Developers Now
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 font-semibold text-base hover:bg-white/20 transition-all duration-300"
@@ -688,7 +688,7 @@ function CTASection() {
                 Request a Quote
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
           </div>
 
           <div className="mt-8 pt-8 border-t border-white/10">
@@ -707,7 +707,7 @@ function CTASection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

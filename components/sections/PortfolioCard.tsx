@@ -23,7 +23,7 @@ export function PortfolioCard({
   index = 0,
 }: PortfolioCardProps) {
   return (
-    <motion.div
+    <div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -69,6 +69,6 @@ export function PortfolioCard({
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   )
 }

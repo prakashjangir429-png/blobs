@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function AnimatedRadialGlow() {
   return (
-    <motion.div
+    <div
       animate={{
         backgroundPosition: [
           "50% 50%",

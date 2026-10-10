@@ -50,7 +50,7 @@ export const indus = [
 ]
 export function Indus({ title, Icon }: any) {
     return (
-        <motion.div
+        <div
             whileHover={{ y: -6 }}
             transition={{ duration: 0.3 }}
             className="
@@ -67,19 +67,19 @@ export function Indus({ title, Icon }: any) {
             <div className="absolute z-0 bottom-0 left-0 w-full h-1 group-hover:-z-1 group-hover:h-full bg-[#FD5D07] transition-all duration-300 group-hover:h-2" />
 
             {/* Icon */}
-            <motion.div
+            <div
                 whileHover={{ scale: 1.15 }}
                 transition={{ duration: 0.3 }}
                 className="flex justify-center mb-3"
             >
                 <Icon size={60} className="text-gray-700 stroke-[1.3px] group-hover:text-white transition duration-300" />
-            </motion.div>
+            </div>
 
             {/* Title */}
             <h3 className="text-gray-700 stroke-[1.3px] group-hover:text-white text-lg font-medium">
                 {title}
             </h3>
-        </motion.div>
+        </div>
     )
 }
 
@@ -151,7 +151,7 @@ export default function Home({ blogPosts }) {
                     </div>
 
                     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                        <motion.div
+                        <div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -166,7 +166,7 @@ export default function Home({ blogPosts }) {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                     <Link
                                         href="/contact"
                                         className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-base shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 group"
@@ -174,9 +174,9 @@ export default function Home({ blogPosts }) {
                                         Start Your Project
                                         <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                                     </Link>
-                                </motion.div>
+                                </div>
 
-                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                     <Link
                                         href="/portfolio"
                                         className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 font-semibold text-base hover:bg-white/20 transition-all duration-300"
@@ -184,7 +184,7 @@ export default function Home({ blogPosts }) {
                                         View Portfolio
                                         <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                                     </Link>
-                                </motion.div>
+                                </div>
                             </div>
 
                             {/* Contact Info */}
@@ -204,7 +204,7 @@ export default function Home({ blogPosts }) {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </section>
                 <EnquiryModal

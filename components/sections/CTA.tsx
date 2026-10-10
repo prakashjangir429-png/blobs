@@ -25,7 +25,7 @@ export function CTA({
       
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div 
+        <div 
           animate={{ 
             x: [0, -30, 0], 
             y: [0, 20, 0],
@@ -40,7 +40,7 @@ export function CTA({
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
           
           {/* Left Content: Text */}
-          <motion.div
+          <div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -48,30 +48,30 @@ export function CTA({
             className="w-full lg:w-1/2 text-center lg:text-left"
           >
 
-                        <motion.h2
+                        <h2
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
               className="text-3xl sm:text-[2.6rem] font-extrabold text-[#0f2a6b] leading-tight mb-3"
             >
               <span className="text-[#e8a020]">Are You</span> {title}
-            </motion.h2>
+            </h2>
 
             {/* Gold divider */}
-            <motion.div
+            <div
               transition={{ duration: 0.5, delay: 0.12, transformOrigin: "left" }}
               className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-4 origin-left"
             />
 
-            <motion.p
+            <p
               transition={{ duration: 0.5, delay: 0.14 }}
               className="text-[#4a5578] text-base sm:text-xl mb-6 font-light max-w-lg"
             >
               {description}
            
-            </motion.p>
+            </p>
 
 
             {/* CTA Button */}
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -91,10 +91,10 @@ export function CTA({
                 {/* Shine Effect on Hover */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out" />
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
+          <div
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -120,7 +120,7 @@ export function CTA({
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

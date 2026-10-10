@@ -1,6 +1,6 @@
 # Digital Agency Website
 
-A modern, fully-featured digital agency website built with Next.js 16, React 19, Tailwind CSS, and Framer Motion. Features a comprehensive design with smooth animations, scroll effects, and multiple service offerings.
+A modern, fully-featured digital agency website built with Next.js 16, React 19, Tailwind CSS, and Framer  Features a comprehensive design with smooth animations, scroll effects, and multiple service offerings.
 
 ## Features
 

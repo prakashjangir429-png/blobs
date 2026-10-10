@@ -60,7 +60,7 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
     <section className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -75,11 +75,11 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
           <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
             Hear from satisfied clients who have transformed their businesses with our solutions.
           </p>
-        </motion.div>
+        </div>
 
         {/* Carousel */}
         <div className="relative">
-          <motion.div
+          <div
             key={activeIndex}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -112,7 +112,7 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
                 {items[activeIndex].role} at {items[activeIndex].company}
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Controls */}
           <div className="flex items-center justify-between mt-8">
@@ -129,22 +129,22 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
             </div>
 
             <div className="flex gap-4">
-              <motion.button
+              <button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={prev}
                 className="p-3 rounded-full bg-border hover:bg-primary/20 text-foreground transition-colors"
               >
                 <ChevronLeft size={20} />
-              </motion.button>
-              <motion.button
+              </button>
+              <button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={next}
                 className="p-3 rounded-full bg-border hover:bg-primary/20 text-foreground transition-colors"
               >
                 <ChevronRight size={20} />
-              </motion.button>
+              </button>
             </div>
           </div>
         </div>

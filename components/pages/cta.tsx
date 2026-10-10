@@ -63,14 +63,14 @@ export default function CTASection() {
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center"
         >
           {/* Tag badge */}
-          <motion.div
+          <div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -84,10 +84,10 @@ export default function CTASection() {
             <span className="text-sm font-bold text-white uppercase tracking-wider">
               Let's Build Together
             </span>
-          </motion.div>
+          </div>
 
           {/* Main heading */}
-          <motion.h2
+          <h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -104,10 +104,10 @@ export default function CTASection() {
             >
               Digital Presence?
             </span>
-          </motion.h2>
+          </h2>
 
           {/* Subtitle */}
-          <motion.p
+          <p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -120,10 +120,10 @@ export default function CTASection() {
             <span className="font-semibold text-white">mobile apps</span>, and{" "}
             <span className="font-semibold text-white">digital marketing</span> solutions. Join 500+
             businesses achieving measurable growth.
-          </motion.p>
+          </p>
 
           {/* Feature highlights */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -142,16 +142,16 @@ export default function CTASection() {
                 <span className="text-sm font-medium text-white">{item.text}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* CTA Buttons */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-lg
@@ -171,9 +171,9 @@ export default function CTASection() {
                   style={{ background: "linear-gradient(135deg, #f0b832, #e8a020)" }}
                 />
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/portfolio"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur-md
@@ -186,11 +186,11 @@ export default function CTASection() {
                   className="group-hover:translate-x-1 transition-transform duration-300"
                 />
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Contact info cards */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -198,7 +198,7 @@ export default function CTASection() {
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
               {/* Email */}
-              <motion.a
+              <a
                 href="mailto:nitishnirala390@gmail.com"
                 whileHover={{ scale: 1.03, y: -2 }}
                 className="flex flex-col items-center gap-3 p-5 rounded-2xl bg-white/5 backdrop-blur-sm
@@ -220,10 +220,10 @@ export default function CTASection() {
                     nitishnirala390@gmail.com
                   </div>
                 </div>
-              </motion.a>
+              </a>
 
               {/* Phone */}
-              <motion.a
+              <a
                 href="tel:+918789891001"
                 whileHover={{ scale: 1.03, y: -2 }}
                 className="flex flex-col items-center gap-3 p-5 rounded-2xl bg-white/5 backdrop-blur-sm
@@ -245,10 +245,10 @@ export default function CTASection() {
                     +91 87898 91001
                   </div>
                 </div>
-              </motion.a>
+              </a>
 
               {/* Location */}
-              <motion.div
+              <div
                 whileHover={{ scale: 1.03, y: -2 }}
                 className="flex flex-col items-center gap-3 p-5 rounded-2xl bg-white/5 backdrop-blur-sm
                            border border-white/10 hover:bg-white/10 hover:border-white/20
@@ -269,12 +269,12 @@ export default function CTASection() {
                     Jaipur, Rajasthan, India
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Trust indicators */}
-          <motion.div
+          <div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.7 }}
@@ -303,8 +303,8 @@ export default function CTASection() {
               ))}
               <span className="font-medium ml-1">4.9/5 Rating</span>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
 

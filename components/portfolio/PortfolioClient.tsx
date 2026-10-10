@@ -213,7 +213,7 @@ function HeroSection({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-28 pb-16">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.div
+            <div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 }}
@@ -221,9 +221,9 @@ function HeroSection({
             >
               <Sparkles size={14} className="text-[#e8a020]" />
               {stats.totalProjects}+ Projects Delivered
-            </motion.div>
+            </div>
 
-            <motion.h1
+            <h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -231,9 +231,9 @@ function HeroSection({
             >
               Building Digital{" "}
               <span className="gold-word">Success Stories</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
+            <p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -246,9 +246,9 @@ function HeroSection({
                 {stats.clientSatisfaction}% client satisfaction
               </strong>
               .
-            </motion.p>
+            </p>
 
-            <motion.div
+            <div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -268,9 +268,9 @@ function HeroSection({
                   </div>
                 );
               })}
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -287,11 +287,11 @@ function HeroSection({
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-3.5 rounded-full border border-[#1a3fa0]/15 shadow-lg focus:outline-none focus:ring-2 focus:ring-[#1a3fa0] focus:border-transparent text-[#0f2a6b] placeholder:text-[#4a5578]/60 bg-white"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        <motion.div
+        <div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -299,7 +299,7 @@ function HeroSection({
           <div className="w-6 h-10 rounded-full border-2 border-[#1a3fa0]/20 flex justify-center">
             <div className="w-1 h-2 bg-[#1a3fa0] rounded-full mt-2" />
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );
@@ -328,14 +328,14 @@ function ProjectsGrid({
   return (
     <section className="py-10 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div className="text-center mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             Featured <span className="text-[#e8a020]">Projects</span>
           </h2>
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             Each project showcases our commitment to quality, innovation, and measurable results
           </p>
-        </motion.div>
+        </div>
 
         {filteredProjects.length === 0 ? (
           <div className="text-center py-20">
@@ -355,7 +355,7 @@ function ProjectsGrid({
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="wait">
               {filteredProjects.map((project, idx) => (
-                <motion.div
+                <div
                   key={project.slug}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -450,7 +450,7 @@ function ProjectsGrid({
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </AnimatePresence>
           </div>
@@ -475,7 +475,7 @@ function CTASection() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -489,7 +489,7 @@ function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] text-[#0f2a6b] font-semibold text-base shadow-lg shadow-[#e8a020]/30 hover:shadow-[#e8a020]/50 transition-all duration-300 group"
@@ -497,9 +497,9 @@ function CTASection() {
                 Start Your Project
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/portfolio"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 font-semibold text-base hover:bg-white/20 transition-all duration-300"
@@ -507,7 +507,7 @@ function CTASection() {
                 View Portfolio
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
           </div>
 
           <div className="mt-8 pt-8 border-t border-white/10">
@@ -526,7 +526,7 @@ function CTASection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

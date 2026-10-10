@@ -179,7 +179,7 @@ function HeroSection({ service }: any) {
               </p>
 
               {/* Trust points */}
-              {/* <motion.div
+              {/* <div
                 {...fadeUp(0.18)}
                 className="flex flex-wrap gap-3 mb-4"
               >
@@ -194,7 +194,7 @@ function HeroSection({ service }: any) {
                     {stat}
                   </span>
                 ))}
-              </motion.div> */}
+              </div> */}
 
               {/* CTAs */}
               <div
@@ -258,7 +258,7 @@ export function OverviewSection({service}) {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-7 gap-12 items-center">
-          <motion.div
+          <div
             className="lg:col-span-4"
           >
             <span className="text-[#e8a020] font-semibold text-sm uppercase tracking-wider mb-3 block">
@@ -284,9 +284,9 @@ export function OverviewSection({service}) {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
+          <div
             className="bg-gradient-to-br from-[#1a3fa0]/20 hover:from-[#E8A020]/20 to-[#2952cc]/05 lg:col-span-3 p-8"
           >
             <h3 className="text-xl font-bold text-[#0f2a6b] mb-4">
@@ -305,7 +305,7 @@ export function OverviewSection({service}) {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -326,7 +326,7 @@ export function FeaturesSection({service}) {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
@@ -336,11 +336,11 @@ export function FeaturesSection({service}) {
            {data.title}{" "}
             <span className="text-[#e8a020]">{data.highlightedWord}</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data?.features.map((feature, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="group bg-gradient-to-br from-[#1a3fa0]/20 hover:from-[#E8A020]/20 to-[#2952cc]/05 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
@@ -353,7 +353,7 @@ export function FeaturesSection({service}) {
               <p className="text-sm text-[#4a5578] leading-relaxed">
                 {feature.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -367,7 +367,7 @@ function TechStackSection({service}) {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           className="text-center mb-10"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
@@ -376,16 +376,16 @@ function TechStackSection({service}) {
           <p className="text-[#4a5578] max-w-4xl mx-auto">
            {data.description}
           </p>
-        </motion.div>
+        </div>
 
         <div className="flex flex-wrap overflow-x-auto justify-center gap-3 pb-4">
           {data?.technologies?.map((tech, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="px-5 py-3 bg-gradient-to-br from-[#1a3fa0]/10 to-[#2952cc]/05 rounded-full border border-[#1a3fa0]/10 text-sm font-semibold text-[#1a3fa0] hover:bg-[#1a3fa0] hover:text-white transition-all duration-300 cursor-default"
             >
               {tech}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -399,7 +399,7 @@ function ServiceProcessSection({service}) {
   return (
     <section className="py-20 bg-[#0f2a6b] overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <motion.div
+        <div
           className="text-center mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-3">
@@ -408,11 +408,11 @@ function ServiceProcessSection({service}) {
           <p className="text-gray-300 max-w-2xl mx-auto">
             {data.description}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
           {data?.steps?.map((step, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="group relative bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
             >
@@ -420,7 +420,7 @@ function ServiceProcessSection({service}) {
           
               <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
               <p className="text-sm text-gray-300 leading-relaxed">{step.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -434,7 +434,7 @@ export function WhyChooseServiceSection({service}) {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
@@ -444,11 +444,11 @@ export function WhyChooseServiceSection({service}) {
             {data.title}{" "}
             <span className="text-[#e8a020]">{data.highlightedWord}</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data?.reasons?.map((reason, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="bg-gradient-to-br hover:from-[#1a3fa0]/20 from-[#E8A020]/20 to-[#2952cc]/05 rounded-2xl p-6 hover:shadow-md transition-all duration-300"
             >
@@ -457,7 +457,7 @@ export function WhyChooseServiceSection({service}) {
               </div>
               <h3 className="font-bold text-[#0f2a6b] mb-1">{reason.title}</h3>
               <p className="text-sm text-[#4a5578]">{reason.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -478,7 +478,7 @@ export function PricingSection({service}) {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           className="text-center mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
@@ -487,11 +487,11 @@ export function PricingSection({service}) {
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             {data.description}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {data?.plans.map((plan, idx) => (
-            <motion.div
+            <div
               key={idx}
               className={`relative bg-white p-6 ${plan.popular
                 ? "border-[#e8a020] bg-gradient-to-br from-[#E8A020]/20 to-[#2952cc]/05 border-2 scale-105 shadow-2xl ring-2 ring-[#e8a020]/20"
@@ -522,7 +522,7 @@ export function PricingSection({service}) {
               >
                 Get Started
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -537,7 +537,7 @@ export function CaseStudiesSection({service}) {
   return (
     <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
@@ -549,11 +549,11 @@ export function CaseStudiesSection({service}) {
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             {data.description}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {data?.studies.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="group bg-gradient-to-br from-[#1a3fa0]/20 hover:from-[#E8A020]/20 to-[#2952cc]/05 overflow-hidden border border-[#1a3fa0]/08 hover:shadow-lg transition-all duration-300"
             >
@@ -579,7 +579,7 @@ export function CaseStudiesSection({service}) {
                   Read Case Study <ArrowRight size={14} />
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -602,18 +602,18 @@ export function FAQSection({service}) {
       }}
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           className="text-center mb-14"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             Frequently Asked{" "}
             <span className="text-[#e8a020]">Questions</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="space-y-3">
           {data?.faqs.map((faq, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="bg-white rounded-xl border border-[#1a3fa0]/08 overflow-hidden"
             >
@@ -628,13 +628,13 @@ export function FAQSection({service}) {
                 />
               </button>
               {openIndex === idx && (
-                <motion.div
+                <div
                   className="px-6 pb-4"
                 >
                   <p className="text-[#4a5578] text-sm leading-relaxed">{faq.answer}</p>
-                </motion.div>
+                </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -651,13 +651,13 @@ export function RelatedServicesSection({service}) {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <div
           className="text-center mb-10"
         >
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">
             Related <span className="text-[#e8a020]">Services</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-4 gap-5 mx-auto">
           {data?.services.map((service, idx) => (

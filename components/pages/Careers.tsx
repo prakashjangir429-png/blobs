@@ -185,17 +185,17 @@ function HeroSection({ heroRef, heroOpacity, heroScale, heroY, stats }: any) {
       `}</style>
 
       <section ref={heroRef} className="careers-hero-section relative w-full">
-        <motion.div style={{ opacity: heroOpacity, scale: heroScale, y: heroY }} className="absolute inset-0">
+        <div style={{ opacity: heroOpacity, scale: heroScale, y: heroY }} className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10" />
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-3xl" />
           <div className="absolute inset-0" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.4) 1px, transparent 0)`, backgroundSize: "40px 40px" }} />
-        </motion.div>
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-28 pb-16">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -203,18 +203,18 @@ function HeroSection({ heroRef, heroOpacity, heroScale, heroY, stats }: any) {
             >
               <Sparkles size={14} className="text-[#e8a020]" />
               We're Hiring • {stats.totalOpenPositions} Open Positions
-            </motion.div>
+            </div>
 
-            <motion.h1
+            <h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="text-4xl sm:text-5xl font-semibold text-[#0f2a6b] leading-[1.1] mb-6"
             >
               Shape the Future <span className="gold-word">With Us</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
+            <p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -222,9 +222,9 @@ function HeroSection({ heroRef, heroOpacity, heroScale, heroY, stats }: any) {
             >
               Join a team of {stats.teamSize}+ passionate innovators building technology that matters.
               We're looking for talented individuals who want to make a difference.
-            </motion.p>
+            </p>
 
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -244,9 +244,9 @@ function HeroSection({ heroRef, heroOpacity, heroScale, heroY, stats }: any) {
                 Learn About Culture
                 <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -266,11 +266,11 @@ function HeroSection({ heroRef, heroOpacity, heroScale, heroY, stats }: any) {
                   </div>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        <motion.div
+        <div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -278,7 +278,7 @@ function HeroSection({ heroRef, heroOpacity, heroScale, heroY, stats }: any) {
           <div className="w-6 h-10 rounded-full border-2 border-[#1a3fa0]/20 flex justify-center">
             <div className="w-1 h-2 bg-[#1a3fa0] rounded-full mt-2" />
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );
@@ -291,7 +291,7 @@ function StatsSection({ statsData }: { statsData: any[] }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {statsData.map((stat, idx) => (
-            <motion.div
+            <div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -305,7 +305,7 @@ function StatsSection({ statsData }: { statsData: any[] }) {
               </div>
               <div className="text-sm font-semibold text-[#4a5578] mb-0.5">{stat.label}</div>
               <div className="text-xs text-[#4a5578]/60">{stat.description}</div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -318,7 +318,7 @@ function BenefitsSection({ benefits }: { benefits: any[] }) {
   return (
     <section id="culture" className="py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -333,13 +333,13 @@ function BenefitsSection({ benefits }: { benefits: any[] }) {
           <p className="text-[#4a5578] max-w-2xl mx-auto">
             We take care of our team so you can focus on doing your best work
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {benefits.map((category, idx) => {
             const Icon = getIcon(category.icon);
             return (
-              <motion.div
+              <div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -364,7 +364,7 @@ function BenefitsSection({ benefits }: { benefits: any[] }) {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -378,7 +378,7 @@ function DepartmentsSection({ departments, setSelectedDepartment }: { department
   return (
     <section className="py-20 px-4 md:px-8 lg:px-12 bg-[#f8f9fc] border-t border-[#1a3fa0]/08">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -391,13 +391,13 @@ function DepartmentsSection({ departments, setSelectedDepartment }: { department
             Explore <span className="text-[#e8a020]">Departments</span>
           </h2>
           <p className="text-[#4a5578] max-w-2xl mx-auto">Find your place in one of our innovative teams</p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {departments.map((dept, idx) => {
             const Icon = getIcon(dept.icon);
             return (
-              <motion.div
+              <div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -419,7 +419,7 @@ function DepartmentsSection({ departments, setSelectedDepartment }: { department
                   <span className="text-sm font-medium text-[#4a5578]">{dept.openPositions} open positions</span>
                   <ChevronRight className="w-5 h-5 text-[#4a5578] group-hover:translate-x-1 transition-transform" />
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -436,7 +436,7 @@ function OpenPositionsSection({
   return (
     <section id="openings" className="py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -449,7 +449,7 @@ function OpenPositionsSection({
             Open <span className="text-[#e8a020]">Positions</span>
           </h2>
           <p className="text-[#4a5578] max-w-2xl mx-auto">Find the role that matches your skills and aspirations</p>
-        </motion.div>
+        </div>
 
         <div className="mb-6 flex flex-col md:flex-row gap-3">
           <div className="flex-1 relative">
@@ -473,7 +473,7 @@ function OpenPositionsSection({
             </button>
             <AnimatePresence>
               {isFilterOpen && (
-                <motion.div
+                <div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
@@ -490,7 +490,7 @@ function OpenPositionsSection({
                       </button>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
             </AnimatePresence>
           </div>
@@ -507,7 +507,7 @@ function OpenPositionsSection({
             {filteredPositions.map((position: any, idx: number) => {
               const Icon = getIcon(position.icon);
               return (
-                <motion.div
+                <div
                   key={position.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -542,7 +542,7 @@ function OpenPositionsSection({
                     ))}
                     <span className="px-2 py-0.5 bg-[#e8a020]/10 text-[#e8a020] rounded-md text-xs font-medium">View Details</span>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -561,14 +561,14 @@ function JobModal({ showJobModal, setShowJobModal, selectedJob, openPositions }:
   return (
     <AnimatePresence>
       {showJobModal && (
-        <motion.div
+        <div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           onClick={() => setShowJobModal(false)}
         >
-          <motion.div
+          <div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -625,8 +625,8 @@ function JobModal({ showJobModal, setShowJobModal, selectedJob, openPositions }:
                 Apply for this Position
               </Link>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
     </AnimatePresence>
   );
@@ -640,18 +640,18 @@ function ProcessSection({ processSteps }: { processSteps: any[] }) {
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#e8a020]/10 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#2952cc]/10 blur-3xl" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+        <div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-xs font-bold uppercase tracking-widest text-[#e8a020] mb-4">
             <Workflow size={14} /> Our Process
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-3">How We <span className="text-[#e8a020]">Hire</span></h2>
           <p className="text-gray-300 max-w-2xl mx-auto">A transparent and thoughtful process designed to find the best fit</p>
-        </motion.div>
+        </div>
         <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
           {processSteps.map((step, idx) => {
             const Icon = getIcon(step.icon);
             return (
-              <motion.div key={idx} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08 }} className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all duration-300 text-center">
+              <div key={idx} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08 }} className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-all duration-300 text-center">
                 <div className="text-4xl font-bold text-white/8 absolute top-3 right-3 group-hover:text-[#e8a020]/15 transition-colors">{step.step}</div>
                 <div className="w-12 h-12 mx-auto bg-gradient-to-br from-[#1a3fa0] to-[#2952cc] rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                   <Icon className="w-6 h-6 text-white" />
@@ -659,7 +659,7 @@ function ProcessSection({ processSteps }: { processSteps: any[] }) {
                 <h3 className="text-sm font-bold text-white mb-1.5">{step.title}</h3>
                 <p className="text-xs text-gray-300 leading-relaxed mb-2">{step.description}</p>
                 <span className="text-xs text-[#e8a020] font-medium">{step.duration}</span>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -673,15 +673,15 @@ function TestimonialsSection({ testimonials, activeTestimonial, setActiveTestimo
   return (
     <section className="py-20 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-4xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+        <div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
             <Users size={14} className="text-[#e8a020]" /> Voices
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">What Our <span className="text-[#e8a020]">Team Says</span></h2>
           <p className="text-[#4a5578] max-w-2xl mx-auto">Real stories from the people who make it happen</p>
-        </motion.div>
+        </div>
         <div className="relative overflow-hidden">
-          <motion.div animate={{ x: `-${activeTestimonial * 100}%` }} transition={{ duration: 0.5, ease: "easeInOut" }} className="flex">
+          <div animate={{ x: `-${activeTestimonial * 100}%` }} transition={{ duration: 0.5, ease: "easeInOut" }} className="flex">
             {testimonials.map((testimonial: any, idx: number) => (
               <div key={idx} className="w-full flex-shrink-0 px-2">
                 <div className="bg-[#f8f9fc] p-8 rounded-2xl border border-[#1a3fa0]/08">
@@ -707,7 +707,7 @@ function TestimonialsSection({ testimonials, activeTestimonial, setActiveTestimo
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
         <div className="flex justify-center gap-2 mt-6">
           {testimonials.map((_: any, idx: number) => (
@@ -724,16 +724,16 @@ function FAQSection({ faqs, faqOpen, setFaqOpen }: any) {
   return (
     <section className="py-20 px-4 md:px-8 lg:px-12 bg-[#f8f9fc] border-t border-[#1a3fa0]/08">
       <div className="max-w-4xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+        <div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 text-xs font-bold uppercase tracking-widest text-[#1a3fa0] mb-4">
             <HelpCircle size={14} className="text-[#e8a020]" /> Got Questions?
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0f2a6b] mb-3">Frequently Asked <span className="text-[#e8a020]">Questions</span></h2>
           <p className="text-[#4a5578]">Everything you need to know about working with us</p>
-        </motion.div>
+        </div>
         <div className="space-y-3">
           {faqs.map((faq: any, idx: number) => (
-            <motion.div key={idx} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white rounded-2xl border border-[#1a3fa0]/08 hover:shadow-md transition-shadow overflow-hidden">
+            <div key={idx} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white rounded-2xl border border-[#1a3fa0]/08 hover:shadow-md transition-shadow overflow-hidden">
               <button onClick={() => setFaqOpen(faqOpen === idx ? null : idx)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[#f8f9fc] transition-colors">
                 <span className="font-semibold text-[#0f2a6b]">{faq.question}</span>
                 <ChevronRight className={`w-5 h-5 text-[#1a3fa0] transition-transform duration-300 ${faqOpen === idx ? "rotate-90" : ""}`} />
@@ -741,7 +741,7 @@ function FAQSection({ faqs, faqOpen, setFaqOpen }: any) {
               <div className={`overflow-hidden transition-all duration-300 ${faqOpen === idx ? "max-h-40" : "max-h-0"}`}>
                 <div className="px-6 pb-4 text-sm text-[#4a5578] leading-relaxed">{faq.answer}</div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -373,16 +373,16 @@ function HeroSection({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-28 pb-16">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h1
+            <h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl font-semibold text-[#0f2a6b] leading-[1.1] mb-6"
             >
               Insights & <span className="gold-word">Resources</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
+            <p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -390,10 +390,10 @@ function HeroSection({
             >
               Discover industry insights, technical deep-dives, and strategic
               tips to help your business thrive in the digital age.
-            </motion.p>
+            </p>
 
             {/* Trust Badges */}
-            <motion.div
+            <div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -410,10 +410,10 @@ function HeroSection({
                   <span className="font-medium">{item.text}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Search Bar */}
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -438,22 +438,22 @@ function HeroSection({
                   <X size={18} />
                 </button>
               )}
-            </motion.div>
+            </div>
 
             {/* Post Count */}
-            <motion.div
+            <div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
               className="mt-4 text-sm text-[#4a5578]"
             >
               {totalPosts} article{totalPosts !== 1 ? 's' : ''} available
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        <div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -461,7 +461,7 @@ function HeroSection({
           <div className="w-6 h-10 rounded-full border-2 border-[#1a3fa0]/20 flex justify-center">
             <div className="w-1 h-2 bg-[#1a3fa0] rounded-full mt-2" />
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );
@@ -497,7 +497,7 @@ function BlogGrid({
     <section className="py-10 px-4 md:px-8 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <motion.div 
+        <div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -512,11 +512,11 @@ function BlogGrid({
               ? `Showing ${filteredPosts.length} result${filteredPosts.length !== 1 ? 's' : ''} for your search`
               : "Stay updated with our latest insights and industry trends"}
           </p>
-        </motion.div>
+        </div>
 
         {/* Featured Post */}
         {featuredPost && !hasActiveFilters && (
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -563,7 +563,7 @@ function BlogGrid({
                 </span>
               </div>
             </Link>
-          </motion.div>
+          </div>
         )}
 
         {/* Grid Layout */}
@@ -588,7 +588,7 @@ function BlogGrid({
             </AnimatePresence>
           </div>
         ) : (
-          <motion.div
+          <div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="col-span-full py-20 text-center"
@@ -607,7 +607,7 @@ function BlogGrid({
             >
               Clear all filters
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>

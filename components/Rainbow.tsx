@@ -21,7 +21,7 @@ export default function RainbowCursor() {
   }, [mouseX, mouseY])
 
   return (
-<motion.div
+<div
   style={{
     translateX: smoothX,
     translateY: smoothY,

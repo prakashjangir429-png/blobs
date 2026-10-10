@@ -67,14 +67,14 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
           {/* Overlay with particles */}
-          <motion.div
+          <div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -82,10 +82,10 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
             onClick={onClose}
           >
             
-          </motion.div>
+          </div>
 
           {/* Modal Container */}
-          <motion.div
+          <div
             initial={{ scale: 0.5, opacity: 0, rotateX: -90 }}
             animate={{ 
               scale: 1, 
@@ -119,13 +119,13 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
 
               {/* Right Side - Multi-step Form */}
               <div className="lg:w-3/5 p-8 lg:p-12 overflow-y-auto">
-                <motion.div
+                <div
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
                 >
                   {/* Close Button */}
-                  <motion.button
+                  <button
                     onClick={onClose}
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
@@ -134,16 +134,16 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
-                  </motion.button>
+                  </button>
 
                   {/* Success State */}
                   {isSuccess ? (
-                    <motion.div
+                    <div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       className="flex flex-col items-center justify-center py-12"
                     >
-                      <motion.div
+                      <div
                         animate={{ 
                           rotate: 360,
                           scale: [1, 1.2, 1]
@@ -152,17 +152,17 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                         className="text-8xl mb-6"
                       >
                         🎉
-                      </motion.div>
+                      </div>
                       <h3 className="text-3xl font-bold text-gray-800 mb-2">Thank You!</h3>                      <h3 className="text-3xl font-bold text-gray-800 mb-2">Thank You!</h3>
                       <p className="text-gray-600 text-lg">We'll get back to you shortly!</p>
-                    </motion.div>
+                    </div>
                   ) : (
                     <>
                       {/* Progress Steps */}
                       <div className="flex items-center justify-between mb-8">
                         {[1, 2, 3].map((step) => (
                           <div key={step} className="flex items-center">
-                            <motion.div
+                            <div
                               className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                                 currentStep >= step
                                   ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
@@ -172,7 +172,7 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                               transition={{ duration: 0.5, repeat: Infinity }}
                             >
                               {currentStep > step ? '✓' : step}
-                            </motion.div>
+                            </div>
                             {step < 3 && (
                               <div className={`w-16 h-1 mx-2 rounded ${
                                 currentStep > step ? 'bg-purple-500' : 'bg-gray-200'
@@ -185,7 +185,7 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                       <form onSubmit={handleSubmit}>
                         <AnimatePresence mode="wait">
                           {currentStep === 1 && (
-                            <motion.div
+                            <div
                               key="step1"
                               initial={{ x: 50, opacity: 0 }}
                               animate={{ x: 0, opacity: 1 }}
@@ -254,11 +254,11 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                                   </div>
                                 </div>
                               </div>
-                            </motion.div>
+                            </div>
                           )}
 
                           {currentStep === 2 && (
-                            <motion.div
+                            <div
                               key="step2"
                               initial={{ x: 50, opacity: 0 }}
                               animate={{ x: 0, opacity: 1 }}
@@ -335,11 +335,11 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                                   </div>
                                 </div>
                               </div>
-                            </motion.div>
+                            </div>
                           )}
 
                           {currentStep === 3 && (
-                            <motion.div
+                            <div
                               key="step3"
                               initial={{ x: 50, opacity: 0 }}
                               animate={{ x: 0, opacity: 1 }}
@@ -389,14 +389,14 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                                   </div>
                                 </div>
                               </div>
-                            </motion.div>
+                            </div>
                           )}
                         </AnimatePresence>
 
                         {/* Navigation Buttons */}
                         <div className="flex justify-between mt-8 space-x-4">
                           {currentStep > 1 && (
-                            <motion.button
+                            <button
                               type="button"
                               onClick={prevStep}
                               whileHover={{ scale: 1.02 }}
@@ -404,11 +404,11 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                               className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-colors"
                             >
                               ← Previous
-                            </motion.button>
+                            </button>
                           )}
                           
                           {currentStep < 3 ? (
-                            <motion.button
+                            <button
                               type="button"
                               onClick={nextStep}
                               whileHover={{ scale: 1.02 }}
@@ -416,9 +416,9 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                               className="ml-auto px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
                             >
                               Next →
-                            </motion.button>
+                            </button>
                           ) : (
-                            <motion.button
+                            <button
                               type="submit"
                               disabled={isSubmitting}
                               whileHover={{ scale: 1.02 }}
@@ -427,13 +427,13 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                             >
                               {isSubmitting ? (
                                 <span className="flex items-center">
-                                  <motion.span
+                                  <span
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                                     className="inline-block mr-2"
                                   >
                                     ⏳
-                                  </motion.span>
+                                  </span>
                                   Sending...
                                 </span>
                               ) : (
@@ -442,17 +442,17 @@ export const EnquiryModal = ({ isOpen, onClose, title = "Get in Touch!", buttonT
                                   <span className="ml-2">✨</span>
                                 </span>
                               )}
-                            </motion.button>
+                            </button>
                           )}
                         </div>
                       </form>
                     </>
                   )}
-                </motion.div>
+                </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
     </AnimatePresence>
   );

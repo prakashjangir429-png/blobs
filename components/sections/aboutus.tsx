@@ -250,34 +250,34 @@ const TrueValueSection = () => {
 
             {/* Left */}
             <div>
-              <motion.div {...fadeUp(0)} className="tvs-tag mb-5 w-fit">
+              <div {...fadeUp(0)} className="tvs-tag mb-5 w-fit">
                 Leading IT Solutions Company
-              </motion.div>
+              </div>
 
-              <motion.h2
+              <h2
                 {...fadeUp(0.1)}
                 className="text-3xl sm:text-[2.4rem] font-semibold text-[#0f2a6b] leading-tight mb-5"
               >
                 Your Trusted
                 <span className="tvs-gold"> Technology Partner </span>
                 For Business Growth
-              </motion.h2>
+              </h2>
 
-              <motion.div {...fadeUp(0.15)} className="gold-divider" />
+              <div {...fadeUp(0.15)} className="gold-divider" />
 
               {/* Perks */}
-              <motion.div {...fadeUp(0.2)} className="grid grid-cols-2 gap-y-3 gap-x-4 mt-4">
+              <div {...fadeUp(0.2)} className="grid grid-cols-2 gap-y-3 gap-x-4 mt-4">
                 {perks.map((p) => (
                   <div key={p} className="perk-item">
                     <CheckCircle2 size={15} style={{ color: '#1a3fa0', flexShrink: 0 }} />
                     {p}
                   </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
 
             {/* Right */}
-            <motion.div {...fadeUp(0.15)}>
+            <div {...fadeUp(0.15)}>
               <p className="text-[#4a5578] text-base sm:text-lg leading-relaxed font-light mb-6">
                 Digitonix is a leading <strong>Web Development, Mobile App Development,
                   Software Development, and Digital Marketing Company in Jaipur</strong>.
@@ -293,18 +293,18 @@ const TrueValueSection = () => {
                   <ArrowUpRight size={14} />
                 </span>
               </a>
-            </motion.div>
+            </div>
           </div>
 
           {/* ── Service Cards ── */}
-          {/* <motion.div
+          {/* <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
             initial="initial"
             animate={inView ? "animate" : "initial"}
             variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
           >
             {cards.map((card, i) => (
-              <motion.a
+              <a
                 key={card.title}
                 href={card.href}
                 className="svc-card block"
@@ -321,19 +321,19 @@ const TrueValueSection = () => {
                     Discover now <ArrowUpRight size={14} />
                   </span>
                 </div>
-              </motion.a>
+              </a>
             ))}
-          </motion.div> */}
+          </div> */}
 
           {/* ── Stats ── */}
-          {/* <motion.div
+          {/* <div
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
             initial="initial"
             animate={inView ? "animate" : "initial"}
             variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
           >
             {stats.map(({ number, suffix, label, icon: Icon }) => (
-              <motion.div
+              <div
                 key={label}
                 className="stat-card flex justify-center items-center gap-4"
                 variants={{ initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 } }}
@@ -347,15 +347,15 @@ const TrueValueSection = () => {
                   <div className="stat-label mt-2">{label}</div>
 
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div> */}
+          </div> */}
          
 
         </div>
       </section>
                 <div>
-                   <motion.div
+                   <div
             {...fadeUp(0.4)}
             className="max-w-5xl mx-auto text-center mt-12"
           >
@@ -367,7 +367,7 @@ const TrueValueSection = () => {
               help businesses improve efficiency, increase revenue, and build
               a strong digital presence.
             </p>
-          </motion.div>
+          </div>
           <StatsSection />
 
           </div>
@@ -525,7 +525,7 @@ function ServiceCard({
   const inView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <motion.a
+    <a
       href={`/services/${slug}`}
       ref={ref}
       className="group relative overflow-hidden rounded-2xl
@@ -615,7 +615,7 @@ function ServiceCard({
           </div>
         </div>
       </div>
-    </motion.a>
+    </a>
   );
 }
 
@@ -664,7 +664,7 @@ export function ServicesSection() {
           <div className="lg:col-span-3 space-y-6">
 
             {/* Eyebrow */}
-            <motion.div {...fadeUp(0)}>
+            <div {...fadeUp(0)}>
               <span
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full
                            bg-white border border-[#1a3fa0]/15 shadow-sm"
@@ -673,10 +673,10 @@ export function ServicesSection() {
                   Our Services
                 </span>
               </span>
-            </motion.div>
+            </div>
 
             {/* H2 — SEO keyword-rich */}
-            <motion.h2
+            <h2
               {...fadeUp(0.07)}
               id="services-heading"
               className="text-3xl sm:text-4xl xl:text-[2.4rem] font-semibold text-[#0f2a6b] leading-[1.18]"
@@ -695,9 +695,9 @@ export function ServicesSection() {
               >
                 in India
               </span>
-            </motion.h2>
+            </h2>
             {/* Description — keyword-dense for SEO */}
-            <motion.p
+            <p
               {...fadeUp(0.15)}
               className="text-[#4a5578] text-base sm:text-lg leading-relaxed max-w-2xl font-light"
             >
@@ -709,10 +709,10 @@ export function ServicesSection() {
               <strong className="font-semibold text-[#0f2a6b]">500+ delivered projects</strong> and
               a 98% satisfaction rate, we build scalable, SEO-ready digital products that grow your
               business.
-            </motion.p>
+            </p>
 
             {/* Stats row */}
-            <motion.div {...fadeUp(0.19)} className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+            <div {...fadeUp(0.19)} className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
               {statsss.map((s) => (
                 <div
                   key={s.label}
@@ -726,10 +726,10 @@ export function ServicesSection() {
                   <p className="text-[13px] text-gray-600 leading-tight">{s.label}</p>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Trust pills */}
-            <motion.div {...fadeUp(0.22)} className="flex flex-wrap gap-2">
+            <div {...fadeUp(0.22)} className="flex flex-wrap gap-2">
               {["ISO 9001:2015 Certified", "NASSCOM Member", "Google Partner", "24/7 Support"].map(
                 (t) => (
                   <span
@@ -743,9 +743,9 @@ export function ServicesSection() {
                   </span>
                 )
               )}
-            </motion.div>
+            </div>
           </div>
-          <motion.div
+          <div
             {...fadeUp(0.12)}
             className="lg:col-span-2 relative bg-white border-2 border-slate-400 shadow-2xl overflow-hidden"
           >
@@ -856,11 +856,11 @@ export function ServicesSection() {
                 </div>
               </form>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* ── SERVICES GRID ── */}
-        <motion.div {...fadeUp(0.08)}>
+        <div {...fadeUp(0.08)}>
           {/* Section header row */}
           <div className="flex items-center gap-4 mb-8">
             <div>
@@ -895,7 +895,7 @@ export function ServicesSection() {
               />
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -931,7 +931,7 @@ function HoverCard({ label, icon, index }: { label: string; icon: React.ReactNod
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <motion.a
+    <a
       ref={ref}
       href={`/hireus/${label.toLowerCase().replace(/\s+/g, "-")}`}
       initial={{ opacity: 0, y: 20, scale: 0.96 }}
@@ -965,7 +965,7 @@ function HoverCard({ label, icon, index }: { label: string; icon: React.ReactNod
         style={{ fontFamily: "DM Sans, sans-serif" }}>
         {label}
       </span>
-    </motion.a>
+    </a>
   );
 }
 
@@ -1002,32 +1002,32 @@ export function HireDevelopersSection() {
           {/* ── LEFT ── */}
           <div className="lg:col-span-6 lg:sticky lg:top-32">
             {/* Tag */}
-            <motion.div
+            <div
               {...fadeUp(0)}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#1a3fa0]/15 mb-6"
             >
               <span className="text-xs font-semibold uppercase tracking-widest text-[#1a3fa0]">
                 Hire Dedicated Developers
               </span>
-            </motion.div>
+            </div>
 
             {/* Heading */}
-            <motion.h2
+            <h2
               {...fadeUp(0.08)}
               className="text-3xl sm:text-4xl xl:text-[2.4rem] font-semibold text-[#0f2a6b] leading-[1.18]"
             >
               Hire Expert Developers for
               <span className="text-[#e8a020]"> Web, Mobile & Software Development</span>
-            </motion.h2>
+            </h2>
 
             {/* Divider */}
-            <motion.div
+            <div
               {...fadeUp(0.12)}
               className="w-12 h-[3px] rounded-full bg-gradient-to-r from-[#e8a020] to-[#f0b832] mb-5"
             />
 
             {/* Description */}
-            <motion.p
+            <p
               {...fadeUp(0.16)}
               className="text-[#4a5578] text-base leading-relaxed mb-4"
             >
@@ -1035,9 +1035,9 @@ export function HireDevelopersSection() {
               software development, web application development, mobile app development,
               and AI-powered digital solutions for startups, enterprises, and growing
               businesses worldwide.
-            </motion.p>
+            </p>
 
-            <motion.p
+            <p
               {...fadeUp(0.20)}
               className="text-[#4a5578] text-base leading-relaxed mb-4"
             >
@@ -1045,9 +1045,9 @@ export function HireDevelopersSection() {
               React Native, Flutter, Laravel, WordPress, Python, and cloud technologies.
               Our development teams build scalable, secure, and high-performance digital
               products tailored to your business goals.
-            </motion.p>
+            </p>
 
-            <motion.p
+            <p
               {...fadeUp(0.24)}
               className="text-[#4a5578] text-base leading-relaxed mb-8"
             >
@@ -1055,10 +1055,10 @@ export function HireDevelopersSection() {
               enterprise software solutions, SaaS platforms, eCommerce applications,
               CRM systems, or AI-driven products, we help businesses accelerate growth
               with innovative technology solutions.
-            </motion.p>
+            </p>
 
             {/* CTA */}
-            <motion.div {...fadeUp(0.32)}>
+            <div {...fadeUp(0.32)}>
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
@@ -1079,10 +1079,10 @@ export function HireDevelopersSection() {
                   className="relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                 />
               </Link>
-            </motion.div>
+            </div>
 
             {/* Process */}
-            <motion.div {...fadeUp(0.36)} className="mt-10 space-y-3">
+            <div {...fadeUp(0.36)} className="mt-10 space-y-3">
               <p className="text-[10px] font-semibold uppercase tracking-widest text-[#9aa3bf] mb-3">
                 Simple Hiring Process
               </p>
@@ -1120,7 +1120,7 @@ export function HireDevelopersSection() {
                   <div className="flex-1 h-px bg-[#1a3fa0]/10" />
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* SEO Content */}
 
@@ -1128,7 +1128,7 @@ export function HireDevelopersSection() {
 
           {/* ── RIGHT: Cards Grid ── */}
           <div className="lg:col-span-4">
-            <motion.div {...fadeUp(0.1)}
+            <div {...fadeUp(0.1)}
               className="flex items-center gap-3 mb-6">
               <h3 className="text-[#0f2a6b] font-semibold text-xl whitespace-nowrap">
                 Our Expert Roles
@@ -1137,7 +1137,7 @@ export function HireDevelopersSection() {
               <span className="text-sm font-semibold text-slate-500">
                 {developers.length} Specializations
               </span>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1">
               {developers.map((item, index) => (
@@ -1146,7 +1146,7 @@ export function HireDevelopersSection() {
             </div>
 
             {/* Bottom CTA strip */}
-            <motion.div {...fadeUp(0.3)}
+            <div {...fadeUp(0.3)}
               className="mt-6 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center
                          justify-between gap-4 border border-[#1a3fa0]/12"
               style={{ background: "linear-gradient(135deg, rgba(26,63,160,0.04), rgba(232,160,32,0.06))" }}>
@@ -1167,10 +1167,10 @@ export function HireDevelopersSection() {
               >
                 Talk to us <ArrowUpRight size={13} />
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
-        <motion.div
+        <div
           {...fadeUp(0.4)}
           className="mt-8 p-5 rounded-2xl border border-[#1a3fa0]/10 bg-white/70"
         >
@@ -1182,7 +1182,7 @@ export function HireDevelopersSection() {
             experienced developers to build reliable, scalable, and growth-focused
             digital products.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -1222,7 +1222,7 @@ function IndustryCard({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
+    <div
       ref={ref}
       onClick={() => setIsModalOpen(true)}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (index % 4) * 0.08 }}
@@ -1308,7 +1308,7 @@ function IndustryCard({
           {title}
         </h3>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -1342,7 +1342,7 @@ export function IndustriesSection({setIsModalOpen}) {
           {/* Left */}
           <div>
             {/* Tag */}
-            <motion.div
+            <div
               {...fadeUp(0)}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white
              border border-[#1a3fa0]/15 shadow-sm mb-6"
@@ -1350,17 +1350,17 @@ export function IndustriesSection({setIsModalOpen}) {
               <span className="text-xs font-bold uppercase tracking-widest text-[#1a3fa0]">
                 Industry-Specific Software Solutions
               </span>
-            </motion.div>
+            </div>
 
             {/* Heading */}
-            <motion.h2
+            <h2
               {...fadeUp(0.08)}
               className="text-3xl sm:text-4xl mb-3 xl:text-[2.4rem] font-semibold text-[#0f2a6b] leading-[1.18]"
             >
               Custom Software Development
               <span className="text-[#e8a020]"> For Every Industry</span>
-            </motion.h2>
-            <motion.p
+            </h2>
+            <p
               {...fadeUp(0.16)}
               className="text-[#4a5578] text-base leading-relaxed"
             >
@@ -1368,12 +1368,12 @@ export function IndustriesSection({setIsModalOpen}) {
               manufacturing, and travel to startups and enterprises, we build secure,
               scalable, and high-performance digital products that drive measurable
               business growth.
-            </motion.p>
+            </p>
           </div>
 
           {/* Right */}
           <div>
-            <motion.p
+            <p
               {...fadeUp(0.14)}
               className="text-[#4a5578] text-base sm:text-lg leading-relaxed mb-6"
             >
@@ -1383,12 +1383,12 @@ export function IndustriesSection({setIsModalOpen}) {
               develops custom web applications, mobile apps, enterprise software,
               SaaS platforms, AI solutions, and cloud-based systems tailored to the
               unique requirements of each industry.
-            </motion.p>
+            </p>
 
 
 
             {/* Quick stats */}
-            <motion.div {...fadeUp(0.18)} className="flex flex-wrap gap-3">
+            <div {...fadeUp(0.18)} className="flex flex-wrap gap-3">
               {[
                 { v: "15+", l: "Industries Served" },
                 { v: "500+", l: "Projects Delivered" },
@@ -1402,7 +1402,7 @@ export function IndustriesSection({setIsModalOpen}) {
                   <span className="text-xs font-medium text-[#9aa3bf]">{s.l}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
 
