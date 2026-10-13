@@ -76,7 +76,7 @@ export default function BlogClient({ initialBlogs, initialCategories }: BlogClie
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const filterRef = useRef<HTMLDivElement>(null);
-  const blogsPerPage = 9;
+  const blogsPerPage = 60;
 
   // Filter and sort blogs
   const filteredPosts = useMemo(() => {

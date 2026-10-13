@@ -123,7 +123,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://g-backend-gamma
 // Server-side fetch function for blogs
 async function fetchBlogs() {
   try {
-    const response = await fetch(`${API_BASE_URL}/blogs?sortBy=createdAt&sortOrder=desc&limit=12&status=published`, {
+    const response = await fetch(`${API_BASE_URL}/blogs?sortBy=createdAt&sortOrder=desc&limit=60&status=published`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
